@@ -1,0 +1,40 @@
+<div style="text-align:center; width:100%">
+
+    <div class="imgDiver">
+
+        <h2> Before </h2>
+
+        <div class="imgDiverHeader">
+            <input type="file" accept="image/*" (change)="changeImage($event, true)">
+        </div>
+        <button *ngIf="cropperBefore.cropper" (click)="cropImg(true)">crop</button>
+        
+        <img class="imageContainer" id="image_1" [src]="cropperBefore.base64" />
+
+        <div class="imgDiverFooter">
+
+            Desciption 
+            <textarea style="width:100%"></textarea>
+
+        </div>
+
+    </div>
+
+    <div class="toDiver"> TO </div>
+
+
+    <div class="imgDiver">
+
+        <h2> After </h2>
+
+        <div class="imgDiverHeader">
+            <input type="file" accept="image/*" (change)="changeImage($event, false)">
+        </div>
+
+        <button *ngIf="cropperAfter.cropper" (click)="cropImg(false)">crop</button>
+
+        <img class="imageContainer" id="image_2" [src]="cropperAfter.base64"/>
+
+
+    </div>
+</div>
