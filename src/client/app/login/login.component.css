@@ -1,0 +1,53 @@
+video#videobg {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+    background: url('assets/videobg.png') no-repeat;
+    background-size: cover;
+    transition: 1s opacity;
+}
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    opacity: 0.72;
+    left: 0;
+    height: 100%;
+    width: 100%;
+   
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+50,000000+81&0.65+0,0.65+42,0+100,0+100 */
+background: -moz-linear-gradient(-45deg,  rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.65) 42%, rgba(0,0,0,0.56) 50%, rgba(0,0,0,0.21) 81%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(-45deg,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0.65) 42%,rgba(0,0,0,0.56) 50%,rgba(0,0,0,0.21) 81%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(135deg,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0.65) 42%,rgba(0,0,0,0.56) 50%,rgba(0,0,0,0.21) 81%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+    z-index: -1;
+}
+
+
+@import url(http://fonts.googleapis.com/css?family=Raleway:600);
+
+span {
+	color:#fff;
+	font-family: 'Raleway', sans-serif;
+	font-size:18px;
+}
+p {
+    color:#fff;
+	font-family: 'Raleway', sans-serif;
+	font-size:10px;
+}
+.col-centered {
+	float: none;
+	margin: 0 auto;
+	margin-top:150px;
+}
+.wrath-content-box {
+	padding: 15px;
+}
