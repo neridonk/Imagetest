@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
                 if (data == null)
                     return alert("login failed");
 
-                this.router.navigate(['/home']);
+                this.router.navigate(['/overview']);
 
             },
             err => alert(JSON.stringify(err))
