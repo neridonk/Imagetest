@@ -1,4 +1,4 @@
-import { join } from 'path';
+﻿import { join } from 'path';
 
 import { SeedConfig } from './seed.config';
 
@@ -23,6 +23,7 @@ export class ProjectConfig extends SeedConfig {
       { src: 'bootstrap/dist/js/bootstrap.min.js', inject: 'libs' },
 
       { src: `bootstrap/dist/css/bootstrap.min.css`, inject: true, vendor: false },
+      { src: `materialize-css/dist/css/materialize.min.css`, inject: true, vendor: false },
 
       // {src: 'lodash/lodash.min.js', inject: 'libs'},
     ];

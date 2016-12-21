@@ -1,0 +1,17 @@
+﻿.detailsDiv {
+  width: 20%;
+}
+
+.imgDiv {
+  width: 38%;
+}
+
+.inlineBlock {
+  display: inline-block;
+}
+
+.topicDiv {
+  padding: 5px;
+  width: 100;
+  text-align: center;
+}
