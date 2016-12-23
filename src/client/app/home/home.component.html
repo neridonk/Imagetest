@@ -1,64 +1,51 @@
-<div class="loginmodal-container">
-    <h1>Login to Your Account</h1><br>
-    <div>
-        <input type="text" [(ngModel)]="newuser.name" placeholder="Username">
-        <input type="text" [(ngModel)]="newuser.email" placeholder="Email">
-        <input type="password"  [(ngModel)]="newuser.password" placeholder="Password">
+﻿<div style="text-align:center; width:100%">
+
+
+  <input type="text" [(ngModel)]="topic.title" />
+
+
+
+  <div class="imgDiver">
+
+    <h2> Before </h2>
+
+    <div class="imgDiverHeader">
+      <input type="file" accept="image/*" (change)="changeImage($event, true)">
     </div>
 
-    <input type="button" class="logi" value="register" (click)="register()">
-        <input type="button" class="logi" value="login" (click)="login()">
+    <img class="imageContainer" id="image_1" [src]="cropperBefore.base64" />
 
-    <div class="login-help">
-        <a href="#">Register</a> 
-    </div>
-</div>
+    <div class="imgDiverFooter">
 
-<div style="text-align:center; width:100%">
-
-
-    <input type="text" [(ngModel)]="topic.title" />
-
-
-
-    <div class="imgDiver">
-
-        <h2> Before </h2>
-
-        <div class="imgDiverHeader">
-            <input type="file" accept="image/*" (change)="changeImage($event, true)">
-        </div>
-        
-        <img class="imageContainer" id="image_1" [src]="cropperBefore.base64" />
-
-        <div class="imgDiverFooter">
-
-            Desciption 
-            <textarea style="width:100%" [(ngModel)]="imageBefore.description" ></textarea>
-
-        </div>
+      Desciption
+      <textarea style="width:100%" [(ngModel)]="imageBefore.description"></textarea>
 
     </div>
 
-    <div class="toDiver"> TO </div>
+  </div>
+
+  <div class="toDiver"> TO </div>
 
 
-    <div class="imgDiver">
+  <div class="imgDiver">
 
-        <h2> After </h2>
+    <h2> After </h2>
 
-        <div class="imgDiverHeader">
-            <input type="file" accept="image/*" (change)="changeImage($event, false)">
-        </div>
+    <div class="imgDiverHeader">
+      <input type="file" accept="image/*" (change)="changeImage($event, false)">
+    </div>
 
 
-        <img class="imageContainer" id="image_2" [src]="cropperAfter.base64"/>
+    <img class="imageContainer" id="image_2" [src]="cropperAfter.base64" />
 
-        Desc
-        <textarea style="width:100%" [(ngModel)]="imageafter.description"></textarea>
+    <div class="imgDiverFooter">
+
+      Desciption
+      <textarea style="width:100%" [(ngModel)]="imageafter.description"></textarea>
 
 
     </div>
+  </div>
 
 </div>
 

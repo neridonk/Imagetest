@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\client",
+    "\\src\\client\\app",
+    "\\src\\client\\app\\models",
+    "\\src\\client\\app\\overview",
+    "\\src\\client\\assets",
+    "\\tools",
+    "\\tools\\config"
+  ],
+  "SelectedNode": "\\tools\\config\\seed.tslint.json",
+  "PreviewInSolutionExplorer": false
+}
