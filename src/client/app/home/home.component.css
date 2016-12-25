@@ -1,64 +1,31 @@
-:host {
-    display: block;
-    padding: 0 16px;
-}
-
-input {
-    width: 250px;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0 0 0 8px;
-}
-
-.imgDiver {
-    width: 45%;
-    height: 60%;
-    min-width: 300px;
-    min-height: 550px;
-    max-height: 850px;
-    max-width: 850px;
-    display: inline-block;
-    margin-right: 10px;
-    overflow: auto;
-    background-color: cadetblue;
-    position: relative;
-}
-
-.toDiver {
-    width: 5%;
-    display: inline-block;
-    line-height: 12;
-    vertical-align: top;
-}
-
-@media screen and (max-width: 710px) {
-    .imgDiver {
-        width: 100%;
-    }
-
-    .toDiver {
-        width: 100%;
-    }
-}
-
-.imgDiverFooter {
-    padding: 10px;
-    position: absolute;
-    width: 100%;
-    background-color: white;
-    bottom: 0px;
-}
-
-.imgDiverHeader {
-    padding: 10px;
-    border-bottom: 1px solid black;
+﻿:host {
 }
 
 .imageContainer {
-    background-color: white;
-    padding: 6px;
-    width: 90%;
-    margin-bottom: 100px;
+  background-color: white;
+  padding: 6px;
+  width: 90%;
+  margin-bottom: 100px;
+}
+
+.cardTitleex {
+  /* width: 100%; */
+  background-color: #909090;
+  top: -11px;
+  height: 41px;
+  /* opacity: 0.6; */
+  padding: 8px !important;
+  font-size: 18px;
+  font-weight: bold;
+  z-index: 1;
+}
+
+
+.cardTitleexAfter {
+  background-color: #31cffb;
+}
+
+.cropbtn {
+  position: absolute;
+  bottom: 40px;
 }

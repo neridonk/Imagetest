@@ -2,7 +2,7 @@
 
 
     constructor(
-        public cropper?: any,
+        public Cropper?: any,
         public base64?: string,
         public x?: string,
         public y?: string,

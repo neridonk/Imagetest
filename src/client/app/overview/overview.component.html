@@ -40,12 +40,12 @@
     </div>
 
     <!--Table of Content-->
-    <div class="topicDiv">
+    <div class="topicDiv" *ngFor="let top of topicList">
 
-      <div class="center"> Titel </div>
+      <div class="center"> {{top.title}} </div>
 
       <div class="inlineBlock imgDiv">
-        <img src="assets/videobg.png" class="responsive-img" />
+        <img src="{{top.images[0].url}}" class="responsive-img" />
       </div>
 
       <div class="inlineBlock detailsDiv">
@@ -57,22 +57,7 @@
       </div>
 
       <div class="inlineBlock imgDiv">
-        <img src="assets/videobg.png" class="responsive-img" />
-      </div>
-
-    </div>
-
-
-    <div class="topicDiv">
-
-      <div class="inlineBlock imgDiv">
-        <img src="assets/videobg.png" class="responsive-img" />
-      </div>
-
-      <div class="inlineBlock detailsDiv">#</div>
-
-      <div class="inlineBlock imgDiv">
-        <img src="assets/videobg.png" class="responsive-img" />
+        <img src="{{top.images[top.images.length-1]?.url}}" class="responsive-img" />
       </div>
 
     </div>

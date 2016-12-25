@@ -30,7 +30,13 @@ export class OverviewComponent implements OnInit
   ngOnInit()
   {
 
-
+    this.nameListService.getAllTopics().subscribe(
+      data => {
+        this.topicList = data;
+        console.log(this.topicList);
+      },
+      err => alert(JSON.stringify(err))
+    );
   }
 
   private goToNewPicture()

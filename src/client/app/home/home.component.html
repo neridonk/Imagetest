@@ -1,55 +1,68 @@
-﻿<div style="text-align:center; width:100%">
+﻿<div class="row" style="height: 90vh;     overflow-x: hidden; overflow-y: auto;">
 
-
-  <input type="text" [(ngModel)]="topic.title" />
-
-
-
-  <div class="imgDiver">
-
-    <h2> Before </h2>
-
-    <div class="imgDiverHeader">
-      <input type="file" accept="image/*" (change)="changeImage($event, true)">
-    </div>
-
-    <img class="imageContainer" id="image_1" [src]="cropperBefore.base64" />
-
-    <div class="imgDiverFooter">
-
-      Desciption
-      <textarea style="width:100%" [(ngModel)]="imageBefore.description"></textarea>
-
-    </div>
-
+  <div class="input-field col s12">
+    <input id="ttiel" type="text" [(ngModel)]="topic.title" class="validate">
+    <label for="ttiel">Title</label>
   </div>
 
-  <div class="toDiver"> TO </div>
+  <div class="col s12 l5">
+    <div class="card">
+      <div class="card-image">
+        <span class="card-title cardTitleex">Before </span>
+        <img class="responsive-img" id="image_1" [src]="cropperBefore.base64" />
+
+        <input type="file" accept="image/*" (change)="changeImage($event, true)">
+        <button *ngIf="cropperBefore.Cropper" class="btn cropbtn" (click)="cropimg1()">crop</button>
+
+      </div>
+      <div class="card-content">
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea id="textarea1" class="materialize-textarea" [(ngModel)]="imageBefore.description"></textarea>
+            <label for="textarea1">Desciption before</label>
+          </div>
+        </div>
 
 
-  <div class="imgDiver">
-
-    <h2> After </h2>
-
-    <div class="imgDiverHeader">
-      <input type="file" accept="image/*" (change)="changeImage($event, false)">
-    </div>
-
-
-    <img class="imageContainer" id="image_2" [src]="cropperAfter.base64" />
-
-    <div class="imgDiverFooter">
-
-      Desciption
-      <textarea style="width:100%" [(ngModel)]="imageafter.description"></textarea>
-
-
+      </div>
+      <div class="card-action">
+      </div>
     </div>
   </div>
 
+
+  <div class="col s12 l2">
+
+
+
+  </div>
+
+
+  <div class="col s12 l5">
+    <div class="card">
+      <div class="card-image">
+        <span class="card-title cardTitleex cardTitleexAfter">After </span>
+        <img class="responsive-img" id="image_2" [src]="cropperAfter.base64" />
+
+        <input type="file" accept="image/*" (change)="changeImage($event, false)">
+        <button *ngIf="cropperAfter.Cropper" class="btn cropbtn" (click)="cropimg2()">crop</button>
+
+      </div>
+      <div class="card-content">
+
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea id="textarea2" class="materialize-textarea" [(ngModel)]="cropperAfter.description"></textarea>
+            <label for="textarea2">Desciption after</label>
+          </div>
+        </div>
+
+      </div>
+      <div class="card-action">
+      </div>
+    </div>
+  </div>
 </div>
 
-
-
-<button (click)="save()">Save</button>
-
+<button class="btn btn right" (click)="save()">Save</button>
+<button class="btn left grey" (click)="cancel()">Cancel</button>
