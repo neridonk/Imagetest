@@ -4,12 +4,13 @@
     "\\src",
     "\\src\\client",
     "\\src\\client\\app",
+    "\\src\\client\\app\\about",
+    "\\src\\client\\app\\home",
     "\\src\\client\\app\\models",
     "\\src\\client\\app\\overview",
     "\\src\\client\\assets",
-    "\\tools",
-    "\\tools\\config"
+    "\\tools"
   ],
-  "SelectedNode": "\\tools\\config\\seed.tslint.json",
+  "SelectedNode": "\\src\\client\\app\\home\\home.component.html",
   "PreviewInSolutionExplorer": false
 }

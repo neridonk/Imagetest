@@ -3,7 +3,9 @@ import { AboutComponent } from './index';
 
 export const AboutRoutes: Route[] = [
   {
-    path: 'about',
+    path: 'about/:id',
     component: AboutComponent
-  }
+  },
+    { path: 'about',   redirectTo: '/overview', pathMatch: 'full' },
+
 ];

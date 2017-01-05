@@ -39,11 +39,15 @@ export class OverviewComponent implements OnInit
     );
   }
 
-  private goToNewPicture()
+  public goToNewPicture()
   {
     this.router.navigate(['/addPicture']);
   }
 
+public goToAbout( id : number){
+    this.router.navigate(['/about', id]);
+
+}
 
 
 }

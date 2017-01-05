@@ -1,12 +1,30 @@
-<p>Angular 2 Seed is a starter project that implements best practices in coding, building and testing Angular 2 apps.</p>
+<div class="bgPanel">
 
-<h2>Features</h2>
-<ul>
-  <li>Ready to go, statically typed build system using Gulp for working with TypeScript.</li>
-  <li>Production and development builds.</li>
-  <li>Sample unit tests with Jasmine and Karma including code coverage via Istanbul.</li>
-  <li>End-to-end tests with Protractor.</li>
-  <li>Development server with live reload.</li>
-  <li>TypeScript definition management using Types.</li>
-  <li>Basic Service Worker, which implements "Cache then network strategy".</li>
-</ul>
+</div>
+
+<div class="linePanel">
+
+</div>
+
+<h1 class="center">{{topic?.title}}</h1>
+
+<div *ngIf="topic">
+    <div class="row picAndDescriptionPanel" *ngFor="let item of topic.images">
+
+        <div class="agePanel"> {{item.date | date}}
+        </div>
+
+        <div class="col s12 l1">
+
+        </div>
+
+        <div class="col s12 l6 ">
+            <img class="imgAbout responsive-img" style="width: 100%; max-width:600px !Important" src="{{item.url}}" />
+        </div>
+
+        <div class="col s12 l4 textAabout">
+            <p> {{item.description}}</p>
+        </div>
+
+    </div>
+</div>

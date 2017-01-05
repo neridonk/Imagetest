@@ -62,14 +62,14 @@ export class HomeComponent implements OnInit {
   }
 
   cropimg1() {
-    var base64 = this.cropperBefore.Cropper.getCroppedCanvas().toDataURL('image/png');
+    var base64 = this.cropperBefore.Cropper.getCroppedCanvas().toDataURL('image/jpeg');
     this.cropperBefore.base64 = base64;
     this.cropperBefore.Cropper.destroy();
     this.cropperBefore.Cropper = null;
   }
 
   cropimg2() {
-    var base64 = this.cropperAfter.Cropper.getCroppedCanvas().toDataURL('image/png');
+    var base64 = this.cropperAfter.Cropper.getCroppedCanvas().toDataURL('image/jpeg');
     this.cropperAfter.base64 = base64;
     this.cropperAfter.Cropper.destroy();
     this.cropperAfter.Cropper = null;
@@ -112,7 +112,7 @@ export class HomeComponent implements OnInit {
     this.imageBefore.url = this.cropperBefore.base64;
 
     this.imageafter.picdate = new Date();
-    this.imageafter.url = this.cropperBefore.base64;
+    this.imageafter.url = this.cropperAfter.base64;
 
     this.nameListService.addNewPictures(this.topic, this.imageBefore, this.imageafter).subscribe(
       data => {
