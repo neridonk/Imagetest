@@ -20,13 +20,19 @@
 .roundbtn {
     padding: 3px;
     border-radius: 50%;
-    font-size: 9px;
+    font-size: 2vw;
+    width: 19%;
+    font-weight: bolder;
+    border: 2px solid #d4d4d4;
+    background-color: #5a5a5a;
 }
 
 .voteCount {
-    padding: 3px;
+    padding: 8px;
     font-size: 11px;
     border-radius: 30%;
+    font-size: 2.2vw;
+    border: 1px solid #b3b1b1;
 }
 
 .imi {
