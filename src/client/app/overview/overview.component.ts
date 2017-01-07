@@ -1,8 +1,9 @@
-﻿import { Component, OnInit } from '@angular/core';
+﻿import { Component, OnInit,AfterViewInit } from '@angular/core';
 import { NameListService } from '../shared/index';
 import { croppData } from '../models/cropperModel';
 import { Images, Topic, User } from '../models/AllModels';
-
+declare var WOW : any;
+declare var $ : any;
 import { Router } from '@angular/router';
 /**
  * This class represents the lazy loaded HomeComponent.
@@ -14,11 +15,11 @@ import { Router } from '@angular/router';
   styleUrls: ['overview.component.css'],
 })
 
-export class OverviewComponent implements OnInit
+export class OverviewComponent implements OnInit, AfterViewInit
 {
 
 
-
+  public isFilterHidden : boolean= true;
   private topicList: Topic[] = new Array();
 
   constructor(
@@ -37,6 +38,16 @@ export class OverviewComponent implements OnInit
       },
       err => alert(JSON.stringify(err))
     );
+
+        $('select').material_select();
+
+  }
+
+
+  ngAfterViewInit(){
+
+          new WOW().init();
+
   }
 
   public goToNewPicture()

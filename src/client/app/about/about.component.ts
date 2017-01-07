@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component,AfterViewInit } from '@angular/core';
 import { Images, Topic, User } from '../models/AllModels';
 import { NameListService } from '../shared/index';
 import { ActivatedRoute,Params } from '@angular/router';
-
+declare var WOW:any;
 /**
  * This class represents the lazy loaded AboutComponent.
  */
@@ -12,7 +12,7 @@ import { ActivatedRoute,Params } from '@angular/router';
   templateUrl: 'about.component.html',
   styleUrls: ['about.component.css']
 })
-export class AboutComponent {
+export class AboutComponent implements AfterViewInit {
 
 private  topic : Topic;
 
@@ -30,6 +30,13 @@ private  topic : Topic;
       },
       err => alert(JSON.stringify(err))
     );
+
+   }
+
+   ngAfterViewInit(){
+
+      new WOW().init();
+
 
    }
 

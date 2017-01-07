@@ -23,7 +23,8 @@ export class Topic {
         public title?: string,
         public userid?: number,
         public date?: Date,
-        public images?: Images[]
+        public images?: Images[],
+        public user?: User
     ) {
 
     }

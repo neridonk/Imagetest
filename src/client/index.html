@@ -1,63 +1,68 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <base href="<%= APP_BASE %>">
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title><%= APP_TITLE %></title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- inject:css -->
-  <!-- endinject -->
+    <base href="<%= APP_BASE %>">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>
+        <%= APP_TITLE %>
+    </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- inject:css -->
+    <!-- endinject -->
 
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/cropper.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="css/cropper.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">
 
-  <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css" media="screen,projection">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css" media="screen,projection">
 
 
 
 
 </head>
+
 <body>
 
-  <sd-app>Loading...</sd-app>
+    <sd-app>Loading...</sd-app>
 
-  <script>
-  // Fixes undefined module function in SystemJS bundle
-  function module() {}
-  </script>
+    <script>
+        // Fixes undefined module function in SystemJS bundle
+        function module() {}
+    </script>
 
-  <!-- shims:js -->
-  <!-- endinject -->
+    <!-- shims:js -->
+    <!-- endinject -->
 
-  <% if (BUILD_TYPE === 'dev') { %>
-  <script src="<%= APP_BASE %>app/system-config.js"></script>
-  <% } %>
+    <% if (BUILD_TYPE === 'dev') { %>
+        <script src="<%= APP_BASE %>app/system-config.js"></script>
+        <% } %>
 
-  <!-- libs:js -->
-  <!-- endinject -->
+            <!-- libs:js -->
+            <!-- endinject -->
 
-  <!-- inject:js -->
-  <!-- endinject -->
+            <!-- inject:js -->
+            <!-- endinject -->
 
-  <% if (BUILD_TYPE === 'dev') { %>
-  <script>
-  System.import('<%= BOOTSTRAP_MODULE %>')
-    .catch(function (e) {
-      console.error(e.stack || e,
-        'Not expecting this error? Report it at https://github.com/mgechev/angular2-seed/issues');
-    });
-  </script>
-  <% } %>
+            <% if (BUILD_TYPE === 'dev') { %>
+                <script>
+                    System.import('<%= BOOTSTRAP_MODULE %>')
+                        .catch(function(e) {
+                            console.error(e.stack || e,
+                                'Not expecting this error? Report it at https://github.com/mgechev/angular2-seed/issues');
+                        });
+                </script>
+                <% } %>
 
-  <script src="http://hammerjs.github.io/dist/hammer.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
-  <script src="css/cropper.min.js"></script>
+                    <script src="css/wow.min.js"></script>
+                    <script src="http://hammerjs.github.io/dist/hammer.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+                    <script src="css/cropper.min.js"></script>
 
 </body>
+
 </html>

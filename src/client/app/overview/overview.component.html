@@ -1,16 +1,11 @@
-﻿<nav class="amber darken-1">
+﻿<nav style="background-color:#13e0c1 !important">
     <div class="nav-wrapper">
 
-        <div class="input-field left">
+        <div class="input-field " style="width: 90%;">
             <input id="search" type="search" required>
             <label for="search"><i class="material-icons">search</i></label>
             <i class="material-icons">close</i>
         </div>
-
-
-        <a class="btn-floating btn-large waves-effect waves-light right"><i class="material-icons">settings</i></a>
-
-
 
     </div>
 </nav>
@@ -30,16 +25,45 @@
                 <h5>Before</h5>
             </div>
 
-            <div class="inlineBlock detailsDiv">#</div>
+            <div class="inlineBlock detailsDiv">
+                <a class="btn-floating waves-effect waves-light" style="    background-color: #656565 !important;" (click)="isFilterHidden = !isFilterHidden"><i class="material-icons">settings</i></a>
+            </div>
 
             <div class="inlineBlock imgDiv">
                 <h5>Now</h5>
             </div>
 
+            <div class="row center" [hidden]="isFilterHidden">
+                <div class="input-field col s12 m5 l4">
+                    <select>
+                <option value="" disabled selected>Choose a category</option>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+                </select>
+                    <label>Category</label>
+                </div>
+
+                <div class="input-field col s12 m5 l4">
+                    <select>
+                <option value="1">Newest</option>
+                <option value="2">Top rated</option>
+                <option value="3">Oldest</option>
+                </select>
+                    <label>Relevanz</label>
+                </div>
+
+            </div>
+
+
         </div>
 
+
+
+
+
         <!--Table of Content-->
-        <div class="topicDiv" *ngFor="let top of topicList">
+        <div class="topicDiv wow pulse" *ngFor="let top of topicList">
 
             <div class="center titleOver"> <a (click)="goToAbout(top.topicid)"> {{top.title}}</a> </div>
 
@@ -49,19 +73,28 @@
 
             <div class="inlineBlock detailsDiv">
                 <div class="center">
-                    <div class="inlineBlock roundbtn z-depth-2">
-                        < </div>
-                            <div class="inlineBlock voteCount z-depth-1">1000</div>
-                            <div class="inlineBlock roundbtn z-depth-2"> > </div>
+                    <div class="inlineBlock  ">
+                        <i class="material-icons roundbtn">navigate_before</i>
+                    </div>
+
+                    <div class="inlineBlock voteCount z-depth-1">1000</div>
+
+                    <div class="inlineBlock  ">
+                        <i class="material-icons roundbtn">navigate_next</i>
                     </div>
                 </div>
-
-                <div class="inlineBlock imgDiv">
-                    <img src="{{top.images[top.images.length-1]?.url}}" class="responsive-img imi" />
-                </div>
-
             </div>
 
-            <!-- Stuff in here *end-->
+            <div class="inlineBlock imgDiv">
+                <img src="{{top.images[top.images.length-1]?.url}}" class="responsive-img imi" />
+            </div>
+
         </div>
+
+        <!-- Stuff in here *end-->
     </div>
+</div>
+
+<a class="btn-floating waves-effect waves-light" style="    position: fixed;    bottom: 4px; right: 4px;background-color:#13e0c1 !important;" (click)="goToNewPicture()"><i class="material-icons">add_circle_outline</i></a>
+
+<a class="btn-floating waves-effect waves-light" style="    position: fixed;    top: 4px; right: 4px;background-color:#13e0c1 !important;" (click)="goToNewPicture()"><i class="material-icons">person_outline</i></a>

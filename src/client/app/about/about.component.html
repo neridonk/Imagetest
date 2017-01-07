@@ -6,19 +6,20 @@
 
 </div>
 
-<h1 class="center">{{topic?.title}}</h1>
+<h2 class="center">{{topic?.title}}</h2>
+<p class="center">{{topic?.date | date}} by {{topic?.user?.name}}</p>
 
 <div *ngIf="topic">
-    <div class="row picAndDescriptionPanel" *ngFor="let item of topic.images">
+    <div class="row picAndDescriptionPanel " *ngFor="let item of topic.images">
 
-        <div class="agePanel"> {{item.date | date}}
+        <div class="agePanel wow rotateIn"> {{item.date | date}}
         </div>
 
         <div class="col s12 l1">
 
         </div>
 
-        <div class="col s12 l6 ">
+        <div class="col s12 l6 wow pulse">
             <img class="imgAbout responsive-img" style="width: 100%; max-width:600px !Important" src="{{item.url}}" />
         </div>
 
