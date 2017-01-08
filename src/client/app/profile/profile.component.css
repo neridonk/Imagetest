@@ -1,8 +1,4 @@
-.inlineBlock {
-    display: inline-block;
-}
-
-.imgAk {
+﻿.imgAk {
     display: inline-block !important;
     width: 48% !important;
 }
@@ -11,6 +7,6 @@
     padding: 5px !important;
     width: 100%;
     background-color: #eaeaea;
-    font-size: 17px !important;
+    font-size: 17px;
     opacity: 0.8;
 }

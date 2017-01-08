@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 /**
  * This class represents the navigation bar component.
@@ -10,4 +11,16 @@ import { Component } from '@angular/core';
   styleUrls: ['navbar.component.css'],
 })
 
-export class NavbarComponent { }
+export class NavbarComponent { 
+
+  public  userid  =  localStorage.getItem('userid');
+
+  constructor(
+    private router: Router
+  ) { }
+
+  public goToProfile()
+  {
+    this.router.navigate(['/profile', localStorage.getItem('userid') ]);
+  }
+}

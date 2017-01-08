@@ -1,5 +1,5 @@
 ﻿import { Component, OnInit } from '@angular/core';
-import { NameListService } from '../shared/index';
+import { NameListService,NavbarComponent } from '../shared/index';
 import { croppData } from '../models/cropperModel';
 import { Images, Topic, User } from '../models/AllModels';
 
@@ -45,7 +45,8 @@ export class LoginComponent implements OnInit
         if (data == null)
           return alert("login failed");
 
-        this.router.navigate(['/overview']);
+          localStorage.setItem('userid',data.userid);
+          location.href = '/overview';
 
       },
       err => alert(JSON.stringify(err))

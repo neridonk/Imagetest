@@ -6,6 +6,6 @@ export const AboutRoutes: Route[] = [
     path: 'about/:id',
     component: AboutComponent
   },
-    { path: 'about',   redirectTo: '/overview', pathMatch: 'full' },
+    { path: 'about',   redirectTo: '/overview', pathMatch: 'full' }
 
 ];

@@ -65,5 +65,12 @@ export class NameListService extends BaseService {
       return <any>response.json();
     });
   }
+
+    getUserbyId(id: any): Observable<any> {
+
+    return this.get('getUserbyId.php', 'id=' + id).map((response: any) => {
+      return <any>response.json();
+    });
+  }
 }
 
