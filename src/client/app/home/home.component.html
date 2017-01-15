@@ -1,9 +1,24 @@
-﻿<div class="row" style="height: 90vh;     overflow-x: hidden; overflow-y: auto;">
+﻿<div class="row" style="height: 90vh;       width: 80%;  overflow-x: hidden; overflow-y: auto;">
 
     <div class="input-field col s12">
         <input id="ttiel" type="text" [(ngModel)]="topic.title" class="validate">
         <label for="ttiel">Title</label>
     </div>
+
+    <div class="input-field col s12">
+        <select [(ngModel)]="topic.category" class="icons">
+                <option value="" disabled selected>Choose a category</option>
+                <option value="fitness" data-icon="assets/icon/fitness.png" class="left">Fitness</option>
+                <option value="style" data-icon="assets/icon/style.png" class="left">Style</option>
+                <option value="landscape" data-icon="assets/icon/landscape.png" class="left">Landscape</option>
+                <option value="technology" data-icon="assets/icon/it.png" class="left">Technology</option>
+                <option value="biology" data-icon="assets/icon/biology.png" class="left">Biology</option>
+                <option value="other" data-icon="assets/icon/other.png" class="left">Other</option>
+                </select>
+        <label>Category</label>
+    </div>
+
+
 
     <div class="col s12 l5">
         <div class="card">
@@ -67,6 +82,7 @@
                         <label for="textarea2">Desciption after</label>
                     </div>
                 </div>
+
 
             </div>
             <div class="card-action">

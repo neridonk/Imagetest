@@ -35,12 +35,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.cropperBefore.base64 = "http://erpmiddleeast.com/wp-content/themes/ess-php/images/noimg.jpg";
     this.cropperAfter.base64 = "http://erpmiddleeast.com/wp-content/themes/ess-php/images/noimg.jpg";
 
-    this.topic.userid = this.user.userid;
 
 
   this.nameListService.getUserbyId(localStorage.getItem('userid')).subscribe(
       data => {
       this.user = data[0];
+      this.topic.userid = this.user.userid;
       },
       err => alert(JSON.stringify(err))
     );
@@ -53,7 +53,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
       selectMonths: true, // Creates a dropdown to control month
       selectYears: 15 // Creates a dropdown of 15 years to control year
     });
-  
+          $('select').material_select();
+
   }
 
   changeImage(ev: any, isBefore: boolean) {
@@ -128,7 +129,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
     this.nameListService.addNewPictures(this.topic, this.imageBefore, this.imageafter).subscribe(
       data => {
-        console.log(data + JSON.stringify(data))
+        location.href ="/profile/"+this.topic.userid;
 
       },
       err => alert(JSON.stringify(err))
@@ -136,21 +137,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   }
 
-
-
-  login() {
-
-    this.nameListService.login(this.newuser).subscribe(
-      data => {
-        console.log(data + JSON.stringify(data))
-
-      },
-      err => alert(JSON.stringify(err))
-
-    );
+  public cancel(){
+    location.href ="/overview";
   }
-
-
 
 }
 

@@ -4,7 +4,7 @@
 
 .imgAk {
     display: inline-block !important;
-    width: 48% !important;
+    width: 49% !important;
 }
 
 .titleNew {
@@ -20,4 +20,15 @@
     background-color: #797979;
     width: 100%;
     color: #efefef;
+}
+
+loading {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.9;
+    z-index: 10000;
 }

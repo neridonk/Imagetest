@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit
     this.nameListService.register(this.newuser).subscribe(
       data => {
         this.registerStep =100;
+        
       },
       err => alert(JSON.stringify(err))
 

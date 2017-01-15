@@ -9,7 +9,10 @@
 <h2 class="center">{{topic?.title}}</h2>
 <p class="center">{{topic?.date | date}} by {{topic?.user?.name}}
     <br>
-    <a [hidden]="isNotMe" class="btn" (click)="addnewPic=!addnewPic ">Add new picture</a>
+    <a *ngIf="isNotMe==false" class="btn" (click)="addnewPic=!addnewPic ">Add new picture</a>
+    <br/>
+    <br/>
+    <a [hidden]="isNotMe" class="" (click)="deletePost()">Delete post</a>
 
 </p>
 

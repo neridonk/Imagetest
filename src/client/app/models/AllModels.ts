@@ -21,6 +21,7 @@ export class Topic {
     constructor(
         public topicid?: number,
         public title?: string,
+        public category?: string,
         public userid?: number,
         public date?: Date,
         public images?: Images[],

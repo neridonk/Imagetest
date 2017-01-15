@@ -20,6 +20,7 @@ export class OverviewComponent implements OnInit, AfterViewInit
 
 
   public isFilterHidden : boolean= true;
+  public selcategory : any ='';
   private topicList: Topic[] = new Array();
 
   constructor(

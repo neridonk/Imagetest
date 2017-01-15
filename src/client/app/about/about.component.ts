@@ -23,8 +23,8 @@ private isNotMe : boolean = true;
 
 
 
-  private addnewPic : boolean = true;
-  cropperAfter: croppData = new croppData();
+  public addnewPic : boolean = true;
+  private cropperAfter: croppData = new croppData();
 
   private imageAfter: Images = new Images();
 
@@ -41,6 +41,8 @@ private isNotMe : boolean = true;
 
       if(String(this.topic.userid) == localStorage.getItem('userid'))
           this.isNotMe = false;
+
+console.log(String(this.topic.userid) == localStorage.getItem('userid'));
 
       },
       err => alert(JSON.stringify(err))
@@ -145,5 +147,14 @@ private isNotMe : boolean = true;
 
   }
 
-  
+  public deletePost(){
+      this.nameListService.removeTopic(this.topic.topicid).subscribe(
+      data => {        
+       location.href = "/overview";
+   
+      },
+      err => alert(JSON.stringify(err))
+    );
+  }
+
 }

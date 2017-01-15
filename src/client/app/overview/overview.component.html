@@ -1,4 +1,4 @@
-﻿<nav style="background-color:#13e0c1 !important">
+﻿<nav style="background-color:#252525 !important">
     <div class="nav-wrapper">
 
         <div class="input-field " style="width: 90%;">
@@ -11,39 +11,33 @@
 </nav>
 
 <div class="MainContainer">
-    <!-- Stuff in here-->
+    <!-- Filter-->
     <div class="ContentPanel">
 
 
 
 
-        <!--Header-->
+        <!--filter content-->
 
         <div class="topicDiv">
 
-            <div class="inlineBlock imgDiv">
-                <h5>Before</h5>
-            </div>
 
-            <div class="inlineBlock detailsDiv">
-                <a class="btn-floating waves-effect waves-light" style="    background-color: #656565 !important;" (click)="isFilterHidden = !isFilterHidden"><i class="material-icons">settings</i></a>
-            </div>
-
-            <div class="inlineBlock imgDiv">
-                <h5>Now</h5>
-            </div>
-
-            <div class="row center" [hidden]="isFilterHidden">
-                <div class="input-field col s12 m5 l4">
-                    <select>
+            <div class="row center">
+                <div class="input-field col s12">
+                    <select [(ngModel)]="selcategory" class="icons">
                 <option value="" disabled selected>Choose a category</option>
-                <option value="1">Option 1</option>
-                <option value="2">Option 2</option>
-                <option value="3">Option 3</option>
+                <option value="fitness" data-icon="assets/icon/fitness.png" class="left">Fitness</option>
+                <option value="style" data-icon="assets/icon/style.png" class="left">Style</option>
+                <option value="landscape" data-icon="assets/icon/landscape.png" class="left">Landscape</option>
+                <option value="technology" data-icon="assets/icon/it.png" class="left">Technology</option>
+                <option value="biology" data-icon="assets/icon/biology.png" class="left">Biology</option>
+                <option value="other" data-icon="assets/icon/other.png" class="left">Other</option>
                 </select>
                     <label>Category</label>
                 </div>
 
+
+                <!-- Stuff in here *end
                 <div class="input-field col s12 m5 l4">
                     <select>
                 <option value="1">Newest</option>
@@ -52,6 +46,7 @@
                 </select>
                     <label>Relevanz</label>
                 </div>
+                -->
 
             </div>
 
@@ -61,26 +56,26 @@
 
 
         <div class="row">
-            <div *ngFor="let top of topicList" class="col s12 m7 l4">
+            <div *ngFor="let top of topicList" class="col s12 m6 l4">
                 <div class="card  wow pulse">
-                    <div class="card-image">
+                    <div class="card-image" (click)="goToAbout(top.topicid)">
                         <img src="{{top.images[0].url}}" class="imgAk" />
                         <img src="{{top.images[top.images.length-1]?.url}}" class="imgAk" />
                         <span class="card-title titleNew grey-text text-darken-4">{{top.title}}</span>
                     </div>
 
-                    <div class="card-action grey-text ">
+                    <div class="card-action grey-text " style="padding:7px">
 
                         <div class="inlineBlock">
-                            <i class="material-icons">sentiment_very_satisfied</i> 100
+                            <i class="material-icons tiny">sentiment_very_satisfied</i> 100
                         </div>
 
                         <div class="inlineBlock">
-                            <i class="material-icons">photo_library</i> {{top.images.length}}
+                            <i class="material-icons tiny">photo_library</i> {{top.images.length}}
                         </div>
 
                         <div class="right">
-                            <a class="btn-floating" style="    background-color: #808080 !Important;" (click)="goToAbout(top.topicid)"><i class="material-icons">visibility</i></a>
+                            {{top.category }} {{top.date | date}}
                         </div>
 
                     </div>
@@ -92,4 +87,4 @@
     </div>
 </div>
 
-<a class="btn-floating waves-effect waves-light" style="    position: fixed;    bottom: 4px; right: 4px;background-color:#13e0c1 !important;" (click)="goToNewPicture()"><i class="material-icons">add_circle_outline</i></a>
+<a class="btn-floating waves-effect waves-light" style="    position: fixed;    bottom: 4px; right: 4px;background-color:#e09513 !important" (click)="goToNewPicture()"><i class="material-icons">add_circle_outline</i></a>

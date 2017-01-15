@@ -10,7 +10,7 @@
     <div class="col s12 m3 l4">
     </div>
 
-    <div class="col s12 m6 l4 card" style="margin-top: 30%">
+    <div class="col s12 m6 l4 card" style="margin-top: 20%">
 
         <div *ngIf="registerStep==-1" class="wrath-content-box center">
             <input type="button" style="margin:5px" class="waves-effect waves-light btn form-control" value="Register now" (click)="nextStep()" />
@@ -25,16 +25,26 @@
 
         <!-- Login BEGIN-->
 
-        <div class="wrath-content-box" *ngIf="registerStep==100">
-            <div class="form-group ">
-                <input type="text " class="form-control " [(ngModel)]="newuser.name " placeholder="Username " />
+        <div class="row" *ngIf="registerStep==100">
+
+            <div class="row">
+                <div class="input-field ">
+                    <input type="text" id="first_name" class="validate" [(ngModel)]="newuser.name" />
+                    <label for="first_name">Username</label>
+                </div>
             </div>
-            <div class="form-group ">
-                <input type="password " class="form-control " [(ngModel)]="newuser.password " placeholder="password " />
+
+            <div class="row">
+                <div class="input-field ">
+                    <input type="password" id="pass" class="validate" [(ngModel)]="newuser.password" />
+                    <label for="pass">Password</label>
+                </div>
             </div>
-            <div class="col s12 m6 l5">
-                <div class="form-group text-right ">
-                    <input type="button " class="waves-effect waves-light btn form-control " value="Sign In " (click)="login() " />
+
+            <div class="row">
+                <div class="center">
+                    <input type="button" class="inlineBlock waves-effect waves-light btn form-control " value="Sign In " (click)="login() " />
+                    <a (click)="registerStep=-1" class="inlineBlock">Cancel</a>
                 </div>
             </div>
         </div>
