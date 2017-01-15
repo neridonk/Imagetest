@@ -92,17 +92,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
   initCropper(crops: croppData, image: any) {
     crops.Cropper = new Cropper(image, {
       cropBoxResizable: false,
-      aspectRatio: 1 / 1,
-      crop: (e: any) => {
-        console.log(e.detail.x);
-        console.log(e.detail.y);
-        console.log(e.detail.width);
-        console.log(e.detail.height);
-        console.log(e.detail.rotate);
-        console.log(e.detail.scaleX);
-        console.log(e.detail.scaleY);
-      }
-    });
+      aspectRatio: 1 / 1
+        });
   }
 
 

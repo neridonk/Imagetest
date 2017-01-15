@@ -71,7 +71,9 @@
                     </div>
                 </div>
 
-                <input type="button " class="waves-effect waves-light btn form-control " [value]="(registerStep==2?'Finish!':'Next')" (click)="nextStep() " />
+                <a (click)="registerStep=registerStep-1" class="lefet">back</a>
+                <input type="button " class="waves-effect waves-light btn right " [value]="(registerStep==2?'Finish!':'Next')" (click)="nextStep() " />
+
 
 
 

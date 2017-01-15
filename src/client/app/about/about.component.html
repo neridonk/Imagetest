@@ -86,3 +86,30 @@
 
     </div>
 </div>
+
+<!-- Comment Section -->
+
+<div class="chip " style="position: fixed; bottom: 5px; right: 5px;">
+    <a (click)="hideComments=false">  Comments </a>
+</div>
+
+<div [hidden]="hideComments" class="commentPanel">
+
+    <div class="card">
+
+        <div class="card-content">
+            <div style="height: 70%">
+            </div>
+        </div>
+
+        <div class="card-action">
+            <div class="input-field col s12">
+                <textarea id="textarea2" class="materialize-textarea" [(ngModel)]="comment.text"></textarea>
+                <label for="textarea2">Desciption</label>
+            </div>
+            <a class="btn">Post</a>
+            <a class="" (click)="hideComments=true">Close</a>
+        </div>
+    </div>
+
+</div>

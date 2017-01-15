@@ -1,5 +1,5 @@
 import { Component,AfterViewInit } from '@angular/core';
-import { Images, Topic, User } from '../models/AllModels';
+import { Images, Topic, User,Comment } from '../models/AllModels';
 import { NameListService } from '../shared/index';
 import { ActivatedRoute,Params } from '@angular/router';
 import { croppData } from '../models/cropperModel';
@@ -24,15 +24,17 @@ private isNotMe : boolean = true;
 
 
   public addnewPic : boolean = true;
-  private cropperAfter: croppData = new croppData();
+  public hideComments : boolean = true;
+  public newComment: Comment = new Comment();
 
+  private cropperAfter: croppData = new croppData();
   private imageAfter: Images = new Images();
 
   constructor(
     private route:ActivatedRoute,
     private nameListService: NameListService) {
 
-  let id = +this.route.snapshot.params['id'];
+    let id = +this.route.snapshot.params['id'];
 
 
      this.nameListService.getTopicbyId(id).subscribe(
@@ -42,7 +44,8 @@ private isNotMe : boolean = true;
       if(String(this.topic.userid) == localStorage.getItem('userid'))
           this.isNotMe = false;
 
-console.log(String(this.topic.userid) == localStorage.getItem('userid'));
+         this.newComment.topicid = this.topic.topicid;
+         this.newComment.userid = Number(localStorage.getItem('userid'));
 
       },
       err => alert(JSON.stringify(err))
@@ -116,17 +119,8 @@ console.log(String(this.topic.userid) == localStorage.getItem('userid'));
    initCropper(crops: croppData, image: any) {
     crops.Cropper = new Cropper(image, {
       cropBoxResizable: false,
-      aspectRatio: 1 / 1,
-      crop: (e: any) => {
-        console.log(e.detail.x);
-        console.log(e.detail.y);
-        console.log(e.detail.width);
-        console.log(e.detail.height);
-        console.log(e.detail.rotate);
-        console.log(e.detail.scaleX);
-        console.log(e.detail.scaleY);
-      }
-    });
+      aspectRatio: 1 / 1
+      });
   }
   cropimg2() {
     var base64 = this.cropperAfter.Cropper.getCroppedCanvas().toDataURL('image/jpeg');

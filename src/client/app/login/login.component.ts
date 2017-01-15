@@ -51,6 +51,14 @@ export class LoginComponent implements OnInit
   {
     if(this.registerStep==2)
     {
+        if(this.newuser.name ==null ||
+           this.newuser.password == null || 
+           this.newuser.email.length==null
+           ){
+             window.alert("You have not filled all requirements");
+             return;
+           }
+
       this.register();
       return;
     }

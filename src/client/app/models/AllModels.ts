@@ -25,6 +25,7 @@ export class Topic {
         public userid?: number,
         public date?: Date,
         public images?: Images[],
+        public comments?: Comment[],
         public user?: User
     ) {
 
@@ -32,6 +33,20 @@ export class Topic {
 
 }
 
+export class Comment {
+
+    constructor(
+        public commentid?: number,
+        public userid?: number,
+        public topicid?: number,
+        public text?: string,
+        public user?: User
+
+    ) {
+
+    }
+
+}
 
 export class User {
 
