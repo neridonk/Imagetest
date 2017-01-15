@@ -29,6 +29,13 @@ export class BaseService {
 
         });
     }
+
+ postXFrom(path: string, creds: any): Observable<any> {
+        return this.http.post(ServiceConstants.url + path, creds, {
+            headers : <Headers>ServiceConstants.getAuthHeader2()
+
+        });
+    }
     /**
      * http put
      * @param path
@@ -46,6 +53,12 @@ export class ServiceConstants {
 
     public static getAuthHeader(): Headers {
         var authHeader = new Headers({ 'Content-Type': 'application/json' });
+        
+        return authHeader;
+    }
+
+public static getAuthHeader2(): Headers {
+        var authHeader = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
         
         return authHeader;
     }

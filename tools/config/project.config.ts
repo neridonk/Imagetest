@@ -21,7 +21,6 @@ export class ProjectConfig extends SeedConfig {
     this.NPM_DEPENDENCIES = [
       ...this.NPM_DEPENDENCIES,
       { src: 'jquery/dist/jquery.min.js', inject: true, vendor: false },
-      { src: `bootstrap/dist/css/bootstrap.min.css`, inject: true, vendor: false }
       // {src: 'lodash/lodash.min.js', inject: 'libs'},
     ];
 

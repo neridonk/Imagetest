@@ -14,3 +14,10 @@
     font-size: 17px !important;
     opacity: 0.8;
 }
+
+.fileinputer {
+    padding: 5px;
+    background-color: #797979;
+    width: 100%;
+    color: #efefef;
+}

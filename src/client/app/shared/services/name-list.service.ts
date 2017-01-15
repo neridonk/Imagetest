@@ -32,6 +32,24 @@ export class NameListService extends BaseService {
     });
   }
 
+   removePicture(imgId:number): Observable<any> {
+
+    var param = 'id=' + imgId;
+
+    return this.get('removeImage.php', param).map((response: any) => {
+      return <any>response.json();
+    });
+  }
+
+  addNewPictureToTopic(topicid:number, afterImg: Images): Observable<any> {
+
+    var formData = { 'topicid': topicid,'afterImg': afterImg };
+
+    return this.postXFrom('addNewPictureToTopic.php', formData).map((response: any) => {
+      return <any>response.json();
+    });
+  }
+
 
   register(user: User): Observable<any> {
 

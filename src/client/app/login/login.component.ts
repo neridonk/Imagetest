@@ -20,6 +20,8 @@ export class LoginComponent implements OnInit
 
 
   private newuser: User = new User();
+  private registerUser: User = new User();
+  private registerStep: number = -1;
 
   constructor(
     private nameListService: NameListService,
@@ -31,6 +33,28 @@ export class LoginComponent implements OnInit
   {
 
 
+  }
+
+  register() {
+
+    this.nameListService.register(this.newuser).subscribe(
+      data => {
+        this.registerStep =100;
+      },
+      err => alert(JSON.stringify(err))
+
+    );
+  }
+
+  nextStep()
+  {
+    if(this.registerStep==2)
+    {
+      this.register();
+      return;
+    }
+
+    this.registerStep +=1;
   }
 
 

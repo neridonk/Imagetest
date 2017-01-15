@@ -1,4 +1,4 @@
-﻿import { Component, OnInit } from '@angular/core';
+﻿import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { NameListService } from '../shared/index';
 import { croppData } from '../models/cropperModel';
 import { Images, Topic, User } from '../models/AllModels';
@@ -14,7 +14,7 @@ declare var $: any;
   styleUrls: ['home.component.css'],
 })
 
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, AfterViewInit {
 
 
   cropperBefore: croppData = new croppData();
@@ -27,10 +27,6 @@ export class HomeComponent implements OnInit {
   private imageBefore: Images = new Images();
   private imageafter: Images = new Images();
 
-
-  //Register
-  private newuser: User = new User();
-
   constructor(private nameListService: NameListService) { }
 
 
@@ -40,9 +36,25 @@ export class HomeComponent implements OnInit {
     this.cropperAfter.base64 = "http://erpmiddleeast.com/wp-content/themes/ess-php/images/noimg.jpg";
 
     this.topic.userid = this.user.userid;
+
+
+  this.nameListService.getUserbyId(localStorage.getItem('userid')).subscribe(
+      data => {
+      this.user = data[0];
+      },
+      err => alert(JSON.stringify(err))
+    );
   }
 
 
+  ngAfterViewInit(){
+  
+         $('.datepicker').pickadate({
+      selectMonths: true, // Creates a dropdown to control month
+      selectYears: 15 // Creates a dropdown of 15 years to control year
+    });
+  
+  }
 
   changeImage(ev: any, isBefore: boolean) {
 
@@ -101,17 +113,17 @@ export class HomeComponent implements OnInit {
 
     canvas.height = img.height;
     canvas.width = img.width;
-    ctx.drawImage(img, 0, 0, img.height, img.height);
+    ctx.drawImage(img, 0, 0, img.height, img.height,0,0,330,240);
     return canvas.toDataURL();
 
   }
 
   save(): void {
 
-    this.imageBefore.picdate = new Date();
+    this.imageBefore.picdate = new Date((<HTMLInputElement>document.getElementById('picdateid1')).value);
     this.imageBefore.url = this.cropperBefore.base64;
 
-    this.imageafter.picdate = new Date();
+    this.imageafter.picdate = new Date((<HTMLInputElement>document.getElementById('picdateid2')).value);
     this.imageafter.url = this.cropperAfter.base64;
 
     this.nameListService.addNewPictures(this.topic, this.imageBefore, this.imageafter).subscribe(
@@ -124,18 +136,6 @@ export class HomeComponent implements OnInit {
 
   }
 
-
-  register() {
-
-    this.nameListService.register(this.newuser).subscribe(
-      data => {
-        console.log(data + JSON.stringify(data))
-
-      },
-      err => alert(JSON.stringify(err))
-
-    );
-  }
 
 
   login() {
