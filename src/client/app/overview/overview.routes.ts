@@ -3,7 +3,7 @@ import { OverviewComponent } from './index';
 
 export const OverviewRoutes: Route[] = [
   {
-        path: 'overview',
+        path: '',
         component: OverviewComponent
-  }
+     }
 ];

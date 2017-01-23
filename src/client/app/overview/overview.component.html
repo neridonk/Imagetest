@@ -23,7 +23,7 @@
 
 
             <div class="row center">
-                <div class="input-field col s12">
+                <div class="input-field col s12 m4 ">
                     <select [(ngModel)]="selcategory" class="icons">
                 <option value="" disabled selected>Choose a category</option>
                 <option value="fitness" data-icon="assets/icon/fitness.png" class="left">Fitness</option>
@@ -56,11 +56,11 @@
 
 
         <div class="row">
-            <div *ngFor="let top of topicList" class="col s12 m6 l4">
-                <div class="card  wow pulse">
+            <div *ngFor="let top of topicList" class="col s12 m4 l3" style="padding:5px !important;">
+                <div class="card  wow pulse " style="">
                     <div class="card-image" (click)="goToAbout(top.topicid)">
-                        <img src="{{top.images[0].url}}" class="imgAk" />
-                        <img src="{{top.images[top.images.length-1]?.url}}" class="imgAk" />
+                        <img src="http://changeisamazing.com/images/{{top.images[0].url}}" class="imgAk" />
+                        <img src="http://changeisamazing.com/images/{{top.images[top.images.length-1]?.url}}" class="imgAk" />
                         <span class="card-title titleNew grey-text text-darken-4">{{top.title}}</span>
                     </div>
 
@@ -87,4 +87,4 @@
     </div>
 </div>
 
-<a class="btn-floating waves-effect waves-light" style="    position: fixed;    bottom: 4px; right: 4px;background-color:#e09513 !important" (click)="goToNewPicture()"><i class="material-icons">add_circle_outline</i></a>
+<a class="btn-floating  btn-large waves-effect waves-light" style="    position: fixed;    bottom: 4px; right: 4px;background-color:#e09513 !important" (click)="goToNewPicture()"><i class="material-icons">add_circle_outline</i></a>

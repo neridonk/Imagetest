@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit
 
   ngOnInit()
   {
-
+ 
 
   }
 
@@ -79,7 +79,9 @@ export class LoginComponent implements OnInit
           return alert("login failed");
 
           localStorage.setItem('userid',data.userid);
-          location.href = '/overview';
+          NavbarComponent.userid = data.userid;
+             this.router.navigate(['/']);
+
 
       },
       err => alert(JSON.stringify(err))

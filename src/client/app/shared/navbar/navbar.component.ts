@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 
 export class NavbarComponent { 
 
-  public  userid  =  localStorage.getItem('userid');
+  public static  userid  =  localStorage.getItem('userid');
 
   constructor(
     private router: Router
@@ -21,6 +21,12 @@ export class NavbarComponent {
 
   public goToProfile()
   {
+
+if(NavbarComponent.userid==null){
+      this.router.navigate(['/login']);
+      return;
+}
+
     this.router.navigate(['/profile', localStorage.getItem('userid') ]);
   }
 }

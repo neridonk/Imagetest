@@ -1,4 +1,4 @@
-﻿<div class="row" style="height: 90vh;       width: 80%;  overflow-x: hidden; overflow-y: auto;">
+﻿<div class="row container">
 
     <div class="input-field col s12">
         <input id="ttiel" type="text" [(ngModel)]="topic.title" class="validate">
@@ -20,17 +20,15 @@
 
 
 
-    <div class="col s12 l5">
+    <div class="col s12 m5">
         <div class="card">
+            <span class="card-title cardTitleex">Before </span>
             <div class="card-image">
-                <span class="card-title cardTitleex">Before </span>
                 <img class="responsive-img" id="image_1" [src]="cropperBefore.base64" />
-
-                <input type="file" accept="image/*" (change)="changeImage($event, true)">
-                <button *ngIf="cropperBefore.Cropper" class="btn cropbtn" (click)="cropimg1()">crop</button>
-
             </div>
             <div class="card-content">
+                <input type="file" accept="image/*" (change)="changeImage($event, true)">
+                <button *ngIf="cropperBefore.Cropper" class="btn cropbtn" (click)="cropimg1()">crop</button>
                 <div class="row">
 
                     <div class="input-field col s12">
@@ -52,24 +50,22 @@
     </div>
 
 
-    <div class="col s12 l2">
+    <div class="col s12 m2">
 
 
 
     </div>
 
 
-    <div class="col s12 l5">
+    <div class="col s12 m5">
         <div class="card">
+            <span class="card-title cardTitleex cardTitleexAfter">After </span>
             <div class="card-image">
-                <span class="card-title cardTitleex cardTitleexAfter">After </span>
                 <img class="responsive-img" id="image_2" [src]="cropperAfter.base64" />
-
-                <input type="file" accept="image/*" (change)="changeImage($event, false)">
-                <button *ngIf="cropperAfter.Cropper" class="btn cropbtn" (click)="cropimg2()">crop</button>
-
             </div>
             <div class="card-content">
+                <input type="file" accept="image/*" (change)="changeImage($event, false)">
+                <button *ngIf="cropperAfter.Cropper" class="btn cropbtn" (click)="cropimg2()">crop</button>
 
                 <div class="input-field col s12">
                     <input id="picdateid2" type="date" class="datepicker">

@@ -35,12 +35,10 @@ export class OverviewComponent implements OnInit, AfterViewInit
     this.nameListService.getAllTopics().subscribe(
       data => {
         this.topicList = data;
-        console.log(this.topicList);
       },
       err => alert(JSON.stringify(err))
     );
 
-        $('select').material_select();
 
   }
 
@@ -48,6 +46,7 @@ export class OverviewComponent implements OnInit, AfterViewInit
   ngAfterViewInit(){
 
           new WOW().init();
+        $('select').material_select();
 
   }
 

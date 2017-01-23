@@ -1,7 +1,7 @@
 import { Component,AfterViewInit } from '@angular/core';
 import { Images, Topic, User,Comment } from '../models/AllModels';
 import { NameListService } from '../shared/index';
-import { ActivatedRoute,Params } from '@angular/router';
+import { ActivatedRoute,Params,Router } from '@angular/router';
 import { croppData } from '../models/cropperModel';
 
 declare var Cropper: any;
@@ -26,18 +26,21 @@ private isNotMe : boolean = true;
   public addnewPic : boolean = true;
   public hideComments : boolean = true;
   public newComment: Comment = new Comment();
+  public commentList: Comment[] = new Array();
+  public id: number;
 
   private cropperAfter: croppData = new croppData();
   private imageAfter: Images = new Images();
 
   constructor(
     private route:ActivatedRoute,
+    private router:Router,
     private nameListService: NameListService) {
 
-    let id = +this.route.snapshot.params['id'];
+    this.id = +this.route.snapshot.params['id'];
 
 
-     this.nameListService.getTopicbyId(id).subscribe(
+     this.nameListService.getTopicbyId(this.id).subscribe(
       data => {
       this.topic = data[0];
 
@@ -47,22 +50,30 @@ private isNotMe : boolean = true;
          this.newComment.topicid = this.topic.topicid;
          this.newComment.userid = Number(localStorage.getItem('userid'));
 
+        this.initComments();
+
       },
       err => alert(JSON.stringify(err))
-    );
-
-        this.cropperAfter.base64 = "http://erpmiddleeast.com/wp-content/themes/ess-php/images/noimg.jpg";
-
-
-   }
+      );
+    }
 
    ngAfterViewInit(){
 
       new WOW().init();
        $('.datepicker').pickadate({
-    selectMonths: true, // Creates a dropdown to control month
-    selectYears: 15 // Creates a dropdown of 15 years to control year
-  });
+      selectMonths: true, // Creates a dropdown to control month
+      selectYears: 15 // Creates a dropdown of 15 years to control year
+    });
+   }
+
+  private initComments() {
+   //getNewComments
+    this.nameListService.getCommentsbyId(this.id).subscribe(
+      data => {
+        this.commentList = data;
+      },
+      err => alert(JSON.stringify(err))
+    );
    }
 
    public delete(id:any)
@@ -144,11 +155,19 @@ private isNotMe : boolean = true;
   public deletePost(){
       this.nameListService.removeTopic(this.topic.topicid).subscribe(
       data => {        
-       location.href = "/overview";
-   
+       this.router.navigate(['/']);
       },
       err => alert(JSON.stringify(err))
     );
+  }
+
+  public post(){
+    this.nameListService.addNewComment(this.newComment).subscribe(
+        data => {        
+          this.initComments();     
+        },
+        err => alert(JSON.stringify(err))
+      );
   }
 
 }

@@ -49,7 +49,7 @@ export class BaseService {
 
 
 export class ServiceConstants {
-    static url: string = 'http://www.slutlist.de/beforeafter/';
+    static url: string = 'http://changeisamazing.com/services/';
 
     public static getAuthHeader(): Headers {
         var authHeader = new Headers({ 'Content-Type': 'application/json' });

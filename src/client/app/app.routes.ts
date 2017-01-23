@@ -7,9 +7,9 @@ import { OverviewRoutes } from './overview/index';
 import { profileRoutes } from './profile/index';
 
 export const routes: Routes = [
+  ...OverviewRoutes,
   ...LoginRoutes,
   ...HomeRoutes,
   ...AboutRoutes,
-  ...OverviewRoutes,
   ...profileRoutes
 ];

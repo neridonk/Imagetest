@@ -1,31 +1,29 @@
-﻿:host {
-}
+﻿:host {}
 
 .imageContainer {
-  background-color: white;
-  padding: 6px;
-  width: 90%;
-  margin-bottom: 100px;
+    background-color: white;
+    padding: 6px;
+    width: 90%;
+    margin-bottom: 100px;
 }
 
 .cardTitleex {
-  /* width: 100%; */
-  background-color: #909090;
-  top: -11px;
-  height: 41px;
-  /* opacity: 0.6; */
-  padding: 8px !important;
-  font-size: 18px;
-  font-weight: bold;
-  z-index: 1;
+    /* width: 100%; */
+    background-color: #909090;
+    top: -11px;
+    height: 41px;
+    /* opacity: 0.6; */
+    padding: 8px !important;
+    font-size: 18px;
+    font-weight: bold;
+    z-index: 1;
 }
 
-
 .cardTitleexAfter {
-  background-color: #31cffb;
+    background-color: orangered;
 }
 
 .cropbtn {
-  position: absolute;
-  bottom: 40px;
+    position: absolute;
+    bottom: 40px;
 }

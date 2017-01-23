@@ -2,7 +2,7 @@
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { BaseService } from './BaseServices';
-import { Images, Topic, User } from '../../models/AllModels';
+import { Images, Topic, User,Comment } from '../../models/AllModels';
 
 import 'rxjs/add/observable/throw';
 // import 'rxjs/add/operator/do';  // for debugging
@@ -22,6 +22,24 @@ export class NameListService extends BaseService {
 
     super(http);
     this.hideLoading();
+  }
+
+
+  getCommentsbyId(id: any): Observable<any> {
+    this.showLoading();
+    return this.get('getCommentsById.php', 'id=' + id).map((response: any) => {
+      this.hideLoading();
+      return <any>response.json();
+    });
+  }
+
+  addNewComment(comment : Comment): Observable<any> {
+
+    this.showLoading();
+    return this.post('addNewPost.php', comment).map((response: any) => {
+                  this.hideLoading();
+      return <any>response.json();
+    });
   }
 
 

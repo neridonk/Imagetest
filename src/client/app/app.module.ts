@@ -14,10 +14,11 @@ import { LoginModule } from './login/login.module';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
-    imports: [BrowserModule, HttpModule, RouterModule.forRoot(routes), AboutModule,ProfileModule,
+    imports: [BrowserModule, HttpModule,     RouterModule.forRoot(routes)  , AboutModule,ProfileModule,
       HomeModule, LoginModule, OverviewModule, SharedModule.forRoot()],
     declarations: [AppComponent],
     providers: [{
+        
         provide: APP_BASE_HREF,
         useValue: '<%= APP_BASE %>'
     }],

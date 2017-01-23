@@ -3,7 +3,6 @@
 </div>
 
 
-
 <div class="row center">
 
 
@@ -13,41 +12,40 @@
     <div class="col s12 m6 l4 card" style="margin-top: 20%">
 
         <div *ngIf="registerStep==-1" class="wrath-content-box center">
-            <input type="button" style="margin:5px" class="waves-effect waves-light btn form-control" value="Register now" (click)="nextStep()" />
             <br/>
             <br/>
-            <br/>
-            <br/>
-            <a (click)="registerStep=100"> Already have an account </a>
-            <br/>
-            <a href="/overview"> Skip register </a>
-        </div>
 
-        <!-- Login BEGIN-->
-
-        <div class="row" *ngIf="registerStep==100">
-
-            <div class="row">
-                <div class="input-field ">
-                    <input type="text" id="first_name" class="validate" [(ngModel)]="newuser.name" />
-                    <label for="first_name">Username</label>
+            <div class="row container">
+                Username
+                <div class="input-field">
+                    <input type="text" id="first_name" class="center" [(ngModel)]="newuser.name" />
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row container">
+                Password
                 <div class="input-field ">
-                    <input type="password" id="pass" class="validate" [(ngModel)]="newuser.password" />
-                    <label for="pass">Password</label>
+                    <input type="password" id="pass" class="center" [(ngModel)]="newuser.password" />
                 </div>
             </div>
 
             <div class="row">
                 <div class="center">
-                    <input type="button" class="inlineBlock waves-effect waves-light btn form-control " value="Sign In " (click)="login() " />
-                    <a (click)="registerStep=-1" class="inlineBlock">Cancel</a>
+                    <input type="button" class="inlineBlock waves-effect waves-light btn form-control orange lighten-1" value="Sign In " (click)="login() " />
+                    <br>
                 </div>
             </div>
+
+
+            <br/>
+            <br/>
+            <br/>
+            <a (click)="registerStep=100"> Register </a>
+            <br/>
+            <a (click)="this.router.navigate(['/']);">cancel </a>
         </div>
+
+
 
         <!-- Register BEGIN-->
 
@@ -72,8 +70,10 @@
                 </div>
 
                 <a (click)="registerStep=registerStep-1" class="lefet">back</a>
-                <input type="button " class="waves-effect waves-light btn right " [value]="(registerStep==2?'Finish!':'Next')" (click)="nextStep() " />
+                <input type="button " class="waves-effect waves-light btn right orange lighten-1" [value]="(registerStep==2?'Finish!':'Next')" (click)="nextStep() " />
 
+                <br/>
+                <br/>
 
 
 

@@ -39,7 +39,8 @@ export class Comment {
         public commentid?: number,
         public userid?: number,
         public topicid?: number,
-        public text?: string,
+        public texts?: string,
+        public datum?: Date,
         public user?: User
 
     ) {
