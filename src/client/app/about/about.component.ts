@@ -1,6 +1,6 @@
 import { Component,AfterViewInit } from '@angular/core';
 import { Images, Topic, User,Comment } from '../models/AllModels';
-import { NameListService } from '../shared/index';
+import { NameListService,NavbarComponent } from '../shared/index';
 import { ActivatedRoute,Params,Router } from '@angular/router';
 import { croppData } from '../models/cropperModel';
 

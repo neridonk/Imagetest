@@ -1,16 +1,4 @@
-﻿<nav style="background-color:#252525 !important">
-    <div class="nav-wrapper">
-
-        <div class="input-field " style="width: 90%;">
-            <input id="search" type="search" required>
-            <label for="search"><i class="material-icons">search</i></label>
-            <i class="material-icons">close</i>
-        </div>
-
-    </div>
-</nav>
-
-<div class="MainContainer">
+﻿<div class="MainContainer" id="CONTAINER">
     <!-- Filter-->
     <div class="ContentPanel">
 
@@ -34,6 +22,14 @@
                 <option value="other" data-icon="assets/icon/other.png" class="left">Other</option>
                 </select>
                     <label>Category</label>
+                </div>
+
+
+
+                <div class="input-field col s12 m4 ">
+                    <input id="search" type="search">
+                    <label for="search"><i class="material-icons">search</i></label>
+                    <i class="material-icons">close</i>
                 </div>
 
 
@@ -87,4 +83,4 @@
     </div>
 </div>
 
-<a class="btn-floating  btn-large waves-effect waves-light" style="    position: fixed;    bottom: 4px; right: 4px;background-color:#e09513 !important" (click)="goToNewPicture()"><i class="material-icons">add_circle_outline</i></a>
+<a *ngIf="loggeduserid" class="btn-floating  btn-large waves-effect waves-light" style="    position: fixed;    bottom: 4px; right: 4px;background-color:#e09513 !important" (click)="goToNewPicture()"><i class="material-icons">add_circle_outline</i></a>

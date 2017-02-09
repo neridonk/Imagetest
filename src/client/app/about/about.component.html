@@ -15,7 +15,18 @@
     <a [hidden]="isNotMe" class="" (click)="deletePost()">Delete post</a>
 
 </p>
+<!-- 1 und last vergleich-->
 
+<div class="row" *ngIf="topic" style="padding: 20px 25px 20px 25px; background-color: #e6e6e6;">
+    <div class="" style="padding:20px 0px 20px 0px">
+        <div class="col s6" style="padding: 0px !Important">
+            <img class=" responsive-img" style="width:100%" src="http://changeisamazing.com/images/{{topic.images[0].url}}" />
+        </div>
+        <div class="col s6" style="padding: 0px !Important">
+            <img class=" responsive-img" style="width:100%" src="http://changeisamazing.com/images/{{topic.images[topic.images.length-1].url}}" />
+        </div>
+    </div>
+</div>
 <!-- new Pic-->
 <div [hidden]="addnewPic" class="row" style="height: 90vh;     overflow-x: hidden; overflow-y: auto;">
     <div class="col s12 l4">
@@ -89,36 +100,38 @@
 
 <!-- Comment Section -->
 
-<div class="chip " style="position: fixed; bottom: 5px; right: 5px;">
-    <a (click)="hideComments=false">  Comments </a>
+<div class="chip " style="position: fixed; bottom: 5px; right: 5px; cursor: pointer">
+    <a (click)="hideComments=false"> <i class="material-icons left tiny" style="margin-top: 10px;">chat_bubble</i> Comments </a>
 </div>
 
-<div [hidden]="hideComments" class="commentPanel">
+<div [hidden]="hideComments" class="commentPanel row">
 
-    <div class="card">
-        <div class="card-content" *ngFor="let item of commentList">
-
-            <a>{{item.user?.name}}</a>
-            <p> {{item.texts}}</p>
+    <div class="card col s12 m5 right" style="background-color: #505050;  color: white;">
+        <div class="card-title" style="    padding: 20px;">
+            <i class="material-icons ">face</i> User commentaries
 
         </div>
-    </div>
 
-    <div class="card">
-
-        <div class="card-content">
-            <div style="height: 70%">
+        <div class="card-content" style="padding-top: 0px; height: 63vh; overflow-y:auto ">
+            <div *ngFor="let item of commentList" style="padding: 5px;">
+                <div style="position: relative">
+                    <a class="inlineBlock">{{item.user?.name}}</a>
+                    <i class="material-icons inlineBlock tiny">chat_bubble</i>
+                    <p class="inlineBlock" stlye="color: #d8d8d8;"> {{item.texts}}</p>
+                    <div class="dateCommentPanel">{{item.datum | date }}</div>
+                </div>
             </div>
         </div>
 
         <div class="card-action">
             <div class="input-field ">
                 <textarea id="textarea2" class="materialize-textarea" [(ngModel)]="newComment.texts"></textarea>
-                <label for="textarea2">Desciption</label>
+                <label for="textarea2">Comment</label>
             </div>
-            <a class="btn" (click)="post()">Post</a>
             <a class="" (click)="hideComments=true">Close</a>
+            <a class="btn" (click)="post()">Post comment</a>
         </div>
+
     </div>
 
 </div>

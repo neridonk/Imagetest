@@ -113,9 +113,11 @@ export class NameListService extends BaseService {
   }
 
 
-  getAllTopics(): Observable<any> {
+  getAllTopics(currentRow : number): Observable<any> {
+
+    var param = 'currentRow='+currentRow;
     this.showLoading();
-    return this.get('getAllTopics.php', '').map((response: any) => {
+    return this.get('getAllTopics.php', param).map((response: any) => {
       this.hideLoading();
       return <any>response.json();
     });

@@ -34,3 +34,7 @@ loading {
     opacity: 0.9;
     z-index: 10000;
 }
+
+a {
+    cursor: pointer;
+}

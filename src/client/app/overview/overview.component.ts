@@ -1,5 +1,5 @@
 ﻿import { Component, OnInit,AfterViewInit } from '@angular/core';
-import { NameListService } from '../shared/index';
+import { NameListService,NavbarComponent } from '../shared/index';
 import { croppData } from '../models/cropperModel';
 import { Images, Topic, User } from '../models/AllModels';
 declare var WOW : any;
@@ -23,6 +23,9 @@ export class OverviewComponent implements OnInit, AfterViewInit
   public selcategory : any ='';
   private topicList: Topic[] = new Array();
 
+  private currentRow : number = 0;
+
+public loggeduserid : any;
   constructor(
     private nameListService: NameListService,
     private router: Router
@@ -31,8 +34,9 @@ export class OverviewComponent implements OnInit, AfterViewInit
 
   ngOnInit()
   {
+    this.loggeduserid  = NavbarComponent.userid;
 
-    this.nameListService.getAllTopics().subscribe(
+    this.nameListService.getAllTopics(this.currentRow).subscribe(
       data => {
         this.topicList = data;
       },
@@ -47,6 +51,15 @@ export class OverviewComponent implements OnInit, AfterViewInit
 
           new WOW().init();
         $('select').material_select();
+
+         $(window).scroll(function () {
+
+           if ($(window).scrollTop() + $(window).height() >= 
+            $('.CONTAINER').offset().top + $('.CONTAINER').height() ) { 
+              alert('asd');
+            } 
+
+         });
 
   }
 
