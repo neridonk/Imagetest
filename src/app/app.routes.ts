@@ -6,6 +6,8 @@ import { OverviewComponent } from './overview/overview.component';
 import { LoginComponent } from './login/login.component';
 import { AboutComponent } from './about/about.component';
 import { AddPictureComponent } from './add-picture/add-picture.component';
+import { TopicModule } from './topic/topic.module';
+import { ImagesPanelComponent } from './images-panel/images-panel.component';
 
 
 const routes = [
@@ -21,6 +23,7 @@ const routes = [
 @NgModule({
   imports: [
     CommonModule,
+    TopicModule,
     RouterModule.forRoot(routes)
   ],
   exports: [

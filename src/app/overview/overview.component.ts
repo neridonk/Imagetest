@@ -11,12 +11,12 @@ import { Router } from '@angular/router';
   templateUrl: './overview.component.html',
   styleUrls: ['./overview.component.css']
 })
-export class OverviewComponent implements OnInit, AfterViewInit {
+export class OverviewComponent implements OnInit{
 
 
   public isFilterHidden: boolean = true;
   public selcategory: any = '';
-  private topicList: Topic[] = new Array();
+  private topiclist: Topic[] = new Array();
 
   private currentRow: number = 0;
 
@@ -32,7 +32,7 @@ export class OverviewComponent implements OnInit, AfterViewInit {
 
     this.nameListService.getAllTopics(this.currentRow).subscribe(
       data => {
-        this.topicList = data;
+        this.topiclist = data;
       },
       err => alert(JSON.stringify(err))
     );
@@ -41,32 +41,11 @@ export class OverviewComponent implements OnInit, AfterViewInit {
   }
 
 
-  ngAfterViewInit() {
 
-    new WOW().init();
-    $('select').material_select();
-
-    $(window).scroll(function () {
-
-      if ($(window).scrollTop() + $(window).height() >=
-        $('.CONTAINER').offset().top + $('.CONTAINER').height()) {
-        alert('asd');
-      }
-
-    });
-
-  }
 
   public goToNewPicture() {
     this.router.navigate(['/addPicture']);
   }
-
-
-  public goToAbout(id: number) {
-    this.router.navigate(['/about', id]);
-
-  }
-
 
 }
 

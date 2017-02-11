@@ -18,12 +18,15 @@
         "prefix": "app",
         "styles": [
             "styles.css",
+            "assets/css/cropper.min.css",
+            "assets/css/animate.min.css",
             "assets/css/materialize.css"
         ],
         "scripts": [
             "../node_modules/jquery/dist/jquery.min.js",
             "../node_modules/wowjs/dist/wow.min.js",
             "../node_modules/hammerjs/hammer.min.js",
+            "assets/css/cropper.min.js",
             "../node_modules/materialize-css/dist/js/materialize.min.js"
         ],
         "environments": {

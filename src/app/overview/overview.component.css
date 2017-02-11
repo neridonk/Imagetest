@@ -1,6 +1,14 @@
 ﻿.detailsDiv {
     width: 20%;
 }
+.chisamlogo {
+  width: 15%;
+  box-shadow: 1px 1px 7px rgb(10, 10, 10);
+  border-radius: 10%;
+  border: 2px solid #dedede;
+  min-width:110px;
+  max-width:160px;
+}
 
 .imgDiv {
     width: 38%;
@@ -8,13 +16,11 @@
 }
 
 .topicDiv {
-    padding: 5px;
-    width: 100%;
-    text-align: center;
-    color: darkgrey;
-    background-color: #182129;
-    padding: 21px;
-    padding-bottom: 5px;
+  padding: 5px;
+  width: 100%;
+  text-align: center;
+  color: white;
+  background-color: #494947;
 }
 
 .roundbtn {

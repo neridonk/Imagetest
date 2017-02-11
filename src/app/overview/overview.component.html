@@ -1,68 +1,38 @@
-﻿<div class="MainContainer" id="CONTAINER">
-    <!-- Filter-->
-    <div class="ContentPanel">
+﻿<!--filter content-->
+<div class="topicDiv">
+  <h2><img src="assets/icon/chisamlogo.png" class="chisamlogo"></h2>
 
+  <div class="chipList">
 
-        <!--filter content-->
-        <div class="topicDiv">
-
-            <div class="row center">
-                <div class="input-field col s12 m4 ">
-                    <select [(ngModel)]="selcategory" class="icons">
-            <option value="" disabled selected>Choose a category</option>
-            <option value="fitness" data-icon="assets/icon/fitness.png" class="left">Fitness</option>
-            <option value="style" data-icon="assets/icon/style.png" class="left">Style</option>
-            <option value="landscape" data-icon="assets/icon/landscape.png" class="left">Landscape</option>
-            <option value="technology" data-icon="assets/icon/it.png" class="left">Technology</option>
-            <option value="biology" data-icon="assets/icon/biology.png" class="left">Biology</option>
-            <option value="other" data-icon="assets/icon/other.png" class="left">Other</option>
-          </select>
-                    <label>Category</label>
-                </div>
-
-                <div class="input-field col s12 m4 ">
-                    <input id="search" type="search">
-                    <label for="search"><i class="material-icons">search</i></label>
-                    <i class="material-icons">close</i>
-                </div>
-
-                <!-- Stuff in here *end
-        <div class="input-field col s12 m5 l4">
-            <select>
-        <option value="1">Newest</option>
-        <option value="2">Top rated</option>
-        <option value="3">Oldest</option>
-        </select>
-            <label>Relevanz</label>
-        </div>
-        -->
-            </div>
-
-        </div>
-
-        <div class="row">
-            <div *ngFor="let top of topicList" class="col s12 m4 l3" style="padding:5px !important;">
-                <div class="card  wow pulse " style="">
-                    <div class="card-image" (click)="goToAbout(top.topicid)">
-                        <img src="http://changeisamazing.com/images/{{top.images[0].url}}" class="imgAk" />
-                        <img src="http://changeisamazing.com/images/{{top.images[top.images.length-1]?.url}}" class="imgAk" />
-                        <span class="card-title titleNew ">{{top.title}}</span>
-                    </div>
-                    <div class="card-action grey-text " style="padding:7px">
-                        <div class="inlineBlock">
-                            <i class="material-icons tiny">sentiment_very_satisfied</i> 100
-                        </div>
-                        <div class="inlineBlock">
-                            <i class="material-icons tiny">photo_library</i> {{top.images.length}}
-                        </div>
-                        <div class="right">
-                            {{top.category }} {{top.date | date}}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Stuff in here *end-->
+    <div class="chip cursor" style="background-color:#D138BF; color:antiquewhite">
+      Other
     </div>
+    <div class="chip cursor" style="background-color:#7494EA; color:antiquewhite">
+      Technology
+    </div>
+
+    <div class="chip cursor" style="background-color:#28D34D; color:antiquewhite">
+      Landscape & buildings
+    </div>
+
+    <div class="chip cursor" style="background-color:#44CCFF; color:antiquewhite" routerLink="/t/fit">
+      <img src="assets/icon/fitness.png" alt="Contact Person">
+      Fitness
+    </div>
+
+
+  </div>
+
 </div>
+
+<div class="row center">
+  <div class="input-field col s12 m4 ">
+    <input id="search" type="search">
+    <label for="search"><i class="material-icons">search</i></label>
+    <i class="material-icons">close</i>
+  </div>
+</div>
+
+<app-images-panel [topiclist]="topiclist"></app-images-panel>
+
 <a *ngIf="loggeduserid" class="btn-floating  btn-large waves-effect waves-light" style="    position: fixed;    bottom: 4px; right: 4px;background-color:#e09513 !important" (click)="goToNewPicture()"><i class="material-icons">add_circle_outline</i></a>

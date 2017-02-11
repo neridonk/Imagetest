@@ -1,6 +1,5 @@
-import { BrowserModule } from '@angular/platform-browser';
+﻿import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes }  from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -10,6 +9,7 @@ import { NameListService } from './global/services/name-list.service';
 
 import { RoutesModule } from './app.routes';
 
+import { FormsModule } from '@angular/forms';
 import { HttpModule, Http} from '@angular/http';
 import { OverviewComponent } from './overview/overview.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -26,7 +26,7 @@ import { ProfileComponent } from './profile/profile.component';
     LoginComponent,
     AboutComponent,
     AddPictureComponent,
-    ProfileComponent
+    ProfileComponent,
   ],
   imports: [
     RoutesModule,
@@ -35,7 +35,7 @@ import { ProfileComponent } from './profile/profile.component';
     FormsModule,
     HttpModule
   ],
-    exports: [NavbarComponent],
+  exports: [NavbarComponent],
   providers: [NameListService],
   bootstrap: [AppComponent]
 })
