@@ -1,0 +1,68 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+/* fallback */
+
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Material Icons'), local('MaterialIcons-Regular'), url('assets/font/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2') format('woff2');
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}
+
+.inlineBlock {
+    display: inline-block;
+}
+
+.imgAk {
+    display: inline-block !important;
+    width: 49% !important;
+}
+
+body {}
+
+.titleNew {
+    padding: 5px !important;
+    width: 100%;
+    background-color: #eaeaea;
+    font-size: 17px !important;
+    opacity: 0.8;
+}
+
+.fileinputer {
+    padding: 5px;
+    background-color: #797979;
+    width: 100%;
+    color: #efefef;
+}
+
+loading {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    opacity: 0.9;
+    z-index: 10000;
+}
+
+a {
+    cursor: pointer;
+}
