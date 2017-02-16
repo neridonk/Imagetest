@@ -1,1 +1,30 @@
-﻿<router-outlet></router-outlet>
+﻿<!--filter content-->
+<div class="topicDiv">
+  <img src="assets/img/sport.png" class="bgPic">
+
+  <h2><img src="assets/icon/chisamlogo.png" class="chisamlogo"></h2>
+
+  <div class="chipList" style="position:relative; z-index:2;     opacity: 0.9;">
+
+    <div class="chip cursor" style="background-color:#D138BF; color:antiquewhite">
+      Other
+    </div>
+    <div class="chip cursor" style="background-color:#7494EA; color:antiquewhite">
+      Technology
+    </div>
+
+    <div class="chip cursor" style="background-color:#28D34D; color:antiquewhite">
+      Landscape & buildings
+    </div>
+
+    <div class="chip cursor" style="background-color:#44CCFF; color:antiquewhite" routerLink="/t/fit">
+      <img src="assets/icon/fitness.png" alt="Contact Person">
+      Fitness
+    </div>
+
+
+  </div>
+
+</div>
+
+<router-outlet></router-outlet>

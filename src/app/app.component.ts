@@ -1,5 +1,5 @@
 ﻿import { Component, AfterViewInit  } from '@angular/core';
-import { ParentComponent } from './global/components/parentComponent';
+import { ParentClass } from './global/components/ParentClass';
 
 
 @Component({
@@ -7,7 +7,7 @@ import { ParentComponent } from './global/components/parentComponent';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent extends ParentComponent implements AfterViewInit
+export class AppComponent extends ParentClass implements AfterViewInit
 {
 
   constructor(
@@ -21,7 +21,7 @@ export class AppComponent extends ParentComponent implements AfterViewInit
   {
     setTimeout(() =>
     {
-      ParentComponent.loadingHide();
+        ParentClass.loadingHide();
     }, 100);
   }
 

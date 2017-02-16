@@ -11,7 +11,7 @@ import { RoutesModule } from './app.routes';
 
 import { FormsModule } from '@angular/forms';
 import { HttpModule, Http} from '@angular/http';
-import { OverviewComponent } from './overview/overview.component';
+
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { AboutComponent } from './about/about.component';
@@ -21,7 +21,6 @@ import { ProfileComponent } from './profile/profile.component';
 @NgModule({
   declarations: [
     AppComponent,
-    OverviewComponent,
     NavbarComponent,
     LoginComponent,
     AboutComponent,

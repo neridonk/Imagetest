@@ -1,7 +1,7 @@
 ﻿import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { NameListService } from '../global/services/name-list.service';
-import { NavbarComponent } from '../navbar/navbar.component';
-import { Images, Topic, User, croppData } from '../models';
+import { NameListService } from '../../global/services/name-list.service';
+import { NavbarComponent } from '../../navbar/navbar.component';
+import { Images, Topic, User, croppData } from '../../models';
 declare var WOW: any;
 declare var $: any;
 import { Router } from '@angular/router';

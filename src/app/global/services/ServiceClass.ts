@@ -4,7 +4,7 @@ declare var unescape: any;
 import {Observable} from 'rxjs/Rx';
 
 @Injectable()
-export class BaseService {
+export class ServiceClass {
     private http: Http;
     constructor(http: Http) {
         this.http = http;

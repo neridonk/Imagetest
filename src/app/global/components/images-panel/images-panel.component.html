@@ -1,6 +1,6 @@
 ﻿<div class="row">
   <div *ngFor="let top of topiclist" class="col s12 m4 l3" style="padding:5px !important;">
-    <div class="card  wow pulse " style="">
+    <div class="card  wow pulse imgCard" style="">
       <div class="card-image" (click)="goToAbout(top.topicid)">
         <img src="http://changeisamazing.com/images/{{top.images[0].url}}" class="imgAk" />
         <img src="http://changeisamazing.com/images/{{top.images[top.images.length-1]?.url}}" class="imgAk" />

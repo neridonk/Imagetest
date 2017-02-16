@@ -1,0 +1,27 @@
+﻿.imgCard {
+  -webkit-transition: all 0.3s linear;
+  -moz-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  cursor: pointer;
+}
+
+  .imgCard:hover {
+    opacity: 0.8;
+    background-color: black;
+  }
+
+
+
+  .imgCard .card-title {
+    -webkit-transition: all 0.5s linear;
+    -moz-transition: all 0.5s linear;
+    -o-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+    height: 30px;
+  }
+  .imgCard:hover .card-title {
+    opacity: 0.8;
+    background-color: orange ;
+    height: 70px;
+  }

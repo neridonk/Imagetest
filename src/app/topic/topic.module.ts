@@ -6,7 +6,7 @@ import { FitnessComponent } from './fitness/fitness.component';
 import { GlobalModule } from '../global/global.module';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
+import { OverviewComponent } from './overview/overview.component';
 @NgModule({
   imports: [
     FormsModule,
@@ -15,6 +15,6 @@ import { HttpModule } from '@angular/http';
     CommonModule,
     TopicRoutingModule
   ],
-  declarations: [TopicComponent, FitnessComponent]
+  declarations: [TopicComponent, FitnessComponent, OverviewComponent]
 })
 export class TopicModule { }

@@ -2,7 +2,7 @@
 
 declare var $: any;
 
-export class ParentComponent
+export class ParentClass
 {
   private static isloading: boolean = false;
 
@@ -12,17 +12,17 @@ export class ParentComponent
 
   public static loadingHide(): void 
   {
-    ParentComponent.isloading = false;
+      ParentClass.isloading = false;
   }
 
   public static loadingShow(): void 
   {
-    ParentComponent.isloading = true;
+      ParentClass.isloading = true;
   }
 
   public isLoading(): boolean 
   {
-    return ParentComponent.isloading;
+      return ParentClass.isloading;
   }
 
 }

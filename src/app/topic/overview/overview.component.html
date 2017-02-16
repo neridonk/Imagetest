@@ -1,0 +1,11 @@
+﻿<div class="row center">
+  <div class="input-field col s12 m4 ">
+    <input id="search" type="search">
+    <label for="search"><i class="material-icons">search</i></label>
+    <i class="material-icons">close</i>
+  </div>
+</div>
+
+<app-images-panel [topiclist]="topiclist"></app-images-panel>
+
+<a *ngIf="loggeduserid" class="btn-floating  btn-large waves-effect waves-light" style="    position: fixed;    bottom: 4px; right: 4px;background-color:#e09513 !important" (click)="goToNewPicture()"><i class="material-icons">add_circle_outline</i></a>

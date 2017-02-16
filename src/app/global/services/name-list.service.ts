@@ -1,9 +1,9 @@
 ﻿import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import { BaseService } from './BaseServices';
+import { ServiceClass } from './ServiceClass';
 import { Images, Topic, User,Comment } from '../../models';
-import { ParentComponent } from '../components/ParentComponent';
+import { ParentClass } from '../components/ParentClass';
 import 'rxjs/add/operator/map'
 import 'rxjs/add/observable/throw';
 // import 'rxjs/add/operator/do';  // for debugging
@@ -12,7 +12,7 @@ import 'rxjs/add/observable/throw';
  * This class provides the NameList service with methods to read names and add names.
  */
 @Injectable()
-export class NameListService extends BaseService {
+export class NameListService extends ServiceClass {
 
   /**
    * Creates a new NameListService with the injected Http.
@@ -143,11 +143,11 @@ export class NameListService extends BaseService {
 
 
   public showLoading(){
-    ParentComponent.loadingShow();
+      ParentClass.loadingShow();
   }
 
   public hideLoading(){
-    ParentComponent.loadingHide();
+      ParentClass.loadingHide();
   }
 
 }

@@ -1,5 +1,5 @@
 ﻿import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
-import { Images, Topic, User, croppData } from '../models';
+import { Images, Topic, User, croppData } from '../../../models';
 declare var WOW: any;
 declare var $: any;
 import { Router } from '@angular/router';

@@ -2,6 +2,7 @@
 import { Routes, RouterModule } from '@angular/router';
 import { TopicComponent } from './topic.component';
 import { FitnessComponent } from './fitness/fitness.component';
+import { OverviewComponent } from './overview/overview.component';
 
 const routes: Routes = [
   {
@@ -9,7 +10,8 @@ const routes: Routes = [
 
     children: [
 
-      { path: 'fit', component: FitnessComponent }
+      { path: 'fit', component: FitnessComponent },
+      { path: 'all', component: OverviewComponent }
 
     ]
   },

@@ -16,7 +16,7 @@ export class NavbarComponent {
   ) { }
 
   public goToProfile() {
-
+      //Eine Quest Implementieren : mit coolen effekten pew pew eine neue quest ist availible 
     if (NavbarComponent.userid == null) {
       this.router.navigate(['/login']);
       return;
