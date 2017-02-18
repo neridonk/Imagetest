@@ -1,5 +1,6 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NameListService } from '../global/services/name-list.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,7 +13,8 @@ export class NavbarComponent {
   public static userid = localStorage.getItem('userid');
 
   constructor(
-    private router: Router
+    private router: Router,
+    private nameListService: NameListService
   ) { }
 
   public goToProfile() {

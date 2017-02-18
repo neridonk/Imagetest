@@ -19,6 +19,7 @@
     -o-transition: all 0.2s linear;
     transition: all 0.25s linear;
     height: 30px;
+    overflow:hidden;
   }
   .imgCard:hover .card-title {
     opacity: 0.8;
