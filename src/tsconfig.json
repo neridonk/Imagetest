@@ -1,10 +1,21 @@
-{
+﻿{
   "compilerOptions": {
     "baseUrl": "",
+    "paths": {
+      "services": [
+      
+      ],
+      "models": [
+        "app/models"
+      ],
+      "components": [
+        "app/global/components/index"
+      ]
+    },
     "declaration": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "lib": ["es6", "dom"],
+    "lib": [ "es6", "dom" ],
     "mapRoot": "./",
     "module": "es6",
     "moduleResolution": "node",

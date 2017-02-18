@@ -8,11 +8,14 @@ import 'rxjs/add/operator/map'
 import 'rxjs/add/observable/throw';
 // import 'rxjs/add/operator/do';  // for debugging
 
+
 /**
  * This class provides the NameList service with methods to read names and add names.
  */
 @Injectable()
 export class NameListService extends ServiceClass {
+    public picURL: string = "";
+    public text: string = "";
 
   /**
    * Creates a new NameListService with the injected Http.

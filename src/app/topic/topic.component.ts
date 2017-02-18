@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+﻿import { Component, OnInit } from '@angular/core';
+import { NameListService } from '../global/services/name-list.service';
 
 @Component({
   selector: 'app-topic',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopicComponent implements OnInit {
 
-  constructor() { }
+
+
+    constructor(private nameListService: NameListService) { }
 
   ngOnInit() {
   }

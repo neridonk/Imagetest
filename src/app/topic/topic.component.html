@@ -1,25 +1,25 @@
 ﻿<!--filter content-->
 <div class="topicDiv">
-  <img src="assets/img/sport.png" class="bgPic">
+  <img [src]="this.nameListService.picURL" class="bgPic">
 
-  <h2><img src="assets/icon/chisamlogo.png" class="chisamlogo"></h2>
+  <h4 style="font-size:1.56rem;     margin: 35px; font-style:italic" [innerHtml]="this.nameListService.text"></h4>
 
   <div class="chipList" style="position:relative; z-index:2;     opacity: 0.9;">
 
     <div class="chip cursor" style="background-color:#D138BF; color:antiquewhite">
       Other
     </div>
+
     <div class="chip cursor" style="background-color:#7494EA; color:antiquewhite">
       Technology
     </div>
 
-    <div class="chip cursor" style="background-color:#28D34D; color:antiquewhite">
+    <div class="chip cursor" style="background-color:#28D34D; color:antiquewhite" routerLink="/t/landscape">
       Landscape & buildings
     </div>
 
-    <div class="chip cursor" style="background-color:#44CCFF; color:antiquewhite" routerLink="/t/fit">
-      <img src="assets/icon/fitness.png" alt="Contact Person">
-      Fitness
+    <div class="chip cursor" style="background-color:#44CCFF; color:antiquewhite" routerLink="/t/people">
+      People
     </div>
 
 
@@ -28,3 +28,4 @@
 </div>
 
 <router-outlet></router-outlet>
+<a *ngIf="loggeduserid" class="btn-floating  btn-large waves-effect waves-light" style="    position: fixed;    bottom: 4px; right: 4px;background-color:#e09513 !important" (click)="goToNewPicture()"><i class="material-icons">add_circle_outline</i></a>

@@ -14,7 +14,7 @@ export class AppComponent extends ParentClass implements AfterViewInit
    )
   {
     super();
-
+     
   }
 
   ngAfterViewInit()

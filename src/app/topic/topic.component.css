@@ -53,7 +53,8 @@
 }
 
 .chip:hover {
-  background-color: black !important;
+  background-color: white !important;
+  color:black !important;
 }
 
 .voteCount {
@@ -89,4 +90,10 @@
   display: inline-block;
   width: 48%;
   opacity: 0.3;
+}
+
+
+.credits {
+  font-size: 0.7rem;
+  margin-left: 49%;
 }

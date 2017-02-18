@@ -2,8 +2,6 @@
 import { NameListService } from '../../global/services/name-list.service';
 import { NavbarComponent } from '../../navbar/navbar.component';
 import { Images, Topic, User, croppData } from '../../models';
-declare var WOW: any;
-declare var $: any;
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,13 +12,8 @@ import { Router } from '@angular/router';
 export class OverviewComponent implements OnInit{
 
 
-  public isFilterHidden: boolean = true;
-  public selcategory: any = '';
   private topiclist: Topic[] = new Array();
-
   private currentRow: number = 0;
-
-  public loggeduserid: any;
   constructor(
     private nameListService: NameListService,
     private router: Router
@@ -28,7 +21,10 @@ export class OverviewComponent implements OnInit{
 
 
   ngOnInit() {
-    this.loggeduserid = NavbarComponent.userid;
+   
+      this.nameListService.picURL = 'assets/img/changeisamazing.png';
+
+      this.nameListService.text = 'The universe is change; our life is what our thoughts make it.';
 
     this.nameListService.getAllTopics(this.currentRow).subscribe(
       data => {
@@ -36,17 +32,7 @@ export class OverviewComponent implements OnInit{
       },
       err => alert(JSON.stringify(err))
     );
-
-
   }
-
-
-
-
-  public goToNewPicture() {
-    this.router.navigate(['/addPicture']);
-  }
-
 }
 
 
