@@ -35,6 +35,13 @@ export class LoginComponent
 
   nextStep()
   {
+  if (this.registerStep == 3)
+    {
+      this.registerStep = -1;
+      return;
+    }
+
+
     if (this.registerStep == 2)
     {
       if (this.newuser.name == null ||

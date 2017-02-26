@@ -27,10 +27,11 @@ p {
 }
 
 .bgLog {
-  position: absolute;
-  left: 0px;
-  z-index: 0;
-  width: 100%;
-  opacity: 0.7;
-  top: 0px;
+    position: absolute;
+    left: 0px;
+    z-index: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0.7;
+    top: 0px;
 }
