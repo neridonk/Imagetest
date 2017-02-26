@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+﻿import { Component, OnInit } from '@angular/core';
 import { NameListService } from '../global/services/name-list.service';
-import { Images, Topic, User,croppData } from '../models';
+import { Images, Topic, User, croppData } from '../models';
 import { NavbarComponent } from '../navbar/navbar.component';
 
 import { Router } from '@angular/router';
@@ -10,11 +10,8 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit
+export class LoginComponent 
 {
-
-
-
   private newuser: User = new User();
   private registerUser: User = new User();
   private registerStep: number = -1;
@@ -24,19 +21,12 @@ export class LoginComponent implements OnInit
     private router: Router
   ) { }
 
-
-  ngOnInit()
+  register()
   {
- 
-
-  }
-
-  register() {
-
     this.nameListService.register(this.newuser).subscribe(
-      data => {
-        this.registerStep =100;
-        
+      data =>
+      {
+        this.registerStep = 100;
       },
       err => alert(JSON.stringify(err))
 
@@ -45,21 +35,22 @@ export class LoginComponent implements OnInit
 
   nextStep()
   {
-    if(this.registerStep==2)
+    if (this.registerStep == 2)
     {
-        if(this.newuser.name ==null ||
-           this.newuser.password == null || 
-           this.newuser.email.length==null
-           ){
-             window.alert("You have not filled all requirements");
-             return;
-           }
+      if (this.newuser.name == null ||
+        this.newuser.password == null ||
+        this.newuser.email.length == null
+      )
+      {
+        window.alert("You have not filled all requirements");
+        return;
+      }
 
       this.register();
       return;
     }
 
-    this.registerStep +=1;
+    this.registerStep += 1;
   }
 
 
@@ -74,9 +65,9 @@ export class LoginComponent implements OnInit
         if (data == null)
           return alert("login failed");
 
-          localStorage.setItem('userid',data.userid);
-          NavbarComponent.userid = data.userid;
-             this.router.navigate(['/']);
+        localStorage.setItem('userid', data.userid);
+        NavbarComponent.userid = data.userid;
+        this.router.navigate(['/']);
 
 
       },

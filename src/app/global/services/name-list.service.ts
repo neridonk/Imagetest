@@ -117,9 +117,9 @@ export class NameListService extends ServiceClass {
   }
 
 
-  getAllTopics(currentRow : number): Observable<any> {
+  getAllTopics(currentRow : number, category: string, search : string): Observable<any> {
 
-    var param = 'currentRow='+currentRow;
+    var param = 'currentRow='+currentRow+'&category='+category+'&search='+search;
     this.showLoading();
     return this.get('getAllTopics.php', param).map((response: any) => {
       this.hideLoading();

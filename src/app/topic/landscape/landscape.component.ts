@@ -10,27 +10,22 @@ import { Router } from '@angular/router';
   templateUrl: './landscape.component.html',
   styleUrls: ['./landscape.component.css']
 })
-export class LandscapeComponent implements OnInit {
+export class LandscapeComponent implements OnInit
+{
+  public category: string = 'landscape';
 
-    private topiclist: Topic[] = new Array();
-    private currentRow: number = 0;
-    constructor(
-        private nameListService: NameListService,
-        private router: Router
-    ) { }
+  constructor(
+    private nameListService: NameListService,
+    private router: Router
+  ) { }
 
 
-    ngOnInit() {
+  ngOnInit()
+  {
 
-        this.nameListService.picURL = 'assets/img/landscape.png';
+    this.nameListService.picURL = 'assets/img/landscape.png';
 
-        this.nameListService.text = 'Loss is nothing else but change, and change is Natures delight.';
+    this.nameListService.text = 'Loss is nothing else but change, and change is Natures delight.';
 
-        this.nameListService.getAllTopics(this.currentRow).subscribe(
-            data => {
-                this.topiclist = data;
-            },
-            err => alert(JSON.stringify(err))
-        );
-    }
+  }
 }

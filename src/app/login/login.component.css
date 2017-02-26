@@ -1,4 +1,4 @@
-h3 {
+﻿h3 {
     color: #bfbfbf;
     font-size: 17px;
 }
@@ -24,4 +24,13 @@ p {
 
 .wrath-content-box {
     padding: 15px;
+}
+
+.bgLog {
+  position: absolute;
+  left: 0px;
+  z-index: 0;
+  width: 100%;
+  opacity: 0.7;
+  top: 0px;
 }

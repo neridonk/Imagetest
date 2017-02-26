@@ -3,10 +3,14 @@
     "",
     "\\src",
     "\\src\\app",
+    "\\src\\app\\global",
+    "\\src\\app\\global\\components",
+    "\\src\\app\\login",
     "\\src\\app\\topic",
-    "\\src\\app\\topic\\fitness",
-    "\\src\\app\\topic\\overview"
+    "\\src\\app\\topic\\people",
+    "\\src\\assets",
+    "\\src\\assets\\img"
   ],
-  "SelectedNode": "\\src\\app\\topic\\overview\\overview.component.ts",
+  "SelectedNode": "\\src\\app\\topic\\topic.component.html",
   "PreviewInSolutionExplorer": false
 }

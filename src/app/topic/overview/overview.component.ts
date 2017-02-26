@@ -11,9 +11,9 @@ import { Router } from '@angular/router';
 })
 export class OverviewComponent implements OnInit{
 
+  public category: string = '';
 
-  private topiclist: Topic[] = new Array();
-  private currentRow: number = 0;
+
   constructor(
     private nameListService: NameListService,
     private router: Router
@@ -25,13 +25,6 @@ export class OverviewComponent implements OnInit{
       this.nameListService.picURL = 'assets/img/changeisamazing.png';
 
       this.nameListService.text = 'The universe is change; our life is what our thoughts make it.';
-
-    this.nameListService.getAllTopics(this.currentRow).subscribe(
-      data => {
-        this.topiclist = data;
-      },
-      err => alert(JSON.stringify(err))
-    );
   }
 }
 

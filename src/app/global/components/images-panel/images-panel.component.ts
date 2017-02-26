@@ -1,5 +1,6 @@
 ﻿import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
 import { Images, Topic, User, croppData } from '../../../models';
+import { NameListService } from '../../services/name-list.service';
 declare var WOW: any;
 declare var $: any;
 import { Router } from '@angular/router';
@@ -11,14 +12,20 @@ import { Router } from '@angular/router';
 })
 export class ImagesPanelComponent implements OnInit, AfterViewInit
 {
-
   @Input()
+  private category: string = "";
+
+  private search: string = "";
+
+  private currentRow: number = 0;
+
   private topiclist: Topic[] = new Array();
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private nameListService: NameListService) { }
 
   ngOnInit()
   {
+    this.fetchTopicList();
   }
 
   ngAfterViewInit()
@@ -33,11 +40,23 @@ export class ImagesPanelComponent implements OnInit, AfterViewInit
       if ($(window).scrollTop() + $(window).height() >=
         $('.CONTAINER').offset().top + $('.CONTAINER').height())
       {
-        alert('asd');
+        this.currentRow += 1;
+
+        this.fetchTopicList();
       }
 
     });
 
+  }
+
+  private fetchTopicList()
+  {
+    this.nameListService.getAllTopics(this.currentRow, this.category, this.search).subscribe(
+      data =>
+      {
+        this.topiclist = data;
+      },
+      err => alert(JSON.stringify(err)));
   }
 
   public goToAbout(id: number)
