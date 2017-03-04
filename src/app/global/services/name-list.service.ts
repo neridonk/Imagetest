@@ -28,6 +28,15 @@ export class NameListService extends ServiceClass {
     this.hideLoading();
   }
 
+  updateTopic(id: any): Observable<any>
+  {
+    this.showLoading();
+    return this.get('upvoteTopic.php', 'id=' + id).map((response: any) =>
+    {
+      this.hideLoading();
+      return <any>response.json();
+    });
+  }
 
   getCommentsbyId(id: any): Observable<any> {
     this.showLoading();

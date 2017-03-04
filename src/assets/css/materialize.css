@@ -1,4 +1,4 @@
-/*!
+﻿/*!
  * Materialize v0.98.0 (http://materializecss.com)
  * Copyright 2014-2015 Materialize
  * MIT License (https://raw.githubusercontent.com/Dogfalo/materialize/master/LICENSE)
@@ -4637,13 +4637,13 @@ footer.page-footer .footer-copyright {
     border-radius: 2px;
 }
 
-.card .card-title {
+  .card .card-title {
     padding: 10px 10px;
-    background-color: #334852;
-    color: #7c5b9e;
+    background-color: rgb(80, 80, 80);
+    color: white;
     font-size: 24px;
     font-weight: 300;
-}
+  }
 
 .card .card-title.activator {
     cursor: pointer;

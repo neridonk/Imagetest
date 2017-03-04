@@ -21,7 +21,9 @@
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-
+.opendb
+.db
+/.vs
 # misc
 /.sass-cache
 /connect.lock

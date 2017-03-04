@@ -55,6 +55,7 @@ export class Topic {
     public category?: string,
     public userid?: number,
     public date?: Date,
+    public upvote?: number,
     public images?: Images[],
     public comments?: Comment[],
     public user?: User
