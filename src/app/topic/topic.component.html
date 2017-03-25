@@ -1,24 +1,22 @@
 ﻿<!--filter content-->
 <div class="topicDiv">
-  <img [src]="this.nameListService.picURL" class="bgPic">
+  <img [src]="this.nameListService.picURL" class="bgPic animatePic" id="picId">
 
-  <h4 style="font-size:1.56rem;     margin: 35px; font-style:italic" [innerHtml]="this.nameListService.text"></h4>
+  <div class="chipList" style="position:relative; z-index:2;   margin-top:20px;  opacity: 0.9;">
 
-  <div class="chipList" style="position:relative; z-index:2;     opacity: 0.9;">
-
-    <div class="chip cursor" style="background-color: rgba(243, 243, 243, 0.13);    color: #D138BF;   border: 1px solid #D138BF;">
+    <div class="chip cursor cp" style="background-color: rgba(243, 243, 243, 0.13);    color: #D138BF;   border: 1px solid #D138BF;">
       Other
     </div>
 
-    <div class="chip cursor" style="background-color: rgba(243, 243, 243, 0.13);    color: #7494EA;   border: 1px solid #7494EA;">
+    <div class="chip cursor cp" style="background-color: rgba(243, 243, 243, 0.13);    color: #7494EA;   border: 1px solid #7494EA;">
       Technology
     </div>
 
-    <div class="chip cursor" style=" background-color: rgba(243, 243, 243, 0.13);    color: #28D34D;   border: 1px solid #28D34D;" routerLink="/t/landscape">
+    <div class="chip cursor cp" style=" background-color: rgba(243, 243, 243, 0.13);    color: #28D34D;   border: 1px solid #28D34D;" routerLink="/t/landscape">
       Landscape & buildings
     </div>
 
-    <div class="chip cursor" style=" background-color: rgba(243, 243, 243, 0.13);    color: #39f;   border: 1px solid #44CCFF;" routerLink="/t/people">
+    <div class="chip cursor cp" style=" background-color: rgba(243, 243, 243, 0.13);    color: #39f;   border: 1px solid #44CCFF;" routerLink="/t/people">
       People
     </div>
 

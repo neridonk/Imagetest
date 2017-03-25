@@ -1,4 +1,4 @@
-﻿import { Component, OnInit } from '@angular/core';
+﻿import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { NameListService } from '../global/services/name-list.service';
 
 @Component({
@@ -6,13 +6,18 @@ import { NameListService } from '../global/services/name-list.service';
   templateUrl: './topic.component.html',
   styleUrls: ['./topic.component.css']
 })
-export class TopicComponent implements OnInit {
+export class TopicComponent implements AfterViewInit {
 
 
 
     constructor(private nameListService: NameListService) { }
 
-  ngOnInit() {
+    ngAfterViewInit()
+    {
+      setTimeout(() =>
+      {
+
+      }, 2000);
   }
 
 }

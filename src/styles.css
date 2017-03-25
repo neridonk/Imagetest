@@ -4,15 +4,15 @@
 /* fallback */
 
 @font-face {
-    font-family: 'Material Icons';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Material Icons'), local('MaterialIcons-Regular'), url('assets/font/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2') format('woff2');
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Material Icons'), local('MaterialIcons-Regular'), url('assets/font/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2') format('woff2');
 }
 
-.cursor{
-  cursor:pointer;
-} 
+.cursor {
+  cursor: pointer;
+}
 
 .material-icons {
   font-family: 'Material Icons';
@@ -31,42 +31,59 @@
 }
 
 .inlineBlock {
-    display: inline-block;
+  display: inline-block;
 }
 
 .imgAk {
-    display: inline-block !important;
-    width: 49% !important;
+  display: inline-block !important;
+  width: 49% !important;
 }
 
-body {}
+body {
+}
 
 .titleNew {
-    padding: 5px !important;
-    width: 100%;
-    background-color: #eaeaea;
-    font-size: 17px !important;
-    opacity: 0.8;
+  padding: 5px !important;
+  width: 100%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 0px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0) !important;
+  text-shadow: 1px 1px 3px black;
+  font-size: 26px !important;
+  color: white !important;
+  height: 50px !important;
 }
 
-.fileinputer {
-    padding: 5px;
-    background-color: #797979;
-    width: 100%;
-    color: #efefef;
+  .titleNew:hover {
+    height: 70px !important;
+    font-size: 31px !important;
+  }
+  .fileinputer {
+  padding: 5px;
+  background-color: #797979;
+  width: 100%;
+  color: #efefef;
 }
 
 loading {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    height: 100%;
-    width: 100%;
-    background-color: white;
-    opacity: 0.9;
-    z-index: 10000;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  opacity: 0.9;
+  z-index: 10000;
 }
 
 a {
-    cursor: pointer;
+  cursor: pointer;
+}
+
+.card {
+  box-shadow: 0px 0px 0px black !important;
+  border-radius: 0px !important;
 }

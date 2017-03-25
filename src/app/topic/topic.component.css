@@ -34,7 +34,14 @@
   width: 100%;
   text-align: center;
   color: white;
-  background-color: rgba(101, 101, 83, 0.23);
+}
+
+.cp {
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  font-size: 1.2rem;
+  padding: 10px;
+  height: inherit;
 }
 
 .roundbtn {
@@ -52,10 +59,9 @@
   transition: all 0.3s linear;
 }
 
-.chip:hover {
-  background-color: white !important;
-  color:black !important;
-}
+  .chip:hover {
+    color: black !important;
+  }
 
 .voteCount {
   padding: 8px;
@@ -96,4 +102,9 @@
 .credits {
   font-size: 0.7rem;
   margin-left: 49%;
+}
+
+
+.animatePic {
+
 }
