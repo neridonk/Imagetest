@@ -3,14 +3,11 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\global",
-    "\\src\\app\\global\\components",
-    "\\src\\app\\login",
+    "\\src\\app\\landing-page",
     "\\src\\app\\topic",
-    "\\src\\app\\topic\\people",
     "\\src\\assets",
     "\\src\\assets\\img"
   ],
-  "SelectedNode": "\\src\\app\\topic\\topic.component.html",
+  "SelectedNode": "\\src\\app\\app.module.ts",
   "PreviewInSolutionExplorer": false
 }

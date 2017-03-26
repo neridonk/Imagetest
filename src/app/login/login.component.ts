@@ -54,6 +54,7 @@ export class LoginComponent
       }
 
       this.register();
+      this.registerStep += 1;
       return;
     }
 

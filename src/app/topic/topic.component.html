@@ -4,20 +4,17 @@
 
   <div class="chipList" style="position:relative; z-index:2;   margin-top:20px;  opacity: 0.9;">
 
-    <div class="chip cursor cp" style="background-color: rgba(243, 243, 243, 0.13);    color: #D138BF;   border: 1px solid #D138BF;">
-      Other
+    <div class="cp " routerLink="/t/technology">
+      <img src="https://images.pexels.com/photos/341523/pexels-photo-341523.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb" class="imgcp" />
+      <h4 class="cpTitle flow-text"> Technology </h4>
     </div>
-
-    <div class="chip cursor cp" style="background-color: rgba(243, 243, 243, 0.13);    color: #7494EA;   border: 1px solid #7494EA;">
-      Technology
+    <div class="cp " routerLink="/t/landscape">
+      <img src="assets/img/landscape.png" class="imgcp" />
+      <h4 class="cpTitle flow-text"> Landscape </h4>
     </div>
-
-    <div class="chip cursor cp" style=" background-color: rgba(243, 243, 243, 0.13);    color: #28D34D;   border: 1px solid #28D34D;" routerLink="/t/landscape">
-      Landscape & buildings
-    </div>
-
-    <div class="chip cursor cp" style=" background-color: rgba(243, 243, 243, 0.13);    color: #39f;   border: 1px solid #44CCFF;" routerLink="/t/people">
-      People
+    <div class="cp " routerLink="/t/people">
+      <img src="assets/img/sport.png" class="imgcp"/>
+      <h4 class="cpTitle flow-text">People</h4>
     </div>
 
 
@@ -26,3 +23,8 @@
 </div>
 
 <router-outlet></router-outlet>
+
+
+<a [routerLink]="['../addPicture']" class="btn-floating" style="position:fixed; right:5px; bottom:5px">
+  <i class="material-icons">add</i>
+</a>
