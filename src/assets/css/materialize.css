@@ -2431,7 +2431,7 @@ input,
 optgroup,
 select,
 textarea {
-    color: inherit;
+    color: black;
     /* 1 */
     font: inherit;
     /* 2 */
@@ -4785,7 +4785,7 @@ footer.page-footer .footer-copyright {
 
 .card .card-content p {
     margin: 0;
-    color: inherit;
+    color: black;
 }
 
 .card .card-content .card-title {

@@ -36,6 +36,9 @@ export class ImagesPanelComponent implements OnInit, AfterViewInit
 
     $(window).scroll(() =>
     {
+      if ($('.CONTAINER') == null)
+        return;
+
       if ($(window).scrollTop() + $(window).height() >=
         $('.CONTAINER').offset().top + $('.CONTAINER').height())
       {
@@ -57,7 +60,7 @@ export class ImagesPanelComponent implements OnInit, AfterViewInit
           this.topiclist.push(d);
         });
 
-        this.currentRow = + data.length;
+        this.currentRow = this.topiclist.length;
       },
       err => JSON.stringify(err));
   }
