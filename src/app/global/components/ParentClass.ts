@@ -6,8 +6,15 @@ export class ParentClass
 {
   private static isloading: boolean = false;
 
+  protected static userId;
+
   constructor()
   {
+  }
+
+  public userId() 
+  {
+    return Number(localStorage.getItem('userid'));
   }
 
   public static loadingHide(): void 

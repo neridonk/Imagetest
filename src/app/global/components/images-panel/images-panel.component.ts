@@ -34,9 +34,8 @@ export class ImagesPanelComponent implements OnInit, AfterViewInit
     new WOW().init();
     $('select').material_select();
 
-    $(window).scroll(function ()
+    $(window).scroll(() =>
     {
-
       if ($(window).scrollTop() + $(window).height() >=
         $('.CONTAINER').offset().top + $('.CONTAINER').height())
       {
@@ -46,7 +45,6 @@ export class ImagesPanelComponent implements OnInit, AfterViewInit
       }
 
     });
-
   }
 
   private fetchTopicList()
@@ -54,9 +52,14 @@ export class ImagesPanelComponent implements OnInit, AfterViewInit
     this.nameListService.getAllTopics(this.currentRow, this.category, this.search).subscribe(
       data =>
       {
-        this.topiclist = data;
+        data.forEach((d) =>
+        {
+          this.topiclist.push(d);
+        });
+
+        this.currentRow = + data.length;
       },
-      err => alert(JSON.stringify(err)));
+      err => JSON.stringify(err));
   }
 
   public goToAbout(id: number)

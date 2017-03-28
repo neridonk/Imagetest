@@ -1693,7 +1693,7 @@
 }
 
 .orange.lighten-1 {
-    background-color: #ffa726 !important;
+  background-color: #17b3ef !important;
 }
 
 .orange-text.text-lighten-1 {
@@ -5132,13 +5132,13 @@ footer.page-footer .footer-copyright {
 
 .btn,
 .btn-large {
-    text-decoration: none;
-    color: #fff;
-    background-color: #ffa000;
-    text-align: center;
-    letter-spacing: .5px;
-    transition: .2s ease-out;
-    cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+  background-color: #17b3ef;
+  text-align: center;
+  letter-spacing: .5px;
+  transition: .2s ease-out;
+  cursor: pointer;
 }
 
 .btn:hover,

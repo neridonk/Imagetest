@@ -3,11 +3,13 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\landing-page",
+    "\\src\\app\\global\\components",
+    "\\src\\app\\global\\components\\images-panel",
+    "\\src\\app\\navbar",
     "\\src\\app\\topic",
     "\\src\\assets",
     "\\src\\assets\\img"
   ],
-  "SelectedNode": "\\src\\app\\app.module.ts",
+  "SelectedNode": "\\src\\index.html",
   "PreviewInSolutionExplorer": false
 }

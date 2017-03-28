@@ -1,6 +1,7 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+﻿import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { NameListService } from '../global/services/name-list.service';
 import { NavbarComponent } from '../navbar/navbar.component';
+import { ParentClass } from 'components';
 import { Images, Topic, User,croppData } from '../models';
 declare var Cropper: any;
 declare var $: any;
@@ -10,7 +11,8 @@ declare var $: any;
   templateUrl: './add-picture.component.html',
   styleUrls: ['./add-picture.component.css']
 })
-export class AddPictureComponent  implements OnInit, AfterViewInit {
+export class AddPictureComponent extends ParentClass implements OnInit, AfterViewInit
+{
 
 
   cropperBefore: croppData = new croppData();
@@ -23,7 +25,10 @@ export class AddPictureComponent  implements OnInit, AfterViewInit {
   private imageBefore: Images = new Images();
   private imageafter: Images = new Images();
 
-  constructor(private nameListService: NameListService) { }
+  constructor(private nameListService: NameListService)
+  {
+    super();
+  }
 
 
   ngOnInit() {
@@ -33,7 +38,7 @@ export class AddPictureComponent  implements OnInit, AfterViewInit {
 
 
 
-  this.nameListService.getUserbyId(localStorage.getItem('userid')).subscribe(
+    this.nameListService.getUserbyId(this.userId()).subscribe(
       data => {
       this.user = data[0];
       this.topic.userid = this.user.userid;

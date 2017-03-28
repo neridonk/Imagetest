@@ -1,4 +1,4 @@
-:host {}
+﻿:host {}
 
 .imageContainer {
     background-color: white;
@@ -20,7 +20,7 @@
 }
 
 .cardTitleexAfter {
-    background-color: orangered;
+  background-color: #17b3ef;
 }
 
 .cropbtn {}
