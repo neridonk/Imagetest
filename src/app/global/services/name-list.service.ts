@@ -134,6 +134,16 @@ export class NameListService extends ServiceClass {
     });
   }
 
+  getAllFeaturedTopics(category: string): Observable<Topic[]>
+  {
+    var param = 'category=' + category;
+    return this.get('getAllFeatured.php', param).map((response: any) =>
+    {
+      return <Topic[]>response.json();
+    });
+  }
+
+
   getTopicbyId(id: any): Observable<any> {
     this.showLoading();
     return this.get('getTopicById.php', 'id=' + id).map((response: any) => {

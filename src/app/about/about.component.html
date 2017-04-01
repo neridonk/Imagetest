@@ -131,15 +131,15 @@
         <div style="position: relative">
           <a class="inlineBlock">{{item.user?.name}}</a>
           <i class="material-icons inlineBlock tiny">chat_bubble</i>
-          <p class="inlineBlock" stlye="color: #d8d8d8;"> {{item.texts}}</p>
-          <div class="dateCommentPanel">{{item.datum | date }}</div>
+          <p class="inlineBlock" style="color: white !important;"> {{item.texts}}</p>
+          <div class="dateCommentPanel">{{formatTime(item.datum)}}</div>
         </div>
       </div>
     </div>
 
     <div class="card-action">
       <div class="input-field ">
-        <textarea id="textarea2" class="materialize-textarea" [(ngModel)]="newComment.texts"></textarea>
+        <textarea id="textarea2" class="materialize-textarea" style="    color: white;" [(ngModel)]="newComment.texts"></textarea>
         <label for="textarea2">Comment</label>
       </div>
       <a class="" (click)="hideComments=true">Close</a>

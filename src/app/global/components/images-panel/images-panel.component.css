@@ -12,23 +12,31 @@
   }
 
 
-.imgCard .card-title {
-  -webkit-transition: all 0.2s linear;
-  -moz-transition: all 0.2s linear;
-  -o-transition: all 0.2s linear;
-  transition: all 0.25s linear;
-  height: 30px;
-  overflow: hidden;
-}
+  .imgCard .card-title {
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.25s linear;
+    height: 30px;
+    overflow: hidden;
+  }
 
-.imgCard:hover .card-title {
-  opacity: 0.8;
-  background-color: white;
-  color: black;
-  height: 70px;
-}
+  .imgCard:hover .card-title {
+    opacity: 0.8;
+    background-color: white;
+    color: black;
+    height: 70px;
+  }
 
+.lorbeeri {
+  position: absolute;
+  right: 10px;
+  top: 2px;
+  z-index: 2;
+  width: 50px;
+  padding: 4px;
+
+}
 
 .CONTAINER {
-
 }

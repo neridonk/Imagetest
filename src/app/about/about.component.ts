@@ -5,6 +5,7 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
 declare var Cropper: any;
+var moment = require('moment');
 declare var $: any;
 declare var WOW: any;
 @Component({
@@ -17,8 +18,6 @@ export class AboutComponent implements AfterViewInit
 
   private topic: Topic;
   private isNotMe: boolean = true;
-
-
 
   public addnewPic: boolean = true;
   public hideComments: boolean = true;
@@ -58,7 +57,6 @@ export class AboutComponent implements AfterViewInit
 
   ngAfterViewInit()
   {
-
     new WOW().init();
     $('.datepicker').pickadate({
       selectMonths: true, // Creates a dropdown to control month
@@ -173,9 +171,8 @@ export class AboutComponent implements AfterViewInit
     );
   }
 
-  public getDiffTime(date : any): number
+  public getDiffTime(date: any): number
   {
-    debugger;
     if (date == null)
     {
       return 10;
@@ -188,8 +185,8 @@ export class AboutComponent implements AfterViewInit
 
   public post()
   {
-   
-    if (this.getDiffTime(localStorage.getItem("lsCmt"))<1)
+
+    if (this.getDiffTime(localStorage.getItem("lsCmt")) < 1)
     {
       return;
     }
@@ -219,5 +216,10 @@ export class AboutComponent implements AfterViewInit
       },
       err => alert(JSON.stringify(err))
     );
+  }
+
+  public formatTime(date: Date)
+  {
+    return moment.duration(date).humanize();
   }
 }

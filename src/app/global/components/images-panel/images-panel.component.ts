@@ -3,6 +3,8 @@ import { Images, Topic, User, croppData } from '../../../models';
 import { NameListService } from '../../services/name-list.service';
 declare var WOW: any;
 declare var $: any;
+var moment = require('moment');
+
 import { Router } from '@angular/router';
 
 @Component({
@@ -20,12 +22,24 @@ export class ImagesPanelComponent implements OnInit, AfterViewInit
   private currentRow: number = 0;
 
   private topiclist: Topic[] = new Array();
+  private featuredtopiclist: Topic[] = new Array();
 
   constructor(private router: Router, private nameListService: NameListService) { }
 
   ngOnInit()
   {
     this.fetchTopicList();
+
+    this.nameListService.getAllFeaturedTopics(this.category).subscribe(
+      data =>
+      {
+        data.forEach((d) =>
+        {
+          this.featuredtopiclist.push(d);
+        });
+
+      },
+      err => JSON.stringify(err));
   }
 
   ngAfterViewInit()
@@ -65,9 +79,17 @@ export class ImagesPanelComponent implements OnInit, AfterViewInit
       err => JSON.stringify(err));
   }
 
+  public formatTime(date: any)
+  {
+    var todaysDate = moment(new Date());
+    var oDate = moment(date);
+    var diffDays = oDate.diff(todaysDate, 'days');
+    console.log(oDate + "----" + diffDays);
+    return moment.duration(diffDays).humanize(true);
+
+  }
   public goToAbout(id: number)
   {
     this.router.navigate(['/about', id]);
   }
-
 }

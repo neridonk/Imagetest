@@ -13,6 +13,35 @@
 
 
 <div class="row CONTAINER">
+
+
+
+  <div *ngFor="let top of featuredtopiclist" class="col s12 m6 l5" style="padding:5px !important;">
+    <div class="card  wow pulse imgCard" style="    background-color: rgba(255, 255, 255, 0.62);">
+
+      <img src="assets/img/featured.png" class="lorbeeri" />
+
+
+      <div class="card-image" (click)="goToAbout(top.topicid)">
+        <img src="http://changeisamazing.com/images/{{top.images[0].url}}" class="imgAk" />
+        <img src="http://changeisamazing.com/images/{{top.images[top.images.length-1]?.url}}" class="imgAk" />
+        <span class="card-title titleNew ">{{top.title}}</span>
+      </div>
+      <div class="card-action grey-text " style="padding:7px">
+        <div class="inlineBlock">
+          <i class="material-icons tiny">sentiment_very_satisfied</i> {{top.upvote}}
+        </div>
+        <div class="inlineBlock">
+          <i class="material-icons tiny">photo_library</i> {{top.images.length}}
+        </div>
+        <div class="right">
+          {{top.category }} {{formatTime(top.date)}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+
   <div *ngFor="let top of topiclist" class="col s12 m4 l3" style="padding:5px !important;">
     <div class="card  wow pulse imgCard" style="    background-color: rgba(255, 255, 255, 0.62);">
       <div class="card-image" (click)="goToAbout(top.topicid)">
@@ -28,9 +57,11 @@
           <i class="material-icons tiny">photo_library</i> {{top.images.length}}
         </div>
         <div class="right">
-          {{top.category }} {{top.date | date}}
+          {{top.category }} {{formatTime(top.date)}}
         </div>
       </div>
     </div>
   </div>
+
+
 </div>

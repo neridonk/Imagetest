@@ -23,7 +23,8 @@
             "assets/css/materialize.css"
         ],
         "scripts": [
-            "assets/css/cropper.min.js"
+            "assets/css/cropper.min.js",
+            "assets/css/moment.min.js"
         ],
         "environments": {
             "source": "environments/environment.ts",
