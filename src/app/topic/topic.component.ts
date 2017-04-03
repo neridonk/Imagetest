@@ -1,5 +1,6 @@
 ﻿import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from 'models';
 import { ParentClass } from 'components';
 import { NameListService } from '../global/services/name-list.service';
 
@@ -10,6 +11,9 @@ import { NameListService } from '../global/services/name-list.service';
 })
 export class TopicComponent extends ParentClass implements AfterViewInit
 {
+  public showRegister: boolean = false;
+  public newuser: User = new User();
+  public registerStep = 0;
 
   constructor(
     private router: Router,
@@ -20,6 +24,29 @@ export class TopicComponent extends ParentClass implements AfterViewInit
 
   ngAfterViewInit()
   {
+    if (this.userId() == 0)
+    {
+      this.showRegister = true;
+    }
+  }
+
+  register()
+  {
+    this.nameListService.register(this.newuser).subscribe(
+      data =>
+      {
+        this.registerStep = 100;
+
+        setTimeout(() =>
+        {
+          this.showRegister = false;
+
+
+        }, 4000)
+      },
+      err => alert(JSON.stringify(err))
+
+    );
   }
 
   public goToProfile()

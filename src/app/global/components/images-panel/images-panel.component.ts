@@ -82,11 +82,9 @@ export class ImagesPanelComponent implements OnInit, AfterViewInit
   public formatTime(date: any)
   {
     var todaysDate = moment(new Date());
-    var oDate = moment(date);
-    var diffDays = oDate.diff(todaysDate, 'days');
-    console.log(oDate + "----" + diffDays);
-    return moment.duration(diffDays).humanize(true);
+    var oDate = moment(new Date(date)).fromNow();
 
+    return oDate;
   }
   public goToAbout(id: number)
   {
