@@ -34,53 +34,22 @@
   <i class="material-icons">add</i>
 </a>
 
-<div class="specReg" *ngIf="showRegister">
+<div class="specReg " *ngIf="showRegister">
   <div class="row center">
     <div class="col s12 m3 l4">
     </div>
 
-    <div class="col s12 m6 l4 regBg" *ngIf="registerStep==0">
 
-      <div class="wrath-content-box center row">
-        <br />
-        <br />
+    <div class="row">
+      <div class="center">
+        <input type="button" class="inlineBlock btn-large" style="background-color: #17b3ef; color: white !important;" value="Register now!" routerLink="/login" />
+        <br>
 
-        <div class="container">
-          Username
-          <div class="input-field">
-            <input type="text" id="first_name" class="center" [(ngModel)]="newuser.name" />
-          </div>
-        </div>
 
-        <div class="container">
-          Password
-          <div class="input-field ">
-            <input type="password" id="pass" class="center" [(ngModel)]="newuser.password" />
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="center">
-            <input type="button" class="inlineBlock btn-large" style="background-color: #17b3ef; color: white !important;" value="Register now!" (click)="login() " />
-            <br>
-            <br>
-            <br>
-
-            <a (click)="showRegister=false">register later</a>
-          </div>
-        </div>
-
+        <a (click)="showRegister=false">register later</a>
       </div>
     </div>
 
-
-    <div class="col s12 m6 l4 regBg" *ngIf="registerStep==100">
-      <h3> <i class="material-icons prefix">thumb_up</i></h3>
-      Well done! You can login to your account now.
-
-    </div>
-
   </div>
-
-
 </div>
+
