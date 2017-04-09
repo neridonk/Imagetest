@@ -33,10 +33,16 @@
 
 <div class="specReg row " *ngIf="showRegister">
 
-  <div class="col s12 m3 l4 regPanel">
-  
-    <input type="button" class="inlineBlock btn-large" style="background-color: #17b3ef; color: white !important;" value="Register now!" routerLink="/login" />
-    <br>
+  <div class="col s12 m6 l7 regPanel" style="background-color: white; padding: 30px;">
+
+    <div style="font-size:3rem; background-color: rgb(255, 186, 82);    color: rgb(255, 255, 255);">
+    <p style="font-size:2rem">Many different and amazing stories</p>
+      Tell us <b style="color:#17b3ef">your</b> story and inspire others
+
+    </div>
+    <br><br>
+    <input type="button" class="inlineBlock btn-large" style="background-color: #17b3ef; color: white !important;" value="Register now" routerLink="/login" />
+    <br><br>
 
 
     <a (click)="showRegister=false">register later</a>

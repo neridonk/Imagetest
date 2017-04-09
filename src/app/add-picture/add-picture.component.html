@@ -1,23 +1,14 @@
-﻿<div class="row container">
+﻿
+<div style="width:100%; height:100%; z-index:-1;    background-color: #444444; position:fixed">
+</div>
 
-    <div class="input-field col s12">
-        <input id="ttiel" type="text" [(ngModel)]="topic.title" class="validate">
-        <label for="ttiel">Title</label>
+<div class="row container">
+
+    <div class="input-field col s12" style="    background-color: orange;   ">
+        <input style=" color: white; border-bottom: 1px solid white;" id="ttiel" type="text" [(ngModel)]="topic.title" class="validate">
+        <label style=" color: white;" for="ttiel">Title</label>
     </div>
-
-    <div class="input-field col s12">
-        <select [(ngModel)]="topic.category" class="icons">
-                <option value="" disabled selected>Choose a category</option>
-                <option value="fitness" data-icon="assets/icon/fitness.png" class="left">People</option>
-                <option value="landscape" data-icon="assets/icon/landscape.png" class="left">Landscape</option>
-                <option value="technology" data-icon="assets/icon/it.png" class="left">Technology</option>
-                <option value="other" data-icon="assets/icon/other.png" class="left">Other</option>
-                </select>
-        <label>Category</label>
-    </div>
-
-
-
+  
     <div class="col s12 m5">
         <div class="card">
             <span class="card-title cardTitleex">Before </span>
