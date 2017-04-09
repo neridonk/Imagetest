@@ -12,8 +12,6 @@ import { NameListService } from '../global/services/name-list.service';
 export class TopicComponent extends ParentClass implements AfterViewInit
 {
   public showRegister: boolean = false;
-  public newuser: User = new User();
-  public registerStep = 0;
 
   constructor(
     private router: Router,
@@ -30,25 +28,6 @@ export class TopicComponent extends ParentClass implements AfterViewInit
     }
   }
 
-  register()
-  {
-    this.nameListService.register(this.newuser).subscribe(
-      data =>
-      {
-        this.registerStep = 100;
-
-        setTimeout(() =>
-        {
-          this.showRegister = false;
-
-
-        }, 4000)
-      },
-      err => alert(JSON.stringify(err))
-
-    );
-  }
-
   public goToProfile()
   {
     //Eine Quest Implementieren : mit coolen effekten pew pew eine neue quest ist availible 
@@ -58,7 +37,7 @@ export class TopicComponent extends ParentClass implements AfterViewInit
       return;
     }
 
-    this.router.navigate(['/profile', this.userId() ]);
+    this.router.navigate(['/profile', this.userId()]);
   }
 
 }

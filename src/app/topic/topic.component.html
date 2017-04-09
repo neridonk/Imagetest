@@ -9,17 +9,14 @@
 
   <div class="chipList" style="position:relative; z-index:2;  opacity: 0.9;">
 
-    <div class="cp " routerLink="/t/technology">
-      <img src="https://images.pexels.com/photos/341523/pexels-photo-341523.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb" class="imgcp" />
-      <h4 class="cpTitle flow-text"> Technology </h4>
+    <div class="cp " routerLink="/t/featured">
+      <img src="http://images.all-free-download.com/images/graphiclarge/golden_laurel_wreath_design_vector_535017.jpg" class="imgcp" />
+      <h4 class="cpTitle flow-text"> Featured </h4>
     </div>
-    <div class="cp " routerLink="/t/landscape">
-      <img src="assets/img/landscape.png" class="imgcp" />
-      <h4 class="cpTitle flow-text"> Landscape </h4>
-    </div>
-    <div class="cp " routerLink="/t/people">
+
+    <div class="cp " routerLink="/t/all">
       <img src="assets/img/sport.png" class="imgcp" />
-      <h4 class="cpTitle">People</h4>
+      <h4 class="cpTitle">Changes</h4>
     </div>
 
 
@@ -30,26 +27,22 @@
 <router-outlet></router-outlet>
 
 
-<a [routerLink]="['../addPicture']" class="btn-floating" style="position:fixed; right:5px; bottom:5px">
+<a [routerLink]="['../addPicture']" class="btn-floating" style="position:fixed; right:5px; bottom:5px;    background-color: #17b3ef;">
   <i class="material-icons">add</i>
 </a>
 
-<div class="specReg " *ngIf="showRegister">
-  <div class="row center">
-    <div class="col s12 m3 l4">
-    </div>
+<div class="specReg row " *ngIf="showRegister">
+
+  <div class="col s12 m3 l4 regPanel">
+  
+    <input type="button" class="inlineBlock btn-large" style="background-color: #17b3ef; color: white !important;" value="Register now!" routerLink="/login" />
+    <br>
 
 
-    <div class="row">
-      <div class="center">
-        <input type="button" class="inlineBlock btn-large" style="background-color: #17b3ef; color: white !important;" value="Register now!" routerLink="/login" />
-        <br>
-
-
-        <a (click)="showRegister=false">register later</a>
-      </div>
-    </div>
+    <a (click)="showRegister=false">register later</a>
 
   </div>
+
+
 </div>
 
