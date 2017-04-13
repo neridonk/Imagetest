@@ -22,7 +22,6 @@ export class PeopleComponent implements OnInit {
 
     ngOnInit() {
         this.nameListService.picURL = 'assets/img/sport.png';
-        this.nameListService.text = 'Only I can change my life. No one can do it for me.';
        
     }
 }

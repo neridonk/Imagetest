@@ -46,7 +46,7 @@
 
 
 <!-- new Pic-->
-<div [hidden]="addnewPic" class="row" style="height: 90vh;     overflow-x: hidden; overflow-y: auto;">
+<div *ngIf="!addnewPic" class="row" style="height: 90vh;     overflow-x: hidden; overflow-y: auto;">
   <div class="col s12 l4">
   </div>
 

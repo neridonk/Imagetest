@@ -2,6 +2,7 @@
 import { Images, Topic, User, Comment, croppData } from '../models';
 import { NameListService } from '../global/services/name-list.service';
 import { NavbarComponent } from '../navbar/navbar.component';
+import { ParentClass } from 'components';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
 declare var Cropper: any;
@@ -13,7 +14,7 @@ declare var WOW: any;
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css']
 })
-export class AboutComponent implements AfterViewInit
+export class AboutComponent extends ParentClass implements AfterViewInit
 {
 
   private topic: Topic;
@@ -33,20 +34,17 @@ export class AboutComponent implements AfterViewInit
     private router: Router,
     private nameListService: NameListService)
   {
-
+    super();
     this.id = +this.route.snapshot.params['id'];
-
 
     this.nameListService.getTopicbyId(this.id).subscribe(
       data =>
       {
         this.topic = data[0];
 
-        if (String(this.topic.userid) == localStorage.getItem('userid'))
-          this.isNotMe = false;
+
 
         this.newComment.topicid = this.topic.topicid;
-        this.newComment.userid = Number(localStorage.getItem('userid'));
 
         this.initComments();
 
@@ -54,6 +52,21 @@ export class AboutComponent implements AfterViewInit
       err => alert(JSON.stringify(err))
     );
   }
+
+  public fetchMe()
+  {
+    this.nameListService.getUserbyCst(this.cst()).subscribe(
+      data =>
+      {
+        if (String(this.topic.userid) == data.userid)
+          this.isNotMe = false;
+
+        this.newComment.userid = data.userid;
+      },
+      err => alert(JSON.stringify(err))
+    );
+  }
+
 
   ngAfterViewInit()
   {
@@ -188,12 +201,14 @@ export class AboutComponent implements AfterViewInit
 
     if (this.getDiffTime(localStorage.getItem("lsCmt")) < 1)
     {
+      alert('Dont spam pls');
       return;
     }
 
     this.nameListService.addNewComment(this.newComment).subscribe(
       data =>
       {
+        this.newComment.texts = '';
         this.initComments();
         localStorage.setItem("lsCmt", new Date().toUTCString());
       },

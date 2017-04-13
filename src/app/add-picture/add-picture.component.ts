@@ -40,8 +40,7 @@ export class AddPictureComponent extends ParentClass implements OnInit, AfterVie
     this.cropperAfter.base64 = "http://erpmiddleeast.com/wp-content/themes/ess-php/images/noimg.jpg";
 
 
-
-    this.nameListService.getUserbyId(this.userId()).subscribe(
+    this.nameListService.getUserbyCst(this.cst()).subscribe(
       data =>
       {
         this.user = data[0];
@@ -49,6 +48,7 @@ export class AddPictureComponent extends ParentClass implements OnInit, AfterVie
       },
       err => alert(JSON.stringify(err))
     );
+  
   }
 
 

@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { OverviewComponent } from './overview/overview.component';
 import { LandscapeComponent } from './landscape/landscape.component';
+import { HallComponent } from './hall/hall.component';
 @NgModule({
   imports: [
     FormsModule,
@@ -16,6 +17,6 @@ import { LandscapeComponent } from './landscape/landscape.component';
     CommonModule,
     TopicRoutingModule
   ],
-  declarations: [TopicComponent, PeopleComponent, OverviewComponent, LandscapeComponent]
+  declarations: [TopicComponent, PeopleComponent, OverviewComponent, LandscapeComponent, HallComponent]
 })
 export class TopicModule { }

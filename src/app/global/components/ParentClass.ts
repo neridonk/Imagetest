@@ -12,9 +12,9 @@ export class ParentClass
   {
   }
 
-  public userId() 
+  public cst() 
   {
-    return Number(localStorage.getItem('userid'));
+    return localStorage.getItem('cst');
   }
 
   public static loadingHide(): void 

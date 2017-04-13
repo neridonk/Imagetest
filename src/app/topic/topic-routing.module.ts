@@ -4,15 +4,14 @@ import { TopicComponent } from './topic.component';
 import { PeopleComponent } from './people/people.component';
 import { LandscapeComponent } from './landscape/landscape.component';
 import { OverviewComponent } from './overview/overview.component';
+import { HallComponent } from './hall/hall.component';
 
 const routes: Routes = [
     {
         path: 't', component: TopicComponent,
 
         children: [
-
-            { path: 'landscape', component: LandscapeComponent },
-            { path: 'people', component: PeopleComponent },
+          { path: 'hall', component: HallComponent },
             { path: 'all', component: OverviewComponent }
 
         ]

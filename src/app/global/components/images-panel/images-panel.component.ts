@@ -28,6 +28,21 @@ export class ImagesPanelComponent implements OnInit, AfterViewInit
 
   ngOnInit()
   {
+    if (this.category == 'hall')
+    {
+      this.nameListService.getAllHallOfFame().subscribe(
+        data =>
+        {
+          data.forEach((d) =>
+          {
+            this.featuredtopiclist.push(d);
+          });
+
+        },
+        err => JSON.stringify(err));
+      return;
+    }
+
     this.fetchTopicList();
 
     this.nameListService.getAllFeaturedTopics(this.category).subscribe(
@@ -44,24 +59,19 @@ export class ImagesPanelComponent implements OnInit, AfterViewInit
 
   ngAfterViewInit()
   {
+    if (this.category == 'hall')
+    {
+      return;
+    }
 
     new WOW().init();
-    $('select').material_select();
 
-    $(window).scroll(() =>
-    {
-      if ($('.CONTAINER') == null)
-        return;
+  }
 
-      if ($(window).scrollTop() + $(window).height() >=
-        $('.CONTAINER').offset().top + $('.CONTAINER').height())
-      {
-        this.currentRow += 1;
-
-        this.fetchTopicList();
-      }
-
-    });
+  public onScroll(startOn: any)
+  {
+    this.currentRow = startOn;
+    this.fetchTopicList();
   }
 
   private fetchTopicList()
@@ -73,8 +83,6 @@ export class ImagesPanelComponent implements OnInit, AfterViewInit
         {
           this.topiclist.push(d);
         });
-
-        this.currentRow = this.topiclist.length;
       },
       err => JSON.stringify(err));
   }

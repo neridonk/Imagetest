@@ -3,14 +3,14 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\about",
     "\\src\\app\\global",
     "\\src\\app\\global\\components",
     "\\src\\app\\global\\components\\images-panel",
     "\\src\\app\\topic",
+    "\\src\\app\\topic\\hall",
     "\\src\\assets",
     "\\src\\assets\\img"
   ],
-  "SelectedNode": "\\src\\app\\topic\\topic.component.html",
+  "SelectedNode": "\\src\\app\\global\\components\\images-panel\\images-panel.component.ts",
   "PreviewInSolutionExplorer": false
 }

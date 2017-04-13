@@ -135,9 +135,14 @@
   position: absolute;
   left: 0 !important;
   right: 0 !important;
-  text-align:center;
-  top:10%;
+  text-align: center;
+  top: 10%;
   margin-left: auto;
   margin-right: auto;
-
+  background-image: url(https://static.pexels.com/photos/166055/pexels-photo-166055.jpeg);
+  background-size: cover;
+  background-color: white;
+  padding: 30px;
+  border: 2px solid #17b3ef;
+  box-shadow: -1px 5px 4px 2px #8e8e8e;
 }

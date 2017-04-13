@@ -10,7 +10,7 @@ import { NameListService } from '../global/services/name-list.service';
 
 export class NavbarComponent {
 
-  public static userid = localStorage.getItem('userid');
+  public static userid = localStorage.getItem('cst');
 
   constructor(
     private router: Router,
@@ -24,6 +24,6 @@ export class NavbarComponent {
       return;
     }
 
-    this.router.navigate(['/profile', localStorage.getItem('userid')]);
+    this.router.navigate(['/profile', localStorage.getItem('cst')]);
   }
 }

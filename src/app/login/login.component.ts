@@ -72,7 +72,7 @@ export class LoginComponent
         if (data == null)
           return alert("login failed");
 
-        localStorage.setItem('userid', data.userid);
+        localStorage.setItem('cst', data.cst);
         NavbarComponent.userid = data.userid;
         this.router.navigate(['/']);
 

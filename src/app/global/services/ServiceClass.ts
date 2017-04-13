@@ -53,13 +53,23 @@ export class ServiceConstants {
 
     public static getAuthHeader(): Headers {
         var authHeader = new Headers({ 'Content-Type': 'application/json' });
-        
+
+        var access_token = localStorage.getItem('cst');
+        if (access_token != null)
+        {
+          authHeader.append('Authorization',  access_token);
+        }
+
         return authHeader;
     }
 
 public static getAuthHeader2(): Headers {
         var authHeader = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
-        
+        var access_token = localStorage.getItem('cst');
+        if (access_token != null)
+        {
+          authHeader.append('Authorization', access_token);
+        }
         return authHeader;
     }
 

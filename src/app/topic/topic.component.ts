@@ -22,7 +22,7 @@ export class TopicComponent extends ParentClass implements AfterViewInit
 
   ngAfterViewInit()
   {
-    if (this.userId() == 0)
+    if (this.cst() == null)
     {
       this.showRegister = true;
     }
@@ -30,14 +30,21 @@ export class TopicComponent extends ParentClass implements AfterViewInit
 
   public goToProfile()
   {
-    //Eine Quest Implementieren : mit coolen effekten pew pew eine neue quest ist availible 
-    if (this.userId() == 0)
+    if (this.cst() == null)
     {
       this.router.navigate(['/login']);
       return;
     }
 
-    this.router.navigate(['/profile', this.userId()]);
+    this.nameListService.getUserbyCst(this.cst()).subscribe(
+      data =>
+      {
+        this.router.navigate(['/profile', data.userid]);
+      },
+      err => alert(JSON.stringify(err))
+    );
+
+
   }
 
 }
