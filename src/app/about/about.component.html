@@ -36,14 +36,18 @@
   </div>
 
   <div class="votePanel">
-    <img src="/assets/img/respect.png" class=" btn-floating" (click)="updVote()"  style="width:40px;     width: 40px;      background-color: #17b3ef;  padding: 4px;" title="give respect" />
+    <img src="/assets/img/respect.png" class=" btn-floating" (click)="updVote()" style="width:40px;     width: 40px;      background-color: #17b3ef;  padding: 4px;" title="give respect" />
 
     <div style="padding: 10px; font-size: 11px; font-weight: bold;">{{topic?.upvote}}</div>
   </div>
 
 </div>
 
-
+<!-- voted yeaaah!-->
+<div class="animated fadeInDown respectProvided" *ngIf="respectProvided">
+  <img src="/assets/img/respect.png" class=" btn-floating" style="    height: 56px;    width: 56px;    background-color: #17b3ef;    padding: 4px;" />
+  Respect provided, good job!
+</div>
 
 <!-- new Pic-->
 <div *ngIf="!addnewPic" class="row" style="height: 90vh;     overflow-x: hidden; overflow-y: auto;">
@@ -119,11 +123,11 @@
 
 <!-- Comment Section -->
 
-<div (click)="hideComments=false" class="chip " style="    font-size: 15px;position: fixed; bottom: 5px; right: 5px; cursor: pointer">
-  <a> <i class="material-icons left tiny" style="margin-top: 10px;">chat_bubble</i> {{this.commentList.length}} </a>
+<div (click)="hideComments=false" class=" showCommentPanel">
+  {{this.commentList.length}}  <a style="color:white"> <i class="material-icons  tiny" style="margin-top: 10px; color:white">chat_bubble</i> Comments </a>
 </div>
 
-<div [hidden]="hideComments" class="commentPanel row">
+<div [hidden]="hideComments" class="commentPanel row animated fadeInRight">
 
   <div class="card col s12 m5 right" style="background-color: rgba(80, 80, 80, 0.86); height: 100%;  color: white;">
     <div class="card-content" style="padding-top: 20px;     height: 70%; overflow-y:auto ">

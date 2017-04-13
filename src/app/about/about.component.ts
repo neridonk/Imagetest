@@ -17,17 +17,18 @@ declare var WOW: any;
 export class AboutComponent extends ParentClass implements AfterViewInit
 {
 
-  private topic: Topic;
-  private isNotMe: boolean = true;
+  public topic: Topic;
+  public isNotMe: boolean = true;
 
   public addnewPic: boolean = true;
   public hideComments: boolean = true;
   public newComment: Comment = new Comment();
   public commentList: Comment[] = new Array();
   public id: number;
+  public respectProvided: boolean = false;
 
-  private cropperAfter: croppData = new croppData();
-  private imageAfter: Images = new Images();
+  public cropperAfter: croppData = new croppData();
+  public imageAfter: Images = new Images();
 
   constructor(
     private route: ActivatedRoute,
@@ -223,10 +224,18 @@ export class AboutComponent extends ParentClass implements AfterViewInit
       return;
     }
 
+    this.respectProvided = true;
+
+    setTimeout(() =>
+    {
+      this.respectProvided = false;
+    }, 3000);
+
     this.nameListService.updateTopic(this.topic.topicid).subscribe(
       data =>
       {
-        this.topic.upvote + 1;
+        let vr: number = Number(this.topic.upvote) + 1;
+        this.topic.upvote = vr;
         localStorage.setItem("ldId", this.topic.topicid.toString());
       },
       err => alert(JSON.stringify(err))
