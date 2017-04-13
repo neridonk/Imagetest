@@ -11,7 +11,7 @@ export class InfinityScrollDirective {
   public currentRow: number = 0;
 
   @Input()
-  public rowsToFetch: number = 1;
+  public rowsToFetch: number = 10;
 
   @Output()
   public onfetch: EventEmitter<number> = new EventEmitter();
