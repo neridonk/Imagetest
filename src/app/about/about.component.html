@@ -125,8 +125,8 @@
 
 <div [hidden]="hideComments" class="commentPanel row">
 
-  <div class="card col s12 m5 right" style="background-color: rgba(80, 80, 80, 0.86);  color: white;">
-    <div class="card-content" style="padding-top: 20px; height: 73vh; overflow-y:auto ">
+  <div class="card col s12 m5 right" style="background-color: rgba(80, 80, 80, 0.86); height: 100%;  color: white;">
+    <div class="card-content" style="padding-top: 20px;     height: 70%; overflow-y:auto ">
       <div *ngFor="let item of commentList" style="padding: 5px;">
         <div style="position: relative">
           <a class="inlineBlock">{{item.user?.name}}</a>
@@ -137,9 +137,9 @@
       </div>
     </div>
 
-    <div class="card-action">
+    <div class="card-action cmtBtnPanel">
       <div class="input-field ">
-        <textarea id="textarea2" class="materialize-textarea" style="    color: white;" [(ngModel)]="newComment.texts"></textarea>
+        <textarea id="textarea2" class="materialize-textarea" maxlength="200" style="    color: white;" [(ngModel)]="newComment.texts"></textarea>
         <label for="textarea2">Comment</label>
       </div>
       <a class="" (click)="hideComments=true">Close</a>
