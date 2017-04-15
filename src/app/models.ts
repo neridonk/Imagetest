@@ -89,6 +89,7 @@ export class User {
     public email?: string,
     public password?: string,
     public cst?: string,
+    public img?: string,
     public topic?: Topic[]
   ) {
 

@@ -1,1 +1,20 @@
-<h1 class="grey-text center">{{user?.name}}</h1>
+﻿<div class="row" *ngIf="user" style="    background-color: #2d2d2d;">
+
+  <div class="col s12 m4 " style="    color: white; padding:15px">
+      <p> {{user.name}}</p>
+      <p> Biographie is currently under delevopment</p>
+  </div>
+
+  <div class="col s12 m4 ">
+  <img  [src]="'http://changeisamazing.com/images/'+userimg" style="width:100%; border: 1px solid #ffffff;"/>
+
+  </div>
+
+  <div class="col s12 m4 " style="    color: white; padding:15px">
+    <p class="chip" style=" background-color:white;"><img src="assets/img/respect.png" class="left" style="width:32px; " title="Respectors"> {{respectcount}}</p>
+      <p class="chip" style=" background-color:white;"><img src="assets/img/join.png" class="left" style="width:32px; " title="Joiners"> {{respectcount}}</p>
+  </div>
+
+</div>
+
+<app-images-panel [category]="'external'" [topicsExtern]="topicList"></app-images-panel>

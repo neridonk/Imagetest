@@ -15,21 +15,30 @@ import { Router } from '@angular/router';
 export class ImagesPanelComponent implements OnInit, AfterViewInit
 {
   @Input()
-  private category: string = "";
+  public category: string = "";
 
-  private search: string = "";
+  @Input()
+  public set topicsExtern(externalList: Topic[])
+  {
+    this.topiclist = externalList;
+  }
 
-  private currentRow: number = 0;
+  public search: string = "";
 
-  private topiclist: Topic[] = new Array();
-  private featuredtopiclist: Topic[] = new Array();
+  public currentRow: number = 0;
+
+  public topiclist: Topic[] = new Array();
+  public featuredtopiclist: Topic[] = new Array();
 
   constructor(private router: Router, private nameListService: NameListService) { }
 
   ngOnInit()
   {
-    if (this.category == 'hall')
-    {
+    if (this.category == 'external')
+      return;
+
+
+    if (this.category == 'hall') {
       this.nameListService.getAllHallOfFame().subscribe(
         data =>
         {
@@ -59,8 +68,7 @@ export class ImagesPanelComponent implements OnInit, AfterViewInit
 
   ngAfterViewInit()
   {
-    if (this.category == 'hall')
-    {
+    if (this.category == 'hall') {
       return;
     }
 
