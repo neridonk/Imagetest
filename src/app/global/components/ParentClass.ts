@@ -5,8 +5,7 @@ declare var $: any;
 export class ParentClass
 {
   private static isloading: boolean = false;
-
-  protected static userId;
+  public static userid=0;
 
   constructor()
   {

@@ -3,7 +3,8 @@
 @Directive({
   selector: '[InfinityScroll]'
 })
-export class InfinityScrollDirective {
+export class InfinityScrollDirective
+{
 
   private element: HTMLElement;
 
@@ -27,11 +28,13 @@ export class InfinityScrollDirective {
     {
       var lastDiv: HTMLElement = <HTMLElement>this.element.lastElementChild;
 
+      if (lastDiv == null)
+        return;
+
       var lastDivOffset = lastDiv.offsetTop + lastDiv.clientHeight;
       var pageOffset = window.pageYOffset + window.innerHeight;
 
-      if (pageOffset > lastDivOffset - 20)
-      {
+      if (pageOffset > lastDivOffset - 20) {
         this.currentRow += this.rowsToFetch;
 
         this.onfetch.emit(this.currentRow);

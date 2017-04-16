@@ -17,7 +17,7 @@ export class NameListService extends ServiceClass
 {
   public picURL: string = "";
   public text: string = "";
-
+  public static user: User;
   /**
    * Creates a new NameListService with the injected Http.
    * @param {Http} http - The injected Http.
@@ -28,6 +28,17 @@ export class NameListService extends ServiceClass
 
     super(http);
     this.hideLoading();
+  }
+
+  public initUser(cst)
+  {
+    this.getUserbyCst(cst).subscribe(
+      data =>
+      {
+        NameListService.user = data;
+      },
+      err => err
+    );
   }
 
   updateTopic(id: any): Observable<any>
@@ -135,6 +146,40 @@ export class NameListService extends ServiceClass
     this.showLoading();
 
     return this.get('login.php', param).map((response: any) =>
+    {
+      this.hideLoading();
+      return <any>response.json();
+    });
+  }
+
+  getFollower(topicId: number): Observable<any>
+  {
+    var param = 'topicid=' + topicId;
+    return this.get('getFollowersBytopicId.php', param).map((response: any) =>
+    {
+      return <any>response.json();
+    });
+  }
+
+  addFollower(topicId: number): Observable<any>
+  {
+    var param = 'topicid=' + topicId;
+    this.showLoading();
+
+    return this.get('addNewFollower.php', param).map((response: any) =>
+    {
+      this.hideLoading();
+      return <any>response.json();
+    });
+  }
+
+
+  removeFollower(topicId: number): Observable<any>
+  {
+    var param = 'topicid=' + topicId;
+    this.showLoading();
+
+    return this.get('removeFollower.php', param).map((response: any) =>
     {
       this.hideLoading();
       return <any>response.json();

@@ -30,6 +30,10 @@ export class AboutComponent extends ParentClass implements AfterViewInit
   public cropperAfter: croppData = new croppData();
   public imageAfter: Images = new Images();
 
+  public followerCount = 0;
+
+  public isFollowing: boolean = false;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -48,10 +52,12 @@ export class AboutComponent extends ParentClass implements AfterViewInit
         this.newComment.topicid = this.topic.topicid;
 
         this.initComments();
-
+        this.initFollowers();
       },
       err => alert(JSON.stringify(err))
     );
+
+    this.nameListService.initUser(this.cst());
   }
 
   public fetchMe()
@@ -78,6 +84,31 @@ export class AboutComponent extends ParentClass implements AfterViewInit
     });
   }
 
+  private initFollowers()
+  {
+    //getNewComments
+    this.nameListService.getFollower(this.id).subscribe(
+      data =>
+      {
+        if (data == null)
+          return;
+
+        this.followerCount = data.length;
+
+        if (this.followerCount == null) {
+          this.followerCount = 1;
+          return;
+        }
+
+        let list: Array<any> = data;
+
+        if (list.find(o => o.userid == NameListService.user.userid))
+          this.isFollowing = true;
+      },
+      err => alert(JSON.stringify(err))
+    );
+  }
+
   private initComments()
   {
     //getNewComments
@@ -93,8 +124,7 @@ export class AboutComponent extends ParentClass implements AfterViewInit
   public delete(id: any)
   {
 
-    if (this.topic.images.length == 2)
-    {
+    if (this.topic.images.length == 2) {
       window.alert("Must have 2 Images");
       return;
     }
@@ -187,8 +217,7 @@ export class AboutComponent extends ParentClass implements AfterViewInit
 
   public getDiffTime(date: any): number
   {
-    if (date == null)
-    {
+    if (date == null) {
       return 10;
     }
 
@@ -200,8 +229,7 @@ export class AboutComponent extends ParentClass implements AfterViewInit
   public post()
   {
 
-    if (this.getDiffTime(localStorage.getItem("lsCmt")) < 1)
-    {
+    if (this.getDiffTime(localStorage.getItem("lsCmt")) < 1) {
       alert('Dont spam pls');
       return;
     }
@@ -219,8 +247,7 @@ export class AboutComponent extends ParentClass implements AfterViewInit
 
   public updVote()
   {
-    if (localStorage.getItem("ldId") == this.topic.topicid.toString())
-    {
+    if (localStorage.getItem("ldId") == this.topic.topicid.toString()) {
       return;
     }
 
@@ -245,5 +272,16 @@ export class AboutComponent extends ParentClass implements AfterViewInit
   public formatTime(date: Date)
   {
     return moment.duration(date).humanize();
+  }
+
+  public joinFollower()
+  {
+    this.nameListService.addFollower(this.topic.topicid).subscribe(
+      data =>
+      {
+        this.followerCount = Number(this.followerCount) + 1;
+      },
+      err => alert(JSON.stringify(err))
+    );
   }
 }

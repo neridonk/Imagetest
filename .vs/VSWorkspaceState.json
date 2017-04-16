@@ -6,10 +6,11 @@
     "\\src\\app\\global",
     "\\src\\app\\global\\components",
     "\\src\\app\\global\\components\\images-panel",
+    "\\src\\app\\profile",
     "\\src\\app\\topic",
     "\\src\\app\\topic\\hall",
-    "\\src\\assets",
     "\\src\\assets\\img"
   ],
+  "SelectedNode": "\\src\\app\\global\\components\\images-panel\\images-panel.component.html",
   "PreviewInSolutionExplorer": false
 }

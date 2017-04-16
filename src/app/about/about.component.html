@@ -12,15 +12,21 @@
     {{topic?.date | date}} by {{topic?.user?.name}}
     <br>
     <a *ngIf="isNotMe==false" class="btn" (click)="addnewPic=!addnewPic ">Add new picture</a>
-    <br />
-    <br />
+ 
     <a [hidden]="isNotMe" class="" (click)="deletePost()">Delete post</a>
 
   </p>
 
+  <p class="chip" style=" background-color:white;cursor:pointer" (click)="joinFollower()">
+    <img src="assets/img/join.png" class="left" style="width:32px; " title="Joiners">
+    {{followerCount}}
+  </p>
   <!-- 1 und last vergleich-->
 
   <div class="row" *ngIf="topic" style="    border: 2px solid #383838;    box-shadow: 3px 7px 9px #1b1b1b;">
+
+
+
     <div class="col s6" style="padding: 0px !Important">
 
       <div class="dateVgl">{{topic.images[0].picdate | date}}</div>
