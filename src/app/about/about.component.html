@@ -17,9 +17,15 @@
 
   </p>
 
-  <p class="chip" style=" background-color:white;cursor:pointer" (click)="joinFollower()">
+  <p class="chip" style=" background-color:white;cursor:pointer" (click)="joinFollower()" *ngIf="!isFollowing && followerCount!=null">
     <img src="assets/img/join.png" class="left" style="width:32px; " title="Joiners">
     {{followerCount}}
+  </p>
+
+
+  <p class="chip" style=" background-color: #6be268; cursor:pointer; color: white;" *ngIf="isFollowing" (click)="removeFollow()">
+    <img src="assets/img/join.png" class="left" style="width:32px; " title="Joiners">
+   Joined
   </p>
   <!-- 1 und last vergleich-->
 
@@ -138,8 +144,8 @@
   <div class="card col s12 m5 right" style="background-color: rgba(80, 80, 80, 0.86); height: 100%;  color: white;">
     <div class="card-content" style="padding-top: 20px;     height: 70%; overflow-y:auto ">
       <div *ngFor="let item of commentList" style="padding: 5px;">
-        <div style="position: relative">
-          <a class="inlineBlock">{{item.user?.name}}</a>
+        <div style="position: relative" >
+          <a class="inlineBlock" *ngIf="item.user" [routerLink]="['/profile',item.user.userid]">{{item.user?.name}}</a>
           <i class="material-icons inlineBlock tiny">chat_bubble</i>
           <p class="inlineBlock" style="color: white !important;"> {{item.texts}}</p>
           <div class="dateCommentPanel">{{formatTime(item.datum)}}</div>

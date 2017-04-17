@@ -30,15 +30,19 @@ export class NameListService extends ServiceClass
     this.hideLoading();
   }
 
-  public initUser(cst)
+  public initUser(cst): Promise<User>
   {
-    this.getUserbyCst(cst).subscribe(
-      data =>
-      {
-        NameListService.user = data;
-      },
-      err => err
-    );
+   return new Promise((resolve, reject) =>
+    {
+      this.getUserbyCst(cst).subscribe(
+        data =>
+        {
+          NameListService.user = data;
+          resolve(NameListService.user);
+        },
+        err => err
+      );
+    });
   }
 
   updateTopic(id: any): Observable<any>
@@ -237,6 +241,16 @@ export class NameListService extends ServiceClass
   {
     this.showLoading();
     return this.get('getUserByCst.php', 'cst=' + cst).map((response: any) =>
+    {
+      this.hideLoading();
+      return <any>response.json();
+    });
+  }
+
+  getFollowerActivities(cst: any): Observable<any>
+  {
+    this.showLoading();
+    return this.get('getFollowerActivities.php', 'cst=' + cst).map((response: any) =>
     {
       this.hideLoading();
       return <any>response.json();

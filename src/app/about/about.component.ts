@@ -30,7 +30,7 @@ export class AboutComponent extends ParentClass implements AfterViewInit
   public cropperAfter: croppData = new croppData();
   public imageAfter: Images = new Images();
 
-  public followerCount = 0;
+  public followerCount;
 
   public isFollowing: boolean = false;
 
@@ -52,12 +52,14 @@ export class AboutComponent extends ParentClass implements AfterViewInit
         this.newComment.topicid = this.topic.topicid;
 
         this.initComments();
-        this.initFollowers();
       },
       err => alert(JSON.stringify(err))
     );
 
-    this.nameListService.initUser(this.cst());
+    this.nameListService.initUser(this.cst()).then((user) =>
+    {
+      this.initFollowers();
+    });
   }
 
   public fetchMe()
@@ -90,17 +92,26 @@ export class AboutComponent extends ParentClass implements AfterViewInit
     this.nameListService.getFollower(this.id).subscribe(
       data =>
       {
+        this.followerCount = 0;
+
         if (data == null)
           return;
+        let list: Array<any> = new Array();
 
         this.followerCount = data.length;
 
         if (this.followerCount == null) {
           this.followerCount = 1;
-          return;
-        }
+          list.push(data);
+        } else {
 
-        let list: Array<any> = data;
+          data.foreach(
+            (follo) =>
+            {
+              list.push(follo);
+            }
+          );
+        }
 
         if (list.find(o => o.userid == NameListService.user.userid))
           this.isFollowing = true;
@@ -280,6 +291,19 @@ export class AboutComponent extends ParentClass implements AfterViewInit
       data =>
       {
         this.followerCount = Number(this.followerCount) + 1;
+        this.isFollowing = true;
+      },
+      err => alert(JSON.stringify(err))
+    );
+  }
+
+  public removeFollow()
+  {
+    this.nameListService.removeFollower(this.topic.topicid).subscribe(
+      data =>
+      {
+        this.followerCount = Number(this.followerCount) - 1;
+        this.isFollowing = false;
       },
       err => alert(JSON.stringify(err))
     );
