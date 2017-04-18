@@ -1,18 +1,24 @@
 ﻿<div class="row" *ngIf="user" style="    background-color: #2d2d2d;">
 
   <div class="col s12 m4 " style="    color: white; padding:15px">
-      <p> {{user.name}}</p>
-      <p> Biographie is currently under delevopment</p>
+    <p> {{user.name}}</p>
+    <p> Biographie is currently under delevopment</p>
   </div>
 
-  <div class="col s12 m4 ">
-  <img  [src]="'http://changeisamazing.com/images/'+userimg" style="width:100%; border: 1px solid #ffffff;"/>
+  <div class="col s12 m4 " *ngIf="user">
+    <img [src]="user.img" style="width:100%; border: 1px solid #ffffff;" />
+    <br />
 
+    <button *ngIf="!isChangeImage" (click)="isChangeImage = true">Change Image</button>
+    <div *ngIf="isChangeImage">
+      <input type="text" placeholder="Input image URL" style="color:white;" [(ngModel)]="newImageUrl"/>
+      <button (click)="isChangeImage = false">Cancel</button> <button (click)="changeImage()">Save image</button>
+    </div>
   </div>
 
   <div class="col s12 m4 " style="    color: white; padding:15px">
     <p class="chip" style=" background-color:white;"><img src="assets/img/respect.png" class="left" style="width:32px; " title="Respectors"> {{respectcount}}</p>
-      <p class="chip" style=" background-color:white;"><img src="assets/img/join.png" class="left" style="width:32px; " title="Joiners"> {{respectcount}}</p>
+    <p class="chip" style=" background-color:white;"><img src="assets/img/join.png" class="left" style="width:32px; " title="Joiners"> {{respectcount}}</p>
   </div>
 
 </div>

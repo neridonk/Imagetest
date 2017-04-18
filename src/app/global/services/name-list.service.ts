@@ -28,12 +28,20 @@ export class NameListService extends ServiceClass
 
     super(http);
     this.hideLoading();
+
+
   }
 
   public initUser(cst): Promise<User>
   {
    return new Promise((resolve, reject) =>
-    {
+   {
+     if (NameListService.user != null)
+     {
+       resolve(NameListService.user);
+       return;
+     }
+
       this.getUserbyCst(cst).subscribe(
         data =>
         {
@@ -257,6 +265,17 @@ export class NameListService extends ServiceClass
     });
   }
 
+  updateUserImg(img: any): Observable<any>
+  {
+    var formData = { 'img': img };
+
+    this.showLoading();
+    return this.post('UpdateProfileImage.php', formData).map((response: any) =>
+    {
+      this.hideLoading();
+      return <any>response.json();
+    });
+  }
   public showLoading()
   {
     ParentClass.loadingShow();

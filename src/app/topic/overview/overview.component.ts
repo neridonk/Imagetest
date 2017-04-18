@@ -21,10 +21,7 @@ export class OverviewComponent implements OnInit{
 
 
   ngOnInit() {
-   
-      this.nameListService.picURL = 'assets/img/changeisamazing.png';
 
-      this.nameListService.text = 'The universe is change; our life is what our thoughts make it.';
   }
 }
 

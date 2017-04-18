@@ -8,18 +8,26 @@ import { NameListService } from '../global/services/name-list.service';
   styleUrls: ['./navbar.component.css']
 })
 
-export class NavbarComponent {
+export class NavbarComponent
+{
 
   public static userid = localStorage.getItem('cst');
 
   constructor(
     private router: Router,
     private nameListService: NameListService
-  ) { }
+  )
+  {
 
-  public goToProfile() {
-      //Eine Quest Implementieren : mit coolen effekten pew pew eine neue quest ist availible 
-    if (NavbarComponent.userid == null) {
+
+  }
+
+
+  public goToProfile()
+  {
+    //Eine Quest Implementieren : mit coolen effekten pew pew eine neue quest ist availible 
+    if (NavbarComponent.userid == null)
+    {
       this.router.navigate(['/login']);
       return;
     }

@@ -12,9 +12,9 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent 
 {
-  private newuser: User = new User();
-  private registerUser: User = new User();
-  private registerStep: number = -1;
+  public newuser: User = new User();
+  public registerUser: User = new User();
+  public registerStep: number = -1;
 
   constructor(
     private nameListService: NameListService,
