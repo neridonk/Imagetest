@@ -36,8 +36,8 @@ export class AddPictureComponent extends ParentClass implements OnInit, AfterVie
   ngOnInit()
   {
 
-    this.cropperBefore.base64 = "http://erpmiddleeast.com/wp-content/themes/ess-php/images/noimg.jpg";
-    this.cropperAfter.base64 = "http://erpmiddleeast.com/wp-content/themes/ess-php/images/noimg.jpg";
+    this.cropperBefore.base64 = "assets/img/noImage.jpeg";
+    this.cropperAfter.base64 = "assets/img/noImage.jpeg";
 
 
     this.nameListService.getUserbyCst(this.cst()).subscribe(
