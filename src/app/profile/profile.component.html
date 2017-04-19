@@ -9,10 +9,10 @@
     <img [src]="user.img" style="width:100%; border: 1px solid #ffffff;" />
     <br />
 
-    <button *ngIf="!isChangeImage" (click)="isChangeImage = true">Change Image</button>
+    <button *ngIf="!isChangeImage" class="btn" (click)="isChangeImage = true">Change Image</button>
     <div *ngIf="isChangeImage">
       <input type="text" placeholder="Input image URL" style="color:white;" [(ngModel)]="newImageUrl"/>
-      <button (click)="isChangeImage = false">Cancel</button> <button (click)="changeImage()">Save image</button>
+      <a  (click)="isChangeImage = false">Cancel</a> <button class="btn" (click)="changeImage()">Save image</button>
     </div>
   </div>
 

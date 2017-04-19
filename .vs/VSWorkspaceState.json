@@ -5,12 +5,12 @@
     "\\src\\app",
     "\\src\\app\\global",
     "\\src\\app\\global\\components",
-    "\\src\\app\\global\\components\\images-panel",
+    "\\src\\app\\global\\services",
+    "\\src\\app\\login",
     "\\src\\app\\profile",
     "\\src\\app\\topic",
-    "\\src\\app\\topic\\hall",
-    "\\src\\assets\\img"
+    "\\src\\assets"
   ],
-  "SelectedNode": "\\src\\app\\global\\components\\images-panel\\images-panel.component.html",
+  "SelectedNode": "\\src\\app\\login\\login.component.html",
   "PreviewInSolutionExplorer": false
 }

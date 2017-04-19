@@ -17,7 +17,6 @@ import { LoginComponent } from './login/login.component';
 import { AboutComponent } from './about/about.component';
 import { AddPictureComponent } from './add-picture/add-picture.component';
 import { ProfileComponent } from './profile/profile.component';
-import { LandingPageComponent } from './landing-page/landing-page.component';
 import { DashOverviewComponent } from './overview/overview.component';
 
 @NgModule({
@@ -28,7 +27,6 @@ import { DashOverviewComponent } from './overview/overview.component';
     AboutComponent,
     AddPictureComponent,
     ProfileComponent,
-    LandingPageComponent,
     DashOverviewComponent,
   ],
   imports: [

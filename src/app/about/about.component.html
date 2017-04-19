@@ -12,20 +12,21 @@
     {{topic?.date | date}} by <a *ngIf="topic?.user != null " [routerLink]="['/profile',topic.user.userid]"> {{topic?.user?.name}}  </a>
     <br>
     <a *ngIf="isNotMe==false" class="btn" (click)="addnewPic=!addnewPic ">Add new picture</a>
- 
+
     <a [hidden]="isNotMe" class="" (click)="deletePost()">Delete post</a>
 
   </p>
 
   <p class="chip" style=" background-color:white;cursor:pointer" (click)="joinFollower()" *ngIf="!isFollowing && followerCount!=null">
     <img src="assets/img/join.png" class="left" style="width:32px; " title="Joiners">
-    {{followerCount}}
+    {{followerCount}} Joined
   </p>
 
 
   <p class="chip" style=" background-color: #6be268; cursor:pointer; color: white;" *ngIf="isFollowing" (click)="removeFollow()">
-    <img src="assets/img/join.png" class="left" style="width:32px; " title="Joiners">
-   Joined
+    <span class="">{{followerCount}} </span>
+    <img src="assets/img/join.png" class="" style="width:32px; " title="Joiners">
+    <span>Joined</span>
   </p>
   <!-- 1 und last vergleich-->
 
@@ -48,7 +49,7 @@
   </div>
 
   <div class="votePanel">
-    <img src="/assets/img/respect.png" class=" btn-floating" (click)="updVote()" style="width:40px;     width: 40px;      background-color: #17b3ef;  padding: 4px;" title="give respect" />
+    <img src="/assets/img/respect.png" class=" btn-floating" (click)="updVote()" style="width:40px;     width: 40px;      background-color: transparent; padding: 4px;" title="give respect" />
 
     <div style="padding: 10px; font-size: 11px; font-weight: bold;">{{topic?.upvote}}</div>
   </div>
@@ -144,7 +145,7 @@
   <div class="card col s12 m5 right" style="background-color: rgba(80, 80, 80, 0.86); height: 100%;  color: white;">
     <div class="card-content" style="padding-top: 20px;     height: 70%; overflow-y:auto ">
       <div *ngFor="let item of commentList" style="padding: 5px;">
-        <div style="position: relative" >
+        <div style="position: relative">
           <a class="inlineBlock" *ngIf="item.user" [routerLink]="['/profile',item.user.userid]">{{item.user?.name}}</a>
           <i class="material-icons inlineBlock tiny">chat_bubble</i>
           <p class="inlineBlock" style="color: white !important;"> {{item.texts}}</p>
@@ -153,7 +154,7 @@
       </div>
     </div>
 
-    <div class="card-action cmtBtnPanel">
+    <div class="card-action cmtBtnPanel" *ngIf="cst()">
       <div class="input-field ">
         <textarea id="textarea2" class="materialize-textarea" maxlength="200" style="    color: white;" [(ngModel)]="newComment.texts"></textarea>
         <label for="textarea2">Comment</label>

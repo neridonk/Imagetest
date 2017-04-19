@@ -9,6 +9,8 @@ import { HttpModule } from '@angular/http';
 import { OverviewComponent } from './overview/overview.component';
 import { LandscapeComponent } from './landscape/landscape.component';
 import { HallComponent } from './hall/hall.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+
 @NgModule({
   imports: [
     FormsModule,
@@ -17,6 +19,6 @@ import { HallComponent } from './hall/hall.component';
     CommonModule,
     TopicRoutingModule
   ],
-  declarations: [TopicComponent, PeopleComponent, OverviewComponent, LandscapeComponent, HallComponent]
+  declarations: [TopicComponent, LandingPageComponent, PeopleComponent, OverviewComponent, LandscapeComponent, HallComponent]
 })
 export class TopicModule { }

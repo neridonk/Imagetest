@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes }  from '@angular/router';
 
 import { OverviewComponent } from './topic/overview/overview.component';
-import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LoginComponent } from './login/login.component';
 import { AboutComponent } from './about/about.component';
 import { AddPictureComponent } from './add-picture/add-picture.component';
@@ -16,7 +15,6 @@ const routes = [
 
     { path: '', redirectTo: '/t/all', pathMatch: 'full' },
 
-    { path: 'chisam', component: LandingPageComponent },
   { path: 'login', component: LoginComponent },
   { path: 'addPicture', component: AddPictureComponent },
   { path: 'profile/:id', component: ProfileComponent },

@@ -20,7 +20,7 @@ export class AddPictureComponent extends ParentClass implements OnInit, AfterVie
   cropperBefore: croppData = new croppData();
   cropperAfter: croppData = new croppData();
 
-  private user: User = new User(1, "dom", "asds");
+  private user: User;
 
   private topic: Topic = new Topic();
 
@@ -40,15 +40,13 @@ export class AddPictureComponent extends ParentClass implements OnInit, AfterVie
     this.cropperAfter.base64 = "assets/img/noImage.jpeg";
 
 
-    this.nameListService.getUserbyCst(this.cst()).subscribe(
-      data =>
-      {
-        this.user = data[0];
-        this.topic.userid = this.user.userid;
-      },
-      err => alert(JSON.stringify(err))
-    );
-  
+    this.nameListService.initUser(this.cst()).then((user) =>
+    {
+      this.user = user;
+      this.topic.userid = this.user.userid;
+
+    });
+      
   }
 
 
