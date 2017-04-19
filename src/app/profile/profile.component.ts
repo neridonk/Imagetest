@@ -44,8 +44,8 @@ export class ProfileComponent implements OnInit, AfterViewInit
     {
       this.nameListService.initUser(NavbarComponent.userid).then((user) =>
       {
-        if (user.userid == id)
-          this.isUser == true;
+          if (user.userid == id)
+          this.isUser = true;
       });
     }
     this.nameListService.getUserbyId(id).subscribe(
@@ -114,6 +114,12 @@ export class ProfileComponent implements OnInit, AfterViewInit
       err => alert(JSON.stringify(err))
     );
 
+  }
+
+  public logout()
+  {
+    localStorage.clear();
+    window.location.reload();
   }
 
 

@@ -74,8 +74,8 @@ export class LoginComponent
 
         localStorage.setItem('cst', data.cst);
         NavbarComponent.userid = data.userid;
-        this.router.navigate(['/']);
 
+        location.href = '';
 
       },
       err => alert(JSON.stringify(err))

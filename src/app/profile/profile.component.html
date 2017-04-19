@@ -4,8 +4,8 @@
     <p> {{user.name}}</p>
     <p>{{user.bio}}</p>
 
+    <a *ngIf="!isChangeBio && isUser" class="g" (click)="isChangeBio = true">Change Bio</a>
 
-    <button *ngIf="!isChangeBio" class="btn" (click)="isChangeBio = true">Change Bio</button>
     <div *ngIf="isChangeBio">
       <textarea type="text" placeholder="My life be like uuuh ahh" style="color:white; height: 186px;" [(ngModel)]="newBio" ></textarea>
       <a (click)="isChangeBio = false">Cancel</a> <button class="btn" (click)="changeBio()">Save Bio</button>
@@ -16,8 +16,8 @@
   <div class="col s12 m4 " *ngIf="user">
     <img [src]="user.img" style="width:100%; border: 1px solid #ffffff;" />
     <br />
+    <a *ngIf="!isChangeImage && isUser" class="g" (click)="isChangeImage = true">Change Image</a>
 
-    <button *ngIf="!isChangeImage" class="btn" (click)="isChangeImage = true">Change Image</button>
     <div *ngIf="isChangeImage">
       <input type="text" placeholder="Input image URL" style="color:white;" [(ngModel)]="newImageUrl"/>
       <a  (click)="isChangeImage = false">Cancel</a> <button class="btn" (click)="changeImage()">Save image</button>
@@ -27,8 +27,16 @@
   <div class="col s12 m4 " style="    color: white; padding:15px">
     <p class="chip" style=" background-color:white;"><img src="assets/img/respect.png" class="left" style="width:32px; " title="Respectors"> {{respectcount}} respects</p>
     <p class="chip" style=" background-color:white;"><img src="assets/img/join.png" class="left" style="width:32px; " title="Joiners"> {{motivators}} motivators</p>
-  </div>
 
+
+  </div>
+  <div class="col s12 m12">
+    <a *ngIf="isUser" class="g" (click)="logout()">Logout</a>
+
+
+
+
+  </div>
 </div>
 
 <app-images-panel [category]="'external'" [topicsExtern]="topicList"></app-images-panel>

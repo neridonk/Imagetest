@@ -139,7 +139,7 @@
   top: 10%;
   margin-left: auto;
   margin-right: auto;
-  background-image: url(https://static.pexels.com/photos/166055/pexels-photo-166055.jpeg);
+  background-image: url('assets/img/reg.jpeg');
   background-size: cover;
   background-color: white;
   padding: 30px;

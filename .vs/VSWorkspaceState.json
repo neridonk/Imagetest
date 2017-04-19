@@ -3,14 +3,11 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\global",
-    "\\src\\app\\global\\components",
-    "\\src\\app\\global\\services",
-    "\\src\\app\\login",
-    "\\src\\app\\profile",
+    "\\src\\app\\about",
     "\\src\\app\\topic",
-    "\\src\\assets"
+    "\\src\\assets",
+    "\\src\\assets\\img"
   ],
-  "SelectedNode": "\\src\\app\\login\\login.component.html",
+  "SelectedNode": "\\src\\app\\about\\about.component.html",
   "PreviewInSolutionExplorer": false
 }
