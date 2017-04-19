@@ -34,13 +34,13 @@ export class NameListService extends ServiceClass
 
   public initUser(cst): Promise<User>
   {
-   return new Promise((resolve, reject) =>
-   {
-     if (NameListService.user != null)
-     {
-       resolve(NameListService.user);
-       return;
-     }
+    return new Promise((resolve, reject) =>
+    {
+      if (NameListService.user != null)
+      {
+        resolve(NameListService.user);
+        return;
+      }
 
       this.getUserbyCst(cst).subscribe(
         data =>
@@ -276,6 +276,31 @@ export class NameListService extends ServiceClass
       return <any>response.json();
     });
   }
+
+  updateUserBio(text: any): Observable<any>
+  {
+    var formData = { 'text': text };
+
+    this.showLoading();
+    return this.post('UpdateProfileBio.php', formData).map((response: any) =>
+    {
+      this.hideLoading();
+      return <any>response.json();
+    });
+  }
+
+  updateImageText(text: any, imgid: number): Observable<any>
+  {
+    var formData = { 'text': text, 'imgid': imgid };
+
+    this.showLoading();
+    return this.post('UpdateImageText.php', formData).map((response: any) =>
+    {
+      this.hideLoading();
+      return <any>response.json();
+    });
+  }
+
   public showLoading()
   {
     ParentClass.loadingShow();

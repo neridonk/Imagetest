@@ -15,6 +15,7 @@ export class ProfileComponent implements OnInit, AfterViewInit
 {
 
   public respectcount = 0;
+  public motivators = 0;
   public topicList: Topic[] = new Array();
   public user: User;
   public userimg: string = 'emptyPerson.png';;
@@ -23,6 +24,9 @@ export class ProfileComponent implements OnInit, AfterViewInit
 
   public isChangeImage: boolean = false;
   public newImageUrl: string = '';;
+
+  public isChangeBio: boolean = false;
+  public newBio: string = '';;
 
   constructor(
     private nameListService: NameListService,
@@ -93,6 +97,19 @@ export class ProfileComponent implements OnInit, AfterViewInit
       {
         this.user.img = this.newImageUrl;
         this.newImageUrl = '';
+      },
+      err => alert(JSON.stringify(err))
+    );
+
+  }
+
+  public changeBio()
+  {
+    this.nameListService.updateUserBio(this.newBio).subscribe(
+      data =>
+      {
+        this.user.bio = this.newBio;
+        this.newBio = '';
       },
       err => alert(JSON.stringify(err))
     );

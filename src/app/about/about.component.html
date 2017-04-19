@@ -12,22 +12,71 @@
     {{topic?.date | date}} by <a *ngIf="topic?.user != null " [routerLink]="['/profile',topic.user.userid]"> {{topic?.user?.name}}  </a>
     <br>
     <a *ngIf="isNotMe==false" class="btn" (click)="addnewPic=!addnewPic ">Add new picture</a>
-
+    <br><br>
     <a [hidden]="isNotMe" class="" (click)="deletePost()">Delete post</a>
 
   </p>
 
   <p class="chip" style=" background-color:white;cursor:pointer" (click)="joinFollower()" *ngIf="!isFollowing && followerCount!=null">
     <img src="assets/img/join.png" class="left" style="width:32px; " title="Joiners">
-    {{followerCount}} Joined
+    {{followerCount}} motivators
   </p>
 
 
   <p class="chip" style=" background-color: #6be268; cursor:pointer; color: white;" *ngIf="isFollowing" (click)="removeFollow()">
     <span class="">{{followerCount}} </span>
     <img src="assets/img/join.png" class="" style="width:32px; " title="Joiners">
-    <span>Joined</span>
+    <span>motivators</span>
   </p>
+
+
+  <!-- voted yeaaah!-->
+  <div class="animated fadeInDown respectProvided" *ngIf="respectProvided">
+    <img src="/assets/img/respect.png" class=" btn-floating" style="    height: 56px;    width: 56px;    background-color: #17b3ef;    padding: 4px;" />
+    Respect provided, good job!
+  </div>
+
+  <!-- new Pic-->
+  <div [hidden]="addnewPic" class="row" style="height: 90vh;     overflow-x: hidden; overflow-y: auto;">
+    <div class="col s12 l4">
+    </div>
+
+    <div class="col s12 l4">
+      <div class="card">
+        <div class="card-image">
+          <img class="responsive-img" id="image_2" [src]="cropperAfter.base64" />
+
+          <input class="fileinputer" type="file" accept="image/*" (change)="changeImage($event, false)">
+          <button *ngIf="cropperAfter.Cropper" class="btn cropbtn" (click)="cropimg2()">crop</button>
+        </div>
+        <div class="card-content">
+
+          <div class="row">
+
+            <div class="input-field col s12">
+              <input id="picdateid" type="date" class="datepicker">
+              <label for="picdateid">Date</label>
+            </div>
+
+            <div class="input-field col s12">
+              <textarea id="textarea2" class="materialize-textarea" [(ngModel)]="imageAfter.description"></textarea>
+              <label for="textarea2">Desciption</label>
+            </div>
+          </div>
+
+        </div>
+        <div class="card-action">
+          <a [hidden]="isNotMe" class="btn" (click)="savePic()">Save</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col s12 l4">
+    </div>
+  </div>
+
+
+
   <!-- 1 und last vergleich-->
 
   <div class="row" *ngIf="topic" style="    border: 2px solid #383838;    box-shadow: 3px 7px 9px #1b1b1b;">
@@ -56,50 +105,7 @@
 
 </div>
 
-<!-- voted yeaaah!-->
-<div class="animated fadeInDown respectProvided" *ngIf="respectProvided">
-  <img src="/assets/img/respect.png" class=" btn-floating" style="    height: 56px;    width: 56px;    background-color: #17b3ef;    padding: 4px;" />
-  Respect provided, good job!
-</div>
 
-<!-- new Pic-->
-<div *ngIf="!addnewPic" class="row" style="height: 90vh;     overflow-x: hidden; overflow-y: auto;">
-  <div class="col s12 l4">
-  </div>
-
-  <div class="col s12 l4">
-    <div class="card">
-      <div class="card-image">
-        <img class="responsive-img" id="image_2" [src]="cropperAfter.base64" />
-
-        <input class="fileinputer" type="file" accept="image/*" (change)="changeImage($event, false)">
-        <button *ngIf="cropperAfter.Cropper" class="btn cropbtn" (click)="cropimg2()">crop</button>
-      </div>
-      <div class="card-content">
-
-        <div class="row">
-
-          <div class="input-field col s12">
-            <input id="picdateid" type="date" class="datepicker">
-            <label for="picdateid">Date</label>
-          </div>
-
-          <div class="input-field col s12">
-            <textarea id="textarea2" class="materialize-textarea" [(ngModel)]="imageAfter.description"></textarea>
-            <label for="textarea2">Desciption</label>
-          </div>
-        </div>
-
-      </div>
-      <div class="card-action">
-        <a [hidden]="isNotMe" class="btn" (click)="savePic()">Save</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="col s12 l4">
-  </div>
-</div>
 
 <!-- Topic by user-->
 
@@ -121,12 +127,15 @@
     <div class="col s12 l4 textAabout">
       <div class="card">
         <div class="card-content">
-          <p> {{item.description}}</p>
+
+          <p *ngIf="isNotMe"> {{item.description}}</p>
+
+          <textarea *ngIf="!isNotMe" class="materialize-textarea" maxlength="200" style="" [(ngModel)]="item.description"></textarea>
 
         </div>
         <div class="card-action" [hidden]="isNotMe">
           <a class="" (click)="delete(item.imgid)">Delete</a>
-          <a class="btn">Edit</a>
+          <a class="btn" (click)="changeText(item)">Edit</a>
         </div>
       </div>
     </div>

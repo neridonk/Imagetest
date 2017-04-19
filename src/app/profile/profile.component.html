@@ -2,7 +2,15 @@
 
   <div class="col s12 m4 " style="    color: white; padding:15px">
     <p> {{user.name}}</p>
-    <p> Biographie is currently under delevopment</p>
+    <p>{{user.bio}}</p>
+
+
+    <button *ngIf="!isChangeBio" class="btn" (click)="isChangeBio = true">Change Bio</button>
+    <div *ngIf="isChangeBio">
+      <textarea type="text" placeholder="My life be like uuuh ahh" style="color:white; height: 186px;" [(ngModel)]="newBio" ></textarea>
+      <a (click)="isChangeBio = false">Cancel</a> <button class="btn" (click)="changeBio()">Save Bio</button>
+    </div>
+
   </div>
 
   <div class="col s12 m4 " *ngIf="user">
@@ -17,8 +25,8 @@
   </div>
 
   <div class="col s12 m4 " style="    color: white; padding:15px">
-    <p class="chip" style=" background-color:white;"><img src="assets/img/respect.png" class="left" style="width:32px; " title="Respectors"> {{respectcount}}</p>
-    <p class="chip" style=" background-color:white;"><img src="assets/img/join.png" class="left" style="width:32px; " title="Joiners"> {{respectcount}}</p>
+    <p class="chip" style=" background-color:white;"><img src="assets/img/respect.png" class="left" style="width:32px; " title="Respectors"> {{respectcount}} respects</p>
+    <p class="chip" style=" background-color:white;"><img src="assets/img/join.png" class="left" style="width:32px; " title="Joiners"> {{motivators}} motivators</p>
   </div>
 
 </div>

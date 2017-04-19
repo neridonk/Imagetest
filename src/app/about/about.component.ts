@@ -40,6 +40,8 @@ export class AboutComponent extends ParentClass implements AfterViewInit
     private nameListService: NameListService)
   {
     super();
+    this.cropperAfter.base64 = "assets/img/noImage.jpeg";
+
     this.id = +this.route.snapshot.params['id'];
 
     this.nameListService.getTopicbyId(this.id).subscribe(
@@ -52,6 +54,7 @@ export class AboutComponent extends ParentClass implements AfterViewInit
         this.newComment.topicid = this.topic.topicid;
 
         this.initComments();
+        this.fetchMe();
       },
       err => alert(JSON.stringify(err))
     );
@@ -64,16 +67,14 @@ export class AboutComponent extends ParentClass implements AfterViewInit
 
   public fetchMe()
   {
-    this.nameListService.getUserbyCst(this.cst()).subscribe(
-      data =>
+    this.nameListService.initUser(this.cst()).then(
+      (data) =>
       {
-        if (String(this.topic.userid) == data.userid)
+        if (this.topic.userid == data.userid)
           this.isNotMe = false;
 
         this.newComment.userid = data.userid;
-      },
-      err => alert(JSON.stringify(err))
-    );
+      });
   }
 
 
@@ -100,10 +101,12 @@ export class AboutComponent extends ParentClass implements AfterViewInit
 
         this.followerCount = data.length;
 
-        if (this.followerCount == null) {
+        if (this.followerCount == null)
+        {
           this.followerCount = 1;
           list.push(data);
-        } else {
+        } else
+        {
 
           data.foreach(
             (follo) =>
@@ -135,7 +138,8 @@ export class AboutComponent extends ParentClass implements AfterViewInit
   public delete(id: any)
   {
 
-    if (this.topic.images.length == 2) {
+    if (this.topic.images.length == 2)
+    {
       window.alert("Must have 2 Images");
       return;
     }
@@ -228,7 +232,8 @@ export class AboutComponent extends ParentClass implements AfterViewInit
 
   public getDiffTime(date: any): number
   {
-    if (date == null) {
+    if (date == null)
+    {
       return 10;
     }
 
@@ -240,7 +245,8 @@ export class AboutComponent extends ParentClass implements AfterViewInit
   public post()
   {
 
-    if (this.getDiffTime(localStorage.getItem("lsCmt")) < 1) {
+    if (this.getDiffTime(localStorage.getItem("lsCmt")) < 1)
+    {
       alert('Dont spam pls');
       return;
     }
@@ -258,7 +264,8 @@ export class AboutComponent extends ParentClass implements AfterViewInit
 
   public updVote()
   {
-    if (localStorage.getItem("ldId") == this.topic.topicid.toString()) {
+    if (localStorage.getItem("ldId") == this.topic.topicid.toString())
+    {
       return;
     }
 
@@ -308,4 +315,16 @@ export class AboutComponent extends ParentClass implements AfterViewInit
       err => alert(JSON.stringify(err))
     );
   }
+
+  public changeText(image: Images)
+  {
+    this.nameListService.updateImageText(image.description, image.imgid).subscribe(
+      data =>
+      {
+        window.location.reload();
+      },
+      err => err
+    );
+  }
+
 }

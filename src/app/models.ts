@@ -90,6 +90,7 @@ export class User {
     public password?: string,
     public cst?: string,
     public img?: string,
+    public bio?: string,
     public topic?: Topic[]
   ) {
 
