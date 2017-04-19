@@ -38,7 +38,8 @@ export class ImagesPanelComponent implements OnInit, AfterViewInit
       return;
 
 
-    if (this.category == 'hall') {
+    if (this.category == 'hall')
+    {
       this.nameListService.getAllHallOfFame().subscribe(
         data =>
         {
@@ -68,7 +69,8 @@ export class ImagesPanelComponent implements OnInit, AfterViewInit
 
   ngAfterViewInit()
   {
-    if (this.category == 'hall') {
+    if (this.category == 'hall')
+    {
       return;
     }
 
@@ -89,7 +91,8 @@ export class ImagesPanelComponent implements OnInit, AfterViewInit
       {
         data.forEach((d) =>
         {
-          this.topiclist.push(d);
+          if (d.isFeatured == 0)
+            this.topiclist.push(d);
         });
       },
       err => JSON.stringify(err));

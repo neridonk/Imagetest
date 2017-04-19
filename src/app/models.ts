@@ -53,6 +53,7 @@ export class Topic {
     public topicid?: number,
     public title?: string,
     public category?: string,
+    public isFeatured?: number,
     public userid?: number,
     public date?: Date,
     public upvote?: number,
