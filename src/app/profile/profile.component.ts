@@ -28,6 +28,8 @@ export class ProfileComponent implements OnInit, AfterViewInit
   public isChangeBio: boolean = false;
   public newBio: string = '';;
 
+  public topics: Topic[] = new Array();
+
   constructor(
     private nameListService: NameListService,
     private router: Router,
@@ -44,8 +46,17 @@ export class ProfileComponent implements OnInit, AfterViewInit
     {
       this.nameListService.initUser(NavbarComponent.userid).then((user) =>
       {
-          if (user.userid == id)
+        if (user.userid == id)
+        {
           this.isUser = true;
+          this.nameListService.getFollowerActivities(NavbarComponent.userid).subscribe(
+            data =>
+            {
+              this.topics = data;
+            },
+            err => err
+          );
+        }
       });
     }
     this.nameListService.getUserbyId(id).subscribe(
@@ -66,7 +77,6 @@ export class ProfileComponent implements OnInit, AfterViewInit
       },
       err => alert(JSON.stringify(err))
     );
-
 
 
   }

@@ -11,7 +11,6 @@ import { NameListService } from '../../global/services/name-list.service';
 })
 export class LandingPageComponent extends ParentClass
 {
-  public topics: Topic[] = new Array();
 
   constructor(
     private router: Router,
@@ -19,13 +18,7 @@ export class LandingPageComponent extends ParentClass
   {
     super();
 
-    this.nameListService.getFollowerActivities(this.cst()).subscribe(
-      data =>
-      {
-        this.topics = data;
-      },
-      err => err
-    );
+
   }
 
 
