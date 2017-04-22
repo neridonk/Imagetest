@@ -16,3 +16,23 @@
   padding: 17px;
 }
 
+.bgImgVision {
+  background-image: url(assets/img/sport.png);
+  background-size: cover;
+  position: relative;
+  z-index: -1;
+  height:90vh;
+}
+
+
+  .bgImgVision::before {
+    background-color: rgba(0, 0, 0, 0.76);
+    content: " ";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    opacity: 0.7;
+    z-index: -1;
+  }
