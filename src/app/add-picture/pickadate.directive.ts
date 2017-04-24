@@ -13,9 +13,9 @@ export class PickadateDirective implements AfterViewInit
 
   @Input() format = 'dd-mm-yyyy';
 
-  @Input() disabledTo: Date = new Date('1992/2/14');
+  @Input() disabledTo: Date = new Date('1892/2/14');
 
-  @Input() disabledFrom: Date = new Date('1992/2/14');
+  @Input() disabledFrom: Date = new Date('1892/2/14');
 
   constructor(public _element: ElementRef)
   { }
@@ -23,14 +23,17 @@ export class PickadateDirective implements AfterViewInit
   ngAfterViewInit()
   {
     if (this.disabledTo == null)
-      this.disabledTo = new Date('1992/2/14');
+      this.disabledTo = new Date('1892/2/14');
 
     if (this.disabledFrom == null)
-      this.disabledFrom = new Date('1992/2/14');
+      this.disabledFrom = new Date('1892/2/14');
 
     let $this = this;
 
     let opts = {
+      selectMonths: true, 
+      selectYears: 115
+      , max: true,
       format: this.format,
       disable: [
         { from: this.disabledFrom, to: this.disabledTo }
