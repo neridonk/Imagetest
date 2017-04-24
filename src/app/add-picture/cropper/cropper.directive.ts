@@ -5,7 +5,8 @@ import { croppData } from '../../models';
 @Directive({
   selector: '[cropper]'
 })
-export class CropperDirective {
+export class CropperDirective
+{
 
   public _cropper: croppData;
 
@@ -17,8 +18,8 @@ export class CropperDirective {
 
     this._cropper = cropper;
 
-    if (this._cropper.base64 != null)
-    this.initCropper();
+    if (this._cropper.base64 != '')
+      this.initCropper();
   }
 
   public get()
@@ -39,7 +40,7 @@ export class CropperDirective {
   {
     let $this = this;
 
-    this._cropper = new Cropper(this._element.nativeElement, {
+    this._cropper.Cropper = new Cropper(this._element.nativeElement, {
       cropBoxResizable: false,
       aspectRatio: 1 / 1
     });

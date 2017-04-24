@@ -1,4 +1,4 @@
-﻿import { Component, OnInit, Input,Output, ElementRef, EventEmitter } from '@angular/core';
+﻿import { Component, OnInit, Input, Output, ElementRef, EventEmitter } from '@angular/core';
 import { croppData, Images } from '../../models';
 declare var $: any;
 
@@ -11,12 +11,21 @@ export class CropperComponent implements OnInit
 {
   public base64;
   public cropper: croppData = new croppData();
+  public image: Images;
 
   @Input()
-  public image: Images; 
+  public set img(img: any)
+  {
+    this.image = img;
+  }
 
-  @Input()
-  public imageChange: EventEmitter<Images> = new EventEmitter(); 
+  public get img()
+  {
+    return this.image;
+  }
+
+  @Output()
+  public imgChange: EventEmitter<Images> = new EventEmitter();
 
   constructor(private elementRef: ElementRef) { }
 
@@ -28,7 +37,7 @@ export class CropperComponent implements OnInit
   {
     $('.datepicker').pickadate({
       selectMonths: true,
-      selectYears: 215 
+      selectYears: 215
       , max: true
     });
   }
@@ -46,6 +55,7 @@ export class CropperComponent implements OnInit
     {
       img.src = e.target.result;
       this.cropper.base64 = this.toBase64(img);
+      this.cropper = Object.create(this.cropper);
     }
     reader.readAsDataURL(files);
   }
@@ -70,7 +80,7 @@ export class CropperComponent implements OnInit
     this.cropper.Cropper.destroy();
     this.cropper.Cropper = null;
 
-    this.imageChange.emit(this.image);
+    this.imgChange.emit(this.image);
   }
 
 }

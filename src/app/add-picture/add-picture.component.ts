@@ -68,15 +68,19 @@ export class AddPictureComponent extends ParentClass implements OnInit
       img.picdate = new Date();
 
       this.images.push(img);
-      
+
     }
 
-    this.currentImage++;
+    this.currentImage = Number(this.currentImage + 1);
 
     this.images = this.images.slice(0);
 
   }
 
+  public setImage(index: number)
+  {
+    this.currentImage = index+1;
+  }
 
   public cancel()
   {

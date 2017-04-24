@@ -1,5 +1,5 @@
 ﻿
-<div class="container">
+<div class="container" *ngIf="currentImage>0">
 
   <div class="input-field col s12" style="    ">
     <input style=" color: white; border-bottom: 1px solid white;" id="ttiel" type="text" [(ngModel)]="topic.title" class="validate">
@@ -7,15 +7,31 @@
   </div>
 
 
-  <imgPanel [(image)]="images[currentImage]">
+  <imgPanel [(img)]="images[currentImage-1]">
 
 
   </imgPanel>
 
+  <div style="text-align:center;">
 
+    <button class="btn-large" (click)="addNewImage()">Add new Image</button>
+
+  </div>
+
+  <div class="numberOfImagesPanel">
+
+    Number of Images
+    <div class="numStyle" *ngFor="let image of images;let i = index" (click)="setImage(i)">
+     <div [style.color]="i== currentImage-1 ? 'green' : '' "> {{i+1}} </div>
+    </div>
+
+  </div>
 
 </div>
 
-<button class="btn  right" (click)="addNewImage()">Add new Image</button>
-<button class="btn  right" (click)="save()">Add new post</button>
-<button class="btn left grey" (click)="cancel()">Cancel</button>
+
+<div style="position:fixed; bottom:0px; left:0px; width:100%; padding:10px; background-color:grey">
+
+  <button class="btn " style="position:absolute; right:2px;" (click)="save()">Add new post</button>
+  <button class="btn  grey" (click)="cancel()">Cancel</button>
+</div>
