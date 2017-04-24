@@ -1,9 +1,17 @@
 ﻿<div class="section no-pad-bot bgImgVision" >
   <div class="container" style="    margin-top: 12%;">
     <br><br>
-    <h1 class="header center" style="color:#039be5">Change is Amazing</h1>
+
+    <div style="text-align:center;">
+    <h1 class="header center animated" style="color: #ffc92a;     font-size: 5rem; display:inline-block;" [ngClass]="changeAni">Change</h1>
+    <h3 *ngIf="isAni" class="header center animated" style="  color:white; display:inline-block; " [ngClass]="isAni">Is</h3>
+
+    <h1 *ngIf="amazingAni" class="header center animated" style="color:#039be5;font-size: 6rem;display:inline-block;    " [ngClass]="amazingAni">Amazing</h1>
+    </div>
+
+
     <div class="row center">
-      <h5 class="header col s12" style="color:white;">Change yourself and other around the world</h5>
+      <h5 class="header col s12" style="color:white;">Change yourself and other around the world!</h5>
     </div>
     <div class="row center">
       <a [routerLink]="['login']" class="btn-large waves-effect waves-light" style="background-color:#039be5">Register Now!</a>

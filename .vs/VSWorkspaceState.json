@@ -4,15 +4,9 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\global",
-    "\\src\\app\\global\\components",
-    "\\src\\app\\global\\components\\images-panel",
     "\\src\\app\\login",
-    "\\src\\app\\profile",
     "\\src\\app\\topic",
-    "\\src\\app\\topic\\overview",
-    "\\src\\assets",
-    "\\src\\environments"
+    "\\src\\app\\topic\\landing-page"
   ],
-  "SelectedNode": "\\src\\app\\models.ts",
   "PreviewInSolutionExplorer": false
 }

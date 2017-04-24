@@ -12,11 +12,24 @@ import { NameListService } from '../../global/services/name-list.service';
 export class LandingPageComponent extends ParentClass
 {
 
+public changeAni = 'fadeInDown';
+public isAni;
+public amazingAni;
+
   constructor(
     private router: Router,
     private nameListService: NameListService)
   {
     super();
+    setTimeout(() =>
+    {
+      this.isAni = 'bounceInDown';
+    },800);
+
+    setTimeout(() =>
+    {
+      this.amazingAni = 'tada';
+    }, 1600);
 
 
   }
