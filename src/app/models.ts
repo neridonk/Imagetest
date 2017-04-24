@@ -7,7 +7,8 @@
     public url?: string,
     public description?: string,
     public topicid?: number,
-    public picdate?: Date
+    public picdate?: Date,
+    public base64?: string
 
   ) {
 
@@ -45,6 +46,7 @@ export class croppData {
   }
 
 }
+
 
 
 export class Topic {

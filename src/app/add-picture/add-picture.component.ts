@@ -2,7 +2,7 @@
 import { NameListService } from '../global/services/name-list.service';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { ParentClass } from 'components';
-import { Images, Topic, User,croppData } from '../models';
+import { Images, Topic, User, croppData } from '../models';
 declare var Cropper: any;
 declare var $: any;
 var moment = require('moment');
@@ -13,32 +13,26 @@ var moment = require('moment');
   templateUrl: './add-picture.component.html',
   styleUrls: ['./add-picture.component.css']
 })
-export class AddPictureComponent extends ParentClass implements OnInit, AfterViewInit
+export class AddPictureComponent extends ParentClass implements OnInit
 {
 
+  public user: User;
 
-  cropperBefore: croppData = new croppData();
-  cropperAfter: croppData = new croppData();
+  public topic: Topic = new Topic();
 
-  private user: User;
+  public images: Images[] = new Array();
 
-  private topic: Topic = new Topic();
-
-  private imageBefore: Images = new Images();
-  private imageafter: Images = new Images();
+  public currentImage: number = 0;
 
   constructor(private nameListService: NameListService)
   {
     super();
+    this.addNewImage();
   }
 
 
   ngOnInit()
   {
-
-    this.cropperBefore.base64 = "assets/img/noImage.jpeg";
-    this.cropperAfter.base64 = "assets/img/noImage.jpeg";
-
 
     this.nameListService.initUser(this.cst()).then((user) =>
     {
@@ -46,91 +40,15 @@ export class AddPictureComponent extends ParentClass implements OnInit, AfterVie
       this.topic.userid = this.user.userid;
 
     });
-      
-  }
-
-
-  ngAfterViewInit()
-  {
-
-    $('.datepicker').pickadate({
-      selectMonths: true, // Creates a dropdown to control month
-      selectYears: 215 // Creates a dropdown of 15 years to control year
-      , max: true
-    });
-    $('select').material_select();
 
   }
 
-  changeImage(ev: any, isBefore: boolean)
-  {
 
-    var img: HTMLImageElement = <HTMLImageElement>document.getElementById(isBefore ? "image_1" : "image_2");
-    var cropper: croppData = isBefore ? this.cropperBefore : this.cropperAfter;
-
-
-    var files = ev.srcElement.files[0];
-    var reader: FileReader = new FileReader();
-
-    reader.onload = (e: any) =>
-    {
-      img.src = e.target.result;
-      cropper.base64 = this.toBase64(img);
-      this.initCropper(cropper, img);
-    }
-    reader.readAsDataURL(files);
-  }
-
-  cropimg1()
-  {
-    var base64 = this.cropperBefore.Cropper.getCroppedCanvas().toDataURL('image/jpeg');
-    this.cropperBefore.base64 = base64;
-    this.cropperBefore.Cropper.destroy();
-    this.cropperBefore.Cropper = null;
-  }
-
-  cropimg2()
-  {
-    var base64 = this.cropperAfter.Cropper.getCroppedCanvas().toDataURL('image/jpeg');
-    this.cropperAfter.base64 = base64;
-    this.cropperAfter.Cropper.destroy();
-    this.cropperAfter.Cropper = null;
-  }
-
-
-  initCropper(crops: croppData, image: any)
-  {
-    crops.Cropper = new Cropper(image, {
-      cropBoxResizable: false,
-      aspectRatio: 1 / 1
-    });
-  }
-
-
-
-  toBase64(img: HTMLImageElement): string
-  {
-
-    var canvas: HTMLCanvasElement = <HTMLCanvasElement>document.createElement('CANVAS');
-    var ctx = canvas.getContext('2d');
-
-    canvas.height = img.height;
-    canvas.width = img.width;
-    ctx.drawImage(img, 0, 0, img.height, img.height, 0, 0, 330, 240);
-    return canvas.toDataURL();
-
-  }
 
   save(): void
   {
 
-    this.imageBefore.picdate = new Date((<HTMLInputElement>document.getElementById('picdateid1')).value);
-    this.imageBefore.url = this.cropperBefore.base64;
-
-    this.imageafter.picdate = new Date((<HTMLInputElement>document.getElementById('picdateid2')).value);
-    this.imageafter.url = this.cropperAfter.base64;
-
-    this.nameListService.addNewPictures(this.topic, this.imageBefore, this.imageafter).subscribe(
+    this.nameListService.addNewPictures(this.topic, this.images[0], this.images[1]).subscribe(
       data =>
       {
         location.href = "/profile/" + this.topic.userid;
@@ -140,6 +58,25 @@ export class AddPictureComponent extends ParentClass implements OnInit, AfterVie
     );
 
   }
+
+  public addNewImage()
+  {
+    if (this.images.length == this.currentImage) {
+
+      let img = new Images();
+      img.base64 = 'assets/img/noImage.jpeg';
+      img.picdate = new Date();
+
+      this.images.push(img);
+      
+    }
+
+    this.currentImage++;
+
+    this.images = this.images.slice(0);
+
+  }
+
 
   public cancel()
   {

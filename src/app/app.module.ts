@@ -18,6 +18,9 @@ import { AboutComponent } from './about/about.component';
 import { AddPictureComponent } from './add-picture/add-picture.component';
 import { ProfileComponent } from './profile/profile.component';
 import { DashOverviewComponent } from './overview/overview.component';
+import { CropperComponent } from './add-picture/cropper/cropper.component';
+import { CropperDirective } from './add-picture/cropper/cropper.directive';
+import { PickadateDirective } from './add-picture/pickadate.directive';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,9 @@ import { DashOverviewComponent } from './overview/overview.component';
     AddPictureComponent,
     ProfileComponent,
     DashOverviewComponent,
+    CropperComponent,
+    CropperDirective,
+    PickadateDirective,
   ],
   imports: [
     RoutesModule,
