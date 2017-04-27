@@ -34,6 +34,8 @@ export class AboutComponent extends ParentClass implements AfterViewInit
 
   public isFollowing: boolean = false;
 
+  public maxwidth: string='';
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -49,10 +51,8 @@ export class AboutComponent extends ParentClass implements AfterViewInit
       {
         this.topic = data[0];
 
-
-
         this.newComment.topicid = this.topic.topicid;
-
+        this.dosomething();
         this.initComments();
         this.fetchMe();
       },
@@ -64,6 +64,12 @@ export class AboutComponent extends ParentClass implements AfterViewInit
       this.initFollowers();
     });
   }
+
+
+  public dosomething()
+  {
+  }
+
 
   public fetchMe()
   {

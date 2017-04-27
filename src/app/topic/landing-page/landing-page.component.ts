@@ -28,7 +28,7 @@ public amazingAni;
 
     setTimeout(() =>
     {
-      this.amazingAni = 'tada';
+      this.amazingAni = 'fadeInRight';
     }, 1600);
 
 

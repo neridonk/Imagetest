@@ -17,16 +17,14 @@
 }
 
 .bgImgVision {
-  background-image: url(assets/img/sport.png);
-  background-size: cover;
   position: relative;
   z-index: 0;
-  height:90vh;
+  height: 90vh;
 }
 
 
   .bgImgVision::before {
-    background-color: rgba(0, 0, 0, 0.76);
+    background-color: rgba(0, 0, 0, 0.34);
     content: " ";
     position: absolute;
     width: 100%;
