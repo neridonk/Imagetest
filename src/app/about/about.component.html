@@ -6,7 +6,7 @@
 
 </div>
 
-<div class="center vergleichPanel">
+<div class="center vergleichPanel" *ngIf="topic">
   <h2 class="center">{{topic?.title}}</h2>
   <p class="center">
     {{topic?.date | date}} by <a *ngIf="topic?.user != null " [routerLink]="['/profile',topic.user.userid]"> {{topic?.user?.name}}  </a>

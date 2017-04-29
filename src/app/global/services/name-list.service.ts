@@ -15,7 +15,7 @@ import 'rxjs/add/observable/throw';
 @Injectable()
 export class NameListService extends ServiceClass
 {
-  public picURL: string = "";
+  public picURL: string = "/assets/img/noImage.jpeg";
   public text: string = "";
   public static user: User;
   /**

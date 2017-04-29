@@ -13,7 +13,7 @@ import { ImagesPanelComponent } from './global/components/images-panel/images-pa
 
 const routes = [
 
-    { path: '', redirectTo: '/t/all', pathMatch: 'full' },
+  { path: '', redirectTo: '/t/chisam', pathMatch: 'full' },
 
   { path: 'login', component: LoginComponent },
   { path: 'addPicture', component: AddPictureComponent },

@@ -21,6 +21,9 @@ public amazingAni;
     private nameListService: NameListService)
   {
     super();
+
+
+
     setTimeout(() =>
     {
       this.isAni = 'bounceInDown';
@@ -31,6 +34,10 @@ public amazingAni;
       this.amazingAni = 'fadeInRight';
     }, 1600);
 
+    if (this.cst() != null)
+    {
+      this.router.navigate(['all', localStorage.getItem('cst')]);
+    }
 
 }
 

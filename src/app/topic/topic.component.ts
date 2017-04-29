@@ -15,17 +15,21 @@ export class TopicComponent extends ParentClass implements AfterViewInit
 
   constructor(
     private router: Router,
-    private nameListService: NameListService)
+    public nameListService: NameListService)
   {
     super();
+
+    if (this.cst() == null)
+    {
+      setTimeout(() =>
+      {
+        this.showRegister = true;
+      }, 10000);
+    }
   }
 
   ngAfterViewInit()
   {
-    if (this.cst() == null)
-    {
-      this.showRegister = true;
-    }
   }
 
   public goToProfile()

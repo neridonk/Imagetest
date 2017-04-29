@@ -14,8 +14,8 @@ export class NavbarComponent
   public static userid = localStorage.getItem('cst');
 
   constructor(
-    private router: Router,
-    private nameListService: NameListService
+    public router: Router,
+    public nameListService: NameListService
   )
   {
 
