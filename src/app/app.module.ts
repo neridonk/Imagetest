@@ -21,6 +21,7 @@ import { DashOverviewComponent } from './overview/overview.component';
 import { CropperComponent } from './add-picture/cropper/cropper.component';
 import { CropperDirective } from './add-picture/cropper/cropper.directive';
 import { PickadateDirective } from './add-picture/pickadate.directive';
+import { HashLocationStrategy, Location, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,7 @@ import { PickadateDirective } from './add-picture/pickadate.directive';
     HttpModule
   ],
   exports: [NavbarComponent],
-  providers: [NameListService],
+  providers: [NameListService,Location, { provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

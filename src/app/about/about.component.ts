@@ -181,7 +181,7 @@ export class AboutComponent extends ParentClass implements AfterViewInit
       {
         this.router.navigate(['/']);
       },
-      err => alert(JSON.stringify(err))
+      err => this.router.navigate(['/'])
     );
   }
 

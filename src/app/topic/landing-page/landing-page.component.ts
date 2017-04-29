@@ -36,7 +36,7 @@ public amazingAni;
 
     if (this.cst() != null)
     {
-      this.router.navigate(['all', localStorage.getItem('cst')]);
+      this.router.navigate(['/t/all']);
     }
 
 }
@@ -45,6 +45,10 @@ public amazingAni;
   {
     setTimeout(() =>
     {
+
+      if (document.getElementById('logosy') == null)
+        return;
+
       document.getElementById('logosy').style.width = '20%';
       document.getElementById('logosy').style.opacity = '1';
       document.getElementById('logosy').style.minWidth = '200px';
