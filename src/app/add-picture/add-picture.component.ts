@@ -9,81 +9,89 @@ var moment = require('moment');
 
 
 @Component({
-  selector: 'app-add-picture',
-  templateUrl: './add-picture.component.html',
-  styleUrls: ['./add-picture.component.css']
+    selector: 'app-add-picture',
+    templateUrl: './add-picture.component.html',
+    styleUrls: ['./add-picture.component.css']
 })
-export class AddPictureComponent extends ParentClass implements OnInit
-{
+export class AddPictureComponent extends ParentClass implements OnInit {
 
-  public user: User;
+    public user: User;
 
-  public topic: Topic = new Topic();
+    public topic: Topic = new Topic();
 
-  public images: Images[] = new Array();
+    public images: Images[] = new Array();
 
-  public currentImage: number = 0;
+    public currentImage: number = 0;
 
-  constructor(private nameListService: NameListService)
-  {
-    super();
-    this.addNewImage();
-  }
+    constructor(private nameListService: NameListService) {
+        super();
+        this.addNewImage();
+    }
 
 
-  ngOnInit()
-  {
+    ngOnInit() {
 
-    this.nameListService.initUser(this.cst()).then((user) =>
-    {
-      this.user = user;
-      this.topic.userid = this.user.userid;
+        this.nameListService.initUser(this.cst()).then((user) => {
+            this.user = user;
+            this.topic.userid = this.user.userid;
 
-    });
-
-  }
-
-
-
-  save(): void
-  {
-
-    this.nameListService.addNewPictures(this.topic, this.images[0], this.images[1]).subscribe(
-      data =>
-      {
-        location.href = "/profile/" + this.topic.userid;
-
-      },
-      err => alert(JSON.stringify(err))
-    );
-
-  }
-
-  public addNewImage()
-  {
-    if (this.images.length == this.currentImage) {
-
-      let img = new Images();
-      img.base64 = 'assets/img/noImage.jpeg';
-      img.picdate = new Date();
-
-      this.images.push(img);
+        });
 
     }
 
-    this.currentImage = Number(this.currentImage + 1);
 
-    this.images = this.images.slice(0);
 
-  }
+    save(): void {
 
-  public setImage(index: number)
-  {
-    this.currentImage = index+1;
-  }
+        this.nameListService.addNewTopic(this.topic).subscribe(
+            data => {
+                this.addImage(data.code);
+            },
+            err => alert(JSON.stringify(err))
+        );
 
-  public cancel()
-  {
-    location.href = "/";
-  }
+    }
+
+    addImage(topicId: any) {
+
+        Promise.all(this.images.map((image) => {
+            return new Promise((resolve) => {
+
+                this.nameListService.addNewPictureToTopic(topicId, image).toPromise().then(() => {
+                    resolve.apply('');
+                });
+
+            });
+
+        })).then((d) => {
+            location.href = "/profile/" + this.topic.userid;
+        });
+
+
+    }
+
+    public addNewImage() {
+        if (this.images.length == this.currentImage) {
+
+            let img = new Images();
+            img.base64 = 'assets/img/noImage.jpeg';
+            img.picdate = new Date();
+
+            this.images.push(img);
+
+        }
+
+        this.currentImage = Number(this.currentImage + 1);
+
+        this.images = this.images.slice(0);
+
+    }
+
+    public setImage(index: number) {
+        this.currentImage = index + 1;
+    }
+
+    public cancel() {
+        location.href = "/";
+    }
 }

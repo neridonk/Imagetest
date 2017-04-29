@@ -37,43 +37,12 @@
   </div>
 
   <!-- new Pic-->
-  <div [hidden]="addnewPic" class="row" style="height: 90vh;     overflow-x: hidden; overflow-y: auto;">
-    <div class="col s12 l4">
-    </div>
-
-    <div class="col s12 l4">
-      <div class="card">
-        <div class="card-image">
-          <img class="responsive-img" id="image_2" [src]="cropperAfter.base64" />
-
-          <input class="fileinputer" type="file" accept="image/*" (change)="changeImage($event, false)">
-          <button *ngIf="cropperAfter.Cropper" class="btn cropbtn" (click)="cropimg2()">crop</button>
-        </div>
-        <div class="card-content">
-
-          <div class="row">
-
-            <div class="input-field col s12">
-              <input id="picdateid" type="date" class="datepicker">
-              <label for="picdateid">Date</label>
-            </div>
-
-            <div class="input-field col s12">
-              <textarea id="textarea2" class="materialize-textarea" [(ngModel)]="imageAfter.description"></textarea>
-              <label for="textarea2">Desciption</label>
-            </div>
-          </div>
-
-        </div>
-        <div class="card-action">
-          <a [hidden]="isNotMe" class="btn" (click)="savePic()">Save</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col s12 l4">
-    </div>
-  </div>
+  <div [hidden]="addnewPic" class="row" style="height: 110vh;  width:100% ;  overflow-x: hidden; overflow-y: auto;">
+    <div imgPanel [(img)]="imageAfter" style="width:100% ;height: 60%;"> </div>
+    <br />
+    <br />
+  <a  class="btn" (click)="savePic()">Save</a>
+</div>
 
 
 
@@ -133,9 +102,13 @@
           <textarea *ngIf="!isNotMe" class="materialize-textarea" maxlength="200" style="" [(ngModel)]="item.description"></textarea>
 
         </div>
-        <div class="card-action" [hidden]="isNotMe">
+        <div class="card-action" [hidden]="isNotMe">  
+
+          <i class="material-icons" style=" cursor:pointer;     color: #353535;" (click)="isOnEdit= !isOnEdit">settings</i>
+          <div *ngIf="isOnEdit">
           <a class="" (click)="delete(item.imgid)">Delete</a>
-          <a class="btn" (click)="changeText(item)">Edit</a>
+          <a class="btn" (click)="changeText(item)">Save</a>
+          </div>
         </div>
       </div>
     </div>

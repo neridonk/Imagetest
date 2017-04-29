@@ -6,11 +6,11 @@
     "\\src\\app\\add-picture",
     "\\src\\app\\add-picture\\cropper",
     "\\src\\app\\global",
+    "\\src\\app\\topic",
     "\\src\\app\\topic\\landing-page",
-    "\\src\\assets",
     "\\src\\assets\\css",
     "\\src\\assets\\img"
   ],
-  "SelectedNode": "\\src\\app\\add-picture\\cropper\\cropper.component.ts",
+  "SelectedNode": "\\src\\app\\topic\\landing-page\\landing-page.component.ts",
   "PreviewInSolutionExplorer": false
 }

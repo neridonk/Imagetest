@@ -3,7 +3,7 @@ import { croppData, Images } from '../../models';
 declare var $: any;
 
 @Component({
-  selector: 'imgPanel',
+  selector: '[imgPanel]',
   templateUrl: './cropper.component.html',
   styleUrls: ['./cropper.component.css']
 })

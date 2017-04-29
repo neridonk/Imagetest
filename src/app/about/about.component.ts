@@ -27,7 +27,6 @@ export class AboutComponent extends ParentClass implements AfterViewInit
   public id: number;
   public respectProvided: boolean = false;
 
-  public cropperAfter: croppData = new croppData();
   public imageAfter: Images = new Images();
 
   public followerCount;
@@ -42,7 +41,7 @@ export class AboutComponent extends ParentClass implements AfterViewInit
     private nameListService: NameListService)
   {
     super();
-    this.cropperAfter.base64 = "assets/img/noImage.jpeg";
+    this.imageAfter.base64 = "assets/img/noImage.jpeg";
 
     this.id = +this.route.snapshot.params['id'];
 
@@ -58,7 +57,7 @@ export class AboutComponent extends ParentClass implements AfterViewInit
       },
       err => alert(JSON.stringify(err))
     );
-
+    this.imageAfter.base64 = 'assets/img/noImage.jpeg';
     this.nameListService.initUser(this.cst()).then((user) =>
     {
       this.initFollowers();
@@ -165,10 +164,6 @@ export class AboutComponent extends ParentClass implements AfterViewInit
 
   public savePic()
   {
-
-    this.imageAfter.url = this.cropperAfter.base64;
-    this.imageAfter.picdate = new Date((<HTMLInputElement>document.getElementById('picdateid')).value);
-
     this.nameListService.addNewPictureToTopic(this.topic.topicid, this.imageAfter).subscribe(
       data =>
       {
@@ -178,53 +173,7 @@ export class AboutComponent extends ParentClass implements AfterViewInit
     );
   }
 
-  changeImage(ev: any, isBefore: boolean)
-  {
-
-    var img: HTMLImageElement = <HTMLImageElement>document.getElementById(isBefore ? "image_1" : "image_2");
-    var cropper: croppData = isBefore ? this.cropperAfter : this.cropperAfter;
-
-
-    var files = ev.srcElement.files[0];
-    var reader: FileReader = new FileReader();
-
-    reader.onload = (e: any) =>
-    {
-      img.src = e.target.result;
-      cropper.base64 = this.toBase64(img);
-      this.initCropper(cropper, img);
-    }
-    reader.readAsDataURL(files);
-  }
-
-  initCropper(crops: croppData, image: any)
-  {
-    crops.Cropper = new Cropper(image, {
-      cropBoxResizable: false,
-      aspectRatio: 1 / 1
-    });
-  }
-  cropimg2()
-  {
-    var base64 = this.cropperAfter.Cropper.getCroppedCanvas().toDataURL('image/jpeg');
-    this.cropperAfter.base64 = base64;
-    this.cropperAfter.Cropper.destroy();
-    this.cropperAfter.Cropper = null;
-  }
-
-  toBase64(img: HTMLImageElement): string
-  {
-
-    var canvas: HTMLCanvasElement = <HTMLCanvasElement>document.createElement('CANVAS');
-    var ctx = canvas.getContext('2d');
-
-    canvas.height = img.height;
-    canvas.width = img.width;
-    ctx.drawImage(img, 0, 0, img.height, img.height, 0, 0, 330, 240);
-    return canvas.toDataURL();
-
-  }
-
+  
   public deletePost()
   {
     this.nameListService.removeTopic(this.topic.topicid).subscribe(

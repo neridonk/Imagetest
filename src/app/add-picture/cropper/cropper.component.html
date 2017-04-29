@@ -1,32 +1,39 @@
-﻿<div class="container" *ngIf="image">
+﻿<div class="container" style=" height: 100%;" *ngIf="image">
+  <div class="col s12 m2">
 
-<div class="col s12 m8">
-  <div class="card">
-    <div class="card-image">
-      <img cropper [cropper]="cropper" class="responsive-img"  [src]="image.base64" />
-    </div>
-    <div class="card-content">
-      <input type="file" accept="image/*" (change)="changeImage($event)">
-      <button *ngIf="cropper.base64" class="btn cropbtn" (click)="cropimg()">crop</button>
-      <div class="row">
-
-        <div class="input-field col s12 ">
-          <label for="validto">Picture date</label>
-          <input id="validto" type="date" pickadate [(value)]="image.picdate" [format]="'dd.mm.yy'" >
+  </div>
+    <div class="col s12 m8">
+      <div class="card">
+        <div class="card-image">
+          <img cropper [cropper]="cropper" class="responsive-img" [src]="image.base64" />
         </div>
+        <div class="card-content">
+          <input type="file" accept="image/*" (change)="changeImage($event)">
+          <button *ngIf="cropper.base64" class="btn cropbtn" (click)="cropimg()">crop</button>
+          <div class="row">
+
+            <div class="input-field col s12 ">
+              <label for="validto">Picture date</label>
+              <input id="validto" type="date" pickadate [(value)]="image.picdate" [format]="'dd.mm.yy'">
+            </div>
 
 
-        <div class="input-field col s12">
-          <textarea id="textarea1" class="materialize-textarea" [(ngModel)]="image.description"></textarea>
-          <label for="textarea1">Desciption</label>
+            <div class="input-field col s12">
+              <textarea id="textarea1" class="materialize-textarea" [(ngModel)]="image.description"></textarea>
+              <label for="textarea1">Desciption</label>
+            </div>
+          </div>
+
+
+        </div>
+        <div class="card-action">
         </div>
       </div>
 
+      <div class="col s12 m2">
+
+      </div>
 
     </div>
-    <div class="card-action">
-    </div>
+
   </div>
-</div>
-
-</div>

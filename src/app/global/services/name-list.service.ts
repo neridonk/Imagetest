@@ -84,10 +84,10 @@ export class NameListService extends ServiceClass
 
 
 
-  addNewPictures(topic: Topic, beforeImg: Images, afterImg: Images): Observable<any>
+  addNewTopic(topic: Topic): Observable<any>
   {
 
-    var formData = { 'Topic': topic, 'beforeImg': beforeImg, 'afterImg': afterImg };
+    var formData = { 'Topic': topic};
     this.showLoading();
 
     return this.post('addnewTopic.php', formData).map((response: any) =>
@@ -130,7 +130,7 @@ export class NameListService extends ServiceClass
     var formData = { 'topicid': topicid, 'afterImg': afterImg };
     this.showLoading();
 
-    return this.postXFrom('addNewPictureToTopic.php', formData).map((response: any) =>
+    return this.post('addNewPictureToTopic.php', formData).map((response: any) =>
     {
       this.hideLoading();
       return <any>response.json();
