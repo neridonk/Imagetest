@@ -33,12 +33,6 @@ public amazingAni;
     {
       this.amazingAni = 'fadeInRight';
     }, 1600);
-
-    if (this.cst() != null)
-    {
-      this.router.navigate(['/t/all']);
-    }
-
 }
 
   ngAfterViewInit()
