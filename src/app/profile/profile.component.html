@@ -14,19 +14,19 @@
   </div>
 
   <div class="col s12 m4 " *ngIf="user">
-    <img [src]="user.img" style="width:100%; border: 1px solid #ffffff;" />
+    <img [src]="user.img" style="width:100%; border: 1px solid #ffffff;    margin-bottom: -45px;" />
     <br />
-    <i  *ngIf="!isChangeImage && isUser" class="material-icons" style=" cursor:pointer;     color: white;" (click)="isChangeImage= true">settings</i>
+    <i  *ngIf="!isChangeImage && isUser" class="material-icons" style="cursor: pointer;color: white;position: absolute;margin-top: -31px;background-color: #2d2d2d;padding: 5px;" (click)="isChangeImage= true">settings</i>
 
-    <div *ngIf="isChangeImage">
-      <input type="text" placeholder="Input image URL" style="color:white;" [(ngModel)]="newImageUrl"/>
+    <div *ngIf="isChangeImage" style="    background-color: #3a3a3a;     padding: 10px;">
+      <input type="text" placeholder="Input image URL" style="color:white; background-color: #3a3a3a;   " [(ngModel)]="newImageUrl"/>
       <a  (click)="isChangeImage = false">Cancel</a> <button class="btn" (click)="changeImage()">Save image</button>
     </div>
   </div>
 
   <div class="col s12 m4 " style="    color: white; padding:15px">
-    <p class="chip" style=" background-color:white;"><img src="assets/img/respect.png" class="left" style="width:32px; " title="Respectors"> {{respectcount}} respects</p>
-    <p class="chip" style=" background-color:white;"><img src="assets/img/join.png" class="left" style="width:32px; " title="Joiners"> {{motivators}} motivators</p>
+    <p class="chip chipOutline" ><img src="assets/img/respect.png" class="left" style="width:24px; height:24px;  " title="Respectors"> {{respectcount}} respects</p>
+    <p class="chip chipOutline" ><img src="assets/img/join.png" class="left" style="width:24px; height:24px; " title="Joiners"> {{motivators}} motivators</p>
 
 
   </div>
@@ -40,7 +40,7 @@
 </div>
 
 
-<div class="container" *ngIf="isUser" >
+<div class="container" *ngIf="isUser && topics.length>0" >
 
   <h6>Your motivator in</h6>
 

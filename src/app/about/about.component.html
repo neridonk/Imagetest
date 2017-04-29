@@ -11,13 +11,18 @@
   <p class="center">
     {{topic?.date | date}} by <a *ngIf="topic?.user != null " [routerLink]="['/profile',topic.user.userid]"> {{topic?.user?.name}}  </a>
     <br>
-    <a *ngIf="isNotMe==false" class="btn" (click)="addnewPic=!addnewPic ">Add new picture</a>
+    <br>
+    <a *ngIf="isNotMe==false" class="btn" (click)="addnewPic=!addnewPic ">
+      <i class="material-icons left"> library_add</i>
+
+      Add new picture
+    </a>
     <br><br>
     <a [hidden]="isNotMe" class="" (click)="deletePost()">Delete post</a>
 
   </p>
 
-  <p class="chip" style=" background-color:white;cursor:pointer" (click)="joinFollower()" *ngIf="!isFollowing && followerCount!=null">
+  <p class="chip chipOutline" style="cursor:pointer" (click)="joinFollower()" *ngIf="!isFollowing && followerCount!=null">
     <img src="assets/img/join.png" class="left" style="width:32px; " title="Joiners">
     {{followerCount}} motivators
   </p>
@@ -37,12 +42,22 @@
   </div>
 
   <!-- new Pic-->
-  <div [hidden]="addnewPic" class="row" style="height: 110vh;  width:100% ;  overflow-x: hidden; overflow-y: auto;">
-    <div imgPanel [(img)]="imageAfter" style="width:100% ;height: 60%;"> </div>
-    <br />
-    <br />
-  <a  class="btn" (click)="savePic()">Save</a>
-</div>
+  <div [hidden]="addnewPic" class="row" style=" width:100% ;  overflow-x: hidden; overflow-y: auto;">
+    <div imgPanel [(img)]="imageAfter" style="width:100% ;height: 100%;"> </div>
+
+    <div class="savepanel">
+      <a (click)="addnewPic=true" style="margin-right:15px">
+        Cancel
+      </a>
+
+      <a class="btn-large" (click)="savePic()">
+        <i class="material-icons left"> done</i>
+
+        Save
+      </a>
+    </div>
+
+  </div>
 
 
 
@@ -56,7 +71,7 @@
 
       <div class="dateVgl">{{topic.images[0].picdate | date}}</div>
 
-      <img class=" responsive-img" style="width:100%" src="http://changeisamazing.com/images/{{topic.images[0].url}}"  />
+      <img class=" responsive-img" style="width:100%" src="http://changeisamazing.com/images/{{topic.images[0].url}}" />
     </div>
     <div class="col s6" style="padding: 0px !Important">
 
@@ -102,12 +117,12 @@
           <textarea *ngIf="!isNotMe" class="materialize-textarea" maxlength="200" style="" [(ngModel)]="item.description"></textarea>
 
         </div>
-        <div class="card-action" [hidden]="isNotMe">  
+        <div class="card-action" [hidden]="isNotMe">
 
           <i class="material-icons" style=" cursor:pointer;     color: #353535;" (click)="isOnEdit= !isOnEdit">settings</i>
           <div *ngIf="isOnEdit">
-          <a class="" (click)="delete(item.imgid)">Delete</a>
-          <a class="btn" (click)="changeText(item)">Save</a>
+            <a class="" (click)="delete(item.imgid)">Delete</a>
+            <a class="btn" (click)="changeText(item)">Save</a>
           </div>
         </div>
       </div>

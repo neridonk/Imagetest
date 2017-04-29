@@ -70,6 +70,17 @@ export class AddPictureComponent extends ParentClass implements OnInit {
 
     }
 
+    public removeImage()
+    {
+      this.currentImage = Number(this.currentImage - 1);
+
+      this.images.splice(this.currentImage, 1);
+
+
+      this.images = this.images.slice(0);
+    }
+
+
     public addNewImage() {
         if (this.images.length == this.currentImage) {
 

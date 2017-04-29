@@ -45,3 +45,15 @@
   height: auto;
   z-index: -100;
 }
+
+.logostyle {
+  position: absolute;
+  z-index: -1;
+  width: 0px;
+  opacity:0;
+  right: 10px;
+  -webkit-transition: all 5s linear;
+  -moz-transition: all 5s linear;
+  -o-transition: all 5s linear;
+  transition: all 5s linear;
+}

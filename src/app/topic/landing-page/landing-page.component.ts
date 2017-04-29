@@ -32,6 +32,18 @@ public amazingAni;
     }, 1600);
 
 
+}
+
+  ngAfterViewInit()
+  {
+    setTimeout(() =>
+    {
+      document.getElementById('logosy').style.width = '20%';
+      document.getElementById('logosy').style.opacity = '1';
+      document.getElementById('logosy').style.minWidth = '200px';
+
+    }, 800);
+
   }
 
 

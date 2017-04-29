@@ -126,3 +126,15 @@ h2 {
   padding: 34px;
   font-size: 2rem;
 }
+
+
+.savepanel {
+  position: fixed;
+  bottom: 0px;
+  height: 71px;
+  background-color: #2f2f2f;
+  width: 100%;
+  left: 0px;
+  padding: 10px;
+  z-index:1;
+}

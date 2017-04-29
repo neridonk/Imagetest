@@ -14,7 +14,11 @@
 
   <div style="text-align:center;">
 
-    <button class="btn-large" (click)="addNewImage()">Add Image</button>
+    <a *ngIf="images.length>1" (click)="removeImage()" style="margin-right:10px">Remove Image</a>
+    <button class="btn-large" style="background-color: #ffb448;" (click)="addNewImage()">
+      <i class="material-icons left" > library_add</i>
+     
+    Add Image</button>
 
   </div>
 
@@ -38,8 +42,11 @@
 <br />
 
 
-<div style="position:fixed; bottom:0px; left:0px; width:100%; padding:10px; background-color:#383737">
+<div style="position:fixed; bottom:0px; left:0px; width:100%;    height: 71px; padding:10px; background-color:#383737">
 
-  <button class="btn " style="position:absolute; right:2px;" (click)="save()">Add new post</button>
-  <button class="btn  grey" (click)="cancel()">Cancel</button>
+  <button class="btn-large" style="position:absolute; right:2px;" (click)="save()">
+    <i class="material-icons left"> done</i>
+
+  Add new post</button>
+  <a style="line-height: 3;" (click)="cancel()">Cancel</a>
 </div>

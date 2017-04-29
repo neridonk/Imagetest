@@ -26,11 +26,12 @@
 .numberOfImagesPanel {
 }
 
-.numStyle{
-  display:inline-block;
-  cursor:pointer;
-  padding:10px;
-  font-weight:bold;
-  border:1px solid grey;
-  margin:5px;
+.numStyle {
+  display: inline-block;
+  cursor: pointer;
+  padding: 10px;
+  font-weight: bold;
+  border: 1px solid #636363;
+  margin: 5px;
+  border-radius: 7px;
 }
