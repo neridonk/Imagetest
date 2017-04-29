@@ -4,10 +4,10 @@
     <p> {{user.name}}</p>
     <p>{{user.bio}}</p>
 
-    <a *ngIf="!isChangeBio && isUser" class="g" (click)="isChangeBio = true">Change Bio</a>
+    <i *ngIf="!isChangeBio && isUser" class="material-icons g" style=" cursor:pointer;     color: white;" (click)="isChangeBio= true">settings</i>
 
     <div *ngIf="isChangeBio">
-      <textarea type="text" placeholder="My life be like uuuh ahh" style="color:white; height: 186px;" [(ngModel)]="newBio" ></textarea>
+      <textarea type="text" placeholder="My life..." style="color:white; height: 186px;" [(ngModel)]="newBio" ></textarea>
       <a (click)="isChangeBio = false">Cancel</a> <button class="btn" (click)="changeBio()">Save Bio</button>
     </div>
 
@@ -16,7 +16,7 @@
   <div class="col s12 m4 " *ngIf="user">
     <img [src]="user.img" style="width:100%; border: 1px solid #ffffff;" />
     <br />
-    <a *ngIf="!isChangeImage && isUser" class="g" (click)="isChangeImage = true">Change Image</a>
+    <i  *ngIf="!isChangeImage && isUser" class="material-icons" style=" cursor:pointer;     color: white;" (click)="isChangeImage= true">settings</i>
 
     <div *ngIf="isChangeImage">
       <input type="text" placeholder="Input image URL" style="color:white;" [(ngModel)]="newImageUrl"/>
@@ -40,9 +40,9 @@
 </div>
 
 
-<div class="container">
+<div class="container" *ngIf="isUser" >
 
-  <h6>Your joined changes</h6>
+  <h6>Your motivator in</h6>
 
   <div>
     <app-images-panel [category]="'external'" [topicsExtern]="topics"></app-images-panel>
