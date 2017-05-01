@@ -1,4 +1,5 @@
 ﻿import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
+
 import { Images, Topic, User, croppData } from '../../../models';
 import { NameListService } from '../../services/name-list.service';
 declare var WOW: any;
@@ -55,16 +56,6 @@ export class ImagesPanelComponent implements OnInit, AfterViewInit
 
     this.fetchTopicList();
 
-    this.nameListService.getAllFeaturedTopics(this.category).subscribe(
-      data =>
-      {
-        data.forEach((d) =>
-        {
-          this.featuredtopiclist.push(d);
-        });
-
-      },
-      err => JSON.stringify(err));
   }
 
   ngAfterViewInit()
@@ -77,6 +68,7 @@ export class ImagesPanelComponent implements OnInit, AfterViewInit
     new WOW().init();
 
   }
+
 
   public onScroll(startOn: any)
   {

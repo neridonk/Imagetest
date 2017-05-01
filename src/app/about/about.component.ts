@@ -4,6 +4,7 @@ import { NameListService } from '../global/services/name-list.service';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { ParentClass } from 'components';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { DomSanitizer } from '@angular/platform-browser';
 
 declare var Cropper: any;
 var moment = require('moment');
@@ -36,6 +37,7 @@ export class AboutComponent extends ParentClass implements AfterViewInit
   public maxwidth: string='';
 
   constructor(
+    private domSanitizer: DomSanitizer,
     private route: ActivatedRoute,
     private router: Router,
     private nameListService: NameListService)
@@ -281,5 +283,8 @@ export class AboutComponent extends ParentClass implements AfterViewInit
       err => err
     );
   }
-
+  public youtube(url: any)
+  {
+    return this.domSanitizer.bypassSecurityTrustResourceUrl(url);
+  }
 }
