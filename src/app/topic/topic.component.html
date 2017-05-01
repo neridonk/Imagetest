@@ -33,27 +33,5 @@
 <router-outlet></router-outlet>
 
 
-<a *ngIf="cst()" [routerLink]="['../addPicture']" class="btn-large btn-floating" style="position:fixed; right:5px; bottom:5px;    background-color: #17b3ef;">
-  <i class="material-icons">add</i>
-</a>
 
-<div class="specReg row animated fadeInDown" *ngIf="showRegister">
-
-  <div class="col s12 m8 l9 regPanel">
-
-    <div style="    font-size: 3rem;    background-color: rgba(0, 0, 0, 0.26);    color: white;    padding: 5%;">
-      <p style="font-size:2rem">Tell us <b style="color:#17b3ef">your</b> story and inspire others
-
-    </div>
-    <br><br>
-    <input type="button" class="inlineBlock btn-large" style="background-color: #17b3ef; color: white !important;" value="Register now" routerLink="/login" />
-    <br><br>
-
-
-    <a (click)="showRegister=false">register later</a>
-
-  </div>
-
-
-</div>
 

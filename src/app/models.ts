@@ -55,6 +55,7 @@ export class Topic {
     public topicid?: number,
     public title?: string,
     public category?: string,
+    public youtube?: string,
     public isFeatured?: number,
     public userid?: number,
     public date?: Date,

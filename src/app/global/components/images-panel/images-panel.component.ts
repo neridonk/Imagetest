@@ -1,5 +1,5 @@
 ﻿import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
-
+import { DomSanitizer } from '@angular/platform-browser';
 import { Images, Topic, User, croppData } from '../../../models';
 import { NameListService } from '../../services/name-list.service';
 declare var WOW: any;
@@ -31,7 +31,7 @@ export class ImagesPanelComponent implements OnInit, AfterViewInit
   public topiclist: Topic[] = new Array();
   public featuredtopiclist: Topic[] = new Array();
 
-  constructor(private router: Router, private nameListService: NameListService) { }
+  constructor(private domSanitizer: DomSanitizer, private router: Router, private nameListService: NameListService) { }
 
   ngOnInit()
   {
@@ -101,4 +101,11 @@ export class ImagesPanelComponent implements OnInit, AfterViewInit
   {
     this.router.navigate(['/about', id]);
   }
+  public youtube(url: string)
+  {
+    var str = url.split('v=')[1];
+
+    return 'https://img.youtube.com/vi/' + str + '/0.jpg';
+  }
+
 }

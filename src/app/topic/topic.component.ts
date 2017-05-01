@@ -11,7 +11,6 @@ import { NameListService } from '../global/services/name-list.service';
 })
 export class TopicComponent extends ParentClass implements AfterViewInit
 {
-  public showRegister: boolean = false;
 
   constructor(
     private router: Router,
@@ -19,13 +18,7 @@ export class TopicComponent extends ParentClass implements AfterViewInit
   {
     super();
 
-    if (this.cst() == null)
-    {
-      setTimeout(() =>
-      {
-        this.showRegister = true;
-      }, 10000);
-    }
+
   }
 
   ngAfterViewInit()

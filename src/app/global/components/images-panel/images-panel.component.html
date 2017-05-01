@@ -17,10 +17,11 @@
 <div class="row " InfinityScroll (onfetch)="onScroll($event)">
 
   <div *ngFor="let top of featuredtopiclist" class="col s12 m6 l5" style="padding:5px !important;">
+
+
     <div class="card  wow pulse imgCard" style="    background-color: rgba(255, 255, 255, 0.62);">
 
       <img src="assets/img/featured.png" class="lorbeeri" />
-
 
       <div class="card-image" (click)="goToAbout(top.topicid)">
         <img src="http://changeisamazing.com/images/{{top.images[0].url}}" class="imgAk" />
@@ -45,15 +46,31 @@
         </div>
       </div>
 
-    <div><br /></div>
+      <div>
+        <br />
+      </div>
+    </div>
+
   </div>
 
 
   <div *ngFor="let top of topiclist" class="col s12 m4 l3" style="padding:5px !important;">
-    <div class="card  wow pulse imgCard" style="    background-color: rgba(255, 255, 255, 0.62);" *ngIf="top.images != null || top.images.lenght==0">
+
+    <!-- Image only no video-->
+    <div class="card  wow pulse imgCard" style="    background-color: rgba(255, 255, 255, 0.62);" >
       <div class="card-image" (click)="goToAbout(top.topicid)">
-        <img src="http://changeisamazing.com/images/{{top.images[0].url}}" class="imgAk" />
-        <img src="http://changeisamazing.com/images/{{top.images[top.images.length-1]?.url}}" class="imgAk" />
+
+        <div *ngIf="top.images != null && top.images.length!=0">
+          <img src="http://changeisamazing.com/images/{{top.images[0].url}}" class="imgAk" />
+          <img src="http://changeisamazing.com/images/{{top.images[top.images.length-1]?.url}}" class="imgAk" />
+        </div>
+
+        <div  *ngIf="top.youtube!='' && top.images.length==0" style="position:relative;overflow:hidden">
+          <img src="assets/img/respect.png" class="imgAk" />
+          <img src="assets/img/respect.png" class="imgAk" />
+          <img [src]="youtube(top.youtube)"  style=" width: 100%;position:absolute;left:0px;top:0px;"/>
+        </div>
+
         <span class="card-title titleNew ">{{top.title.substring(0, 25)}}...</span>
       </div>
       <div class="card-action grey-text " style="border-bottom: 1px solid #9e9eb9; padding:7px">
@@ -63,6 +80,12 @@
         <div class="inlineBlock">
           <i class="material-icons tiny">photo_library</i> {{top.images.length}}
         </div>
+
+
+        <a *ngIf="top.youtube!='' " class="inlineBlock" href="{{top.youtube}}" style="margin-left: 40px;color: #07b1f2; vertical-align: top;">
+          <i class="material-icons tiny">play_circle_filled</i> ON YOUTUBE
+        </a>
+
         <div class="right">
           {{top.category }} {{formatTime(top.date)}}
         </div>
