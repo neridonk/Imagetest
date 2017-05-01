@@ -1,35 +1,52 @@
 ﻿
-<div class="container" *ngIf="currentImage>0">
+<div class="container">
 
   <div class="input-field col s12" style="    ">
-    <input  id="ttiel" type="text" [(ngModel)]="topic.title" class="validate">
+    <input id="ttiel" type="text" [(ngModel)]="topic.title" class="validate">
     <label for="ttiel">Title</label>
   </div>
 
 
-  <div imgPanel [(img)]="images[currentImage-1]">
+  <div *ngIf="currentImage>0" imgPanel [(img)]="images[currentImage-1]">
 
 
   </div>
 
   <div style="text-align:center;">
 
-    <a *ngIf="images.length>1" (click)="removeImage()" style="margin-right:10px">Remove Image</a>
+    <a *ngIf="currentImage>0" (click)="removeImage()" style="margin-right:10px">Remove Image</a>
     <button class="btn-large" style="background-color: #ffb448;" (click)="addNewImage()">
-      <i class="material-icons left" > library_add</i>
-     
-    Add Image</button>
+      <i class="material-icons left"> library_add</i>
+
+      Add Image
+    </button>
+
+
+    <button *ngIf="!isYoutube" class="btn" style="background-color: #ffb448;" (click)="isYoutube=true">
+      <i class="material-icons left"> play_circle_filled</i>
+      Youtube Link
+    </button>
+
 
   </div>
 
-  <div class="numberOfImagesPanel">
+  <div class="numberOfImagesPanel" *ngIf="currentImage>0">
 
     Number of Images
     <div class="numStyle" *ngFor="let image of images;let i = index" (click)="setImage(i)">
-     <div [style.color]="i== currentImage-1 ? 'green' : '' "> {{i+1}} </div>
+      <div [style.color]="i== currentImage-1 ? 'green' : '' "> {{i+1}} </div>
     </div>
 
   </div>
+
+  <div *ngIf="isYoutube" class="row">
+    <div class="input-field col s12" style="">
+      <input id="ttiely" type="text" [(ngModel)]="topic.youtube" class="validate">
+      <label for="ttiely">Youtube Link</label>
+    </div>
+    <a (click)="isYoutube = false; topic.youtube = '' " style="margin-right:10px">Cancel</a>
+  </div>
+
 
 </div>
 <br />
@@ -47,6 +64,7 @@
   <button class="btn-large" style="position:absolute; right:2px;" (click)="save()">
     <i class="material-icons left"> done</i>
 
-  Add new post</button>
+    Add new post
+  </button>
   <a style="line-height: 3;" (click)="cancel()">Cancel</a>
 </div>

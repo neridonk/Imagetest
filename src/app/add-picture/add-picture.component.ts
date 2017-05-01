@@ -25,7 +25,6 @@ export class AddPictureComponent extends ParentClass implements OnInit {
 
     constructor(private nameListService: NameListService) {
         super();
-        this.addNewImage();
     }
 
 
@@ -63,7 +62,8 @@ export class AddPictureComponent extends ParentClass implements OnInit {
 
             });
 
-        })).then((d) => {
+        })).then((d) =>
+        {
             location.href = "/profile/" + this.topic.userid;
         });
 

@@ -63,11 +63,11 @@
 
   <!-- 1 und last vergleich-->
 
-  <div class="row" *ngIf="topic.images" style="    border: 2px solid #383838;    box-shadow: 3px 7px 9px #1b1b1b;">
+  <div class="row" *ngIf="topic.images&& topic.images.length!=0" style="    border: 2px solid #383838;    box-shadow: 3px 7px 9px #1b1b1b;">
 
 
 
-    <div class="col s6" style="padding: 0px !Important">
+    <div class="col s6" style="padding: 0px !Important" >
 
       <div class="dateVgl">{{topic.images[0].picdate | date}}</div>
 
@@ -81,6 +81,12 @@
     </div>
   </div>
 
+  <div *ngIf="topic.images.length==0 && topic.youtube != ''">
+    <img [src]="youtube2(topic.youtube)" style=" width: 100%" />
+  </div>
+
+
+
   <div class="votePanel">
     <img src="/assets/img/respect.png" class=" btn-floating" (click)="updVote()" style="width:40px;     width: 40px;      background-color: transparent; padding: 4px;" title="give respect" />
 
@@ -88,9 +94,10 @@
   </div>
 
 
-  <div class="videoWrapper">
-    <iframe width="560" height="349" [src]="youtube(topic.youtube)" frameborder="0" allowfullscreen></iframe>
-  </div>
+  <a class="btn-large" *ngIf="topic && topic.youtube!=''" href="{{topic.youtube}}" >
+    <i class="material-icons left">play_circle_filled</i> Watch on yoututbe
+  </a>
+
 
 
 </div>
@@ -99,7 +106,7 @@
 
 <!-- Topic by user-->
 
-<div *ngIf="topic">
+<div *ngIf="topic&&topic.images">
   <div class="row picAndDescriptionPanel " *ngFor="let item of topic.images">
 
     <div class="agePanel wow fadeInLeft">
@@ -157,13 +164,13 @@
       </div>
     </div>
 
-    <div class="card-action cmtBtnPanel" *ngIf="cst()">
-      <div class="input-field ">
+    <div class="card-action cmtBtnPanel" >
+      <div class="input-field" *ngIf="cst()">
         <textarea id="textarea2" class="materialize-textarea" maxlength="200" style="    color: white;" [(ngModel)]="newComment.texts"></textarea>
         <label for="textarea2">Comment</label>
       </div>
       <a class="" (click)="hideComments=true">Close</a>
-      <a class="btn" (click)="post()">Post comment</a>
+      <a *ngIf="cst()" class="btn" (click)="post()">Post comment</a>
     </div>
 
   </div>

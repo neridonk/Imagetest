@@ -33,6 +33,7 @@ export class AboutComponent extends ParentClass implements AfterViewInit
   public followerCount;
 
   public isFollowing: boolean = false;
+  public isYoutube: boolean = false;
 
   public maxwidth: string='';
 
@@ -74,6 +75,9 @@ export class AboutComponent extends ParentClass implements AfterViewInit
 
   public fetchMe()
   {
+    if (this.cst() == null)
+      return;
+
     this.nameListService.initUser(this.cst()).then(
       (data) =>
       {
@@ -286,5 +290,12 @@ export class AboutComponent extends ParentClass implements AfterViewInit
   public youtube(url: any)
   {
     return this.domSanitizer.bypassSecurityTrustResourceUrl(url);
+  }
+
+  public youtube2(url: string)
+  {
+    var str = url.split('v=')[1];
+
+    return 'https://img.youtube.com/vi/' + str + '/0.jpg';
   }
 }
