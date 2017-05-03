@@ -4,13 +4,13 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\about",
-    "\\src\\app\\add-picture\\cropper",
-    "\\src\\app\\global",
+    "\\src\\app\\add-picture",
+    "\\src\\app\\global\\components\\images-panel",
     "\\src\\app\\navbar",
     "\\src\\app\\topic",
-    "\\src\\app\\topic\\landing-page",
+    "\\src\\app\\topic\\overview",
     "\\src\\assets"
   ],
-  "SelectedNode": "\\src\\app\\topic\\landing-page\\landing-page.component.ts",
+  "SelectedNode": "\\src\\app\\add-picture\\add-picture.component.ts",
   "PreviewInSolutionExplorer": false
 }
