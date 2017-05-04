@@ -4,13 +4,12 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\about",
-    "\\src\\app\\add-picture",
+    "\\src\\app\\global",
+    "\\src\\app\\global\\components",
     "\\src\\app\\global\\components\\images-panel",
-    "\\src\\app\\navbar",
     "\\src\\app\\topic",
-    "\\src\\app\\topic\\overview",
     "\\src\\assets"
   ],
-  "SelectedNode": "\\src\\app\\add-picture\\add-picture.component.ts",
+  "SelectedNode": "\\src\\app\\topic\\topic.component.css",
   "PreviewInSolutionExplorer": false
 }

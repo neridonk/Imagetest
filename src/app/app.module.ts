@@ -35,6 +35,7 @@ import { HashLocationStrategy, Location, LocationStrategy } from '@angular/commo
     CropperComponent,
     CropperDirective,
     PickadateDirective,
+    
   ],
   imports: [
     RoutesModule,

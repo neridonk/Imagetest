@@ -10,6 +10,7 @@ import { OverviewComponent } from './overview/overview.component';
 import { LandscapeComponent } from './landscape/landscape.component';
 import { HallComponent } from './hall/hall.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { BlogComponent } from './blog/blog.component';
 
 @NgModule({
   imports: [
@@ -19,6 +20,6 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     CommonModule,
     TopicRoutingModule
   ],
-  declarations: [TopicComponent, LandingPageComponent, PeopleComponent, OverviewComponent, LandscapeComponent, HallComponent]
+  declarations: [TopicComponent, LandingPageComponent, PeopleComponent, OverviewComponent, LandscapeComponent, HallComponent, BlogComponent]
 })
 export class TopicModule { }
