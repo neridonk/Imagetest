@@ -26,7 +26,7 @@
       <div class="card-image" (click)="goToAbout(top.topicid)">
         <img src="http://changeisamazing.com/images/{{top.images[0].url}}" class="imgAk" />
         <img src="http://changeisamazing.com/images/{{top.images[top.images.length-1]?.url}}" class="imgAk" />
-        <span class="card-title titleNew ">{{top.title.substring(1, 25)}}...</span>
+        <span class="card-title titleNew ">{{top.title.substring(1, 45)}}...</span>
       </div>
       <div class="card-action grey-text " style="border-bottom: 2px solid #e9d43b; padding:7px">
         <div class="inlineBlock">
@@ -68,10 +68,10 @@
         <div  *ngIf="top.youtube!='' && top.images.length==0" style="position:relative;overflow:hidden">
           <img src="assets/img/respect.png" class="imgAk" />
           <img src="assets/img/respect.png" class="imgAk" />
-          <img [src]="youtube(top.youtube)"  style=" width: 100%;position:absolute;left:0px;top:0px;"/>
+          <img [src]="youtube(top.youtube)"  style=" width: 100%;position:absolute;left:0px;top:-36px;"/>
         </div>
 
-        <span class="card-title titleNew ">{{top.title.substring(0, 25)}}...</span>
+        <span class="card-title titleNew ">{{top.title.substring(0, 45)}}...</span>
       </div>
       <div class="card-action grey-text " style="border-bottom: 1px solid #9e9eb9; padding:7px">
         <div class="inlineBlock">

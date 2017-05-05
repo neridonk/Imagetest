@@ -1,15 +1,6 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\src",
-    "\\src\\app",
-    "\\src\\app\\about",
-    "\\src\\app\\global",
-    "\\src\\app\\global\\components",
-    "\\src\\app\\global\\components\\images-panel",
-    "\\src\\app\\topic",
-    "\\src\\assets"
+    ""
   ],
-  "SelectedNode": "\\src\\app\\topic\\topic.component.css",
   "PreviewInSolutionExplorer": false
 }
