@@ -26,7 +26,7 @@ export class ImagesPanelComponent implements OnInit, AfterViewInit
 
   public search: string = "";
 
-  public currentRow: number = 0;
+  public currentPage: number = 0;
 
   public topiclist: Topic[] = new Array();
   public featuredtopiclist: Topic[] = new Array();
@@ -54,8 +54,6 @@ export class ImagesPanelComponent implements OnInit, AfterViewInit
       return;
     }
 
-    this.fetchTopicList();
-
   }
 
   ngAfterViewInit()
@@ -69,16 +67,11 @@ export class ImagesPanelComponent implements OnInit, AfterViewInit
 
   }
 
-
-  public onScroll(startOn: any)
+  private fetchTopicList(startOn: number)
   {
-    this.currentRow = startOn;
-    this.fetchTopicList();
-  }
+    this.topiclist = [];
 
-  private fetchTopicList()
-  {
-    this.nameListService.getAllTopics(this.currentRow, this.category, this.search).subscribe(
+    this.nameListService.getAllTopics(startOn, this.category, this.search).subscribe(
       data =>
       {
         data.forEach((d) =>

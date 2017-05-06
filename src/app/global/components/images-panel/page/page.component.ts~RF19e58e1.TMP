@@ -1,0 +1,33 @@
+﻿import { Component, Input, Output, EventEmitter } from '@angular/core';
+
+@Component({
+  selector: 'app-page',
+  templateUrl: './page.component.html',
+  styleUrls: ['./page.component.css']
+})
+export class PageComponent
+{
+  public _currentPage = 1;
+
+  @Input()
+  public maxRows = 30;
+
+  @Input()
+  set currentPage(page: any)
+  {
+    this._currentPage = page;
+  }
+
+  @Output()
+  public currentPageChange: EventEmitter<any> = new EventEmitter();
+
+  constructor() { }
+
+  public next()
+  {
+    this._currentPage = Number(this._currentPage + 1);
+    this.currentPageChange.emit(Number(this._currentPage * this.maxRows));
+  }
+ 
+
+}

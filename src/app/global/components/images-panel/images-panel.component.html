@@ -14,7 +14,7 @@
 
     -->
 
-<div class="row " InfinityScroll (onfetch)="onScroll($event)">
+<div class="row ">
 
   <div *ngFor="let top of featuredtopiclist" class="col s12 m6 l5" style="padding:5px !important;">
 
@@ -93,5 +93,16 @@
     </div>
   </div>
 
+  <div *ngIf="topiclist.length == 0 && featuredtopiclist.length == 0">
+
+    <img class="empyPic" src="/assets/img/noImage.jpeg"/>
+
+  </div>
+
 
 </div>
+
+
+<app-page  (currentPageChange)="fetchTopicList($event)">
+
+</app-page>
