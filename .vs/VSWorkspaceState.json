@@ -1,6 +1,16 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\global",
+    "\\src\\app\\global\\components",
+    "\\src\\app\\global\\components\\images-panel",
+    "\\src\\app\\global\\components\\images-panel\\page",
+    "\\src\\app\\topic",
+    "\\src\\app\\topic\\blog",
+    "\\src\\app\\topic\\landing-page"
   ],
+  "SelectedNode": "\\src\\app\\topic\\landing-page\\landing-page.component.html",
   "PreviewInSolutionExplorer": false
 }

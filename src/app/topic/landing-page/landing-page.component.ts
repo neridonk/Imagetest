@@ -12,9 +12,9 @@ import { NameListService } from '../../global/services/name-list.service';
 export class LandingPageComponent extends ParentClass
 {
 
-public changeAni = 'fadeInDown';
-public isAni;
-public amazingAni;
+  public changeAni = 'fadeInDown';
+  public isAni;
+  public amazingAni;
 
   constructor(
     private router: Router,
@@ -22,18 +22,23 @@ public amazingAni;
   {
     super();
 
+    if (this.cst() != null)
+    {
+      this.router.navigate(['all']);
+      return;
+    }
 
 
     setTimeout(() =>
     {
       this.isAni = 'bounceInDown';
-    },800);
+    }, 800);
 
     setTimeout(() =>
     {
       this.amazingAni = 'fadeInRight';
     }, 1600);
-}
+  }
 
   ngAfterViewInit()
   {

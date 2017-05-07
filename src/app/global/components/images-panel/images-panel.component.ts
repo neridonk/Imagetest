@@ -67,7 +67,7 @@ export class ImagesPanelComponent implements OnInit, AfterViewInit
 
   }
 
-  private fetchTopicList(startOn: number)
+  public fetchTopicList(startOn: number)
   {
     this.topiclist = [];
 

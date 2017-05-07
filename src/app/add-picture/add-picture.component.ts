@@ -6,6 +6,7 @@ import { Images, Topic, User, croppData } from '../models';
 declare var Cropper: any;
 declare var $: any;
 var moment = require('moment');
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -23,7 +24,12 @@ export class AddPictureComponent extends ParentClass implements OnInit {
 
     public currentImage: number = 0;
 
-    constructor(private nameListService: NameListService) {
+    public isYoutube = false;
+
+    constructor(
+      private router: Router,
+      private nameListService: NameListService)
+    {
         super();
     }
 
@@ -64,7 +70,7 @@ export class AddPictureComponent extends ParentClass implements OnInit {
 
         })).then((d) =>
         {
-            location.href = "/profile/" + this.topic.userid;
+          this.router.navigate(['profile', this.topic.userid]);
         });
 
 
