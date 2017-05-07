@@ -3,6 +3,15 @@
   color: #ffffff;
 }
 
+.backButton {
+  font-size: 25px !important;
+  padding: 5px;
+  background-color: #1bb2ec;
+  left: 0px;
+  position: absolute;
+  cursor: pointer;
+}
+
 h2 {
   font-size: 20px;
   font-weight: 500;
@@ -102,7 +111,7 @@ h2 {
   font-size: 15px;
   position: fixed;
   right: -30px;
-  top: 5px;
+  bottom: 5px;
   cursor: pointer;
   padding: 10px;
   background-color: #1bb2ec;

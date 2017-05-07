@@ -72,6 +72,10 @@ export class AboutComponent extends ParentClass implements AfterViewInit
   {
   }
 
+  public back()
+  {
+    history.back();
+  }
 
   public fetchMe()
   {

@@ -7,6 +7,7 @@ import { OverviewComponent } from './overview/overview.component';
 import { HallComponent } from './hall/hall.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { BlogComponent } from './blog/blog.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
     {
@@ -16,8 +17,8 @@ const routes: Routes = [
           { path: 'blog', component: BlogComponent },
           { path: 'hall', component: HallComponent },
           { path: 'chisam', component: LandingPageComponent },
-            { path: 'all', component: OverviewComponent }
-
+            { path: 'all', component: OverviewComponent },
+              { path: 'profile/:id', component: ProfileComponent }
         ]
     },
 

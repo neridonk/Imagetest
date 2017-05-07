@@ -36,7 +36,7 @@ export class TopicComponent extends ParentClass implements AfterViewInit
     this.nameListService.getUserbyCst(this.cst()).subscribe(
       data =>
       {
-        this.router.navigate(['/profile', data.userid]);
+        this.router.navigate(['/t/profile', data.userid]);
       },
       err => alert(JSON.stringify(err))
     );

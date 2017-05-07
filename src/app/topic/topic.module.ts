@@ -11,6 +11,7 @@ import { LandscapeComponent } from './landscape/landscape.component';
 import { HallComponent } from './hall/hall.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { BlogComponent } from './blog/blog.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   imports: [
@@ -20,6 +21,6 @@ import { BlogComponent } from './blog/blog.component';
     CommonModule,
     TopicRoutingModule
   ],
-  declarations: [TopicComponent, LandingPageComponent, PeopleComponent, OverviewComponent, LandscapeComponent, HallComponent, BlogComponent]
+  declarations: [ProfileComponent, TopicComponent, LandingPageComponent, PeopleComponent, OverviewComponent, LandscapeComponent, HallComponent, BlogComponent]
 })
 export class TopicModule { }

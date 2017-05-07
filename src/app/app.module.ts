@@ -1,6 +1,6 @@
 ﻿import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes }  from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 
@@ -10,13 +10,12 @@ import { NameListService } from './global/services/name-list.service';
 import { RoutesModule } from './app.routes';
 
 import { FormsModule } from '@angular/forms';
-import { HttpModule, Http} from '@angular/http';
+import { HttpModule, Http } from '@angular/http';
 
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { AboutComponent } from './about/about.component';
 import { AddPictureComponent } from './add-picture/add-picture.component';
-import { ProfileComponent } from './profile/profile.component';
 import { DashOverviewComponent } from './overview/overview.component';
 import { CropperComponent } from './add-picture/cropper/cropper.component';
 import { CropperDirective } from './add-picture/cropper/cropper.directive';
@@ -30,12 +29,11 @@ import { HashLocationStrategy, Location, LocationStrategy } from '@angular/commo
     LoginComponent,
     AboutComponent,
     AddPictureComponent,
-    ProfileComponent,
     DashOverviewComponent,
     CropperComponent,
     CropperDirective,
     PickadateDirective,
-    
+
   ],
   imports: [
     RoutesModule,
@@ -45,7 +43,7 @@ import { HashLocationStrategy, Location, LocationStrategy } from '@angular/commo
     HttpModule
   ],
   exports: [NavbarComponent],
-  providers: [NameListService,Location, { provide: LocationStrategy, useClass: HashLocationStrategy }],
+  providers: [NameListService, Location, { provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

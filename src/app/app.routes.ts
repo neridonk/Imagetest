@@ -17,7 +17,7 @@ const routes = [
 
   { path: 'login', component: LoginComponent },
   { path: 'addPicture', component: AddPictureComponent },
-  { path: 'profile/:id', component: ProfileComponent },
+
     {
     path: 'about/:id',
     component: AboutComponent
