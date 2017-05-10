@@ -1,4 +1,4 @@
-﻿import { Component, OnInit, Input, Output, ElementRef, EventEmitter } from '@angular/core';
+﻿import { Component, OnInit, Input, Output, ElementRef, EventEmitter,ViewChild } from '@angular/core';
 import { croppData, Images } from '../../models';
 declare var $: any;
 
@@ -12,6 +12,9 @@ export class CropperComponent implements OnInit
   public base64;
   public cropper: croppData = new croppData();
   public image: Images;
+
+  @ViewChild('imageelemento')
+  public imageelemento: any;
 
   @Input()
   public set img(img: any)
@@ -81,6 +84,19 @@ export class CropperComponent implements OnInit
     this.cropper.Cropper = null;
 
     this.imgChange.emit(this.image);
+  }
+
+  isGoal(image: Images)
+  {
+    if (image.checked)
+    {
+     this.imageelemento.nativeElement.src = 'assets/img/finisher.png';
+
+     image.base64 = this.toBase64(this.imageelemento.nativeElement);
+     this.cropper.base64 = this.toBase64(this.imageelemento.nativeElement);
+     this.cropper = Object.create(this.cropper);
+
+    }
   }
 
 }

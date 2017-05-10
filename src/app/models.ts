@@ -8,7 +8,8 @@
     public description?: string,
     public topicid?: number,
     public picdate?: Date,
-    public base64?: string
+    public base64?: string,
+    public checked?: boolean
 
   ) {
 

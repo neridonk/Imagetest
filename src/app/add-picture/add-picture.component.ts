@@ -70,7 +70,7 @@ export class AddPictureComponent extends ParentClass implements OnInit {
 
         })).then((d) =>
         {
-          this.router.navigate(['profile', this.topic.userid]);
+          this.router.navigate(['/t/profile', this.topic.userid]);
         });
 
 

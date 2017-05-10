@@ -259,6 +259,10 @@ export class AboutComponent extends ParentClass implements AfterViewInit
 
   public joinFollower()
   {
+    if (this.cst() == null)
+      return;
+
+
     this.nameListService.addFollower(this.topic.topicid).subscribe(
       data =>
       {

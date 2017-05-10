@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { User, Topic, Images } from 'models';
 import { ParentClass } from 'components';
 import { NameListService } from '../../global/services/name-list.service';
+import { Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-landing-page',
@@ -24,7 +25,7 @@ export class LandingPageComponent extends ParentClass
 
     if (this.cst() != null)
     {
-      this.router.navigate(['all']);
+      this.router.navigate(['/t/all']);
       return;
     }
 

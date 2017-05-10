@@ -1,7 +1,8 @@
 {
+    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
     "project": {
         "version": "1.0.0-beta.30",
-        "name": "jikan"
+        "name": "ChangeIsAmazing"
     },
     "apps": [{
         "root": "src",
@@ -26,11 +27,11 @@
             "assets/css/cropper.min.js",
             "assets/css/moment.min.js"
         ],
-        "environments": {
-            "source": "environments/environment.ts",
-            "dev": "environments/environment.ts",
-            "prod": "environments/environment.prod.ts"
-        }
+        "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
     }],
     "e2e": {
         "protractor": {
