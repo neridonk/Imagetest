@@ -51,11 +51,7 @@ export class PickadateDirective implements AfterViewInit
 
   private reInitOption(picker: any, $this: any)
   {
-    picker.set('disable', [
 
-      { from: $this.disabledFrom, to: $this.disabledTo }
-
-    ]);
   }
 
 

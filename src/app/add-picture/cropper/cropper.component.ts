@@ -56,6 +56,12 @@ export class CropperComponent implements OnInit
 
     reader.onload = (e: any) =>
     {
+      if (e.total > 2000000)
+      {
+        alert('to large');
+        return;
+      }
+
       img.src = e.target.result;
       this.cropper.base64 = this.toBase64(img);
       this.cropper = Object.create(this.cropper);
@@ -90,7 +96,7 @@ export class CropperComponent implements OnInit
   {
     if (image.checked)
     {
-     this.imageelemento.nativeElement.src = 'assets/img/finisher.png';
+     this.imageelemento.nativeElement.src = 'assets/img/finisher.jpeg';
 
      image.base64 = this.toBase64(this.imageelemento.nativeElement);
      this.cropper.base64 = this.toBase64(this.imageelemento.nativeElement);
