@@ -3,14 +3,7 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\about",
-    "\\src\\app\\add-picture",
-    "\\src\\app\\add-picture\\cropper",
-    "\\src\\app\\global\\components",
-    "\\src\\app\\topic",
-    "\\src\\assets",
-    "\\src\\assets\\img"
+    "\\src\\app\\about"
   ],
-  "SelectedNode": "\\src\\assets\\img",
   "PreviewInSolutionExplorer": false
 }

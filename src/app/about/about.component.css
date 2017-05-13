@@ -80,6 +80,13 @@ h2 {
   z-index: -1;
 }
 
+.tinyImg {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+}
+
 .commentPanel {
   position: fixed;
   top: 0px;
@@ -157,3 +164,27 @@ h2 {
   z-index:1;
 }
 
+.specFont{
+  font-size:11px;
+}
+
+@media only screen and (min-width: 0) {
+  .specFont {
+    font-size: 11px;
+  }
+
+  .topicDiv {
+    height: 40px;
+  }
+
+  .meBtn {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media only screen and (min-width: 492px) {
+  .specFont {
+    font-size: 14px;
+  }
+}

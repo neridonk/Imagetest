@@ -18,6 +18,7 @@ declare var WOW: any;
 export class AboutComponent extends ParentClass implements AfterViewInit
 {
 
+  public userOfTopic: User;
   public topic: Topic;
   public isNotMe: boolean = true;
 
@@ -35,7 +36,7 @@ export class AboutComponent extends ParentClass implements AfterViewInit
   public isFollowing: boolean = false;
   public isYoutube: boolean = false;
 
-  public maxwidth: string='';
+  public maxwidth: string = '';
 
   constructor(
     private domSanitizer: DomSanitizer,
@@ -52,7 +53,7 @@ export class AboutComponent extends ParentClass implements AfterViewInit
       data =>
       {
         this.topic = data[0];
-
+        this.fetchUser(this.topic.userid);
         this.newComment.topicid = this.topic.topicid;
         this.dosomething();
         this.initComments();
@@ -67,6 +68,14 @@ export class AboutComponent extends ParentClass implements AfterViewInit
     });
   }
 
+  public fetchUser(userId: number)
+  {
+    this.nameListService.getUserbyId(Number(userId)).subscribe(
+      (data) =>
+      {
+        this.userOfTopic = data[0];
+      });
+  }
 
   public dosomething()
   {
@@ -183,7 +192,7 @@ export class AboutComponent extends ParentClass implements AfterViewInit
     );
   }
 
-  
+
   public deletePost()
   {
     this.nameListService.removeTopic(this.topic.topicid).subscribe(
