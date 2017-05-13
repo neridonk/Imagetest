@@ -14,6 +14,7 @@ import { HttpModule, Http } from '@angular/http';
 
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
+import { FacebookService } from './login/facebook.service';
 import { AboutComponent } from './about/about.component';
 import { AddPictureComponent } from './add-picture/add-picture.component';
 import { DashOverviewComponent } from './overview/overview.component';
@@ -43,7 +44,7 @@ import { HashLocationStrategy, Location, LocationStrategy } from '@angular/commo
     HttpModule
   ],
   exports: [NavbarComponent],
-  providers: [NameListService, Location, { provide: LocationStrategy, useClass: HashLocationStrategy }],
+  providers: [NameListService, Location, { provide: LocationStrategy, useClass: HashLocationStrategy }, FacebookService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

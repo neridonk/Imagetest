@@ -3,7 +3,8 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\about"
+    "\\src\\app\\about",
+    "\\src\\app\\topic"
   ],
   "PreviewInSolutionExplorer": false
 }
