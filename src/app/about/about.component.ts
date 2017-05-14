@@ -5,6 +5,7 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { ParentClass } from 'components';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Meta } from '@angular/platform-browser';
 
 declare var Cropper: any;
 var moment = require('moment');
@@ -39,6 +40,7 @@ export class AboutComponent extends ParentClass implements AfterViewInit
   public maxwidth: string = '';
 
   constructor(
+    private metaService: Meta,
     private domSanitizer: DomSanitizer,
     private route: ActivatedRoute,
     private router: Router,
@@ -58,6 +60,7 @@ export class AboutComponent extends ParentClass implements AfterViewInit
         this.dosomething();
         this.initComments();
         this.fetchMe();
+        this.updateMeta();
       },
       err => alert(JSON.stringify(err))
     );
@@ -66,6 +69,38 @@ export class AboutComponent extends ParentClass implements AfterViewInit
     {
       this.initFollowers();
     });
+
+  }
+
+  updateMeta()
+  {
+    this.metaService.updateTag({ content: this.topic.title }, 'name="description"');
+    this.metaService.updateTag({ content: this.topic.title }, 'name="twitter:description"');
+    this.metaService.updateTag({ content: this.topic.title }, 'itemprop="description"');
+
+    this.metaService.updateTag({ content: 'http://changeisamazing.com/images/slim' + this.topic.images[0] }, 'name="twitter:image"');
+    this.metaService.updateTag({ content: 'http://changeisamazing.com/images/slim' + this.topic.images[0] }, 'name="og:image"');
+    this.metaService.updateTag({ content: 'http://changeisamazing.com/images/slim' + this.topic.images[0] }, 'itemprop="image"');
+  }
+
+  getFbShare()
+  {
+    return 'https://facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href);
+  }
+
+  getTwitterShare()
+  {
+    return 'https://twitter.com/intent/tweet/?text=' + encodeURIComponent(this.topic.title) + 'url=' + encodeURIComponent(window.location.href);
+  }
+
+  getRedditShare()
+  {
+    return 'https://reddit.com/submit/?url=' + encodeURIComponent(window.location.href);
+  }
+
+  getWhatsappShare()
+  {
+    return 'whatsapp://send?text=#' + encodeURIComponent(this.topic.title) + '%20' + encodeURIComponent(window.location.href);
   }
 
   public fetchUser(userId: number)

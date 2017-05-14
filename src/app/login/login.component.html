@@ -1,4 +1,4 @@
-﻿<img src="https://images.pexels.com/photos/26135/pexels-photo-26135.jpg?w=1260&h=750&auto=compress&cs=tinysrgb" class="bgLog">
+﻿<img src="https://images.pexels.com/photos/6629/mountains-nature-sky-sunny.jpg?w=1260&h=750&auto=compress&cs=tinysrgb" class="bgLog">
 
 
 
@@ -6,37 +6,50 @@
   <div class="col s12 m3 l4">
   </div>
 
-  <div class="col s12 m6 l4" style="margin-top: 50px;    background-color: rgba(0, 0, 0, 0.43);    color: white;    border: 2px solid #25262b;">
+  <div class="col s12 m6 l4" style="margin-top: 50px;   background-color: rgba(255, 255, 255, 0.43);    color: black;    border: 2px solid #b7b7b7;">
 
     <div *ngIf="registerStep==-1" class="wrath-content-box center row">
 
       <div>
-        <button (click)="loginFB()" class="btn btn-info"> Log In Facebook </button>
+        <button (click)="loginFB()" style="background-color:#39579b" class="btn-large btn-info">
+          <i class="material-icons left" style="color:white;">thumb_up</i>
+
+          Login with Facebook
+        </button>
       </div>
 
-
-      or
-
       <br />
+
+     <div style="color:white;">or</div>   
+
       <br />
 
       <div class="container">
-        Username
         <div class="input-field">
-          <input type="text" id="first_name" class="center" [(ngModel)]="newuser.name" style="color:white" />
+
+          <input type="text" id="first_name" class="center" [(ngModel)]="newuser.name" style="color:white;border-bottom: 1px solid #ffffff;" />
+          <label style="left: 110px;color:white;" for="first_name">Username</label>
+
         </div>
       </div>
 
       <div class="container">
-        Password
         <div class="input-field ">
-          <input type="password" id="pass" class="center" [(ngModel)]="newuser.password" style="color:white" />
+
+          <input type="password" id="Password" class="center" [(ngModel)]="newuser.password" style="color:white;border-bottom: 1px solid #ffffff;" />
+          <label style="left: 110px;color:white;" for="Password">Password</label>
+
         </div>
       </div>
 
       <div class="row">
         <div class="center">
-          <input type="button" class="inlineBlock btn-large" style="color:white !important; background-color:#28D34D" value="Sign In " (click)="login() " />
+          <button type="button" class="inlineBlock btn-large" style="color:white !important; background-color:#28D34D" (click)="login() ">
+            <i class="material-icons left" style="color:white;">send</i>
+            Login
+          </button>
+
+
           <br>
         </div>
       </div>
@@ -48,7 +61,10 @@
       <br />
       <div class="row">
 
-        <input type="button" class="inlineBlock btn " style="color:white !important" value="Create account" (click)="registerStep=0" />
+        <button type="button" class="inlineBlock btn " style="color:white !important" (click)="registerStep=0">
+          <i class="material-icons left" style="color:white;">account_box</i>
+          Create account
+        </button>
 
       </div>
     </div>
@@ -62,22 +78,22 @@
 
         <div class="row">
           <div class="input-field" *ngIf="registerStep==0">
-            <h3>Enter an username</h3>
-            <input type="text" class="form-control " style="color:white" [(ngModel)]="newuser.name " placeholder="Username " />
+            <h3 style="color:white">Enter an username</h3>
+            <input type="text" class="form-control " style="color:white;border-bottom: 1px solid #ffffff;" [(ngModel)]="newuser.name " placeholder="Username " />
           </div>
 
           <div class="form-group" *ngIf="registerStep==1">
-            <h3>Enter a password</h3>
-            <input type="password" class="form-control" style="color:white" [(ngModel)]="newuser.password " placeholder="Password " />
+            <h3 style="color:white">Enter a password</h3>
+            <input type="password" class="form-control" style="color:white;border-bottom: 1px solid #ffffff;" [(ngModel)]="newuser.password " placeholder="Password " />
           </div>
 
           <div class="form-group" *ngIf="registerStep==2">
-            <h3>Enter an email</h3>
-            <input type="text" class="form-control " style="color:white" [(ngModel)]="newuser.email " placeholder="Email " />
+            <h3 style="color:white">Enter an email</h3>
+            <input type="text" class="form-control " style="color:white;border-bottom: 1px solid #ffffff;" [(ngModel)]="newuser.email " placeholder="Email " />
           </div>
 
-          <div class="form-group" *ngIf="registerStep==3">
-            <h3> <i class="material-icons prefix" style="color:white;">thumb_up</i></h3>
+          <div class="form-group" *ngIf="registerStep==3" style="color:white">
+            <h3 style="color:white"> <i class="material-icons prefix" style="color:white;">thumb_up</i></h3>
             Well done! You can login to your account now.
           </div>
 

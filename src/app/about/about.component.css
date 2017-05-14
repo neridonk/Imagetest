@@ -114,6 +114,7 @@ h2 {
   bottom: 0px;
   width: 100%;
 }
+
 .layered-paper {
   background: #eee;
   box-shadow: 0 1px 1px rgba(0,0,0,0.15), /* The top layer shadow */
@@ -161,11 +162,11 @@ h2 {
   width: 100%;
   left: 0px;
   padding: 10px;
-  z-index:1;
+  z-index: 1;
 }
 
-.specFont{
-  font-size:11px;
+.specFont {
+  font-size: 11px;
 }
 
 @media only screen and (min-width: 0) {
@@ -181,11 +182,27 @@ h2 {
     width: 60px;
     height: 60px;
   }
+
+  .resp-sharing-button {
+    font-size: 9px;
+  }
+
+  .headi {
+    font-size: 2.2rem;
+  }
 }
 
 @media only screen and (min-width: 492px) {
   .specFont {
     font-size: 14px;
+  }
+
+  .resp-sharing-button {
+    font-size: 14px;
+  }
+
+  .headi {
+    font-size: 3.2rem;
   }
 }
 
@@ -194,7 +211,7 @@ h2 {
 
 <.resp-sharing-button__link,
 .resp-sharing-button__icon {
-  display: inline-block
+  display: inline-block;
 }
 
 .resp-sharing-button__link {
@@ -207,14 +224,15 @@ h2 {
   border-radius: 5px;
   transition: 25ms ease-out;
   padding: 0.5em 0.75em;
-  font-family: Helvetica Neue,Helvetica,Arial,sans-serif
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  max-width: 95px;
 }
 
 .resp-sharing-button__icon svg {
   width: 1em;
   height: 1em;
   margin-right: 0.4em;
-  vertical-align: top
+  vertical-align: top;
 }
 
 .resp-sharing-button--small svg {
@@ -232,7 +250,10 @@ h2 {
 .resp-sharing-button__icon--solid,
 .resp-sharing-button__icon--solidcircle {
   fill: #fff;
-  stroke: none
+  stroke: none;
+  width: 21px;
+  display: inline-block;
+  vertical-align: text-top;
 }
 
 .resp-sharing-button--twitter {
