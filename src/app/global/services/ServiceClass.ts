@@ -22,6 +22,18 @@ export class ServiceClass
       headers: <Headers>ServiceConstants.getAuthHeader()
     });
   }
+
+  /**
+ * http Get
+ * @param path
+ * @param param
+ */
+  getFb(path: string, param: any): Observable<Response>
+  {
+    return this.http.get(path, {
+    });
+  }
+
   /**
    * http post
    * @param path

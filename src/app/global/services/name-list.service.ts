@@ -281,6 +281,16 @@ export class NameListService extends ServiceClass
     });
   }
 
+  getFacebookName(userId: number)
+  {
+    this.showLoading();
+    return this.getFb('https://graph.facebook.com/' + userId, '').map((response: any) =>
+    {
+      this.hideLoading();
+      return <any>response.json();
+    });
+  }
+
   updateUserBio(text: any): Observable<any>
   {
     var formData = { 'text': text };

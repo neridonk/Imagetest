@@ -23,7 +23,7 @@
 
   </p>
 
-  <a *ngIf="userOfTopic" [routerLink]="['/profile',userOfTopic.userid]">
+  <a *ngIf="userOfTopic" [routerLink]="['/t/profile',userOfTopic.userid]">
 
     <img *ngIf="userOfTopic" class="tinyImg" [src]="userOfTopic.img" />
     <p>

@@ -95,13 +95,13 @@
 
   <div *ngIf="topiclist.length == 0 && featuredtopiclist.length == 0">
 
-    <img class="empyPic" src="/assets/img/noImage.jpeg"/>
+    <img class="empyPic" src="https://images.pexels.com/photos/14676/pexels-photo-14676.png?w=1260&h=750&auto=compress&cs=tinysrgb"/>
 
   </div>
 
 
 </div>
 
-<app-page   (currentPageChange)="fetchTopicList($event)">
+<app-page [isempty]="topiclist.length == 0 && featuredtopiclist.length == 0"  (currentPageChange)="fetchTopicList($event)">
 
 </app-page>

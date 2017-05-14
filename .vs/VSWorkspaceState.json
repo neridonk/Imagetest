@@ -4,7 +4,8 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\about",
-    "\\src\\app\\topic"
+    "\\src\\app\\login"
   ],
+  "SelectedNode": "\\src\\app\\about\\about.component.html",
   "PreviewInSolutionExplorer": false
 }

@@ -12,6 +12,9 @@ export class PageComponent
   public myId = 'page';
 
   @Input()
+  public isempty: boolean = false;
+
+  @Input()
   public maxRows = 30;
 
   @Output()
