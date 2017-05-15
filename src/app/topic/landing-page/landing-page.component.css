@@ -21,7 +21,12 @@
   z-index: 0;
   height: 90vh;
 }
-
+.tinyImg {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+}
 
   .bgImgVision::before {
     background-color: rgba(0, 0, 0, 0.34);

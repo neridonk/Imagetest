@@ -73,6 +73,17 @@ export class NameListService extends ServiceClass
     });
   }
 
+
+  getSomeUsers(): Observable<any>
+  {
+    this.showLoading();
+    return this.get('getSomeUsers.php','').map((response: any) =>
+    {
+      this.hideLoading();
+      return <any>response.json();
+    });
+  }
+
   addNewComment(comment: Comment): Observable<any>
   {
 

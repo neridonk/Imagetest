@@ -14,10 +14,14 @@ export class LandscapeComponent implements OnInit
 {
   public category: string = 'landscape';
 
+
   constructor(
     private nameListService: NameListService,
     private router: Router
-  ) { }
+  ) { 
+
+
+  }
 
 
   ngOnInit()

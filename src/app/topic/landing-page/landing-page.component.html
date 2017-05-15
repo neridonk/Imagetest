@@ -173,8 +173,24 @@
   <div class="container " style="color:white;text-align: center;">
     <div class="row">
 
-      <h2>Your are welcome</h2>
+      <h2>Motivate to change</h2>
       <i class="material-icons">thumb_up</i>
+
+    </div>
+
+    <div class="row">
+
+      <div class="col s3 m2" *ngFor="let user of users">
+        <a  [routerLink]="['/t/profile',user.userid]">
+
+          <img  class="tinyImg" [src]="user.img" />
+          <p>
+            {{user.name}}
+          </p>
+        </a>
+
+      </div>
+
 
     </div>
 

@@ -16,6 +16,7 @@ export class LandingPageComponent extends ParentClass
   public changeAni = 'fadeInDown';
   public isAni;
   public amazingAni;
+  public users: User[] = new Array();
 
   constructor(
     private router: Router,
@@ -29,6 +30,14 @@ export class LandingPageComponent extends ParentClass
       return;
     }
 
+
+    this.nameListService.getSomeUsers().subscribe(
+      data =>
+      {
+        this.users = data;
+      },
+      err => console.log(err)
+    );
 
     setTimeout(() =>
     {
