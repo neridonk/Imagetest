@@ -61,8 +61,8 @@
       <div class="card-image" (click)="goToAbout(top.topicid)">
 
         <div *ngIf="top.images != null && top.images.length!=0">
-          <img src="http://changeisamazing.com/images/{{top.images[0].url}}" class="imgAk" />
-          <img src="http://changeisamazing.com/images/{{top.images[top.images.length-1]?.url}}" class="imgAk" />
+          <img src="http://changeisamazing.com/images/slim/{{top.images[0].url}}" class="imgAk" />
+          <img src="http://changeisamazing.com/images/slim/{{top.images[top.images.length-1]?.url}}" class="imgAk" />
         </div>
 
         <div  *ngIf="top.youtube!='' && top.images.length==0" style="position:relative;overflow:hidden">

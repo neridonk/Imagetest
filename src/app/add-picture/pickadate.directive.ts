@@ -32,12 +32,9 @@ export class PickadateDirective implements AfterViewInit
 
     let opts = {
       selectMonths: true, 
-      selectYears: 115
-      , max: true,
-      format: this.format,
-      disable: [
-        { from: this.disabledFrom, to: this.disabledTo }
-      ]
+      selectYears: 115 ,
+      format: this.format
+
     };
     let $input = $(this._element.nativeElement).pickadate(opts);
     var picker = $input.pickadate('picker')

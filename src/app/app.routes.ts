@@ -20,7 +20,7 @@ const routes = [
     {
     path: 'about/:id',
     component: AboutComponent
-  },
+  }, { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

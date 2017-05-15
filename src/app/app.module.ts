@@ -22,6 +22,7 @@ import { CropperComponent } from './add-picture/cropper/cropper.component';
 import { CropperDirective } from './add-picture/cropper/cropper.directive';
 import { PickadateDirective } from './add-picture/pickadate.directive';
 import { HashLocationStrategy, Location, LocationStrategy } from '@angular/common';
+import { FormatDatePipe } from './about/format-date.pipe';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { HashLocationStrategy, Location, LocationStrategy } from '@angular/commo
     CropperComponent,
     CropperDirective,
     PickadateDirective,
+    FormatDatePipe,
 
   ],
   imports: [
@@ -44,7 +46,7 @@ import { HashLocationStrategy, Location, LocationStrategy } from '@angular/commo
     HttpModule
   ],
   exports: [NavbarComponent],
-  providers: [NameListService, Location, { provide: LocationStrategy, useClass: HashLocationStrategy }, FacebookService],
+  providers: [NameListService, Location, FacebookService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -69,13 +69,13 @@
 
     <div class="col s6" style="padding: 0px !Important">
 
-      <div class="dateVgl">{{topic.images[0].picdate | date}}</div>
+      <div class="dateVgl">{{topic.images[0].picdate | formatDate}}</div>
 
       <img class=" responsive-img" style="width:100%" src="http://changeisamazing.com/images/{{topic.images[0].url}}" />
     </div>
     <div class="col s6" style="padding: 0px !Important">
 
-      <div class="dateVgl">{{topic.images[topic.images.length-1].picdate | date}}</div>
+      <div class="dateVgl">{{topic.images[topic.images.length-1].picdate | formatDate}}</div>
 
       <img class=" responsive-img" style="width:100%" src="http://changeisamazing.com/images/{{topic.images[topic.images.length-1].url}}" />
     </div>
@@ -117,7 +117,7 @@
 
       <div class="col s6 ">
         <p class="specFont">
-          Last update : {{topic?.date | date}}
+          Last update : {{topic?.date | formatDate}}
         </p>
       </div>
     </div>
@@ -197,7 +197,7 @@
   <div class="row picAndDescriptionPanel " *ngFor="let item of topic.images">
 
     <div class="agePanel wow fadeInLeft">
-      {{item.picdate | date}}
+      {{item.picdate | formatDate}}
     </div>
 
     <div class="col s12 l1">

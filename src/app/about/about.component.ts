@@ -77,10 +77,10 @@ export class AboutComponent extends ParentClass implements AfterViewInit
     this.metaService.updateTag({ content: this.topic.title }, 'name="description"');
     this.metaService.updateTag({ content: this.topic.title }, 'name="twitter:description"');
     this.metaService.updateTag({ content: this.topic.title }, 'itemprop="description"');
-
-    this.metaService.updateTag({ content: 'http://changeisamazing.com/images/slim' + this.topic.images[0] }, 'name="twitter:image"');
-    this.metaService.updateTag({ content: 'http://changeisamazing.com/images/slim' + this.topic.images[0] }, 'name="og:image"');
-    this.metaService.updateTag({ content: 'http://changeisamazing.com/images/slim' + this.topic.images[0] }, 'itemprop="image"');
+    document.title = this.topic.title;
+    this.metaService.updateTag({ content: 'http://changeisamazing.com/images/slim/' + this.topic.images[0].url }, 'name="twitter:image"');
+    this.metaService.updateTag({ content: 'http://changeisamazing.com/images/slim/' + this.topic.images[0].url }, 'name="og:image"');
+    this.metaService.updateTag({ content: 'http://changeisamazing.com/images/slim/' + this.topic.images[0].url }, 'itemprop="image"');
   }
 
   getFbShare()

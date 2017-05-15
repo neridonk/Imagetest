@@ -62,7 +62,9 @@ export class AddPictureComponent extends ParentClass implements OnInit {
         Promise.all(this.images.map((image) => {
             return new Promise((resolve) => {
 
-                this.nameListService.addNewPictureToTopic(topicId, image).toPromise().then(() => {
+              this.nameListService.addNewPictureToTopic(topicId, image).toPromise().then(() =>
+              {
+           
                     resolve.apply('');
                 });
 
