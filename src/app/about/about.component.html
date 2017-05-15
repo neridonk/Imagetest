@@ -104,15 +104,17 @@
 
 
       <div class="col s6 ">
-        <p class="btn specFont" style="cursor:pointer" (click)="joinFollower()" *ngIf="!isFollowing && followerCount!=null">
-          {{followerCount}} motivators
+
+        <div>
+          {{followerCount}} 
+          <img src="/assets/img/join.png" width="26" style="vertical-align:middle; margin-left:10px" />
+
+        </div>
+
+        <p class="btn specFont" style="cursor:pointer; background-color:#ffb763" (click)="joinFollower()" *ngIf="(!isFollowing && followerCount!=null) && cst()">
+          Joint this change
         </p>
 
-
-        <p class="specFont" *ngIf="isFollowing" (click)="removeFollow()">
-          <span class="">{{followerCount}} </span>
-          motivators
-        </p>
       </div>
 
       <div class="col s6 ">
