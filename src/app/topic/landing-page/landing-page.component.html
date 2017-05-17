@@ -1,30 +1,25 @@
 ﻿
-<video poster="assets/img/join.png" class="fixiBgVid" playsinline autoplay muted loop>
+<video poster="assets/img/reg.jpeg" class="fixiBgVid" playsinline autoplay muted loop>
 
   <source src="assets/img/videobg.mp4" type="video/mp4">
 </video>
 
 
 <div class="section no-pad-bot bgImgVision">
-  <div class="container" style="    margin-top: 12%;      color: white;">
+  <div class="container" style="    margin-top: 2%;      color: white;">
     <br><br>
 
     <div style="text-align:center; position:relative">
 
-      <img src="/assets/img/logoasdasd.png" class="logostyle" id="logosy" />
+      <img src="/assets/img/logofarbig.png" class="logostyle" id="logosy" />
 
-      <h1 class="header center animated" style="color:#28c5ee;   font-size: 5rem; display:inline-block;" [ngClass]="changeAni">Change</h1>
-      <h3 *ngIf="isAni" class="header center animated" style="  color:white; display:inline-block; " [ngClass]="isAni">Is</h3>
-
-      <h1 *ngIf="amazingAni" class="header center animated" style="color:white;font-size: 5rem;display:inline-block;color: #ffc92a;   " [ngClass]="amazingAni">Amazing</h1>
     </div>
 
 
     <div class="row center">
-      <h5 class="header col s12" style="color:white;">Change yourself and other around the world!</h5>
     </div>
-    <div class="row center">
-      <a [routerLink]="['/login']" class="btn-large waves-effect waves-light" style="background-color:#039be5">Register Now!</a>
+    <div class="row center" *ngIf="isAni" >
+      <a  [routerLink]="['/login']" class="btn-large waves-effect waves-light animated bounceInDown"  style="background-color:#57c1e8">Register Now!</a>
     </div>
     <br><br>
 
@@ -38,7 +33,7 @@
     <!--   Icon Section   -->
     <div class="row" style=" margin:10% 0px">
       <div class="col s12 m6 wow slideInLeft">
-        <h3 style="color: #ffc92a;  ">Share</h3>
+        <h3 style="color: #ffa400;  ">Share</h3>
         <p class="light" style="font-size:1.7rem">
           Your change can be in progress or finished.
           We would like to see your way of success
@@ -90,7 +85,7 @@
     <!--   Icon Section   -->
     <div class="row" style="margin:10% 0px">
       <div class="col s12 m5 wow slideInLeft" style="">
-        <h3 style="color: #ffc92a;  ">Sponsorship</h3>
+        <h3 style="color: #ffa400;  ">Sponsorship</h3>
         <p class="light" style="font-size:1.7rem">
           Get a change to become sponsored and join the change legion.<br />
 

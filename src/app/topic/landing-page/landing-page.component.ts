@@ -42,12 +42,8 @@ export class LandingPageComponent extends ParentClass
     setTimeout(() =>
     {
       this.isAni = 'bounceInDown';
-    }, 800);
+    }, 3000);
 
-    setTimeout(() =>
-    {
-      this.amazingAni = 'fadeInRight';
-    }, 1600);
   }
 
   ngAfterViewInit()
@@ -58,9 +54,8 @@ export class LandingPageComponent extends ParentClass
       if (document.getElementById('logosy') == null)
         return;
 
-      document.getElementById('logosy').style.width = '20%';
+      document.getElementById('logosy').style.width = '80%';
       document.getElementById('logosy').style.opacity = '1';
-      document.getElementById('logosy').style.minWidth = '200px';
 
     }, 800);
 

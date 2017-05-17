@@ -28,17 +28,17 @@
   border: 2px solid #ffffff;
 }
 
-  .bgImgVision::before {
-    background-color: rgba(0, 0, 0, 0.34);
-    content: " ";
-    position: absolute;
-    width: 100%;
-    height: 102%;
-    top: -18px;
-    left: 0px;
-    opacity: 0.7;
-    z-index: -1;
-  }
+.bgImgVision::before {
+  background-color: rgba(0, 0, 0, 0.69);
+  content: " ";
+  position: absolute;
+  width: 100%;
+  height: 102%;
+  top: -18px;
+  left: 0px;
+  opacity: 0.6;
+  z-index: -1;
+}
 
 .fixiBgVid {
   position: fixed;
@@ -52,13 +52,11 @@
 }
 
 .logostyle {
-  position: absolute;
-  z-index: -1;
+  z-index: 2;
   width: 0px;
-  opacity:0;
-  right: 10px;
-  -webkit-transition: all 5s linear;
-  -moz-transition: all 5s linear;
-  -o-transition: all 5s linear;
-  transition: all 5s linear;
+  opacity: 0;
+  -webkit-transition: all 2s ease-in-out;
+  -moz-transition: all 2s ease-in-out;
+  -o-transition: all 2s ease-in-out;
+  transition: all 2s ease-in-out;
 }

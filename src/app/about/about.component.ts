@@ -27,6 +27,7 @@ export class AboutComponent extends ParentClass implements AfterViewInit
   public hideComments: boolean = true;
   public newComment: Comment = new Comment();
   public commentList: Comment[] = new Array();
+  public commentListLatest: Comment[] = new Array();
   public id: number;
   public respectProvided: boolean = false;
 
@@ -74,6 +75,10 @@ export class AboutComponent extends ParentClass implements AfterViewInit
 
   updateMeta()
   {
+
+    if (this.topic.images.length == 0)
+      return;
+
     this.metaService.updateTag({ content: this.topic.title }, 'name="description"');
     this.metaService.updateTag({ content: this.topic.title }, 'name="twitter:description"');
     this.metaService.updateTag({ content: this.topic.title }, 'itemprop="description"');
@@ -189,6 +194,19 @@ export class AboutComponent extends ParentClass implements AfterViewInit
       data =>
       {
         this.commentList = data.slice().reverse();
+
+        let count = 0;
+
+        this.commentList.forEach((c) =>
+        {
+          if (count == 3)
+          {
+            return;
+          }
+
+          this.commentListLatest.push(c);
+
+        });
       },
       err => alert(JSON.stringify(err))
     );

@@ -3,12 +3,10 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\about",
-    "\\src\\app\\global\\components",
     "\\src\\app\\topic",
+    "\\src\\app\\topic\\landing-page",
     "\\src\\assets",
-    "\\src\\assets\\share"
+    "\\src\\assets\\img"
   ],
-  "SelectedNode": "\\src\\app\\about\\about.component.ts",
   "PreviewInSolutionExplorer": false
 }

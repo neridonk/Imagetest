@@ -12,9 +12,9 @@
   <h1 class="center headi">{{topic?.title}}</h1>
 
   <p class="center" *ngIf="isNotMe==false">
-    
+
     <br>
-    <a  class="btn" (click)="addnewPic=!addnewPic ">
+    <a class="btn" (click)="addnewPic=!addnewPic ">
 
       Add new picture
     </a>
@@ -79,8 +79,17 @@
 
       <img class=" responsive-img" style="width:100%" src="http://changeisamazing.com/images/{{topic.images[topic.images.length-1].url}}" />
     </div>
+
+
+
+
+
+
+
   </div>
 
+
+  <!-- vgend-->
   <div class="row container" *ngIf="topic.images.length==0 && topic.youtube != ''">
     <img [src]="youtube2(topic.youtube)" style=" width: 100%" />
   </div>
@@ -91,6 +100,8 @@
     <img src="/assets/img/respect.png" class=" btn-floating" (click)="updVote()" style="width:40px;     width: 40px;      background-color: transparent; padding: 4px;" title="give respect" />
 
     <div style="padding: 10px; font-size: 11px; font-weight: bold;">{{topic?.upvote}}</div>
+
+
   </div>
 
 
@@ -106,7 +117,7 @@
       <div class="col s6 ">
 
         <div>
-          {{followerCount}} 
+          {{followerCount}}
           <img src="/assets/img/join.png" width="26" style="vertical-align:middle; margin-left:10px" />
 
         </div>
@@ -129,6 +140,44 @@
   <a class="btn-large" *ngIf="topic && topic.youtube!=''" href="{{topic.youtube}}">
     <i class="material-icons left">play_circle_filled</i> Watch on yoututbe
   </a>
+
+
+  <div>
+
+    <div *ngIf="commentList.length>0">
+     <div style="text-align:left; padding:20px;margin-top:20px;border-top: 1px solid;">
+       <i class="material-icons  tiny specFont" style="margin-top: 10px;    font-size: 2rem; color:white">chat_bubble</i> latest comments
+     </div>
+
+      <!--latest comments-->
+      <div class="row" style="position: relative" *ngFor="let cmt of commentListLatest">
+
+        <div class="col s3">
+
+          <img  class="tinyImg" [src]="cmt.user.img"  style="    width: 46px;height:46px"/><br />
+          <a style="font-size: 11px;" class="inlineBlock" *ngIf="cmt.user" [routerLink]="['/profile',cmt.user.userid]">{{cmt.user.name}}</a>
+
+        </div>
+
+        <div class="col s9" style="text-align:left;background-color: #3a3a3a;">
+
+          <i>
+            "
+            <p class="inlineBlock" style="color: white !important;"> {{cmt.texts}}</p>
+            "
+          </i>
+
+        </div>
+
+      </div>
+
+      <!-->for end-->
+
+    </div>
+
+  </div>
+
+
 
 </div>
 

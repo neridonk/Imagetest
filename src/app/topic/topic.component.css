@@ -12,7 +12,7 @@
   background-color: #252525 !important;
   width: 80px;
   height: 80px;
-  border: 3px solid #17b3ef;
+  border: 2px solid #57c1e8;
   z-index: 1000;
 }
 
@@ -42,7 +42,7 @@
   height: 60px;
   overflow: hidden;
   background-color: #5d5d5d;
-  border-bottom: 3px solid rgba(0, 185, 255, 0.92);
+  border-bottom: 2px solid rgb(87, 193, 232);
 }
 
 .cp {
