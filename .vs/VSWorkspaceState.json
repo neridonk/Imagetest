@@ -5,9 +5,9 @@
     "\\src\\app",
     "\\src\\app\\about",
     "\\src\\app\\topic",
-    "\\src\\assets",
+    "\\src\\app\\topic\\blog",
+    "\\src\\app\\topic\\landing-page",
     "\\src\\assets\\img"
   ],
-  "SelectedNode": "\\src\\app\\about\\about.component.html",
   "PreviewInSolutionExplorer": false
 }
