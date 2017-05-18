@@ -71,13 +71,13 @@
 
       <div class="dateVgl">{{topic.images[0].picdate | formatDate}}</div>
 
-      <img class=" responsive-img" style="width:100%" src="http://changeisamazing.com/images/{{topic.images[0].url}}" />
+      <img class=" responsive-img" style="width:100%" src="http://changeisamazing.com/images/{{topic.images[0].url}}" alt="{{topic?.title}}"/>
     </div>
     <div class="col s6" style="padding: 0px !Important">
 
       <div class="dateVgl">{{topic.images[topic.images.length-1].picdate | formatDate}}</div>
 
-      <img class=" responsive-img" style="width:100%" src="http://changeisamazing.com/images/{{topic.images[topic.images.length-1].url}}" />
+      <img class=" responsive-img" style="width:100%" src="http://changeisamazing.com/images/{{topic.images[topic.images.length-1].url}}" alt="{{topic?.title}}"/>
     </div>
 
 

@@ -21,6 +21,7 @@
   z-index: 0;
   height: 90vh;
 }
+
 .tinyImg {
   width: 64px;
   height: 64px;
@@ -59,4 +60,9 @@
   -moz-transition: all 2s ease-in-out;
   -o-transition: all 2s ease-in-out;
   transition: all 2s ease-in-out;
+}
+
+video {
+  background: transparent url('/assets/img/reg.jpeg')  no-repeat;
+  background-size:cover;
 }

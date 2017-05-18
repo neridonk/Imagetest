@@ -3,10 +3,11 @@
     "",
     "\\src",
     "\\src\\app",
+    "\\src\\app\\about",
     "\\src\\app\\topic",
-    "\\src\\app\\topic\\landing-page",
     "\\src\\assets",
     "\\src\\assets\\img"
   ],
+  "SelectedNode": "\\src\\app\\about\\about.component.html",
   "PreviewInSolutionExplorer": false
 }
