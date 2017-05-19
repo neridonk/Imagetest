@@ -180,6 +180,9 @@ export class AboutComponent extends ParentClass implements AfterViewInit
           );
         }
 
+        if (this.cst() == null)
+          return;
+
         if (list.find(o => o.userid == NameListService.user.userid))
           this.isFollowing = true;
       },
@@ -205,7 +208,6 @@ export class AboutComponent extends ParentClass implements AfterViewInit
           }
 
           this.commentListLatest.push(c);
-
         });
       },
       err => alert(JSON.stringify(err))
@@ -224,9 +226,7 @@ export class AboutComponent extends ParentClass implements AfterViewInit
     this.nameListService.removePicture(id).subscribe(
       data =>
       {
-
         location.reload();
-
       },
       err => alert(JSON.stringify(err))
     );

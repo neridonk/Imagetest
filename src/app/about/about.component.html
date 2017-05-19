@@ -23,7 +23,7 @@
 
   </p>
 
-  <a *ngIf="userOfTopic" [routerLink]="['/t/profile',userOfTopic.userid]">
+  <a *ngIf="userOfTopic" [routerLink]="['/t/profile',userOfTopic?.userid]">
 
     <img *ngIf="userOfTopic" class="tinyImg" [src]="userOfTopic.img" />
     <p>
@@ -71,20 +71,14 @@
 
       <div class="dateVgl">{{topic.images[0].picdate | formatDate}}</div>
 
-      <img class=" responsive-img" style="width:100%" src="http://changeisamazing.com/images/{{topic.images[0].url}}" alt="{{topic?.title}}"/>
+      <img class=" responsive-img" style="width:100%" src="http://changeisamazing.com/images/{{topic.images[0].url}}" alt="{{topic?.title}}" />
     </div>
     <div class="col s6" style="padding: 0px !Important">
 
       <div class="dateVgl">{{topic.images[topic.images.length-1].picdate | formatDate}}</div>
 
-      <img class=" responsive-img" style="width:100%" src="http://changeisamazing.com/images/{{topic.images[topic.images.length-1].url}}" alt="{{topic?.title}}"/>
+      <img class=" responsive-img" style="width:100%" src="http://changeisamazing.com/images/{{topic.images[topic.images.length-1].url}}" alt="{{topic?.title}}" />
     </div>
-
-
-
-
-
-
 
   </div>
 
@@ -113,6 +107,19 @@
 
     <div class="row">
 
+      <div class="col s12 " style="text-align:center">
+
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+          <input type="hidden" name="cmd" value="_s-xclick">
+          <input type="hidden" name="hosted_button_id" value="WGFTA3VC6ZL34">
+          <button type="submit" class="btn " style="background-color:#25d366" alt="PayPal – The safer, easier way to pay online!">
+            <i class="material-icons left">payment</i> Donate
+          </button>
+        </form>
+        <br />
+        <br />
+        <br />
+      </div>
 
       <div class="col s6 ">
 
@@ -133,7 +140,16 @@
           Last update : {{topic?.date | formatDate}}
         </p>
       </div>
+
+
+
+
+
+
     </div>
+
+
+
 
   </div>
 
@@ -145,17 +161,17 @@
   <div>
 
     <div *ngIf="commentList.length>0">
-     <div style="text-align:left; padding:20px;margin-top:20px;border-top: 1px solid;">
-       <i class="material-icons  tiny specFont" style="margin-top: 10px;    font-size: 2rem; color:white">chat_bubble</i> latest comments
-     </div>
+      <div style="text-align:left; padding:20px;margin-top:20px;border-top: 1px solid;">
+        <i class="material-icons  tiny specFont" style="margin-top: 10px;    font-size: 2rem; color:white">chat_bubble</i> latest comments
+      </div>
 
       <!--latest comments-->
       <div class="row" style="position: relative" *ngFor="let cmt of commentListLatest">
 
         <div class="col s3">
 
-          <img  class="tinyImg" [src]="cmt.user.img"  style="    width: 46px;height:46px"/><br />
-          <a style="font-size: 11px;" class="inlineBlock" *ngIf="cmt.user" [routerLink]="['/profile',cmt.user.userid]">{{cmt.user.name}}</a>
+          <img class="tinyImg" [src]="cmt.user.img" style="    width: 46px;height:46px" /><br />
+          <a style="font-size: 11px;" class="inlineBlock" *ngIf="cmt.user" [routerLink]="['/profile',cmt.user?.userid]">{{cmt.user.name}}</a>
 
         </div>
 
@@ -294,7 +310,7 @@
     <div class="card-content" style="padding-top: 20px;     height: 70%; overflow-y:auto ">
       <div *ngFor="let item of commentList" style="padding: 5px;">
         <div style="position: relative">
-          <a class="inlineBlock" *ngIf="item.user" [routerLink]="['/profile',item.user.userid]">{{item.user?.name}}</a>
+          <a class="inlineBlock" *ngIf="item.user && item.user.userid!=null" [routerLink]="['/profile',item.user?.userid]">{{item.user?.name}}</a>
           <i class="material-icons inlineBlock tiny">chat_bubble</i>
           <p class="inlineBlock" style="color: white !important;"> {{item.texts}}</p>
           <div class="dateCommentPanel">{{formatTime(item.datum)}}</div>

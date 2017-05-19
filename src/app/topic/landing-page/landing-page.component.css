@@ -63,6 +63,6 @@
 }
 
 video {
-  background: transparent url('/assets/img/reg.jpeg')  no-repeat;
-  background-size:cover;
+  background: transparent url('https://static.pexels.com/photos/115126/pexels-photo-115126.jpeg') no-repeat;
+  background-size: cover;
 }
