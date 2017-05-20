@@ -109,13 +109,11 @@
 
       <div class="col s12 " style="text-align:center">
 
-        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-          <input type="hidden" name="cmd" value="_s-xclick">
-          <input type="hidden" name="hosted_button_id" value="WGFTA3VC6ZL34">
-          <button type="submit" class="btn " style="background-color:#25d366" alt="PayPal – The safer, easier way to pay online!">
-            <i class="material-icons left">payment</i> Donate
+    
+          <button (click)="donate()" class="btn " style="background-color:#25d366" alt="PayPal – The safer, easier way to pay online!">
+            <i class="material-icons left">euro_symbol</i> Donate
           </button>
-        </form>
+
         <br />
         <br />
         <br />
@@ -131,6 +129,10 @@
 
         <p class="btn specFont" style="cursor:pointer; background-color:#ffb763" (click)="joinFollower()" *ngIf="(!isFollowing && followerCount!=null) && cst()">
           Joint this change
+        </p>
+
+        <p class="btn specFont" style="cursor:pointer; background-color:red" (click)="removeFollow()" *ngIf="(isFollowing && followerCount!=null) && cst()">
+          leave this change
         </p>
 
       </div>
@@ -245,7 +247,8 @@
 
 
 
-
+<button (click)="report()"><i class="material-icons left">feedback</i> 
+report</button>
 
 
 
@@ -281,7 +284,7 @@
 
           <p *ngIf="isNotMe"> {{item.description}}</p>
 
-          <textarea *ngIf="!isNotMe" class="materialize-textarea" maxlength="200" style="" [(ngModel)]="item.description"></textarea>
+          <textarea *ngIf="!isNotMe" class="materialize-textarea" style="" [(ngModel)]="item.description"></textarea>
 
         </div>
         <div class="card-action" [hidden]="isNotMe">

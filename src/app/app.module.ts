@@ -23,6 +23,7 @@ import { CropperDirective } from './add-picture/cropper/cropper.directive';
 import { PickadateDirective } from './add-picture/pickadate.directive';
 import { HashLocationStrategy, Location, LocationStrategy } from '@angular/common';
 import { FormatDatePipe } from './about/format-date.pipe';
+import { AutofocusDirective } from './login/autofocus.directive';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { FormatDatePipe } from './about/format-date.pipe';
     CropperDirective,
     PickadateDirective,
     FormatDatePipe,
+    AutofocusDirective,
 
   ],
   imports: [

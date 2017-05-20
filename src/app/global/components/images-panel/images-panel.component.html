@@ -26,7 +26,10 @@
       <div class="card-image" (click)="goToAbout(top.topicid)">
         <img src="http://changeisamazing.com/images/{{top.images[0].url}}" class="imgAk" />
         <img src="http://changeisamazing.com/images/{{top.images[top.images.length-1]?.url}}" class="imgAk" />
-        <span class="card-title titleNew ">{{top.title.substring(1, 45)}}...</span>
+        <span class="card-title titleNew ">{{top.title.substring(1, 45)}}...
+        
+      
+        </span>
       </div>
       <div class="card-action grey-text " style="border-bottom: 2px solid #e9d43b; padding:7px">
         <div class="inlineBlock">
@@ -37,11 +40,11 @@
         </div>
 
 
-        <a class="inlineBlock" href="{{top.youtube}}" style="margin-left: 40px;color: #07b1f2; vertical-align: top;">
+        <a class="inlineBlock" href="{{top.youtube}}" style="margin-right: 0px;margin-left: 30px;color: #07b1f2; vertical-align: top;">
           <i class="material-icons tiny">play_circle_filled</i> ON YOUTUBE
         </a>
 
-        <div class="right">
+        <div class="right" style="    font-size: 10px;">
           {{top.category }} {{formatTime(top.date)}}
         </div>
       </div>
@@ -68,10 +71,10 @@
         <div  *ngIf="top.youtube!='' && top.images.length==0" style="position:relative;overflow:hidden">
           <img src="assets/img/respect.png" class="imgAk" />
           <img src="assets/img/respect.png" class="imgAk" />
-          <img [src]="youtube(top.youtube)"  style=" width: 100%;position:absolute;left:0px;top:-36px;"/>
+          <img [src]="youtube(top.youtube,top)"  style=" width: 100%;position:absolute;left:0px;top:-36px;"/>
         </div>
 
-        <span class="card-title titleNew ">{{top.title.substring(0, 45)}}...</span>
+        <span class="card-title titleNew ">{{top.title.substring(0, 45)}}...<br /><br />{{top.title}}</span>
       </div>
       <div class="card-action grey-text " style="border-bottom: 1px solid #9e9eb9; padding:7px">
         <div class="inlineBlock">
@@ -82,11 +85,11 @@
         </div>
 
 
-        <a *ngIf="top.youtube!=''" class="inlineBlock" href="{{top.youtube}}" style="margin-left: 40px;color: #07b1f2; vertical-align: top;">
+        <a *ngIf="top.youtube!=''" class="inlineBlock" href="{{top.youtube}}" style="margin-right: 0px;margin-left: 30px;color: #07b1f2; vertical-align: top;">
           <i class="material-icons tiny">play_circle_filled</i> ON YOUTUBE
         </a>
 
-        <div class="right">
+        <div class="right" style="    font-size: 10px;">
           {{top.category }} {{formatTime(top.date)}}
         </div>
       </div>
@@ -95,7 +98,7 @@
 
   <div *ngIf="topiclist.length == 0 && featuredtopiclist.length == 0">
 
-    <img class="empyPic" src="https://images.pexels.com/photos/14676/pexels-photo-14676.png?w=1260&h=750&auto=compress&cs=tinysrgb"/>
+    <img class="empyPic" src="assets/img/emptyPanelWithLogo.png"/>
 
   </div>
 

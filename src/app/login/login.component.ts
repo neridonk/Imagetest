@@ -126,7 +126,6 @@ export class LoginComponent implements OnInit
     this.nameListService.login(this.newuser).subscribe(
       data =>
       {
-        console.log(data + JSON.stringify(data))
 
         if (data == null)
           return alert("login failed");

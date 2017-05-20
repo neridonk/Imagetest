@@ -3,11 +3,12 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\about",
-    "\\src\\app\\topic",
+    "\\src\\app\\global\\components\\images-panel\\page",
     "\\src\\app\\topic\\blog",
     "\\src\\app\\topic\\landing-page",
-    "\\src\\assets\\img"
+    "\\src\\assets",
+    "\\src\\assets\\img",
+    "\\src\\blog"
   ],
   "PreviewInSolutionExplorer": false
 }

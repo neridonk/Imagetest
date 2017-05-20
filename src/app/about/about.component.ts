@@ -80,11 +80,12 @@ export class AboutComponent extends ParentClass implements AfterViewInit
       return;
 
     this.metaService.updateTag({ content: this.topic.title }, 'name="description"');
+    this.metaService.updateTag({ content: this.topic.title }, 'property="og:description"');
     this.metaService.updateTag({ content: this.topic.title }, 'name="twitter:description"');
     this.metaService.updateTag({ content: this.topic.title }, 'itemprop="description"');
     document.title = this.topic.title;
     this.metaService.updateTag({ content: 'http://changeisamazing.com/images/slim/' + this.topic.images[0].url }, 'name="twitter:image"');
-    this.metaService.updateTag({ content: 'http://changeisamazing.com/images/slim/' + this.topic.images[0].url }, 'name="og:image"');
+    this.metaService.updateTag({ content: 'http://changeisamazing.com/images/slim/' + this.topic.images[0].url }, 'property="og:image"');
     this.metaService.updateTag({ content: 'http://changeisamazing.com/images/slim/' + this.topic.images[0].url }, 'itemprop="image"');
   }
 
@@ -367,5 +368,15 @@ export class AboutComponent extends ParentClass implements AfterViewInit
     var str = url.split('v=')[1];
 
     return 'https://img.youtube.com/vi/' + str + '/0.jpg';
+  }
+
+  public report()
+  {
+    window.alert('Reports this topic to report@changeisamazing.com with the ID' + this.topic.topicid)
+  }
+
+  public donate()
+  {
+    location.href = 'https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=d%2ehueckmann%40googlemail%2ecom&lc=DE&item_name=https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=d%2ehueckmann%40googlemail%2ecom&lc=DE&item_name=Change%20Is%20Amazing%20donation%20to%20topic%20with%20id&no_note=0&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHostedGuest' + this.topic.topicid + '&no_note=0&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHostedGuest';
   }
 }

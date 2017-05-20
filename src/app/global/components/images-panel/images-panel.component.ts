@@ -4,6 +4,7 @@ import { Images, Topic, User, croppData } from '../../../models';
 import { NameListService } from '../../services/name-list.service';
 declare var WOW: any;
 declare var $: any;
+
 var moment = require('moment');
 
 import { Router } from '@angular/router';
@@ -74,6 +75,8 @@ export class ImagesPanelComponent implements OnInit, AfterViewInit
     this.nameListService.getAllTopics(startOn, this.category, this.search).subscribe(
       data =>
       {
+
+
         data.forEach((d) =>
         {
           if (d.isFeatured == 0)
@@ -94,11 +97,28 @@ export class ImagesPanelComponent implements OnInit, AfterViewInit
   {
     this.router.navigate(['/about', id]);
   }
-  public youtube(url: string)
+  public youtube(url: string, topic: Topic)
   {
     var str = url.split('v=')[1];
 
-    return 'https://img.youtube.com/vi/' + str + '/0.jpg';
+
+    if (!topic.isOnswitch)
+    {
+      setTimeout(() =>
+      {
+        topic.isOnswitch = false;
+        topic.currentPos = Math.floor(Math.random() * 3) + 0;
+      }, Math.floor(Math.random() * 3000) + 2000);
+    }
+
+    topic.isOnswitch = true;
+
+    if (topic.currentPos == null)
+    {
+      topic.currentPos = 0;
+    }
+
+    return 'https://img.youtube.com/vi/' + str + '/' + topic.currentPos + '.jpg';
   }
 
 }

@@ -77,7 +77,7 @@ export class NameListService extends ServiceClass
   getSomeUsers(): Observable<any>
   {
     this.showLoading();
-    return this.get('getSomeUsers.php','').map((response: any) =>
+    return this.get('getSomeUsers.php', '').map((response: any) =>
     {
       this.hideLoading();
       return <any>response.json();
@@ -98,7 +98,7 @@ export class NameListService extends ServiceClass
   addNewTopic(topic: Topic): Observable<any>
   {
 
-    var formData = { 'Topic': topic};
+    var formData = { 'Topic': topic };
     this.showLoading();
 
     return this.post('addnewTopic.php', formData).map((response: any) =>
@@ -320,6 +320,17 @@ export class NameListService extends ServiceClass
 
     this.showLoading();
     return this.post('UpdateImageText.php', formData).map((response: any) =>
+    {
+      this.hideLoading();
+      return <any>response.json();
+    });
+  }
+
+  donate(topicId: number)
+  {
+    this.showLoading();
+
+    return this.getFb('https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=d%2ehueckmann%40googlemail%2ecom&lc=DE&item_name=https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=d%2ehueckmann%40googlemail%2ecom&lc=DE&item_name=Change%20Is%20Amazing%20donation%20to%20topic%20with%20id&no_note=0&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHostedGuest' + topicId + '&no_note=0&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHostedGuest','').map((response: any) =>
     {
       this.hideLoading();
       return <any>response.json();

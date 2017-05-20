@@ -63,7 +63,9 @@ export class Topic {
     public upvote?: number,
     public images?: Images[],
     public comments?: Comment[],
-    public user?: User
+    public user?: User,
+    public isOnswitch: boolean = false,
+    public currentPos: number = 0
   ) {
 
   }
