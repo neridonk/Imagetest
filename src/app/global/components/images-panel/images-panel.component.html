@@ -26,9 +26,10 @@
       <div class="card-image" (click)="goToAbout(top.topicid)">
         <img src="http://changeisamazing.com/images/{{top.images[0].url}}" class="imgAk" />
         <img src="http://changeisamazing.com/images/{{top.images[top.images.length-1]?.url}}" class="imgAk" />
-        <span class="card-title titleNew ">{{top.title.substring(1, 45)}}...
-        
-      
+        <span class="card-title titleNew ">
+          {{top.title.substring(1, 45)}}...
+
+
         </span>
       </div>
       <div class="card-action grey-text " style="border-bottom: 2px solid #e9d43b; padding:7px">
@@ -60,7 +61,7 @@
   <div *ngFor="let top of topiclist" class="col s12 m4 l3" style="padding:5px !important;">
 
     <!-- Image only no video-->
-    <div class="card  wow pulse imgCard" style="    background-color: rgba(255, 255, 255, 0.62);" >
+    <div class="card  wow pulse imgCard" style="    background-color: rgba(255, 255, 255, 0.62);">
       <div class="card-image" (click)="goToAbout(top.topicid)">
 
         <div *ngIf="top.images != null && top.images.length!=0">
@@ -68,13 +69,32 @@
           <img src="http://changeisamazing.com/images/slim/{{top.images[top.images.length-1]?.url}}" class="imgAk" />
         </div>
 
-        <div  *ngIf="top.youtube!='' && top.images.length==0" style="position:relative;overflow:hidden">
+        <div *ngIf="top.youtube!='' && top.images.length==0" style="position:relative;overflow:hidden">
           <img src="assets/img/respect.png" class="imgAk" />
           <img src="assets/img/respect.png" class="imgAk" />
-          <img [src]="youtube(top.youtube,top)"  style=" width: 100%;position:absolute;left:0px;top:-36px;"/>
+          <img [src]="youtube(top.youtube,top)" style=" width: 100%;position:absolute;left:0px;top:-36px;" />
         </div>
 
         <span class="card-title titleNew ">{{top.title.substring(0, 45)}}...<br /><br />{{top.title}}</span>
+
+        <div style="position:absolute;bottom:0px;left:0px; width:100%; font-size:11px;background-color: rgba(0, 0, 0, 0.25);    padding: 3px;">
+          <div class="row" style="margin:0;" *ngFor="let comment of top.comment">
+            <div class="col s3">
+
+              <a style="font-size: 11px;    " class="inlineBlock" *ngIf="comment.user" ><img class="tinyImg" [src]="comment.user.img" style="border-radius: 20px; width: 26px;height:26px" /></a>
+
+            </div>
+            <div class="col s9">
+             
+                <i class="inlineBlock" style="color: white !important; padding:0px;margin:0px;    vertical-align: sub;"> {{comment.texts.substring(0,50)}}</i>
+            
+            </div>
+
+          </div>
+
+
+        </div>
+
       </div>
       <div class="card-action grey-text " style="border-bottom: 1px solid #9e9eb9; padding:7px">
         <div class="inlineBlock">
@@ -98,13 +118,13 @@
 
   <div *ngIf="topiclist.length == 0 && featuredtopiclist.length == 0">
 
-    <img class="empyPic" src="assets/img/emptyPanelWithLogo.png"/>
+    <img class="empyPic" src="assets/img/emptyPanelWithLogo.png" />
 
   </div>
 
 
 </div>
 
-<app-page [isempty]="topiclist.length == 0 && featuredtopiclist.length == 0"  (currentPageChange)="fetchTopicList($event)">
+<app-page [isempty]="topiclist.length == 0 && featuredtopiclist.length == 0" (currentPageChange)="fetchTopicList($event)">
 
 </app-page>

@@ -101,16 +101,6 @@ export class ImagesPanelComponent implements OnInit, AfterViewInit
   {
     var str = url.split('v=')[1];
 
-
-    if (!topic.isOnswitch)
-    {
-      setTimeout(() =>
-      {
-        topic.isOnswitch = false;
-        topic.currentPos = Math.floor(Math.random() * 3) + 0;
-      }, Math.floor(Math.random() * 3000) + 2000);
-    }
-
     topic.isOnswitch = true;
 
     if (topic.currentPos == null)

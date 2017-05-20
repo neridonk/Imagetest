@@ -91,7 +91,13 @@ export class AboutComponent extends ParentClass implements AfterViewInit
 
   getFbShare()
   {
-    return 'https://facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href);
+    var url = "https://www.facebook.com/dialog/feed?app_id=843394725812119&link=" + encodeURIComponent(window.location.href) +
+      "&name=" + encodeURIComponent(this.topic.title) +
+      "&caption=" + encodeURIComponent('Shared from ChangeIsAmazing.com') +
+      "&description=" + encodeURIComponent(this.topic.images[0].description) +
+      "&picture=" + encodeURIComponent('http://changeisamazing.com/'+this.topic.images[0].url) +
+      "&redirect_uri=https://www.facebook.com";
+    return url;
   }
 
   getTwitterShare()
