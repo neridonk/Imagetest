@@ -40,3 +40,10 @@ testem.log
 #System Files
 .DS_Store
 Thumbs.db
+
+.vs/ProjectSettings.json
+.vs/slnx.sqlite
+.vs/source/v15/Browse.VC.db
+CMakeSettings.json
+
+.vs/*
