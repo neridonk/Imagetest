@@ -54,7 +54,7 @@ export class LandingPageComponent extends ParentClass
       if (document.getElementById('logosy') == null)
         return;
 
-      document.getElementById('logosy').style.width = '70%';
+      document.getElementById('logosy').style.width = '20%';
       document.getElementById('logosy').style.opacity = '1';
 
     }, 800);
