@@ -1,5 +1,6 @@
-﻿import { Component, Input, Output, EventEmitter, AfterViewInit } from '@angular/core';
+﻿import { Component, Input, Output, EventEmitter, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+declare var $: any;
 
 @Component({
   selector: 'app-page',
@@ -8,8 +9,14 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class PageComponent
 {
+  @ViewChild('thePagepanel')
+  pagepanel: ElementRef;
+
   public _currentPage = 0;
   public myId = 'page';
+
+  public onLoad: boolean = false;
+
 
   @Input()
   public isempty: boolean = false;
@@ -20,80 +27,52 @@ export class PageComponent
   @Output()
   public currentPageChange: EventEmitter<any> = new EventEmitter();
 
-  constructor(private activatedRoute: ActivatedRoute) { }
+  constructor(private activatedRoute: ActivatedRoute)
+  {
+
+    $(window).bind('scroll', () =>
+    {
+      if (this.isElementInViewport())
+      {
+        if (!this.onLoad)
+          this.next();
+      }
+    });
+  }
 
   public next()
   {
     this._currentPage = Number(this._currentPage + 1);
     this.fireChange();
-  }
-
-  public prev()
-  {
-    if (this._currentPage == 0)
-      return;
-
-    this._currentPage = Number(this._currentPage - 1);
-    this.fireChange();
-  }
-
-  public jumpsite(page = this._currentPage)
-  {
-    this._currentPage = Number(page);
-    this.fireChange();
+    this.onLoad = true;
+    setTimeout(() =>
+    {
+      this.onLoad = false;
+    }, 2000);
   }
 
   private fireChange()
   {
-    this.setUrlParam();
-
     const sdf = Number(Number(this._currentPage) * Number(this.maxRows));
     this.currentPageChange.emit(sdf);
   }
 
   ngAfterViewInit()
   {
-    this.activatedRoute.queryParams.subscribe((params: Params) =>
-    {
-      const currentPageOfTable = params[this.myId];
-
-      if (currentPageOfTable != null)
-      {
-        this.jumpsite(currentPageOfTable);
-      }
-
-    });
-
-    if (!window.location.href.includes(this.myId))
-    {
-      this.fireChange();
-    }
+    this.fireChange();
   }
 
-  private setUrlParam()
+  isElementInViewport()
   {
-    let param = this.myId + '=' + this._currentPage;
+    var el = this.pagepanel.nativeElement;
+    var rect = el.getBoundingClientRect();
 
-    if (this.activatedRoute.children.length != 0)
-    {
-      param = '&' + param;
-    } else
-    {
-      if (!window.location.href.includes('?'))
-      {
-        param = '?' + param;
-      }
-    }
-
-    let locationHref = window.location.href;
-
-    if (window.location.href.includes(this.myId))
-    {
-      locationHref = window.location.href.split(this.myId)[0];
-    }
-
-    history.pushState({ path: locationHref + param }, this.myId + '-' + this._currentPage, locationHref + param);
+    return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && /*or $(window).height() */
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth) /*or $(window).width() */
+    );
   }
-
 
 }

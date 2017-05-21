@@ -1,15 +1,3 @@
-﻿<div class="row pagePanel" *ngIf="!isempty">
-
-  <div class="col s4 arrowPanel" (click)="prev()">
-    <a><i class="material-icons left" style="line-height: 1;font-size: 2rem;  background-color: #07b1f2;  color: white;"> keyboard_arrow_left</i></a>
-  </div>
-
-  <div class="col s4" style="text-align:center; ">
-   <input type="text" class="pageInput" [(ngModel)]="_currentPage" (ngModelChange)="jumpsite()"/>
-  </div>
-
-  <div class="col s4 arrowPanel" (click)="next()">
-    <a><i class="material-icons right" style="line-height: 1;font-size: 2rem;  background-color: #07b1f2;  color: white;"> keyboard_arrow_right</i></a>
-  </div>
+﻿<div class="row pagePanel" #thePagepanel>
 
 </div>
