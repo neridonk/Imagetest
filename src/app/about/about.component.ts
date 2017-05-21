@@ -1,4 +1,4 @@
-﻿import { Component, AfterViewInit } from '@angular/core';
+﻿import { Component, AfterViewInit, Input, Output, EventEmitter } from '@angular/core';
 import { Images, Topic, User, Comment, croppData } from '../models';
 import { NameListService } from '../global/services/name-list.service';
 import { NavbarComponent } from '../navbar/navbar.component';
@@ -10,7 +10,7 @@ import { Meta } from '@angular/platform-browser';
 declare var Cropper: any;
 var moment = require('moment');
 declare var $: any;
-declare var WOW: any;
+
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
@@ -18,6 +18,22 @@ declare var WOW: any;
 })
 export class AboutComponent extends ParentClass implements AfterViewInit
 {
+  @Input()
+  public set thetopicId(id)
+  {
+    if (id == null || isNaN(id))
+      return;
+
+    history.pushState(null, null, '/about/' + id);
+    this.isModalOpen = true;
+    this.id = id;
+    this.init();
+  }
+
+  @Output()
+  public thetopicIdChange: EventEmitter<any> = new EventEmitter();
+
+  public isModalOpen: boolean = false;
 
   public userOfTopic: User;
   public topic: Topic;
@@ -48,17 +64,24 @@ export class AboutComponent extends ParentClass implements AfterViewInit
     private nameListService: NameListService)
   {
     super();
-    this.imageAfter.base64 = "assets/img/noImage.jpeg";
 
     this.id = +this.route.snapshot.params['id'];
 
+    if (isNaN(this.id))
+      return;
+
+    this.init();
+  }
+
+  init()
+  {
+    this.imageAfter.base64 = "assets/img/noImage.jpeg";
     this.nameListService.getTopicbyId(this.id).subscribe(
       data =>
       {
         this.topic = data[0];
         this.fetchUser(this.topic.userid);
         this.newComment.topicid = this.topic.topicid;
-        this.dosomething();
         this.initComments();
         this.fetchMe();
         this.updateMeta();
@@ -70,8 +93,8 @@ export class AboutComponent extends ParentClass implements AfterViewInit
     {
       this.initFollowers();
     });
-
   }
+
 
   updateMeta()
   {
@@ -91,11 +114,19 @@ export class AboutComponent extends ParentClass implements AfterViewInit
 
   getFbShare()
   {
+    var img = '';
+    if (this.topic.images.length == 0 && this.topic.youtube != '')
+    {
+      img = this.youtube2(this.topic.youtube);
+    } else
+    {
+      img = this.topic.images[0].url;
+    }
+
     var url = "https://www.facebook.com/dialog/feed?app_id=843394725812119&link=" + encodeURIComponent(window.location.href) +
-      "&name=" + encodeURIComponent(this.topic.title) +
-      "&caption=" + encodeURIComponent('Shared from ChangeIsAmazing.com') +
-      "&description=" + encodeURIComponent(this.topic.images[0].description) +
-      "&picture=" + encodeURIComponent('http://changeisamazing.com/'+this.topic.images[0].url) +
+      "&name=" + this.topic.title +
+      "&caption=Shared from ChangeIsAmazing.com" +
+      "&picture=http://changeisamazing.com" + img +
       "&redirect_uri=https://www.facebook.com";
     return url;
   }
@@ -124,13 +155,20 @@ export class AboutComponent extends ParentClass implements AfterViewInit
       });
   }
 
-  public dosomething()
-  {
-  }
-
   public back()
   {
-    history.back();
+    if (this.isModalOpen)
+    {
+      this.id = null;
+      this.isModalOpen = false;
+      this.commentList = [];
+      this.commentListLatest = [];
+      history.pushState(null, null, '');
+      this.thetopicIdChange.emit();
+      return;
+    }
+
+    this.router.navigate(['']);
   }
 
   public fetchMe()
@@ -151,7 +189,6 @@ export class AboutComponent extends ParentClass implements AfterViewInit
 
   ngAfterViewInit()
   {
-    new WOW().init();
     $('.datepicker').pickadate({
       selectMonths: true, // Creates a dropdown to control month
       selectYears: 15 // Creates a dropdown of 15 years to control year

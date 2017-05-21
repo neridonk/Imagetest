@@ -14,7 +14,7 @@ const routes: Routes = [
         path: 't', component: TopicComponent,
 
         children: [
-          { path: 'blog', component: BlogComponent },
+          { path: 'read', component: BlogComponent },
           { path: 'hall', component: HallComponent },
           { path: 'chisam', component: LandingPageComponent },
             { path: 'all', component: OverviewComponent },

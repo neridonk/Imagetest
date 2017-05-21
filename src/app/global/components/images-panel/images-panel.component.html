@@ -81,13 +81,13 @@
           <div class="row" style="margin:0;" *ngFor="let comment of top.comment">
             <div class="col s3">
 
-              <a style="font-size: 11px;    " class="inlineBlock" *ngIf="comment.user" ><img class="tinyImg" [src]="comment.user.img" style="border-radius: 20px; width: 26px;height:26px" /></a>
+              <a style="font-size: 11px;    " class="inlineBlock" *ngIf="comment.user"><img class="tinyImg" [src]="comment.user.img" style="border-radius: 20px; width: 26px;height:26px" /></a>
 
             </div>
             <div class="col s9">
-             
-                <i class="inlineBlock" style="color: white !important; padding:0px;margin:0px;    vertical-align: sub;"> {{comment.texts.substring(0,50)}}</i>
-            
+
+              <i class="inlineBlock" style="color: white !important; padding:0px;margin:0px;    vertical-align: sub;"> {{comment.texts.substring(0,50)}}</i>
+
             </div>
 
           </div>
@@ -128,3 +128,8 @@
 <app-page [isempty]="topiclist.length == 0 && featuredtopiclist.length == 0" (currentPageChange)="fetchTopicList($event)">
 
 </app-page>
+
+
+
+<app-about [(thetopicId)]="topicId">
+</app-about>

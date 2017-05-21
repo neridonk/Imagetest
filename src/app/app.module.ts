@@ -15,29 +15,17 @@ import { HttpModule, Http } from '@angular/http';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { FacebookService } from './login/facebook.service';
-import { AboutComponent } from './about/about.component';
 import { AddPictureComponent } from './add-picture/add-picture.component';
 import { DashOverviewComponent } from './overview/overview.component';
-import { CropperComponent } from './add-picture/cropper/cropper.component';
-import { CropperDirective } from './add-picture/cropper/cropper.directive';
-import { PickadateDirective } from './add-picture/pickadate.directive';
 import { HashLocationStrategy, Location, LocationStrategy } from '@angular/common';
-import { FormatDatePipe } from './about/format-date.pipe';
-import { AutofocusDirective } from './login/autofocus.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     LoginComponent,
-    AboutComponent,
     AddPictureComponent,
-    DashOverviewComponent,
-    CropperComponent,
-    CropperDirective,
-    PickadateDirective,
-    FormatDatePipe,
-    AutofocusDirective,
+    DashOverviewComponent
 
   ],
   imports: [

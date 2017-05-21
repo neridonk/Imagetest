@@ -1,6 +1,16 @@
 ﻿:host {
-  display: block;
   color: #ffffff;
+}
+
+.asModal {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  background-color: white;
+  z-index: 3;
+  height: 100%;
+  width: 100%;
+  overflow:auto;
 }
 
 .backButton {
@@ -205,4 +215,3 @@ h2 {
     font-size: 3.2rem;
   }
 }
-

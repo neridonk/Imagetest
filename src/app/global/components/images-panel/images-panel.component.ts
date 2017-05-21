@@ -16,6 +16,8 @@ import { Router } from '@angular/router';
 })
 export class ImagesPanelComponent implements OnInit, AfterViewInit
 {
+  public topicId;
+
   @Input()
   public category: string = "";
 
@@ -95,7 +97,7 @@ export class ImagesPanelComponent implements OnInit, AfterViewInit
   }
   public goToAbout(id: number)
   {
-    this.router.navigate(['/about', id]);
+    this.topicId = id;
   }
   public youtube(url: string, topic: Topic)
   {
