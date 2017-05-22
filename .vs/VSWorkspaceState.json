@@ -6,9 +6,9 @@
     "\\src\\app\\global",
     "\\src\\app\\global\\components",
     "\\src\\app\\global\\components\\images-panel",
-    "\\src\\app\\global\\components\\images-panel\\page",
-    "\\src\\app\\topic"
+    "\\src\\app\\topic",
+    "\\src\\app\\topic\\landscape",
+    "\\src\\assets\\img"
   ],
-  "SelectedNode": "\\src\\app\\global\\components\\images-panel\\page\\page.component.html",
   "PreviewInSolutionExplorer": false
 }

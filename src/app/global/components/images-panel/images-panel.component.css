@@ -22,10 +22,7 @@
   }
 
   .imgCard:hover .card-title {
-    opacity: 0.8;
-    background-color: white;
-    color: black;
-    height: 70px;
+
   }
 
 .lorbeeri {
