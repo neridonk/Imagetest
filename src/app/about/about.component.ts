@@ -98,6 +98,15 @@ export class AboutComponent extends ParentClass implements AfterViewInit
     {
       this.initFollowers();
     });
+
+    addEventListener('popstate', (event: any) =>
+    {
+      if (this.id != null)
+      {
+        this.back();
+      }
+    });
+
   }
 
 
