@@ -1,7 +1,8 @@
 ﻿import { Component, OnInit, NgZone } from '@angular/core';
 import { NameListService } from '../global/services/name-list.service';
-import { Images, Topic, User, croppData } from '../models';
+import { Images, Topic, User, croppData, Tag } from '../models';
 import { NavbarComponent } from '../navbar/navbar.component';
+import { ParentClass } from 'components';
 import { FacebookService } from './facebook.service';
 import { Router } from '@angular/router';
 
@@ -18,6 +19,10 @@ export class LoginComponent implements OnInit
   public registerUser: User = new User();
   public registerStep: number = -1;
 
+  public isMotivator: boolean = false;
+  public countries: any[] = new Array();
+  public tags: Tag[] = new Array();
+
   constructor(
     private ngZone: NgZone,
     private facebookService: FacebookService,
@@ -30,6 +35,20 @@ export class LoginComponent implements OnInit
     this.facebookService.loadAndInitFBSDK();
 
     this.newuser.img = 'http://changeisamazing.com/assets/img/noImage.jpeg';
+
+    this.nameListService.getAllCountries().subscribe(
+      data =>
+      {
+        this.countries = data;
+      },
+      err => alert(JSON.stringify(err))
+
+    );
+
+  }
+  selectCountry(country: any)
+  {
+    this.newuser.country = country.name;
   }
 
   loginFB()
@@ -85,6 +104,8 @@ export class LoginComponent implements OnInit
     this.nameListService.register(this.newuser).subscribe(
       data =>
       {
+        this.newuser = data;
+        this.addNewTags();
       },
       err => alert(JSON.stringify(err))
 
@@ -93,14 +114,14 @@ export class LoginComponent implements OnInit
 
   nextStep()
   {
-    if (this.registerStep == 3)
+    if (this.registerStep == 4)
     {
       this.registerStep = -1;
       return;
     }
 
 
-    if (this.registerStep == 2)
+    if (this.registerStep == 3)
     {
       if (this.newuser.name == null ||
         this.newuser.password == null ||
@@ -141,6 +162,52 @@ export class LoginComponent implements OnInit
     );
   }
 
+  changeMotivator(event: any)
+  {
+    this.isMotivator = event.srcElement.checked;
+  }
 
+  addNewTag(tags: Tag[])
+  {
+    this.tags = tags;
+  }
+
+
+  addNewTags()
+  {
+    if (!this.isMotivator)
+    {
+      return;
+    }
+
+
+    this.tags.forEach((tag) =>
+    {
+      tag.UserId = Number(this.newuser.userid);
+    });
+
+    ParentClass.loadingShow();
+    Promise.all(this.tags.map((tag) =>
+    {
+      return new Promise((resolve) =>
+      {
+        setTimeout(() =>
+        {
+          this.nameListService.addNewTag(tag, this.newuser.userid).toPromise().then(() =>
+          {
+
+            resolve.apply('');
+          });
+        }, 1000);
+
+      });
+
+    })).then((d) =>
+    {
+      ParentClass.loadingHide();
+    });
+
+
+  }
 
 }

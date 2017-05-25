@@ -2,7 +2,7 @@
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { ServiceClass } from './ServiceClass';
-import { Images, Topic, User, Comment } from '../../models';
+import { Images, Topic, User, Comment, Tag } from '../../models';
 import { ParentClass } from '../components/ParentClass';
 import 'rxjs/add/operator/map'
 import 'rxjs/add/observable/throw';
@@ -50,6 +50,14 @@ export class NameListService extends ServiceClass
         },
         err => err
       );
+    });
+  }
+
+  getAllCountries(): Observable<any>
+  {
+    return this.getFb('https://restcountries.eu/rest/v2/all', '').map((response: any) =>
+    {
+      return <any>response.json();
     });
   }
 
@@ -324,6 +332,15 @@ export class NameListService extends ServiceClass
     return this.getFb('https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=d%2ehueckmann%40googlemail%2ecom&lc=DE&item_name=https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=d%2ehueckmann%40googlemail%2ecom&lc=DE&item_name=Change%20Is%20Amazing%20donation%20to%20topic%20with%20id&no_note=0&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHostedGuest' + topicId + '&no_note=0&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHostedGuest', '').map((response: any) =>
     {
       this.hideLoading();
+      return <any>response.json();
+    });
+  }
+
+  addNewTag(tag: Tag, userId: Number): Observable<any>
+  {
+
+    return this.post('addNewTag.php', tag).map((response: any) =>
+    {
       return <any>response.json();
     });
   }

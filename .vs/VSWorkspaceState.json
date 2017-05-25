@@ -3,11 +3,11 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\global",
-    "\\src\\app\\global\\components",
-    "\\src\\app\\global\\components\\images-panel",
     "\\src\\app\\topic",
-    "\\src\\app\\topic\\landscape"
+    "\\src\\app\\topic\\blog",
+    "\\src\\assets\\img",
+    "\\src\\blog"
   ],
+  "SelectedNode": "\\src\\blog\\Best3AbsWorkoutPlans",
   "PreviewInSolutionExplorer": false
 }

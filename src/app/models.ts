@@ -93,6 +93,9 @@ export class User {
   constructor(
     public userid?: number,
     public name?: string,
+    public paypalMail?: string,
+    public country?: string,
+    public postalcode?: string,
     public email?: string,
     public password?: string,
     public cst?: string,
@@ -103,4 +106,15 @@ export class User {
 
   }
 
+}
+
+
+export class Tag
+{
+  constructor(
+    public Id?: number,
+    public UserId?: number,
+    public Name?: string)
+  {
+  }
 }

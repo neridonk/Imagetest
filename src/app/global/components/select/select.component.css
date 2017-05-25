@@ -1,0 +1,59 @@
+﻿.selectBox {
+  padding: 0px 30px 10px 5px;
+  position: relative;
+  cursor: pointer;
+  margin-left: 10px;
+  text-align: left;
+  border-bottom: 1px solid #9e9e9e;
+  color: white !important;
+}
+
+.chooseBox {
+  position: absolute;
+  background-color: white;
+  z-index: 23;
+  width: 100%;
+  left: 0px;
+  overflow-y: auto;
+  height: 250px;
+  overflow-x: hidden;
+}
+
+.chevIcon {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+}
+
+.colExt {
+  margin: 0px;
+}
+
+.colItem {
+  color: black;
+  padding: 7px 13px;
+  font-size: 15px;
+}
+
+  .colItem:nth-child(odd) {
+    background-color: #f1f1f1;
+  }
+
+  .colItem:nth-child(even) {
+    background-color: #f7f7f7;
+  }
+
+  .colItem:hover {
+    color: white;
+    background-color: #7d7a7a;
+  }
+
+.selectedItemBg {
+  position: absolute;
+  background-color: darkgray;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  left: 0px;
+  top: 0px;
+}

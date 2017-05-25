@@ -21,7 +21,7 @@
         Add new picture
       </a>
       <br><br>
-      <a [hidden]="isNotMe" class="" (click)="deletePost()">Delete post</a>
+      <a *ngIf="!isNotMe" class="" (click)="deletePost()">Delete post</a>
 
     </p>
 
@@ -44,7 +44,7 @@
     </div>
 
     <!-- new Pic-->
-    <div [hidden]="addnewPic" class="row" style=" width:100% ;  overflow-x: hidden; overflow-y: auto;">
+    <div *ngIf="!addnewPic" class="row" style=" width:100% ;  overflow-x: hidden; overflow-y: auto;">
       <div imgPanel [(img)]="imageAfter" style="width:100% ;height: 100%;"> </div>
 
       <div class="savepanel">
@@ -63,6 +63,54 @@
 
 
 
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col s12 " style="text-align:center">
+
+          <!--
+
+        <button (click)="donate()" class="btn " style="background-color:#25d366" alt="PayPal – The safer, easier way to pay online!">
+          <i class="material-icons left">euro_symbol</i> Donate
+        </button>
+        -->
+
+          <br />
+        </div>
+
+        <div class="col s6 ">
+
+          <div>
+            {{followerCount}}
+            <img src="/assets/img/join.png" width="26" style="vertical-align:middle; margin-left:10px" />
+
+          </div>
+
+          <p class="btn specFont" style="cursor:pointer; background-color:#ffb763" (click)="joinFollower()" *ngIf="(!isFollowing && followerCount!=null) && cst()">
+            Join
+          </p>
+
+          <p class="btn specFont" style="cursor:pointer; background-color:red" (click)="removeFollow()" *ngIf="(isFollowing && followerCount!=null) && cst()">
+            Leave 
+          </p>
+
+        </div>
+
+        <div class="col s6 ">
+          <p class="specFont">
+            Last update : {{topic?.date | formatDateNew}}
+          </p>
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+
+
     <!-- 1 und last vergleich-->
 
     <div class="row container" *ngIf="topic.images&& topic.images.length!=0" style="    border: 2px solid #383838;    box-shadow: 3px 7px 9px #1b1b1b;">
@@ -71,13 +119,13 @@
 
       <div class="col s6" style="padding: 0px !Important">
 
-        <div class="dateVgl">{{topic.images[0].picdate | formatDate}}</div>
+        <div class="dateVgl">{{topic.images[0].picdate | formatDateNew}}</div>
 
         <img class=" responsive-img" style="width:100%" src="http://changeisamazing.com/images/{{topic.images[0].url}}" alt="{{topic?.title}}" />
       </div>
       <div class="col s6" style="padding: 0px !Important">
 
-        <div class="dateVgl">{{topic.images[topic.images.length-1].picdate | formatDate}}</div>
+        <div class="dateVgl">{{topic.images[topic.images.length-1].picdate | formatDateNew}}</div>
 
         <img class=" responsive-img" style="width:100%" src="http://changeisamazing.com/images/{{topic.images[topic.images.length-1].url}}" alt="{{topic?.title}}" />
       </div>
@@ -105,59 +153,6 @@
     <br />
     <br />
 
-    <div class="container">
-
-      <div class="row">
-
-        <div class="col s12 " style="text-align:center">
-
-          <!--
-            
-          <button (click)="donate()" class="btn " style="background-color:#25d366" alt="PayPal – The safer, easier way to pay online!">
-            <i class="material-icons left">euro_symbol</i> Donate
-          </button>
-          -->
-
-          <br />
-          <br />
-          <br />
-        </div>
-
-        <div class="col s6 ">
-
-          <div>
-            {{followerCount}}
-            <img src="/assets/img/join.png" width="26" style="vertical-align:middle; margin-left:10px" />
-
-          </div>
-
-          <p class="btn specFont" style="cursor:pointer; background-color:#ffb763" (click)="joinFollower()" *ngIf="(!isFollowing && followerCount!=null) && cst()">
-            Joint this change
-          </p>
-
-          <p class="btn specFont" style="cursor:pointer; background-color:red" (click)="removeFollow()" *ngIf="(isFollowing && followerCount!=null) && cst()">
-            leave this change
-          </p>
-
-        </div>
-
-        <div class="col s6 ">
-          <p class="specFont">
-            Last update : {{topic?.date | formatDate}}
-          </p>
-        </div>
-
-
-
-
-
-
-      </div>
-
-
-
-
-    </div>
 
     <a class="btn-large" *ngIf="topic && topic.youtube!=''" href="{{topic.youtube}}">
       <i class="material-icons left">play_circle_filled</i> Watch on yoututbe
@@ -265,7 +260,7 @@
     <div class="row picAndDescriptionPanel " *ngFor="let item of topic.images">
 
       <div class="agePanel">
-        {{item.picdate | formatDate}}
+        {{item.picdate | formatDateNew}}
       </div>
 
       <div class="col s12 l1">
@@ -285,7 +280,7 @@
             <textarea *ngIf="!isNotMe" class="materialize-textarea" style="" [(ngModel)]="item.description"></textarea>
 
           </div>
-          <div class="card-action" [hidden]="isNotMe">
+          <div class="card-action" *ngIf="!isNotMe">
 
             <i class="material-icons" style=" cursor:pointer;     color: #353535;" (click)="isOnEdit= !isOnEdit">settings</i>
             <div *ngIf="isOnEdit">
@@ -305,7 +300,7 @@
     {{this.commentList.length}}  <a style="color:white"> <i class="material-icons  tiny specFont" style="margin-top: 10px; color:white">chat_bubble</i> Comments </a>
   </div>
 
-  <div [hidden]="hideComments" class="commentPanel row animated fadeInRight">
+  <div  *ngIf="!hideComments" class="commentPanel row animated fadeInRight">
 
     <div class="card col s12 m5 right" style="background-color: rgba(80, 80, 80, 0.86); height: 100%;  color: white;">
       <div class="card-content" style="padding-top: 20px;     height: 70%; overflow-y:auto ">

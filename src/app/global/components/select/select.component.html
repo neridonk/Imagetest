@@ -1,0 +1,24 @@
+﻿<div class="selectBox" (mousedown)="showList($event)">
+  <p *ngIf="selectedItem==null" style="margin-bottom: 6px;">{{text}}</p>
+  <p *ngIf="selectedItem" style="margin-bottom: 6px;">{{selectedItem.name}}</p>
+  <input type="text" style=" position: absolute; pointer-events: none; margin-top: -35px; opacity:0" (focus)="showList($event)" />
+  <i class="material-icons chevIcon">arrow_drop_down</i>
+  <div class="chooseBox  animateAll-short" [style.height]="boxSize">
+    <div>
+      <input accFoucs type="text" class="colItem" style="color:black;  height:inherit;  margin-bottom: 0px; " placeholder="..."
+             [(ngModel)]="searchValue"
+             (ngModelChange)="filter()"
+             (blur)="hideList()"
+             (keyup.enter)="hideList()"
+             [focus]="isSearchFocus"
+             (keyup)="keyupHandler($event.keyCode)" />
+    </div>
+    <ul class="collection colExt" style="min-height : 100px;z-index:111;">
+      <li *ngFor="let itemdata of items" class="collection-item colItem" style="position:relative"
+          (mousedown)="selectItem(itemdata, $event)">
+        <div class="selectedItemBg" *ngIf="selectedItem!=null && itemdata.name == selectedItem.name"></div>
+        {{itemdata.name}}
+      </li>
+    </ul>
+  </div>
+</div>

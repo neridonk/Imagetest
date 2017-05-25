@@ -99,11 +99,12 @@ export class AboutComponent extends ParentClass implements AfterViewInit
       this.initFollowers();
     });
 
+    const me = this;
     addEventListener('popstate', (event: any) =>
     {
-      if (this.id != null)
+      if (me.id != null)
       {
-        this.back();
+        me.back();
       }
     });
 
@@ -140,7 +141,7 @@ export class AboutComponent extends ParentClass implements AfterViewInit
     var url = "https://www.facebook.com/dialog/feed?app_id=843394725812119&link=" + encodeURIComponent(window.location.href) +
       "&name=" + this.topic.title +
       "&caption=Shared from ChangeIsAmazing.com" +
-      "&picture=http://changeisamazing.com" + img +
+      "&picture=http://changeisamazing.com/" + img +
       "&redirect_uri=https://www.facebook.com";
     return url;
   }
@@ -203,10 +204,6 @@ export class AboutComponent extends ParentClass implements AfterViewInit
 
   ngAfterViewInit()
   {
-    $('.datepicker').pickadate({
-      selectMonths: true, // Creates a dropdown to control month
-      selectYears: 15 // Creates a dropdown of 15 years to control year
-    });
   }
 
   private initFollowers()
@@ -317,14 +314,10 @@ export class AboutComponent extends ParentClass implements AfterViewInit
 
   public getDiffTime(date: any): number
   {
-    if (date == null)
-    {
-      return 10;
-    }
+    var todaysDate = moment(new Date());
+    var oDate = moment(new Date(date)).fromNow();
 
-    var diff: any = new Date().getTime() - new Date(date).getTime();
-    var mindiff = Math.round(diff / 60000);
-    return mindiff;
+    return oDate;
   }
 
   public post()

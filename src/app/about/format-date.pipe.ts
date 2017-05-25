@@ -1,4 +1,5 @@
 ﻿﻿import { Pipe, PipeTransform } from '@angular/core';
+ import * as moment from 'moment';
 
 @Pipe({
   name: 'formatDate'
@@ -6,17 +7,16 @@
 export class FormatDatePipe implements PipeTransform
 {
 
-  transform(dateData: any): any
+  transform(value: any, format: string = "MMMM Do YYYY "): string
   {
-    dateData = dateData + 'Z';
-    var d = new Date(dateData);
+    // Try and parse the passed value.
+    var momentDate = moment(value);
 
-    var hours = d.getUTCHours();
-    var min = (d.getUTCMinutes() < 10 ? '0' : '') + d.getUTCMinutes();
+    // If moment didn't understand the value, return it unformatted.
+    if (!momentDate.isValid()) return value;
 
-    var datestring = ("0" + d.getUTCDate()).slice(-2) + "." + ("0" + (d.getUTCMonth() + 1)).slice(-2) + "." +
-      d.getFullYear();
-    return datestring;
+    // Otherwise, return the date formatted as requested.
+    return momentDate.format(format);
   }
 
 }

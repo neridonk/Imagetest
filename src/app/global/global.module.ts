@@ -13,6 +13,13 @@ import { CropperComponent } from '../add-picture/cropper/cropper.component';
 import { PickadateDirective } from '../add-picture/pickadate.directive';
 import { FormatDatePipe } from '../about/format-date.pipe';
 import { AutofocusDirective } from '../login/autofocus.directive';
+import { FormatNewDatePipe } from 'components';
+import { ModalDirective } from './components/modal.directive';
+import { TagDirective } from './components/tag.directive';
+import { TagService } from './components/tag.service';
+import { SelectComponent } from './components/select/select.component';
+import { FocusDirective } from './components/focus.directive';
+
 
 
 @NgModule({
@@ -21,8 +28,8 @@ import { AutofocusDirective } from '../login/autofocus.directive';
     FormsModule,
     RouterModule
   ],
-  exports: [AutofocusDirective,FormatDatePipe,PickadateDirective, CropperComponent, CropperDirective, LoadingComponent, ImagesPanelComponent, InfinityScrollDirective, AboutComponent],
-  declarations: [AutofocusDirective,FormatDatePipe,PickadateDirective, CropperComponent, CropperDirective, LoadingComponent, ImagesPanelComponent, InfinityScrollDirective, PageComponent, AboutComponent],
-  providers: []
+  exports: [FocusDirective, SelectComponent, FormatNewDatePipe, AutofocusDirective, FormatDatePipe, PickadateDirective, CropperComponent, CropperDirective, LoadingComponent, ImagesPanelComponent, InfinityScrollDirective, AboutComponent, ModalDirective, TagDirective],
+  declarations: [FocusDirective,FormatNewDatePipe, AutofocusDirective,FormatDatePipe,PickadateDirective, CropperComponent, CropperDirective, LoadingComponent, ImagesPanelComponent, InfinityScrollDirective, PageComponent, AboutComponent, ModalDirective, TagDirective, SelectComponent],
+  providers: [TagService]
 })
 export class GlobalModule { }
