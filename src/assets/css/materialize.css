@@ -5134,17 +5134,17 @@ footer.page-footer .footer-copyright {
 .btn-large {
   text-decoration: none;
   color: #fff;
-  background-color: #17b3ef;
   text-align: center;
   letter-spacing: .5px;
   transition: .2s ease-out;
   cursor: pointer;
 }
 
-.btn:hover,
-.btn-large:hover {
-    background-color: #d29226;
-}
+  .btn:hover,
+  .btn-large:hover {
+    background-color: rgba(8, 167, 239, 0.64);
+    color: white !IMPORTANT;
+  }
 
 .btn-floating {
     display: inline-block;

@@ -1,188 +1,175 @@
 ﻿<img src="https://images.pexels.com/photos/94356/pexels-photo-94356.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb" class="bgLog">
 
 
+<div class="row ">
+  <div class="col s11 m6 l4  card loginForm " style="float:none; position:relative;  max-width:380px; margin:30px auto; ">
+    <div class="card-content ">
 
-<div class="row center container">
-  <div class="col s12 m3 l3">
-  </div>
 
-  <div class="col s12 m6 l6 animated fadeInDown" style="margin-top: 50px;    background-color: rgba(255, 255, 255, 0.43);  border-radius: 10px;  color: black; ">
+      <div *ngIf="registerStep==-1" class="center row ">
 
-    <div *ngIf="registerStep==-1" class="wrath-content-box center row ">
+        <div>
+          <button (click)="loginFB()" style="background-color:#39579b" class="btn-large btn-info">
+            <i class="material-icons left" style="color:white;">thumb_up</i>
 
-      <div>
-        <button (click)="loginFB()" style="background-color:#39579b" class="btn-large btn-info">
-          <i class="material-icons left" style="color:white;">thumb_up</i>
-
-          Login with Facebook
-        </button>
-      </div>
-
-      <br />
-
-      <div style="color:white;">or</div>
-
-      <br />
-
-      <div class="container">
-        <div class="input-field">
-
-          <input type="text" id="first_name" class="center" [(ngModel)]="newuser.name" style="color:white;border-bottom: 1px solid #ffffff;" />
-          <label style="color:white;" for="first_name">Username</label>
-
-        </div>
-      </div>
-
-      <div class="container">
-        <div class="input-field ">
-
-          <input type="password" id="Password" class="center" [(ngModel)]="newuser.password" style="color:white;border-bottom: 1px solid #ffffff;" />
-          <label style="color:white;" for="Password">Password</label>
-
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="center">
-          <button type="button" class="inlineBlock btn-large" style="color:white !important; background-color:#28D34D" (click)="login() ">
-            <i class="material-icons left" style="color:white;">send</i>
-            Login
+            Login with Facebook
           </button>
-
-
-          <br>
         </div>
-      </div>
 
+        <br />
 
-      <br />
-      <br />
-      <br />
-      <br />
-      <div class="row">
+        <div style="color:white;">or</div>
 
-        <button type="button" class="inlineBlock btn " style="color:white !important" (click)="registerStep=0">
-          <i class="material-icons left" style="color:white;">account_box</i>
-          Create account
-        </button>
+        <br />
 
-      </div>
-    </div>
+        <div class="container">
+          <div class="input-field">
 
+            <input type="text" id="first_name" class="center" [(ngModel)]="newuser.name" style="color:white;border-bottom: 1px solid #ffffff;" />
+            <label style="color:white;" for="first_name">Username</label>
 
+          </div>
+        </div>
 
-    <!-- Register BEGIN-->
+        <div class="container">
+          <div class="input-field ">
 
-    <div *ngIf="registerStep!=-1">
-      <div class="wrath-content-box " style="position:relative">
+            <input type="password" id="Password" class="center" [(ngModel)]="newuser.password" style="color:white;border-bottom: 1px solid #ffffff;" />
+            <label style="color:white;" for="Password">Password</label>
+
+          </div>
+        </div>
 
         <div class="row">
-          <div class="input-field animated pulse" *ngIf="registerStep==0">
-            <h3 style="color:white">Enter an username</h3>
+          <div class="center">
+            <button type="button" class="inlineBlock btn-large" style="color:white !important; background-color:transparent" (click)="login() ">
+              <i class="material-icons left" style="color:white;">send</i>
+              Login
+            </button>
 
-            <p>We are glad about your decision 2 more steps to go</p>
 
-
-            <input autofocus type="text" class="form-control " style="color:white;border-bottom: 1px solid #ffffff;" [(ngModel)]="newuser.name " placeholder="Username " />
+            <br>
           </div>
+        </div>
 
-          <!-- passwort-->
-          <div class="form-group animated pulse" *ngIf="registerStep==1">
-            <h3 style="color:white">Enter a password</h3>
-            <p>Enter a safe password</p>
+        <br />
+        <br />
+        <br />
+        <br />
+        <div class="row">
 
-            <input autofocus type="password" class="form-control" style="color:white;border-bottom: 1px solid #ffffff;" [(ngModel)]="newuser.password" placeholder="Password " />
-          </div>
+          <button type="button" class="inlineBlock btn actionBtn"  (click)="registerStep=0">
+            <i class="material-icons left" style="color:white;color:#17b3ef !important; ">account_box</i>
+            Create account
+          </button>
 
-          <!-- motivator-->
-          <div class="form-group animated pulse" *ngIf="registerStep==2" style="color:white;">
-            <h3 style="color:white">Are you a motivator?(Optional)</h3>
-            <p>If you are experienced in some topics you can give people advices, as a motivator you are able to get <b>donations</b> </p>
+        </div>
+      </div>
 
-            <br />
+      <!--Reg-->
+      <div *ngIf="registerStep!=-1">
+        <div class="wrath-content-box " style="position:relative">
 
-            <div class="switch">
-              <label style="color:white;">
-                No
-                <input type="checkbox" (change)="changeMotivator($event)">
-                <span class="lever"></span>
-                Yes
-              </label>
+          <div class="row">
+            <div class="input-field animated pulse" *ngIf="registerStep==0">
+              <h3 style="color:white">Enter an username</h3>
+
+              <p>We are glad about your decision 2 more steps to go</p>
+
+
+              <input autofocus type="text" class="form-control " style="color:white;border-bottom: 1px solid #ffffff;" [(ngModel)]="newuser.name " placeholder="Username " />
             </div>
-            <br />
 
-            <div class="row" *ngIf="isMotivator" style="padding:5px">
-              <h3 style="color:white">What are you expert in, insert your tags?</h3>
-              <p> for example quit smoking, lose weight, gain muscle</p>
+            <!-- passwort-->
+            <div class="form-group animated pulse" *ngIf="registerStep==1">
+              <h3 style="color:white">Enter a password</h3>
+              <p>Enter a safe password</p>
 
-              <div class="input-field" >
-                <div tag class="chips chips-autocomplete" style="color:white;" (onTag)="addNewTag($event)"></div>
-              </div>
+              <input autofocus type="password" class="form-control" style="color:white;border-bottom: 1px solid #ffffff;" [(ngModel)]="newuser.password" placeholder="Password " />
+            </div>
+
+            <!-- motivator-->
+            <div class="form-group animated pulse" *ngIf="registerStep==2" style="color:white;">
+              <h3 style="color:white">Are you a motivator?(Optional)</h3>
+              <p>If you are experienced in some topics you can give people advices, as a motivator you are able to get <b>donations</b> </p>
 
               <br />
 
-              <label style="color:white;">Where is your area?</label>
+              <div class="switch">
+                <label style="color:white;">
+                  No
+                  <input type="checkbox" (change)="changeMotivator($event)">
+                  <span class="lever"></span>
+                  Yes
+                </label>
+              </div>
+              <br />
 
-              <div class="input-field">
-              <input type="number" id="postal" [(ngModel)]="newuser.postalcode" />
-                <label style="color:white;" for="postal">Postalcode</label>
+              <div class="row" *ngIf="isMotivator" style="padding:5px">
+                <h3 style="color:white">What are you expert in, insert your tags?</h3>
+                <p> for example quit smoking, lose weight, gain muscle</p>
 
+                <div class="input-field">
+                  <div tag class="chips chips-autocomplete" style="color:white;" (onTag)="addNewTag($event)"></div>
+                </div>
+
+                <br />
+
+                <label style="color:white;">Where is your area?</label>
+
+                <div class="input-field">
+                  <input type="number" id="postal" [(ngModel)]="newuser.postalcode" />
+                  <label style="color:white;" for="postal">Postalcode</label>
+
+                </div>
+
+                <acc-select  [items]="countries" (selectedItemChange)="selectCountry($event)"></acc-select>
               </div>
 
-              <acc-select [items]="countries" (selectedItemChange)="selectCountry($event)"></acc-select>
+            </div>
+
+
+            <!-- Email-->
+
+            <div class="form-group animated pulse" *ngIf="registerStep==3">
+              <h3 style="color:white">Enter an email</h3>
+
+              <p>Your email is important to be right, so donations can be sent to you</p>
+
+              <input autofocus type="text" class="form-control " style="color:white;border-bottom: 1px solid #ffffff;" [(ngModel)]="newuser.email " placeholder="Email " />
+            </div>
+
+            <div class="form-group animated tada" *ngIf="registerStep==4" style="color:white">
+              <h3 style="color:white"> <i class="material-icons prefix" style="color:white;">thumb_up</i></h3>
+              Well done! You can login to your account now.
             </div>
 
           </div>
 
 
-          <!-- Email-->
 
-          <div class="form-group animated pulse" *ngIf="registerStep==3">
-            <h3 style="color:white">Enter an email</h3>
+          <br />
+          <br />
 
-            <p>Your email is important to be right, so donations can be sent to you</p>
 
-            <input autofocus type="text" class="form-control " style="color:white;border-bottom: 1px solid #ffffff;" [(ngModel)]="newuser.email " placeholder="Email " />
-          </div>
-
-          <div class="form-group animated tada" *ngIf="registerStep==4" style="color:white">
-            <h3 style="color:white"> <i class="material-icons prefix" style="color:white;">thumb_up</i></h3>
-            Well done! You can login to your account now.
-          </div>
 
         </div>
-
-        <div *ngIf="registerStep!=4" class="">
-          <a (click)="registerStep=registerStep-1" class="lefet">back</a>
-          <input type="button" class="waves-effect waves-light btn right orange lighten-1" style="color:white" [value]="(registerStep==3?'Finish!':'Next')" (click)="nextStep() " />
-        </div>
-
-        <div *ngIf="registerStep==4">
-          <input type="button" class="btn " style="color:white" value="Login now!" (click)="registerStep=-1" />
-
-        </div>
-
-        <br />
-        <br />
-
-
-
       </div>
       <!-- Reg end-->
+      <!--end-->
+    </div>
+    <div class="card-action" style="text-align:center" *ngIf="registerStep!=-1">
 
-
+      <div *ngIf="registerStep!=4" class="">
+        <a (click)="registerStep=registerStep-1" class="lefet">back</a>
+        <input type="button" class="waves-effect waves-light btn  actionBtn" style="color:white" [value]="(registerStep==3?'Finish!':'Next')" (click)="nextStep() " />
+      </div>
 
     </div>
-
-
-    <div class="col s12 m3 l4 ">
-    </div>
-
   </div>
-
-
-
 </div>
+
+
 
 <img src="http://changeisamazing.com/assets/img/logofarbig.png" width="60" alt="change is amazing logo" style="position:fixed; left:5px;bottom:5px; opacity:0.7" />
 
