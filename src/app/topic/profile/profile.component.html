@@ -1,38 +1,62 @@
-﻿<div class="row" *ngIf="user" style="     margin-top: -19px;    margin-bottom: 40px;   background-color: #2d2d2d;">
+﻿<div class="row" *ngIf="user" style="margin-top: -20px;  background-size: cover;  margin-bottom: 40px;       height: 300px;"
+     [style.backgroundImage]="'url('+user.img+')'">
 
   <div class="col s12 m4 " style="    color: white; padding:15px">
-    <p> {{user.name}}</p>
-    <p>{{user.bio}}</p>
-
-    <i *ngIf="!isChangeBio && isUser" class="material-icons g" style=" cursor:pointer;     color: white;" (click)="isChangeBio= true">settings</i>
-
-    <div *ngIf="isChangeBio">
-      <textarea type="text" placeholder="My life..." style="color:white; height: 186px;" [(ngModel)]="newBio" ></textarea>
-      <a (click)="isChangeBio = false">Cancel</a> <button class="btn" (click)="changeBio()">Save Bio</button>
-    </div>
+<!--fillter-->
 
   </div>
 
   <div class="col s12 m4 " *ngIf="user">
-    <img [src]="user.img" style="width:100%; border: 1px solid #ffffff;    margin-bottom: -45px;" />
-    <br />
-    <i  *ngIf="!isChangeImage && isUser" class="material-icons" style="cursor: pointer;color: white;position: absolute;margin-top: -31px;background-color: #2d2d2d;padding: 5px;" (click)="isChangeImage= true">settings</i>
 
-    <div *ngIf="isChangeImage" style="    background-color: #3a3a3a;     padding: 10px;">
-      <input type="text" placeholder="Input image URL" style="color:white; background-color: #3a3a3a;   " [(ngModel)]="newImageUrl"/>
-      <a  (click)="isChangeImage = false">Cancel</a> <button class="btn" (click)="changeImage()">Save image</button>
+
+    <div class="card">
+      <div class="card-image">
+        <img [src]="user.img">
+        <span class="card-title" style="    background-color: rgba(80, 80, 80, 0.3);    color: white;    font-size: 15px;">{{user.name}}</span>
+        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">record_voice_over</i></a>
+      </div>
+      <div class="card-content">
+        <p>{{user.bio}}.</p>
+        <i *ngIf="!isChangeBio && isUser" class="material-icons g" style=" cursor:pointer;     color: white;" (click)="isChangeBio= true">settings</i>
+
+        <div *ngIf="isChangeBio">
+          <textarea type="text" placeholder="My life..." style="color:white; height: 186px;" [(ngModel)]="newBio"></textarea>
+          <a (click)="isChangeBio = false">Cancel</a> <button class="btn" (click)="changeBio()">Save Bio</button>
+        </div>
+
+        <i *ngIf="!isChangeImage && isUser" class="material-icons" style="cursor: pointer;color: white;position: absolute;margin-top: -31px;background-color: #2d2d2d;padding: 5px;" (click)="isChangeImage= true">settings</i>
+
+        <div *ngIf="isChangeImage" style="    background-color: #3a3a3a;     padding: 10px;">
+          <input type="text" placeholder="Input image URL" style="color:white; background-color: #3a3a3a;   " [(ngModel)]="newImageUrl" />
+          <a (click)="isChangeImage = false">Cancel</a> <button class="btn" (click)="changeImage()">Save image</button>
+        </div>
+
+      </div>
+
+      <div class="card-action" style="    background-color: #5d5d5d;">
+        <p class="chip chipOutline"><img src="assets/img/respect.png" class="" style="width:24px; height:24px;  " title="Respectors"> {{respectcount}} respects</p>
+        <p class="chip chipOutline"><img src="assets/img/join.png" class="" style="width:24px; height:24px; " title="Joiners"> {{motivators}} motivators</p>
+
+      </div>
+
     </div>
+
+
+
+    <br />
+
   </div>
 
   <div class="col s12 m4 " style="     margin-top: 45px;   color: white; padding:15px">
-    <p class="chip chipOutline" ><img src="assets/img/respect.png" class="left" style="width:24px; height:24px;  " title="Respectors"> {{respectcount}} respects</p>
-    <p class="chip chipOutline" ><img src="assets/img/join.png" class="left" style="width:24px; height:24px; " title="Joiners"> {{motivators}} motivators</p>
+
 
 
   </div>
   <div class="col s12 m12">
-    <a *ngIf="isUser" class="g" (click)="logout()"> <i class="material-icons left"> airplay</i>
-Logout</a>
+    <a *ngIf="isUser" class="g" (click)="logout()">
+      <i class="material-icons left"> airplay</i>
+      Logout
+    </a>
 
 
 
@@ -41,7 +65,7 @@ Logout</a>
 </div>
 
 
-<div class="container" *ngIf="isUser && topics.length>0" >
+<div class="container" *ngIf="isUser && topics.length>0">
 
   <h6>Your motivator in</h6>
 
