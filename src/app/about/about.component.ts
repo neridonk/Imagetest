@@ -86,6 +86,9 @@ export class AboutComponent extends ParentClass implements AfterViewInit
           this.fetchUser(this.topic.userid);
         }
 
+        if (this.topic == null)
+          return;
+
         this.newComment.topicid = this.topic.topicid;
         this.initComments();
         this.fetchMe();

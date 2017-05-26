@@ -22,11 +22,7 @@ export class ProfileComponent implements OnInit, AfterViewInit
 
   public isUser: boolean = false;
 
-  public isChangeImage: boolean = false;
-  public newImageUrl: string = '';;
 
-  public isChangeBio: boolean = false;
-  public newBio: string = '';;
 
   public topics: Topic[] = new Array();
 
@@ -100,37 +96,7 @@ export class ProfileComponent implements OnInit, AfterViewInit
 
   }
 
-  public changeImage()
-  {
-    this.nameListService.updateUserImg(this.newImageUrl).subscribe(
-      data =>
-      {
-        this.user.img = this.newImageUrl;
-        this.newImageUrl = '';
-      },
-      err => alert(JSON.stringify(err))
-    );
 
-  }
-
-  public changeBio()
-  {
-    this.nameListService.updateUserBio(this.newBio).subscribe(
-      data =>
-      {
-        this.user.bio = this.newBio;
-        this.newBio = '';
-      },
-      err => alert(JSON.stringify(err))
-    );
-
-  }
-
-  public logout()
-  {
-    localStorage.clear();
-    window.location.reload();
-  }
 
 
 }

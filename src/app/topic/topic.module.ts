@@ -12,6 +12,7 @@ import { HallComponent } from './hall/hall.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { BlogComponent } from './blog/blog.component';
 import { ProfileComponent } from './profile/profile.component';
+import { EditProfileComponent } from '../edit-profile/edit-profile.component';
 
 @NgModule({
   imports: [
@@ -21,6 +22,6 @@ import { ProfileComponent } from './profile/profile.component';
     CommonModule,
     TopicRoutingModule
   ],
-  declarations: [ProfileComponent, TopicComponent, LandingPageComponent, PeopleComponent, OverviewComponent, LandscapeComponent, HallComponent, BlogComponent]
+  declarations: [EditProfileComponent, ProfileComponent, TopicComponent, LandingPageComponent, PeopleComponent, OverviewComponent, LandscapeComponent, HallComponent, BlogComponent]
 })
 export class TopicModule { }

@@ -18,7 +18,6 @@ import { FacebookService } from './login/facebook.service';
 import { AddPictureComponent } from './add-picture/add-picture.component';
 import { DashOverviewComponent } from './overview/overview.component';
 import { HashLocationStrategy, Location, LocationStrategy } from '@angular/common';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +25,6 @@ import { HashLocationStrategy, Location, LocationStrategy } from '@angular/commo
     LoginComponent,
     AddPictureComponent,
     DashOverviewComponent
-
   ],
   imports: [
     RoutesModule,

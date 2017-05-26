@@ -1,4 +1,7 @@
-﻿<div class="row" *ngIf="user" style="margin-top: -20px;  background-size: cover;  margin-bottom: 40px;       height: 300px;"
+﻿<edit-profile *ngIf="user" [user]="user"></edit-profile>
+
+
+<div class="row" *ngIf="user" style="margin-top: -20px;  background-size: cover;  margin-bottom: 40px;       height: 300px;"
      [style.backgroundImage]="'url('+user.img+')'">
 
   <div class="col s12 m4 " style="    color: white; padding:15px">
@@ -20,14 +23,13 @@
         <i *ngIf="!isChangeBio && isUser" class="material-icons g" style=" cursor:pointer;     color: white;" (click)="isChangeBio= true">settings</i>
 
         <div *ngIf="isChangeBio">
-          <textarea type="text" placeholder="My life..." style="color:white; height: 186px;" [(ngModel)]="newBio"></textarea>
+         
           <a (click)="isChangeBio = false">Cancel</a> <button class="btn" (click)="changeBio()">Save Bio</button>
         </div>
 
         <i *ngIf="!isChangeImage && isUser" class="material-icons" style="cursor: pointer;color: white;position: absolute;margin-top: -31px;background-color: #2d2d2d;padding: 5px;" (click)="isChangeImage= true">settings</i>
 
         <div *ngIf="isChangeImage" style="    background-color: #3a3a3a;     padding: 10px;">
-          <input type="text" placeholder="Input image URL" style="color:white; background-color: #3a3a3a;   " [(ngModel)]="newImageUrl" />
           <a (click)="isChangeImage = false">Cancel</a> <button class="btn" (click)="changeImage()">Save image</button>
         </div>
 
@@ -80,3 +82,5 @@
 
 
 <app-images-panel [category]="'external'" [topicsExtern]="topicList"></app-images-panel>
+
+
