@@ -14,9 +14,9 @@
 
     -->
 
-<div class="row ">
+<div class="row " style="margin-top:120px">
 
-  <div *ngFor="let top of featuredtopiclist" class="col s12 m6 l5" style="padding:5px !important;">
+  <div *ngFor="let top of featuredtopiclist" class="col s12 m6 l5" style="padding:5px !important; margin-bottom:30px">
 
 
     <div class="card  wow pulse imgCard" style="    background-color: rgba(255, 255, 255, 0.62);">
@@ -28,27 +28,32 @@
         <img src="http://changeisamazing.com/images/{{top.images[top.images.length-1]?.url}}" class="imgAk" />
         <span class="card-title titleNew ">
           {{top.title.substring(1, 45)}}...
-
-
         </span>
       </div>
-      <div class="card-action grey-text " style="border-bottom: 2px solid #e9d43b; padding:7px">
+
+      <div class="card-action grey-text miscAction" style=" padding:7px">
+
         <div class="inlineBlock">
-          <img src="assets/img/respect.png" style="width:20px" /> {{top.upvote}}
+          <img src="assets/img/respect.png" style="width:16px" /> {{top.upvote}}
         </div>
         <div class="inlineBlock">
           <i class="material-icons tiny">photo_library</i> {{top.images.length}}
         </div>
 
 
-        <a class="inlineBlock" href="{{top.youtube}}" style="margin-right: 0px;margin-left: 30px;color: #07b1f2; vertical-align: top;">
+        <a class="inlineBlock" href="{{top.youtube}}" style="margin-right: 0px;margin-left: 30px;    font-size: 12px;color: #07b1f2; vertical-align: baseline;">
           <i class="material-icons tiny">play_circle_filled</i> ON YOUTUBE
         </a>
 
         <div class="right" style="    font-size: 10px;">
           {{top.category }} {{formatTime(top.date)}}
         </div>
+
+
       </div>
+
+
+
 
       <div>
         <br />
@@ -58,7 +63,7 @@
   </div>
 
 
-  <div *ngFor="let top of topiclist" class="col s12 m4 l3" style="padding:5px !important;">
+  <div *ngFor="let top of topiclist" class="col s12 m4 l3" style="padding:5px !important;margin-bottom:30px">
 
     <!-- Image only no video-->
     <div class="card  wow pulse imgCard" style="    background-color: rgba(255, 255, 255, 0.62);">
@@ -96,16 +101,16 @@
         </div>
 
       </div>
-      <div class="card-action grey-text " style="border-bottom: 1px solid #9e9eb9; padding:7px">
+      <div class="card-action grey-text miscAction " style=" padding:7px">
         <div class="inlineBlock">
-          <img src="assets/img/respect.png" style="width:20px" title="Respectors" /> {{top.upvote}}
+          <img src="assets/img/respect.png" style="width:16px" title="Respectors" /> {{top.upvote}}
         </div>
         <div class="inlineBlock">
           <i class="material-icons tiny">photo_library</i> {{top.images.length}}
         </div>
 
 
-        <a *ngIf="top.youtube!=''" class="inlineBlock" href="{{top.youtube}}" style="margin-right: 0px;margin-left: 30px;color: #07b1f2; vertical-align: top;">
+        <a *ngIf="top.youtube!=''" class="inlineBlock" href="{{top.youtube}}" style="margin-right: 0px;     font-size: 12px; margin-left: 30px;color: #07b1f2; vertical-align: baseline;">
           <i class="material-icons tiny">play_circle_filled</i> ON YOUTUBE
         </a>
 

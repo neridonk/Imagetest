@@ -1,10 +1,10 @@
 ﻿<edit-profile *ngIf="user" [user]="user" [(isVisible)]="isEditUser"></edit-profile>
 
 
-<div class="row bgproflpanel" *ngIf="user"  [style.backgroundImage]="'url('+user.img+')'">
+<div class="row bgproflpanel" *ngIf="user" [style.backgroundImage]="'url('+user.img+')'">
 
   <div class="col s12 m4 " style="    color: white; padding:15px">
-<!--fillter-->
+    <!--fillter-->
 
   </div>
 
@@ -16,12 +16,28 @@
         <img [src]="user.img">
         <span class="card-title" style="    background-color: rgba(80, 80, 80, 0.3);    color: white;    font-size: 15px;">{{user.name}}</span>
         <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">record_voice_over</i></a>
-       
+
       </div>
       <div class="card-content">
-        <p>{{user.bio}}.</p>
+        <div *ngIf="user.bio">
+          <label>About me</label>
+          <p>{{user.bio}}.</p>
+        </div>
+        <br />
+        <div *ngIf="user.postalcode">
+          <label>Location</label>
+          <p><i class="material-icons left">place</i> {{user.postalcode}} {{user.country}}.</p>
+          <br />
+        </div>
 
-        <a *ngIf="isUser" class="btn-floating halfway-fab waves-effect waves-light blue" (click)="showEditUser()"><i class="material-icons" >settings</i> </a>
+        <div *ngIf="userTagstags.length!=0">
+          <label>Motivator in</label><br />
+          <div class="chip" *ngFor="let tags of userTagstags">
+            {{tags.Name}}
+          </div>
+        </div>
+
+        <a *ngIf="isUser" class="btn-floating halfway-fab waves-effect waves-light blue" (click)="showEditUser()"><i class="material-icons">settings</i> </a>
       </div>
 
       <div class="card-action" style="    background-color: #5d5d5d;">

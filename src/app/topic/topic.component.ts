@@ -29,14 +29,14 @@ export class TopicComponent extends ParentClass implements AfterViewInit
   {
     if (this.cst() == null)
     {
-      this.router.navigate(['/login']);
+      location.href = "/login"
       return;
     }
 
     this.nameListService.getUserbyCst(this.cst()).subscribe(
       data =>
       {
-        this.router.navigate(['/t/profile', data.userid]);
+        location.href = "/t/profile/" + data.userid;
       },
       err => alert(JSON.stringify(err))
     );

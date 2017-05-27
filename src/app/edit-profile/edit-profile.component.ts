@@ -1,4 +1,4 @@
-﻿import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
+﻿import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Images, Topic, User, Tag } from '../models';
 import { NameListService } from '../global/services/name-list.service';
 import { ParentClass } from 'components';
@@ -31,6 +31,13 @@ export class EditProfileComponent implements OnInit
       data =>
       {
         this.countries = data;
+      },
+      err => alert(JSON.stringify(err)));
+
+    this.nameListService.getTagsByUserId(this.user.userid).subscribe(
+      data =>
+      {
+        this.userTagstags = data;
       },
       err => alert(JSON.stringify(err)));
   }

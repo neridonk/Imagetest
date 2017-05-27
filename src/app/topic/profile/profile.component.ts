@@ -1,7 +1,7 @@
 ﻿import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { NameListService } from '../../global/services/name-list.service';
 import { NavbarComponent } from '../../navbar/navbar.component';
-import { Images, Topic, User } from '../../models';
+import { Images, Topic, User,Tag } from '../../models';
 declare var WOW: any;
 declare var $: any;
 import { Router, ActivatedRoute, Params } from '@angular/router';
@@ -23,7 +23,7 @@ export class ProfileComponent implements OnInit, AfterViewInit
   public isUser: boolean = false;
   public isEditUser: boolean = false;
 
-
+  public userTagstags: Tag[] = new Array();
 
   public topics: Topic[] = new Array();
 
@@ -70,12 +70,23 @@ export class ProfileComponent implements OnInit, AfterViewInit
         {
           this.respectcount = Number(this.respectcount) + Number(topic.upvote);
         });
+        this.initTags();
 
       },
       err => alert(JSON.stringify(err))
     );
 
 
+  }
+
+  initTags()
+  {
+    this.nameListService.getTagsByUserId(this.user.userid).subscribe(
+      data =>
+      {
+        this.userTagstags = data;
+      },
+      err => alert(JSON.stringify(err)));
   }
 
   showEditUser()

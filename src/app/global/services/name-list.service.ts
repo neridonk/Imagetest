@@ -270,6 +270,14 @@ export class NameListService extends ServiceClass
     });
   }
 
+  getTagsByUserId(userId: any): Observable<any>
+  {
+    return this.get('getTagsByUserId.php', 'userId=' + userId).map((response: any) =>
+    {
+      return <any>response.json();
+    });
+  }
+
   getUserbyCst(cst: any): Observable<any>
   {
 
