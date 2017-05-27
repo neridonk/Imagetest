@@ -1,8 +1,14 @@
-﻿.profilePanelEsc
-{
-  position:fixed;
-  z-index:32;
-  width:100%;
-  height:100%;
-  background-color:white;
+﻿.profilePanelEsc {
+  position: fixed;
+  z-index: 32;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  overflow: auto;
+}
+
+.saveContent {
+  background-color: #888888;
+  padding: 10px;
+  text-align: right;
 }

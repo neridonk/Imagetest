@@ -1,15 +1,75 @@
-﻿<div class="profilePanelEsc">
+﻿<div class="profilePanelEsc" *ngIf="isVisible">
+
+  <i style="position:fixed;left:0px;top:70px;" class="btn-flat material-icons chevIcon" (click)="hide()">clear</i>
+
+
   <div class="container">
     <div>
       <ul class="collection">
+
         <li class="collection-item">
+             <div class="saveContent">
+            <button class="btn" (click)="logout()">Logout</button>
+          </div>
+        </li>
 
-          <textarea type="text" style="color:white; height: 186px;" [(ngModel)]="user.bio"></textarea>
+        <li class="collection-item">
+          <label>Email, is important to accept tips from</label>
+          <img  src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/PayPal_logo.svg/2000px-PayPal_logo.svg.png" width="40"/>
+          <input type="text" [(ngModel)]="user.email" />
+          <div class="saveContent" >
+            <button class="btn" (click)="updateUser()">Save email</button>
+          </div>
+        </li>
 
+        <li class="collection-item">
+          <label>About me</label>
+          <textarea type="text" style=" height: 186px;" [(ngModel)]="user.bio"></textarea>
+          <div class="saveContent" >
+            <button class="btn" (click)="updateUser()">Save about me</button>
+          </div>
         </li>
         <li class="collection-item">
+          <label>Image URL</label>
           <input type="text" placeholder="Input image URL" [(ngModel)]="user.img" />
+          <img [src]="user.img" width="300" />
+          <div class="saveContent"  (click)="changeImage()">
+            <button class="btn">Save image</button>
+          </div>
         </li>
+
+        <li class="collection-item" style="margin-bottom:300px; color:white;    background-image: url(https://images.pexels.com/photos/163403/box-sport-men-training-163403.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb);
+    background-size: cover;">
+          <h4 style="color:white">If you are notivator you need to fill following</h4>
+          <div class="">
+            <label style="color:white">Topics where you can help others with ( <span class="chip">body</span> <span class="chip">workout</span> , <span class="chip">lose weight</span>, <span class="chip"> quit smoking</span> )</label>
+
+            <div tag class="chips chips-autocomplete" style="color:white !important;" [existTags]="userTagstags" (onTag)="addNewTag($event)"></div>
+            <div class="saveContent">
+              <button class="btn" (click)="updateTags()" >Save tags</button>
+            </div>
+          </div>
+
+          <br />
+
+          <div class="">
+            <label style="color:white" for="">Postalcode</label>
+            <input type="number" id="postal" class="active" style="color:white" [(ngModel)]="user.postalcode" />
+            <div class="saveContent">
+              <button class="btn" (click)="updateUser()">Save postal</button>
+            </div>
+          </div>
+          <br />
+          <label style="color:white">Country</label>
+          <acc-select style="color:black" [items]="countries" [selectedItem]="user.country" (selectedItemChange)="selectCountry($event)"></acc-select>
+          <br />
+          <div class="saveContent">
+            <button class="btn" (click)="updateUser()">Save country</button>
+          </div>
+
+        </li>
+
+        
 
       </ul>
     </div>

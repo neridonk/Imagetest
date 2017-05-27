@@ -167,10 +167,7 @@ export class LoginComponent implements OnInit
     this.isMotivator = event.srcElement.checked;
   }
 
-  addNewTag(tags: Tag[])
-  {
-    this.tags = tags;
-  }
+
 
 
   addNewTags()

@@ -17,6 +17,12 @@ export class TagDirective extends ParentClass implements AfterViewInit
   @Output()
   public onTag: EventEmitter<Tag[]> = new EventEmitter();
 
+  @Input()
+  public existTags(tags: Tag[])
+  {
+    this._existTags = tags;
+  }
+
   constructor(
     private tagService: TagService,
     private _elementRef: ElementRef)

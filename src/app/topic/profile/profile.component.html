@@ -1,8 +1,7 @@
-﻿<edit-profile *ngIf="user" [user]="user"></edit-profile>
+﻿<edit-profile *ngIf="user" [user]="user" [(isVisible)]="isEditUser"></edit-profile>
 
 
-<div class="row" *ngIf="user" style="margin-top: -20px;  background-size: cover;  margin-bottom: 40px;       height: 300px;"
-     [style.backgroundImage]="'url('+user.img+')'">
+<div class="row bgproflpanel" *ngIf="user"  [style.backgroundImage]="'url('+user.img+')'">
 
   <div class="col s12 m4 " style="    color: white; padding:15px">
 <!--fillter-->
@@ -17,22 +16,12 @@
         <img [src]="user.img">
         <span class="card-title" style="    background-color: rgba(80, 80, 80, 0.3);    color: white;    font-size: 15px;">{{user.name}}</span>
         <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">record_voice_over</i></a>
+       
       </div>
       <div class="card-content">
         <p>{{user.bio}}.</p>
-        <i *ngIf="!isChangeBio && isUser" class="material-icons g" style=" cursor:pointer;     color: white;" (click)="isChangeBio= true">settings</i>
 
-        <div *ngIf="isChangeBio">
-         
-          <a (click)="isChangeBio = false">Cancel</a> <button class="btn" (click)="changeBio()">Save Bio</button>
-        </div>
-
-        <i *ngIf="!isChangeImage && isUser" class="material-icons" style="cursor: pointer;color: white;position: absolute;margin-top: -31px;background-color: #2d2d2d;padding: 5px;" (click)="isChangeImage= true">settings</i>
-
-        <div *ngIf="isChangeImage" style="    background-color: #3a3a3a;     padding: 10px;">
-          <a (click)="isChangeImage = false">Cancel</a> <button class="btn" (click)="changeImage()">Save image</button>
-        </div>
-
+        <a *ngIf="isUser" class="btn-floating halfway-fab waves-effect waves-light blue" (click)="showEditUser()"><i class="material-icons" >settings</i> </a>
       </div>
 
       <div class="card-action" style="    background-color: #5d5d5d;">
@@ -55,10 +44,6 @@
 
   </div>
   <div class="col s12 m12">
-    <a *ngIf="isUser" class="g" (click)="logout()">
-      <i class="material-icons left"> airplay</i>
-      Logout
-    </a>
 
 
 
@@ -66,10 +51,11 @@
   </div>
 </div>
 
-
+<br />
+<br />
 <div class="container" *ngIf="isUser && topics.length>0">
 
-  <h6>Your motivator in</h6>
+  <h5>Your motivator in</h5>
 
   <div>
     <app-images-panel [category]="'external'" [topicsExtern]="topics"></app-images-panel>

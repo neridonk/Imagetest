@@ -213,6 +213,16 @@ export class NameListService extends ServiceClass
     });
   }
 
+  deleteTags(userId: number): Observable<any>
+  {
+    var param = 'id=' + userId;
+
+    return this.get('removeTags.php', param).map((response: any) =>
+    {
+      return <any>response.json();
+    });
+  }
+
 
   getAllTopics(currentRow: number, category: string, search: string): Observable<Topic[]>
   {
@@ -301,9 +311,14 @@ export class NameListService extends ServiceClass
     });
   }
 
-  updateUserBio(text: any): Observable<any>
+  updateUser(user: User): Observable<any>
   {
-    var formData = { 'text': text };
+    var formData = {
+      'text': user.bio,
+      'email': user.email,
+      'country': user.country,
+      'postalcode': Number(user.postalcode)
+    };
 
     this.showLoading();
     return this.post('UpdateProfileBio.php', formData).map((response: any) =>

@@ -21,6 +21,7 @@ export class ProfileComponent implements OnInit, AfterViewInit
   public userimg: string = 'emptyPerson.png';;
 
   public isUser: boolean = false;
+  public isEditUser: boolean = false;
 
 
 
@@ -77,6 +78,10 @@ export class ProfileComponent implements OnInit, AfterViewInit
 
   }
 
+  showEditUser()
+  {
+    this.isEditUser = true;
+  }
 
   ngAfterViewInit()
   {
