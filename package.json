@@ -20,12 +20,13 @@
     "@angular/platform-browser": "^4.0.0",
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
+    "angular2-google-maps": "^0.17.0",
     "core-js": "^2.4.1",
-    "rxjs": "^5.1.0",
-    "zone.js": "^0.8.4",
+    "materialize-css": "^0.98.2",
     "moment": "^2.18.1",
+    "rxjs": "^5.1.0",
     "ts-helpers": "^1.1.1",
-    "materialize-css": "^0.98.2"
+    "zone.js": "^0.8.4"
   },
   "devDependencies": {
     "@angular/cli": "1.0.2",

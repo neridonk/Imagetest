@@ -14,6 +14,7 @@ import { BlogComponent } from './blog/blog.component';
 import { ProfileComponent } from './profile/profile.component';
 import { EditProfileComponent } from '../edit-profile/edit-profile.component';
 import { MotivatorMapComponent } from './motivator-map/motivator-map.component';
+import { AgmCoreModule } from 'angular2-google-maps/core';
 
 @NgModule({
   imports: [
@@ -21,7 +22,10 @@ import { MotivatorMapComponent } from './motivator-map/motivator-map.component';
     HttpModule,
     GlobalModule,
     CommonModule,
-    TopicRoutingModule
+    TopicRoutingModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCNaub-76zQdF46veUDJ3EUsBbyqUgL1is'
+    })
   ],
   declarations: [EditProfileComponent, OverviewComponent, ProfileComponent, TopicComponent, LandingPageComponent, HallComponent, BlogComponent, MotivatorMapComponent]
 })

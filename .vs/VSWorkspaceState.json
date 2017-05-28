@@ -4,8 +4,8 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\topic",
-    "\\src\\app\\topic\\landing-page",
-    "\\src\\assets\\css"
+    "\\src\\app\\topic\\motivator-map",
+    "\\src\\assets\\img"
   ],
   "SelectedNode": "\\src\\app\\topic\\topic.component.html",
   "PreviewInSolutionExplorer": false

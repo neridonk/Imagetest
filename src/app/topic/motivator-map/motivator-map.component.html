@@ -1,3 +1,69 @@
-<p>
-  motivator-map works!
-</p>
+﻿
+<div class="row bgMapPanel">
+
+  <div class="col s12 m6">
+    <sebm-google-map [zoom]="zoom" [latitude]="lat" [longitude]="lng">
+
+      <sebm-google-map-marker *ngFor="let m of markers; let i = index"
+                              [latitude]="m.lat"
+                              [longitude]="m.lng"
+                              [label]="m.label"
+                              [iconUrl]="m.iconUrl">
+
+      </sebm-google-map-marker>
+    </sebm-google-map>
+  </div>
+
+  <div class="col s12 m6" style="overflow:auto">
+    <div>
+      <h3>Find help for your change</h3>
+      <p>On this map you can find users who are experienced in some topics, maybe you finde someone with the same interest, who could help you</p>
+
+
+      <div class="row">
+
+        <div class="col s12 m6 l4" style="" *ngFor="let m of markers; let i = index">
+          <div class="card z-depth-1" style="margin:5px;    border: 1px solid #dedede;">
+            <a class="card-image" href="/t/profile/{{m.user.userid}}">
+              <img src="{{m.user.img}}">
+              <span class="card-title">{{m.user.name}}</span>
+            </a>
+
+            <div class="card-content">
+              <div *ngIf="m.user.bio">
+                <label>About me</label>
+                <p style="font-size: 11px">{{m.user.bio}}.</p>
+              </div>
+              <div *ngIf="m.user.postalcode">
+                <label>Location</label><br />
+                <p class="" style="cursor:pointer; font-size: 11px" (click)="gotoPlace(m.user.postalcode + ' ' +  m.user.country)">
+                  <i class="material-icons left" style="font-size: 11px">place</i> {{m.user.postalcode}} {{m.user.country}}.
+                </p>
+                <br />
+              </div>
+
+              <div *ngIf="m.user.tags">
+                <label>Motivator in</label><br />
+                <div class="chip" *ngFor="let tags of m.user.tags">
+                  {{tags.Name}}
+                </div>
+              </div>
+            </div>
+
+            <div class="card-action">
+              <label>Contact me on</label><br />
+              <p style=" font-size: 11px">
+                {{m.user.email}}
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+  </div>
+
+</div>

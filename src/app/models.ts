@@ -1,4 +1,5 @@
-﻿export class Images {
+﻿export class Images
+{
 
 
   constructor(
@@ -11,26 +12,30 @@
     public base64?: string,
     public checked?: boolean
 
-  ) {
+  )
+  {
 
   }
 
 }
 
-export class responseModel {
+export class responseModel
+{
 
 
   constructor(
     public status?: string,//bei result false wenn mysqli fehlschlug
     public code?: string
 
-  ) {
+  )
+  {
 
   }
 
 }
 
-export class croppData {
+export class croppData
+{
 
 
   constructor(
@@ -40,9 +45,10 @@ export class croppData {
     public w?: string,
     public h?: string,
     public cData?: any,
-    public base64: string=''
+    public base64: string = ''
 
-  ) {
+  )
+  {
 
   }
 
@@ -50,7 +56,8 @@ export class croppData {
 
 
 
-export class Topic {
+export class Topic
+{
 
   constructor(
     public topicid?: number,
@@ -66,13 +73,15 @@ export class Topic {
     public user?: User,
     public isOnswitch: boolean = false,
     public currentPos: number = 0
-  ) {
+  )
+  {
 
   }
 
 }
 
-export class Comment {
+export class Comment
+{
 
   constructor(
     public commentid?: number,
@@ -82,32 +91,50 @@ export class Comment {
     public datum?: Date,
     public user?: User
 
-  ) {
+  )
+  {
 
   }
 
 }
 
-export class User {
+export class User
+{
 
   constructor(
     public userid?: number,
     public name?: string,
     public paypalMail?: string,
     public country?: string,
-    public postalcode?: string,
+    public postalcode?: number,
     public email?: string,
     public password?: string,
     public cst?: string,
     public img?: string,
     public bio?: string,
-    public topic?: Topic[]
-  ) {
+    public topic?: Topic[],
+    public tags?: Tag[]
+  )
+  {
 
   }
 
 }
 
+export class Marker
+{
+  constructor(
+    public user?: User,
+    public Id?: number,
+    public iconUrl?: any,
+    public label?: string,
+    public postalcode?: number,
+    public image?: string,
+    public lat?: string,
+    public lng?: string)
+  {
+  }
+}
 
 export class Tag
 {

@@ -278,6 +278,22 @@ export class NameListService extends ServiceClass
     });
   }
 
+  getMotivators(): Observable<User[]>
+  {
+    return this.get('getMotivators.php', '').map((response: any) =>
+    {
+      return <User[]>response.json();
+    });
+  }
+
+  getLocationFromZip(zipcode: string): Observable<any>
+  {
+    return this.getFb('http://maps.googleapis.com/maps/api/geocode/json?address=' + zipcode, '').map((response: any) =>
+    {
+      return <any>response.json();
+    });
+  }
+
   getUserbyCst(cst: any): Observable<any>
   {
 
