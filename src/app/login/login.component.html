@@ -91,7 +91,7 @@
             <!-- motivator-->
             <div class="form-group animated pulse" *ngIf="registerStep==2" style="color:white;">
               <h3 style="color:white">Are you a motivator?(Optional)</h3>
-              <p>If you are experienced in some topics you can give people advices, as a motivator you are able to get <b>donations</b> </p>
+              <p>If you are experienced in some topics you can give people advices, as a motivator you are able to get <b>donations</b> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/PayPal_logo.svg/2000px-PayPal_logo.svg.png" width="60" /> </p>
 
               <br />
 
@@ -107,18 +107,19 @@
 
               <div class="row" *ngIf="isMotivator" style="padding:5px">
                 <h3 style="color:white">What are you expert in, insert your tags?</h3>
-                <p> for example quit smoking, lose weight, gain muscle</p>
+                <div> for example <div class="chip">quit smoking</div> ,<div class="chip">lose weight</div> , <div class="chip"> gain muscle</div></div>
 
                 <div class="input-field">
                   <div tag class="chips chips-autocomplete" style="color:white;" (onTag)="addNewTag($event)"></div>
                 </div>
 
                 <br />
+                <h3 style="color:white">Where is your area?</h3>
 
-                <label style="color:white;">Where is your area?</label>
+                <label style="color:white;"></label>
 
                 <div class="input-field">
-                  <input type="number" id="postal" [(ngModel)]="newuser.postalcode" />
+                  <input type="number" id="postal" style="color:white;" [(ngModel)]="newuser.postalcode" />
                   <label style="color:white;" for="postal">Postalcode</label>
 
                 </div>
@@ -163,6 +164,10 @@
       <div *ngIf="registerStep!=4" class="">
         <a (click)="registerStep=registerStep-1" class="lefet">back</a>
         <input type="button" class="waves-effect waves-light btn  actionBtn" style="color:white" [value]="(registerStep==3?'Finish!':'Next')" (click)="nextStep() " />
+      </div>
+
+      <div *ngIf="registerStep==4" class="">
+        <a (click)="registerStep=-1" class="lefet">Ok</a>
       </div>
 
     </div>

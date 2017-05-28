@@ -13,6 +13,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { BlogComponent } from './blog/blog.component';
 import { ProfileComponent } from './profile/profile.component';
 import { EditProfileComponent } from '../edit-profile/edit-profile.component';
+import { MotivatorMapComponent } from './motivator-map/motivator-map.component';
 
 @NgModule({
   imports: [
@@ -22,6 +23,6 @@ import { EditProfileComponent } from '../edit-profile/edit-profile.component';
     CommonModule,
     TopicRoutingModule
   ],
-  declarations: [EditProfileComponent, OverviewComponent, ProfileComponent, TopicComponent, LandingPageComponent, HallComponent, BlogComponent]
+  declarations: [EditProfileComponent, OverviewComponent, ProfileComponent, TopicComponent, LandingPageComponent, HallComponent, BlogComponent, MotivatorMapComponent]
 })
 export class TopicModule { }
