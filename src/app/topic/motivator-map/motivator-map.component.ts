@@ -16,7 +16,8 @@ export class MotivatorMapComponent implements OnInit
   zoom: number = 2;
 
   public markers: Marker[] = new Array();
-
+  public filteredmarkers: Marker[] = new Array();
+  public search = '';
 
   constructor(
     private ngZone: NgZone,
@@ -33,11 +34,14 @@ export class MotivatorMapComponent implements OnInit
           let marker: Marker = new Marker();
           marker.Id = user.userid;
           marker.user = user;
+          marker.postalcode = user.postalcode;
           marker.label = user.name;
           marker.iconUrl = this.resizeIcon(user.img);
           this.markers.push(marker);
           this.getLatLan(this.markers[this.markers.length - 1], user.postalcode + ' ' + user.country);
         });
+
+        this.filter();
 
       },
       err => alert(JSON.stringify(err))
@@ -73,7 +77,6 @@ export class MotivatorMapComponent implements OnInit
         this.ngZone.run(
           () =>
           {
-            console.log(marker);
 
             marker.lat = data.results[0].geometry.location.lat;
             marker.lng = data.results[0].geometry.location.lng;
@@ -84,14 +87,41 @@ export class MotivatorMapComponent implements OnInit
       err => console.log(JSON.stringify(err))
     );
   }
+  filter()
+  {
+    this.filteredmarkers = []
 
+    if (this.search == '')
+    {
+      this.filteredmarkers = this.markers;
+      return;
+    }
+
+    this.markers.forEach((marker) =>
+    {
+      if (marker.postalcode != null && marker.postalcode.toString().includes(this.search))
+      {
+        this.filteredmarkers.push(marker);
+      }
+      else
+      {
+
+        marker.user.tags.forEach((tag) =>
+        {
+          if (tag.Name.toLowerCase().includes(this.search))
+          {
+            this.filteredmarkers.push(marker);
+          }
+        });
+      }
+
+    });
+  }
   gotoPlace(postal)
   {
     this.nameListService.getLocationFromZip(postal).subscribe(
       data =>
       {
-        console.log(data);
-
         if (data == null || data.status == 'ZERO_RESULTS')
         {
           alert('Place not found');

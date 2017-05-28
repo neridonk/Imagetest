@@ -23,6 +23,8 @@ export class LoginComponent implements OnInit
   public countries: any[] = new Array();
   public tags: Tag[] = new Array();
 
+
+
   constructor(
     private ngZone: NgZone,
     private facebookService: FacebookService,
@@ -94,8 +96,6 @@ export class LoginComponent implements OnInit
       }
     }, { scope: 'email' });
   }
-
-
 
 
 

@@ -19,10 +19,16 @@
       <h3>Find help for your change</h3>
       <p>On this map you can find users who are experienced in some topics, maybe you finde someone with the same interest, who could help you</p>
 
+      <div class="input-field ">
+
+        <input type="search" id="sea" class="" [(ngModel)]="search" (ngModelChange)="filter()" />
+        <label style="" for="sea">Search</label>
+
+      </div>
 
       <div class="row">
 
-        <div class="col s12 m6 l4" style="" *ngFor="let m of markers; let i = index">
+        <div class="col s12 m6 l4" style="" *ngFor="let m of filteredmarkers; let i = index">
           <div class="card z-depth-1" style="margin:5px;    border: 1px solid #dedede;">
             <a class="card-image" href="/t/profile/{{m.user.userid}}">
               <img src="{{m.user.img}}">
