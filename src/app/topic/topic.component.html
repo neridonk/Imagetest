@@ -4,7 +4,7 @@
 
   <div class="chipList" style="position:relative; z-index:2;  opacity: 0.9;">
 
-    <div class="cp " routerLink="/t/hall">
+    <div class="cp " routerLink="/t/hall" *ngIf="cst()!=null">
       <img src="http://images.all-free-download.com/images/graphiclarge/golden_laurel_wreath_design_vector_535017.jpg" class="imgcp" />
       <h4 class="cpTitle flow-text"> Hall </h4>
     </div>
@@ -25,6 +25,11 @@
       <h4 class="cpTitle">Changeis</h4>
     </div>
 
+
+    <a class="cp " href="/t/map">
+      <img src="https://images.pexels.com/photos/212088/pexels-photo-212088.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb" class="imgcp" />
+      <h4 class="cpTitle">Map</h4>
+    </a>
 
     <a class="btn-floating  meBtn btn-large waves-effect waves-light" (click)="goToProfile()">
       <img [src]="this.nameListService.picURL" class="icoPic">
