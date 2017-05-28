@@ -23,6 +23,8 @@ export class EditProfileComponent implements OnInit
   @Input()
   public user: User;
 
+  public countryOfUser: any;
+
   constructor(private nameListService: NameListService) { }
 
   ngOnInit()
@@ -40,6 +42,8 @@ export class EditProfileComponent implements OnInit
         this.userTagstags = data;
       },
       err => alert(JSON.stringify(err)));
+
+    this.countryOfUser = { 'id': 0, 'name': this.user.country };
   }
 
   selectCountry(country: any)

@@ -2,12 +2,12 @@
 import { CommonModule } from '@angular/common';
 import { TopicRoutingModule } from './topic-routing.module';
 import { TopicComponent } from './topic.component';
-import { PeopleComponent } from './people/people.component';
 import { GlobalModule } from '../global/global.module';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+
 import { OverviewComponent } from './overview/overview.component';
-import { LandscapeComponent } from './landscape/landscape.component';
+
 import { HallComponent } from './hall/hall.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { BlogComponent } from './blog/blog.component';
@@ -22,6 +22,6 @@ import { EditProfileComponent } from '../edit-profile/edit-profile.component';
     CommonModule,
     TopicRoutingModule
   ],
-  declarations: [EditProfileComponent, ProfileComponent, TopicComponent, LandingPageComponent, PeopleComponent, OverviewComponent, LandscapeComponent, HallComponent, BlogComponent]
+  declarations: [EditProfileComponent, OverviewComponent, ProfileComponent, TopicComponent, LandingPageComponent, HallComponent, BlogComponent]
 })
 export class TopicModule { }

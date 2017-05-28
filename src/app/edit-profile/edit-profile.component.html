@@ -61,7 +61,7 @@
           </div>
           <br />
           <label style="color:white">Country</label>
-          <acc-select style="color:black" [items]="countries" [selectedItem]="user.country" (selectedItemChange)="selectCountry($event)"></acc-select>
+          <acc-select style="color:black" [items]="countries" [selectedItem]="countryOfUser" (selectedItemChange)="selectCountry($event)"></acc-select>
           <br />
           <div class="saveContent">
             <button class="btn" (click)="updateUser()">Save country</button>

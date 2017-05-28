@@ -2,7 +2,6 @@
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes }  from '@angular/router';
 
-import { OverviewComponent } from './topic/overview/overview.component';
 import { LoginComponent } from './login/login.component';
 import { AboutComponent } from './about/about.component';
 import { AddPictureComponent } from './add-picture/add-picture.component';

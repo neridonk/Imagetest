@@ -63,3 +63,11 @@ p {
   background-size: cover;
   background-position-x: -30px;
 }
+
+.selectBox[_ngcontent-c3] {
+  color: white !important;
+}
+
+p {
+  color: white !important;
+}

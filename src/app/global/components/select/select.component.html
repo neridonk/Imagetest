@@ -1,6 +1,6 @@
 ﻿<div class="selectBox" (mousedown)="showList($event)">
   <p *ngIf="selectedItem==null" style="margin-bottom: 6px;">{{text}}</p>
-  <p *ngIf="selectedItem" style="margin-bottom: 6px;">{{selectedItem}}</p>
+  <p *ngIf="selectedItem" style="margin-bottom: 6px;">{{selectedItem.name}}</p>
   <input type="text" style=" position: absolute; pointer-events: none; margin-top: -35px; opacity:0" (focus)="showList($event)" />
   <i class="material-icons chevIcon">arrow_drop_down</i>
   <div class="chooseBox  animateAll-short" [style.height]="boxSize">

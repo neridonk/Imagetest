@@ -25,6 +25,7 @@ import { HashLocationStrategy, Location, LocationStrategy } from '@angular/commo
     LoginComponent,
     AddPictureComponent,
     DashOverviewComponent
+    
   ],
   imports: [
     RoutesModule,

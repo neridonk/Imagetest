@@ -3,11 +3,14 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\topic",
-    "\\src\\app\\topic\\blog",
-    "\\src\\assets\\img",
-    "\\src\\blog"
+    "\\src\\app\\about",
+    "\\src\\app\\edit-profile",
+    "\\src\\app\\global",
+    "\\src\\app\\global\\components",
+    "\\src\\app\\global\\components\\select",
+    "\\src\\app\\global\\services",
+    "\\src\\app\\topic\\profile"
   ],
-  "SelectedNode": "\\src\\blog\\Best3AbsWorkoutPlans",
+  "SelectedNode": "\\src\\app\\edit-profile\\edit-profile.component.ts",
   "PreviewInSolutionExplorer": false
 }

@@ -20,6 +20,7 @@
   position: relative;
   z-index: 0;
   height: 90vh;
+  min-height:500px;
 }
 
 .tinyImg {
@@ -35,7 +36,7 @@
   position: absolute;
   width: 100%;
   height: 102%;
-  top: -18px;
+  top: -30px;
   left: 0px;
   opacity: 0.6;
   z-index: -1;
@@ -65,4 +66,9 @@
 video {
   background: transparent url('https://static.pexels.com/photos/115126/pexels-photo-115126.jpeg') no-repeat;
   background-size: cover;
+}
+
+
+p {
+  font-size: 1.4rem !important;
 }
