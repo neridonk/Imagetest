@@ -8,7 +8,7 @@
 .meBtn {
   position: absolute;
   top: -15px;
-  right: -15px;
+  right: 0px;
   background-color: #252525 !important;
   width: 80px;
   height: 80px;
@@ -43,7 +43,7 @@
   overflow: hidden;
   background-color: #5d5d5d;
   border-bottom: 2px solid rgb(87, 193, 232);
-  z-index: 2;
+  z-index: 10;
   position: fixed;
   top:0px;
 }

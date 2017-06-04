@@ -98,6 +98,7 @@ export class ProfileComponent implements OnInit, AfterViewInit
   {
 
     new WOW().init();
+    $('ul.tabs').tabs();
 
   }
 

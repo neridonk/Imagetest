@@ -2151,7 +2151,7 @@
  */
 
 html {
-    font-family: 'Fjalla One', sans-serif;
+    font-family: sans-serif;
     /* 1 */
     -ms-text-size-adjust: 100%;
     /* 2 */
@@ -2748,7 +2748,7 @@ i.right {
 }
 
 i.tiny {
-    font-size: 1rem;
+    font-size: 0.8rem;
 }
 
 i.small {
@@ -4367,9 +4367,9 @@ a {
 }
 
 html {
-    line-height: 1.5;
-    font-weight: normal;
-    color: rgba(0, 0, 0, 0.87);
+  line-height: 1.5;
+  font-weight: normal;
+  color: rgb(130, 130, 130);
 }
 
 @media only screen and (min-width: 0) {

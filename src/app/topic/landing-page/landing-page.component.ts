@@ -4,7 +4,7 @@ import { User, Topic, Images } from 'models';
 import { ParentClass } from 'components';
 import { NameListService } from '../../global/services/name-list.service';
 import { Meta } from '@angular/platform-browser';
-
+declare const $: any;
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
@@ -58,6 +58,9 @@ export class LandingPageComponent extends ParentClass
       document.getElementById('logosy').style.opacity = '1';
 
     }, 800);
+
+    $('.slider').slider();
+
 
   }
 
