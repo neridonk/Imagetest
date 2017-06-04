@@ -166,6 +166,8 @@
           <i class="material-icons  tiny specFont" style="margin-top: 10px;    font-size: 2rem; color:white">chat_bubble</i> latest comments
         </div>
 
+      
+
         <!--latest comments-->
         <div class="row" style="position: relative" *ngFor="let cmt of commentListLatest">
 
@@ -188,6 +190,13 @@
           </div>
 
         </div>
+
+
+        <div (click)="hideComments=false" class="specFont btn-flat">
+         
+          <a style="color:white;line-height: 10px;">{{this.commentList.length}}   <i class="material-icons  tiny specFont" style="margin-top: 10px; color:white">chat_bubble</i>  show all comments </a>
+        </div>
+
 
         <!-->for end-->
 
@@ -296,9 +305,7 @@
 
   <!-- Comment Section -->
 
-  <div (click)="hideComments=false" class=" showCommentPanel specFont">
-    {{this.commentList.length}}  <a style="color:white"> <i class="material-icons  tiny specFont" style="margin-top: 10px; color:white">chat_bubble</i> Comments </a>
-  </div>
+
 
   <div  *ngIf="!hideComments" class="commentPanel row animated fadeInRight">
 

@@ -5,6 +5,13 @@
    
   <p>On this map you can find users who are experienced in some topics, maybe you finde someone with the same interest, who could help you</p>
 
+   <div class="input-field " style="width: 300px; margin: auto;">
+
+     <input type="search" id="sea" class="" [(ngModel)]="search" (ngModelChange)="filter()" />
+     <label style="" for="sea">Search</label>
+
+   </div>
+
  </div>
   <div class="col s12 m6">
     <sebm-google-map [zoom]="zoom" [latitude]="lat" [longitude]="lng">
@@ -23,12 +30,7 @@
     <div>
 
 
-      <div class="input-field ">
-
-        <input type="search" id="sea" class="" [(ngModel)]="search" (ngModelChange)="filter()" />
-        <label style="" for="sea">Search</label>
-
-      </div>
+   
 
       <div class="row">
 
