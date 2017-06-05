@@ -1,7 +1,9 @@
-﻿import { Component, OnInit, NgZone,AfterViewInit } from '@angular/core';
+﻿import { Component, OnInit, NgZone, AfterViewInit } from '@angular/core';
 import { NameListService } from '../../global/services/name-list.service';
 import { User, Marker } from '../../models';
 import { Observable } from 'rxjs/Observable';
+import { MapsAPILoader } from 'angular2-google-maps/core';
+import { GoogleMapsAPIWrapper } from 'angular2-google-maps/core';
 declare var google: any;
 
 @Component({
@@ -9,7 +11,7 @@ declare var google: any;
   templateUrl: './motivator-map.component.html',
   styleUrls: ['./motivator-map.component.css']
 })
-export class MotivatorMapComponent implements AfterViewInit
+export class MotivatorMapComponent extends GoogleMapsAPIWrapper implements AfterViewInit
 {
   lat: number = 51.678418;
   lng: number = 7.809007;
@@ -20,32 +22,45 @@ export class MotivatorMapComponent implements AfterViewInit
   public search = '';
 
   constructor(
+    private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone,
-    private nameListService: NameListService) { }
+    private nameListService: NameListService,
+    private __loader: MapsAPILoader)
+  {
+    super(__loader, ngZone);
+
+  }
+
 
   ngAfterViewInit()
   {
     this.nameListService.getMotivators().subscribe(
       data =>
       {
-        data.forEach((user) =>
+        this.ngZone.run(() =>
         {
+          data.forEach((user) =>
+          {
 
-          let marker: Marker = new Marker();
-          marker.Id = user.userid;
-          marker.user = user;
-          marker.postalcode = user.postalcode;
-          marker.label = user.name;
-          marker.iconUrl = this.resizeIcon(user.img);
-          this.markers.push(marker);
-          this.getLatLan(this.markers[this.markers.length - 1], user.postalcode + ' ' + user.country);
+            let marker: Marker = new Marker();
+            marker.Id = user.userid;
+            marker.user = user;
+            marker.postalcode = user.postalcode;
+            marker.label = user.name;
+            marker.iconUrl = this.resizeIcon(user.img);
+            this.markers.push(marker);
+            this.getLatLan(this.markers[this.markers.length - 1], user.postalcode + ' ' + user.country);
+          });
+
+          this.filter();
         });
-
-        this.filter();
 
       },
       err => alert(JSON.stringify(err))
     );
+
+
+
   }
 
   resizeIcon(img: string)

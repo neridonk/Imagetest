@@ -69,12 +69,12 @@
 
         <div class="col s12 " style="text-align:center">
 
-       
 
-        <button *ngIf="userOfTopic && userOfTopic.isVerified" (click)="donate()" class="btn "  alt="PayPal – The safer, easier way to pay online!">
-          <i class="material-icons left">euro_symbol</i> Donate
-        </button>
-        
+
+          <button *ngIf="userOfTopic && userOfTopic.isVerified==1" (click)="donate()" class="btn " alt="PayPal – The safer, easier way to pay online!">
+            <i class="material-icons left">euro_symbol</i> Donate
+          </button>
+
 
           <br />
         </div>
@@ -92,7 +92,7 @@
           </p>
 
           <p class="btn specFont" style="cursor:pointer; background-color:red" (click)="removeFollow()" *ngIf="(isFollowing && followerCount!=null) && cst()">
-            Leave 
+            Leave
           </p>
 
         </div>
@@ -161,12 +161,12 @@
 
     <div>
 
-      <div *ngIf="commentList.length>0">
+      <div>
         <div style="text-align:left; padding:20px;margin-top:20px;border-top: 1px solid;">
           <i class="material-icons  tiny specFont" style="margin-top: 10px;    font-size: 2rem; color:white">chat_bubble</i> latest comments
         </div>
 
-      
+
 
         <!--latest comments-->
         <div class="row" style="position: relative" *ngFor="let cmt of commentListLatest">
@@ -192,13 +192,22 @@
         </div>
 
 
+
+
         <div (click)="hideComments=false" class="specFont btn-flat">
-         
+
           <a style="color:white;line-height: 10px;">{{this.commentList.length}}   <i class="material-icons  tiny specFont" style="margin-top: 10px; color:white">chat_bubble</i>  show all comments </a>
         </div>
-
-
         <!-->for end-->
+
+        <div class="container">
+
+          <div class="input-field" *ngIf="cst()">
+            <input type="text" id="textarea22" class="materialize-textarea" maxlength="200" style="    color: white;" [(ngModel)]="newComment.texts" />
+            <label for="textarea22">Comment</label>
+          </div>
+          <a *ngIf="cst()" class="btn" (click)="post()">Post comment</a>
+        </div>
 
       </div>
 
@@ -307,7 +316,7 @@
 
 
 
-  <div  *ngIf="!hideComments" class="commentPanel row animated fadeInRight">
+  <div *ngIf="!hideComments" class="commentPanel row animated fadeInRight">
 
     <div class="card col s12 m5 right" style="background-color: rgba(80, 80, 80, 0.86); height: 100%;  color: white;">
       <div class="card-content" style="padding-top: 20px;     height: 70%; overflow-y:auto ">

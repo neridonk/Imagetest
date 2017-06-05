@@ -1,4 +1,157 @@
-﻿/*
+﻿.icoPic {
+  width: 100%;
+  height: 100%;
+}
+
+
+.meBtn {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  background-color: #252525 !important;
+  width: 80px;
+  height: 80px;
+  border: 2px solid #57c1e8;
+  z-index: 1000;
+}
+
+.detailsDiv {
+  width: 20%;
+}
+
+.bgPic {
+  position: absolute;
+  left: 0px;
+  z-index: -2;
+  width: 100%;
+  opacity: 0.1;
+  top: 0px;
+}
+
+.imgDiv {
+  width: 38%;
+  padding: 15px;
+}
+
+.topicDiv {
+  width: 100%;
+  color: #828282;
+  background-color: white;
+  box-shadow: 1px 1px 2px rgb(151, 151, 151);
+  height: 55px;
+  overflow: hidden;
+  z-index: 2;
+  position: fixed;
+  top: 0px;
+}
+
+.cp {
+  max-width: 120px;
+  min-height: 90px;
+  font-size: 1.2rem;
+  max-height: 65px;
+  overflow: hidden;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  margin-right: -5px;
+  text-align: center;
+}
+
+@media only screen and (min-width: 0) {
+  .cp {
+  }
+
+  .topicDiv {
+    height: 50px;
+  }
+
+  .meBtn {
+    width: 50px;
+  
+  }
+}
+
+@media only screen and (min-width: 692px) {
+  .cp {
+  }
+
+  .topicDiv {
+    height: 55px;
+  }
+
+  .meBtn {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+
+
+.imgcp {
+  opacity: 0.7;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+  height: 100px;
+}
+
+.cp:hover .imgcp {
+  -webkit-transform: scale(1.25); /* Safari and Chrome */
+  -moz-transform: scale(1.25); /* Firefox */
+  -ms-transform: scale(1.25); /* IE 9 */
+  -o-transform: scale(1.25); /* Opera */
+  transform: scale(1.25);
+  opacity: 1;
+}
+
+.cp:hover .cpTitle {
+  font-size: 1.2rem;
+}
+
+.cpTitle {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  color: #828282;
+  top: 10px;
+  font-size: 0.8rem;
+  -webkit-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+}
+
+.iconNav {
+  color: #828282;
+  font-size:18px;
+  margin-top: 5px;
+}
+
+.roundbtn {
+  font-size: 2.5vw;
+  font-weight: bolder;
+  border: 2px solid #d4d4d4;
+  background-color: #ffffff;
+  border-radius: 9px;
+}
+
+.chip {
+  -webkit-transition: all 0.3s linear;
+  -moz-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+  .chip:hover {
+    color: black !important;
+  }
+
+
+
+
+
+/*
  * Start Bootstrap - One Page Wonder (http://startbootstrap.com/)
  * Copyright 2013-2016 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)

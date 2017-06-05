@@ -24,7 +24,10 @@ export class CropperComponent implements OnInit
   @Input()
   public set img(img: any)
   {
-    this.picstep = 0;
+    if (img.base64 == 'assets/img/noImage.jpeg')
+    {
+      this.picstep = 0;
+    }
     this.image = img;
   }
 
@@ -102,19 +105,6 @@ export class CropperComponent implements OnInit
 
     this.imgChange.emit(this.image);
     this.picstep = 1;
-  }
-
-  isGoal(image: Images)
-  {
-    if (image.checked)
-    {
-      this.imageelemento.nativeElement.src = 'assets/img/finisher.jpeg';
-
-      image.base64 = this.toBase64(this.imageelemento.nativeElement);
-      this.cropper.base64 = this.toBase64(this.imageelemento.nativeElement);
-      this.cropper = Object.create(this.cropper);
-
-    }
   }
 
 }

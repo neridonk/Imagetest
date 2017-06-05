@@ -32,6 +32,10 @@
   <meta property="og:site_name" content="Change is amazing" />
   <link rel="next" href="http://changeisamazing.com/#/t/all">
 
+  <script src="https://www.w3schools.com/lib/w3.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css" />
+
   <!-- Bootstrap Core CSS -->
   <link href="../css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom CSS -->
@@ -39,30 +43,8 @@
 </head>
 <body>
   <!-- Navigation -->
-  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="    border-bottom: 3px solid rgba(0, 185, 255, 0.92);">
-    <div class="container">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </div>
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li>
-            <a href="http://changeisamazing.com/">< Back to main Site</a>
-          </li>
+  <div w3-include-html="../navigation.html"></div>
 
-        </ul>
-      </div>
-      <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container -->
-  </nav>
   <!-- Full Width Image Header -->
   <header class="header-image" style="background: url('https://images.pexels.com/photos/26721/pexels-photo-26721.jpg?w=1260&h=750&auto=compress&cs=tinysrgb') no-repeat center center scroll;">
     <div class="headline">
@@ -138,10 +120,8 @@
       </div>
     </footer>
   </div>
-  <!-- /.container -->
-  <!-- jQuery -->
-  <script src="js/jquery.js"></script>
-  <!-- Bootstrap Core JavaScript -->
-  <script src="js/bootstrap.min.js"></script>
+  <script>
+    w3.includeHTML();
+  </script>
 </body>
 </html>
