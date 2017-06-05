@@ -1,10 +1,10 @@
 ﻿<div class="profilePanelEsc" *ngIf="isVisible">
 
-  <i style="position:fixed;left:0px;top:70px;" class="btn-flat material-icons chevIcon" (click)="hide()">clear</i>
+  <i style="position:fixed;left:0px;top:10px; z-index:33" class="btn-flat material-icons chevIcon" (click)="hide()">clear</i>
 
 
   <div class="container">
-    <div>
+    <div style="margin-top:50px;">
       <ul class="collection">
 
         <li class="collection-item">
@@ -40,11 +40,11 @@
 
         <li class="collection-item" style="margin-bottom:300px; color:white;    background-image: url(https://images.pexels.com/photos/163403/box-sport-men-training-163403.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb);
     background-size: cover;">
-          <h4 style="color:white">If you are notivator you need to fill following</h4>
+          <h4 style="color:white">If you are a motivator you need to fill following</h4>
           <div class="">
             <label style="color:white">Topics where you can help others with ( <span class="chip">body</span> <span class="chip">workout</span> , <span class="chip">lose weight</span>, <span class="chip"> quit smoking</span> )</label>
 
-            <div tag class="chips chips-autocomplete" style="color:white !important;" [existTags]="userTagstags" (onTag)="addNewTag($event)"></div>
+            <div  class="chips chips-autocomplete" style="color:white !important;" [userId]="user.userid" (onTag)="addNewTag($event)" tag></div>
             <div class="saveContent">
               <button class="btn" (click)="updateTags()" >Save tags</button>
             </div>

@@ -15,7 +15,7 @@
       <div class="card-image">
         <img [src]="user.img">
         <span class="card-title" style="    background-color: rgba(80, 80, 80, 0.3);    color: white;    font-size: 15px;">{{user.name}}</span>
-        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">record_voice_over</i></a>
+        <a *ngIf="user.postalcode" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons" (click)="motiClick(user)">record_voice_over</i></a>
 
       </div>
       <div class="card-content">

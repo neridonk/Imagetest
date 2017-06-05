@@ -5,10 +5,14 @@
   height: 100%;
   background-color: white;
   overflow: auto;
+  top:0px;
 }
 
 .saveContent {
   background-color: #888888;
   padding: 10px;
   text-align: right;
+}
+.chips .input {
+color:white;
 }

@@ -13,6 +13,13 @@ export class TagService extends ServiceClass{
         super(http);
   }
 
+  getTagsByUserId(userId: any): Observable<any>
+  {
+    return this.get('getTagsByUserId.php', 'userId=' + userId).map((response: any) =>
+    {
+      return <any>response.json();
+    });
+  }
 
   getAllTags(): Observable<any>
   {

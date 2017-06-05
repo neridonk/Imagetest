@@ -1,4 +1,4 @@
-﻿import { Component, OnInit, Input, Output, ElementRef, EventEmitter,ViewChild } from '@angular/core';
+﻿import { Component, OnInit, Input, Output, ElementRef, EventEmitter, ViewChild } from '@angular/core';
 import { croppData, Images } from '../../models';
 declare var $: any;
 
@@ -13,12 +13,18 @@ export class CropperComponent implements OnInit
   public cropper: croppData = new croppData();
   public image: Images;
 
+  public picstep = 0;
+
   @ViewChild('imageelemento')
-  public imageelemento: any;
+  public imageelemento: ElementRef;
+
+  @ViewChild('fileUploadEle')
+  public fileUploadEle: ElementRef;
 
   @Input()
   public set img(img: any)
   {
+    this.picstep = 0;
     this.image = img;
   }
 
@@ -36,6 +42,11 @@ export class CropperComponent implements OnInit
   {
   }
 
+  choseFileFire()
+  {
+    this.fileUploadEle.nativeElement.click();
+  }
+
   ngAfterViewInit()
   {
     $('.datepicker').pickadate({
@@ -49,22 +60,22 @@ export class CropperComponent implements OnInit
   {
     let elemt: HTMLElement = this.elementRef.nativeElement;
 
-    var img: HTMLImageElement = <HTMLImageElement>elemt.getElementsByClassName('responsive-img')[0];
+    var img: HTMLImageElement = <HTMLImageElement>this.imageelemento.nativeElement;
 
     var files = ev.srcElement.files[0];
     var reader: FileReader = new FileReader();
 
     reader.onload = (e: any) =>
     {
-      if (e.total > 2000000)
+      if (e.total > 4000000)
       {
         alert('to large');
         return;
       }
-
       img.src = e.target.result;
       this.cropper.base64 = this.toBase64(img);
       this.cropper = Object.create(this.cropper);
+      this.picstep = 0;
     }
     reader.readAsDataURL(files);
   }
@@ -90,17 +101,18 @@ export class CropperComponent implements OnInit
     this.cropper.Cropper = null;
 
     this.imgChange.emit(this.image);
+    this.picstep = 1;
   }
 
   isGoal(image: Images)
   {
     if (image.checked)
     {
-     this.imageelemento.nativeElement.src = 'assets/img/finisher.jpeg';
+      this.imageelemento.nativeElement.src = 'assets/img/finisher.jpeg';
 
-     image.base64 = this.toBase64(this.imageelemento.nativeElement);
-     this.cropper.base64 = this.toBase64(this.imageelemento.nativeElement);
-     this.cropper = Object.create(this.cropper);
+      image.base64 = this.toBase64(this.imageelemento.nativeElement);
+      this.cropper.base64 = this.toBase64(this.imageelemento.nativeElement);
+      this.cropper = Object.create(this.cropper);
 
     }
   }

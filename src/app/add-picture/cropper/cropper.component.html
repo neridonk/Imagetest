@@ -4,20 +4,24 @@
   </div>
   <div class="col s12 m8">
     <div class="card">
-      <div class="card-image">
-        <img cropper [cropper]="cropper" class="responsive-img" [src]="image.base64" #imageelemento/>
+      <div class="card-image {{picstep==0?'picstep0':''}}" >
+
+        <img cropper [cropper]="cropper" class="responsive-img {{picstep==0?'picstep0Img':''}}" [src]="image.base64" #imageelemento  />
+
+        <div class="cropBtpanel" *ngIf="picstep==0">
+          <button *ngIf="cropper.base64" class="btn cropbtn" style="    display: block;      background-color: #ffa348;  width: 100%;    height: 58px;   margin-top: -10px;" (click)="cropimg()">crop</button>
+          
+          
+          <button *ngIf="picstep==0 && !image.checked && this.cropper.Cropper==null"  class="btn cropbtn" style="    display: block;  background-color: #4893ff;  width: 100%;    height: 58px;   margin-top: -10px;" (click)="choseFileFire()">Choose file</button>
+
+          
+          <input *ngIf="picstep==0 && !image.checked && this.cropper.Cropper==null" style="display:none" type="file" accept="image/*" (change)="changeImage($event)" #fileUploadEle>
+        </div>
+
+
       </div>
       <div class="card-content">
-        <button *ngIf="cropper.base64" class="btn cropbtn" style="    display: block;    width: 100%;    height: 58px;   margin-top: -10px;" (click)="cropimg()">crop</button>
-        <input *ngIf="!image.checked && this.cropper.Cropper==null" type="file" accept="image/*" (change)="changeImage($event)">
         <div class="row">
-
-
-          <div class="input-field col s12 " style="    margin-bottom: 35px;">
-            <input type="checkbox" [(ngModel)]="image.checked" (change)="isGoal(image)" id="test5" title="if your change is in progress, tell a bit about your goal"/>
-            <label for="test5">is my goal</label>
-          </div>
-
 
           <div class="input-field col s12 ">
             <label for="validto">Picture date</label>

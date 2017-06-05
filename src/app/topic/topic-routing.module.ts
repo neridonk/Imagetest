@@ -9,6 +9,7 @@ import { BlogComponent } from './blog/blog.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MotivatorMapComponent } from './motivator-map/motivator-map.component';
 import { AgmCoreModule } from 'angular2-google-maps/core';
+import { ActivityComponent } from './activity/activity.component';
 
 const routes: Routes = [
     {
@@ -16,6 +17,8 @@ const routes: Routes = [
 
         children: [
           { path: 'map', component: MotivatorMapComponent },
+          { path: 'activity', component: ActivityComponent },
+
           { path: 'read', component: BlogComponent },
           { path: 'hall', component: HallComponent },
           { path: 'chisam', component: LandingPageComponent },

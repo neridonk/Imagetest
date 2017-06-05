@@ -1,6 +1,8 @@
 ﻿
 <div class="container">
 
+
+  <label>Tip : use good keywords for your title, so others can filter and find your topic</label>
   <div class="input-field col s12" style="    ">
     <input id="ttiel" type="text" [(ngModel)]="topic.title" class="validate">
     <label for="ttiel">Title</label>
@@ -12,23 +14,6 @@
 
   </div>
 
-  <div style="text-align:center;">
-
-    <a *ngIf="currentImage>0" (click)="removeImage()" style="margin-right:10px">Remove Image</a>
-    <button class="btn-large" style="background-color: #ffb448;" (click)="addNewImage()">
-      <i class="material-icons left"> library_add</i>
-
-      Add Image
-    </button>
-
-
-    <button *ngIf="!isYoutube" class="btn-large"  (click)="isYoutube=true">
-      <i class="material-icons left"> play_circle_filled</i>
-      Youtube Link
-    </button>
-
-
-  </div>
 
   <div class="numberOfImagesPanel" *ngIf="currentImage>0">
 
@@ -39,6 +24,7 @@
 
     </ul>
 
+    <a *ngIf="currentImage>0" (click)="removeImage()" style="margin-right:10px">Remove Image</a>
 
   </div>
 
@@ -50,6 +36,25 @@
     <a (click)="isYoutube = false; topic.youtube = '' " style="margin-right:10px">Cancel</a>
   </div>
 
+
+  <hr />
+
+  <div style="text-align:center;">
+
+    <button class="btn-large" style="background-color: #ffb448;" (click)="addNewImage()">
+      <i class="material-icons left"> library_add</i>
+
+      Add Image
+    </button>
+
+
+    <button *ngIf="!isYoutube" style="background-color: #4893ff;" class="btn-large" (click)="isYoutube=true">
+      <i class="material-icons left"> play_circle_filled</i>
+      Youtube Link
+    </button>
+
+
+  </div>
 
 </div>
 <br />

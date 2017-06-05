@@ -1,4 +1,4 @@
-﻿import { Component, OnInit, NgZone } from '@angular/core';
+﻿import { Component, OnInit, NgZone,AfterViewInit } from '@angular/core';
 import { NameListService } from '../../global/services/name-list.service';
 import { User, Marker } from '../../models';
 import { Observable } from 'rxjs/Observable';
@@ -9,7 +9,7 @@ declare var google: any;
   templateUrl: './motivator-map.component.html',
   styleUrls: ['./motivator-map.component.css']
 })
-export class MotivatorMapComponent implements OnInit
+export class MotivatorMapComponent implements AfterViewInit
 {
   lat: number = 51.678418;
   lng: number = 7.809007;
@@ -23,7 +23,7 @@ export class MotivatorMapComponent implements OnInit
     private ngZone: NgZone,
     private nameListService: NameListService) { }
 
-  ngOnInit()
+  ngAfterViewInit()
   {
     this.nameListService.getMotivators().subscribe(
       data =>
@@ -69,8 +69,6 @@ export class MotivatorMapComponent implements OnInit
     this.nameListService.getLocationFromZip(address).subscribe(
       data =>
       {
-        console.log(data);
-
         if (data == null || data.status == 'ZERO_RESULTS')
           return;
 
@@ -117,6 +115,20 @@ export class MotivatorMapComponent implements OnInit
 
     });
   }
+
+  markerClick(event: Marker)
+  {
+    this.filteredmarkers = [];
+
+    const markerf = this.markers.filter(o => o.Id == event.Id)[0];
+    this.filteredmarkers.push(markerf);
+  }
+
+  reset()
+  {
+    this.filteredmarkers = this.markers;
+  }
+
   gotoPlace(postal)
   {
     this.nameListService.getLocationFromZip(postal).subscribe(
@@ -134,6 +146,8 @@ export class MotivatorMapComponent implements OnInit
             this.lat = data.results[0].geometry.location.lat;
             this.lng = data.results[0].geometry.location.lng;
             this.zoom = 13;
+            window.scrollTo(10, 0);
+
           }
         );
 

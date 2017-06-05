@@ -15,6 +15,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { EditProfileComponent } from '../edit-profile/edit-profile.component';
 import { MotivatorMapComponent } from './motivator-map/motivator-map.component';
 import { AgmCoreModule } from 'angular2-google-maps/core';
+import { ActivityComponent } from './activity/activity.component';
 
 @NgModule({
   imports: [
@@ -27,6 +28,6 @@ import { AgmCoreModule } from 'angular2-google-maps/core';
       apiKey: 'AIzaSyCNaub-76zQdF46veUDJ3EUsBbyqUgL1is'
     })
   ],
-  declarations: [EditProfileComponent, OverviewComponent, ProfileComponent, TopicComponent, LandingPageComponent, HallComponent, BlogComponent, MotivatorMapComponent]
+  declarations: [EditProfileComponent, OverviewComponent, ProfileComponent, TopicComponent, LandingPageComponent, HallComponent, BlogComponent, MotivatorMapComponent, ActivityComponent]
 })
 export class TopicModule { }

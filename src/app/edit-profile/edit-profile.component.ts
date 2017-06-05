@@ -1,7 +1,8 @@
-﻿import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+﻿import { Component, OnInit, Input, Output, EventEmitter, NgZone } from '@angular/core';
 import { Images, Topic, User, Tag } from '../models';
 import { NameListService } from '../global/services/name-list.service';
 import { ParentClass } from 'components';
+declare var Materialize: any;
 
 @Component({
   selector: 'edit-profile',
@@ -13,9 +14,18 @@ export class EditProfileComponent implements OnInit
   public countries: any[] = new Array();
   public tags: Tag[] = new Array();
   public userTagstags: Tag[] = new Array();
+  public _isVisible: boolean = false;
 
   @Input()
-  public isVisible: boolean = false;
+  set isVisible(isVisible: boolean)
+  {
+    this._isVisible = isVisible;
+  }
+
+  get isVisible()
+  {
+    return this._isVisible;
+  }
 
   @Output()
   public isVisibleChange: EventEmitter<boolean> = new EventEmitter();
@@ -25,7 +35,9 @@ export class EditProfileComponent implements OnInit
 
   public countryOfUser: any;
 
-  constructor(private nameListService: NameListService) { }
+  constructor(
+    private ngZone: NgZone,
+    private nameListService: NameListService) { }
 
   ngOnInit()
   {
@@ -36,12 +48,7 @@ export class EditProfileComponent implements OnInit
       },
       err => alert(JSON.stringify(err)));
 
-    this.nameListService.getTagsByUserId(this.user.userid).subscribe(
-      data =>
-      {
-        this.userTagstags = data;
-      },
-      err => alert(JSON.stringify(err)));
+
 
     this.countryOfUser = { 'id': 0, 'name': this.user.country };
   }
@@ -56,7 +63,7 @@ export class EditProfileComponent implements OnInit
     this.nameListService.updateUserImg(this.user.img).subscribe(
       data =>
       {
-        alert('success');
+        Materialize.toast('Successfull saved', 2000, 'rounded');
       },
       err => alert(JSON.stringify(err))
     );
@@ -68,7 +75,7 @@ export class EditProfileComponent implements OnInit
     this.nameListService.updateUser(this.user).subscribe(
       data =>
       {
-        alert('success');
+        Materialize.toast('Successfull saved', 2000, 'rounded');
       },
       err => alert(JSON.stringify(err))
     );
@@ -129,7 +136,7 @@ export class EditProfileComponent implements OnInit
     })).then((d) =>
     {
       ParentClass.loadingHide();
-      alert('success');
+      Materialize.toast('Successfull saved', 2000, 'rounded');
     });
 
 

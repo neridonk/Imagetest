@@ -3,13 +3,18 @@
 
  <div class="col s12 "style="text-align:center">
    
-  <p>On this map you can find users who are experienced in some topics, maybe you finde someone with the same interest, who could help you</p>
+  <p>Find your <b> personal motivators </b> who are experienced in some topics, you will find someone with the same interest, who could help you with your <b> goals  </b> </p>
 
    <div class="input-field " style="width: 300px; margin: auto;">
 
      <input type="search" id="sea" class="" [(ngModel)]="search" (ngModelChange)="filter()" />
      <label style="" for="sea">Search</label>
-
+      
+     <a class="btn-flat" (click)="reset()">
+       <i class="material-icons left" style="font-size: 16px">history</i>
+     reset
+     
+     </a>
    </div>
 
  </div>
@@ -20,7 +25,9 @@
                               [latitude]="m.lat"
                               [longitude]="m.lng"
                               [label]="m.label"
-                              [iconUrl]="m.iconUrl">
+                              [iconUrl]="m.iconUrl"
+                              (markerClick)="markerClick(m)"
+                              >
 
       </sebm-google-map-marker>
     </sebm-google-map>

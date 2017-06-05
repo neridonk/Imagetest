@@ -103,6 +103,7 @@ export class User
 
   constructor(
     public userid?: number,
+    public isVerified?: number,
     public name?: string,
     public paypalMail?: string,
     public country?: string,

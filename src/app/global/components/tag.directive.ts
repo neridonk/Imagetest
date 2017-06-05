@@ -18,11 +18,18 @@ export class TagDirective extends ParentClass implements AfterViewInit
   public onTag: EventEmitter<Tag[]> = new EventEmitter();
 
   @Input()
-  public existTags(tags: Tag[])
+  public userId(userId: any)
   {
-    this._existTags = tags;
-  }
+    debugger;
+    this.tagService.getTagsByUserId(userId).subscribe(
+      data =>
+      {
+        this._existTags = data;
+        this.initTags();
+      },
+      err => alert(JSON.stringify(err)));
 
+  }
   constructor(
     private tagService: TagService,
     private _elementRef: ElementRef)
@@ -56,7 +63,6 @@ export class TagDirective extends ParentClass implements AfterViewInit
     {
       existsList.push(new TagObj(tag.Name))
     });
-
     $(this._elementRef.nativeElement).material_chip({
       data: existsList,
       autocompleteOptions: {

@@ -1,7 +1,7 @@
 ﻿import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { NameListService } from '../../global/services/name-list.service';
 import { NavbarComponent } from '../../navbar/navbar.component';
-import { Images, Topic, User,Tag } from '../../models';
+import { Images, Topic, User, Tag } from '../../models';
 declare var WOW: any;
 declare var $: any;
 import { Router, ActivatedRoute, Params } from '@angular/router';
@@ -113,7 +113,10 @@ export class ProfileComponent implements OnInit, AfterViewInit
 
   }
 
-
+  motiClick(e: User)
+  {
+    alert("I will motivate you contact me :" + e.email);
+  }
 
 
 }
