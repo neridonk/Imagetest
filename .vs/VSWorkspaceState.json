@@ -2,12 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\app",
-    "\\src\\app\\about",
-    "\\src\\app\\navbar",
     "\\src\\app\\topic",
+    "\\src\\app\\topic\\blog",
     "\\src\\app\\topic\\landing-page",
-    "\\src\\app\\topic\\profile"
+    "\\src\\imprint",
+    "\\src\\imprint\\read"
   ],
+  "SelectedNode": "\\src\\imprint\\read\\index.html",
   "PreviewInSolutionExplorer": false
 }
