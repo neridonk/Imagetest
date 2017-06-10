@@ -18,7 +18,6 @@ import { FacebookService } from './login/facebook.service';
 import { AddPictureComponent } from './add-picture/add-picture.component';
 import { DashOverviewComponent } from './overview/overview.component';
 import { HashLocationStrategy, Location, LocationStrategy } from '@angular/common';
-import { AgmCoreModule } from 'angular2-google-maps/core';
 
 @NgModule({
   declarations: [
@@ -34,10 +33,7 @@ import { AgmCoreModule } from 'angular2-google-maps/core';
     GlobalModule,
     BrowserModule,
     FormsModule,
-    HttpModule,
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCNaub-76zQdF46veUDJ3EUsBbyqUgL1is'
-    })
+    HttpModule
   ],
   exports: [NavbarComponent],
   providers: [NameListService, Location, FacebookService],

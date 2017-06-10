@@ -18,22 +18,8 @@
    </div>
 
  </div>
-  <div class="col s12 m6">
-    <sebm-google-map [zoom]="zoom" [latitude]="lat" [longitude]="lng">
 
-      <sebm-google-map-marker *ngFor="let m of markers; let i = index"
-                              [latitude]="m.lat"
-                              [longitude]="m.lng"
-                              [label]="m.label"
-                              [iconUrl]="m.iconUrl"
-                              (markerClick)="markerClick(m)"
-                              >
-
-      </sebm-google-map-marker>
-    </sebm-google-map>
-  </div>
-
-  <div class="col s12 m6" style="overflow:auto">
+  <div class="col s12 " style="overflow:auto">
     <div>
 
 
@@ -55,7 +41,7 @@
               </div>
               <div *ngIf="m.user.postalcode">
                 <label>Location</label><br />
-                <p class="" style="cursor:pointer; font-size: 11px" (click)="gotoPlace(m.user.postalcode + ' ' +  m.user.country)">
+                <p class="" style="cursor:pointer; font-size: 11px" >
                   <i class="material-icons left" style="font-size: 11px">place</i> {{m.user.postalcode}} {{m.user.country}}.
                 </p>
                 <br />

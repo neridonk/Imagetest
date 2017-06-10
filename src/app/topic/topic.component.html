@@ -11,15 +11,17 @@
       </div>
 
     </div>
-    <div class="cp col s3" routerLink="/t/map">
+    <div class="cp col s3" routerLink="/t/motivators">
       <i class="material-icons iconNav">person_pin</i>
-      <h4 class="cpTitle">Map</h4>
+      <h4 class="cpTitle">Motivators</h4>
     </div>
-
+    <!--
+      
     <div class="cp col s3" routerLink="/t/activity">
       <i class="material-icons iconNav">directions_run</i>
       <h4 class="cpTitle">Activity</h4>
     </div>
+    -->
 
     <div class="cp col s3" routerLink="/t/read">
       <i class="material-icons iconNav">library_books</i>
@@ -27,8 +29,14 @@
     </div>
 
 
-    <a class="btn-floating  meBtn btn-large waves-effect waves-light" (click)="goToProfile()">
+    <a *ngIf="cst() != null" class="btn-floating  meBtn btn-large waves-effect waves-light" (click)="goToProfile()">
       <img [src]="this.nameListService.picURL" class="icoPic">
+    </a>
+
+    <a *ngIf="cst() == null" class="meBtn meBtn2 btn-large waves-effect waves-light" (click)="goToProfile()">
+      Sign In
+      <i class="material-icons iconNav" style="margin-top: -35px;font-size: 12px;">input</i>
+
     </a>
 
 

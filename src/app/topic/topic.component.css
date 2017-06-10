@@ -3,16 +3,24 @@
   height: 100%;
 }
 
-
-.meBtn {
+.meBtn2 {
+  color: #989898;
+  border: 1px solid gainsboro !important;
+  border-radius: 0px !important;
+  padding: 0px;
+  right: 0px;
+  line-height: 5;
+  font-size: 11px;
+}
+  .meBtn {
   position: absolute;
   top: -15px;
   right: -15px;
-  background-color: #252525 !important;
-  width: 80px;
+  width: 110px;
   height: 80px;
-  border: 2px solid #57c1e8;
+  border: 0px solid #57c1e8;
   z-index: 1000;
+  border-radius: 0px;
 }
 
 .detailsDiv {
@@ -67,7 +75,7 @@
   }
 
   .meBtn {
-    width: 50px;
+    width: 70px;
   
   }
 }
@@ -81,7 +89,7 @@
   }
 
   .meBtn {
-    width: 80px;
+    width: 100px;
     height: 80px;
   }
 }

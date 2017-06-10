@@ -250,6 +250,8 @@ export class AboutComponent extends ParentClass implements AfterViewInit
 
   private initComments()
   {
+    this.commentList = [];
+    this.commentListLatest = [];
     //getNewComments
     this.nameListService.getCommentsbyId(this.id).subscribe(
       data =>

@@ -1,4 +1,4 @@
-﻿import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
+﻿import { Component, OnInit, AfterViewInit, Input,NgZone } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Images, Topic, User, croppData } from '../../../models';
 import { NameListService } from '../../services/name-list.service';
@@ -34,40 +34,14 @@ export class ImagesPanelComponent implements OnInit, AfterViewInit
   public topiclist: Topic[] = new Array();
   public featuredtopiclist: Topic[] = new Array();
 
-  constructor(private domSanitizer: DomSanitizer, private router: Router, private nameListService: NameListService) { }
+  constructor(private domSanitizer: DomSanitizer, private router: Router, private nameListService: NameListService, private ngZone: NgZone) { }
 
   ngOnInit()
   {
-    if (this.category == 'external')
-      return;
-
-
-    if (this.category == 'hall')
-    {
-      this.nameListService.getAllHallOfFame().subscribe(
-        data =>
-        {
-          data.forEach((d) =>
-          {
-            this.featuredtopiclist.push(d);
-          });
-
-        },
-        err => JSON.stringify(err));
-      return;
-    }
-
   }
 
   ngAfterViewInit()
   {
-    if (this.category == 'hall')
-    {
-      return;
-    }
-
-    new WOW().init();
-
   }
 
   public fetchTopicList(startOn: number)
@@ -75,12 +49,12 @@ export class ImagesPanelComponent implements OnInit, AfterViewInit
     this.nameListService.getAllTopics(startOn, this.category, this.search).subscribe(
       data =>
       {
-
-
-        data.forEach((d) =>
+        this.ngZone.run(() =>
         {
-          if (d.isFeatured == 0)
-            this.topiclist.push(d);
+          data.forEach((d) =>
+          {
+              this.topiclist.push(d);
+          });
         });
       },
       err => JSON.stringify(err));

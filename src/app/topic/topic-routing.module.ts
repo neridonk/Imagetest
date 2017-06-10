@@ -16,7 +16,7 @@ const routes: Routes = [
         path: 't', component: TopicComponent,
 
         children: [
-          { path: 'map', component: MotivatorMapComponent },
+          { path: 'motivators', component: MotivatorMapComponent },
           { path: 'activity', component: ActivityComponent },
 
           { path: 'read', component: BlogComponent },

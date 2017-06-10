@@ -1,97 +1,40 @@
-﻿<!--  TODOSEARCH
-<div class="row" *ngIf="category != 'external'">
-  <div class="col s12 m5">
-    <div class="row">
-      <div class="input-field ">
-        <i class="material-icons prefix">search</i>
-        <input id="icon_prefix" type="text" class="validate">
-        <label for="icon_prefix">Search</label>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-    -->
-
-<div class="row " style="margin-top:120px">
-
-  <div *ngFor="let top of featuredtopiclist" class="col s12 m6 l5" style="padding:5px !important; margin-bottom:30px">
+﻿<div class=" row" style="margin-top:120px" >
 
 
-    <div class="card  wow pulse imgCard" style="    background-color: rgba(255, 255, 255, 0.62);">
-
-      <img src="assets/img/featured.png" class="lorbeeri" />
-
-      <div class="card-image" (click)="goToAbout(top.topicid)">
-        <img src="http://changeisamazing.com/images/{{top.images[0].url}}" class="imgAk" />
-        <img src="http://changeisamazing.com/images/{{top.images[top.images.length-1]?.url}}" class="imgAk" />
-        <span class="card-title titleNew ">
-          {{top.title.substring(1, 45)}}...
-        </span>
-      </div>
-
-      <div class="card-action grey-text miscAction" style=" padding:7px">
-
-        <div class="inlineBlock">
-          <img src="assets/img/respect.png" style="width:16px" /> {{top.upvote}}
-        </div>
-        <div class="inlineBlock">
-          <i class="material-icons tiny">photo_library</i> {{top.images.length}}
-        </div>
-
-
-        <a class="inlineBlock" href="{{top.youtube}}" style="margin-right: 0px;margin-left: 30px;    font-size: 10px;color: #07b1f2; vertical-align: baseline;">
-          <i class="material-icons tiny">play_circle_filled</i> ON YOUTUBE
-        </a>
-
-        <div class="right" style="    font-size: 10px;">
-          {{top.category }} {{formatTime(top.date)}}
-        </div>
-
-
-      </div>
-
-
-
-
-      <div>
-        <br />
-      </div>
-    </div>
-
-  </div>
-
-
-  <div *ngFor="let top of topiclist" class="col s12 m4 l3" style="padding:5px !important;margin-bottom:30px">
+  <div  *ngFor="let top of topiclist" class="brick col s12 m4 l3" style=" padding:5px !important;margin-bottom:30px">
 
     <!-- Image only no video-->
-    <div class="card  wow pulse imgCard" style="    background-color: rgba(255, 255, 255, 0.62);">
-      <div class="card-image" (click)="goToAbout(top.topicid)">
+    <div class="card  imgCard" style="   background-color: rgba(255, 255, 255, 0.62);">
+      <div class="card-image heighter"   (click)="goToAbout(top.topicid)">
 
-        <div *ngIf="top.images != null && top.images.length!=0">
+        <img *ngIf="top.isFeatured==1" src="assets/img/logofarbig.png" style="    position: absolute;    z-index: 2;    top: 0px;    right: 0px ;    width: 32px !important;    height: 32px;" />
+
+
+        <div *ngIf="top.images != null && top.images.length!=0" [style.border]="top.isFeatured==1?'2px solid #6bd0f5':''">
           <img src="http://changeisamazing.com/images/slim/{{top.images[0].url}}" class="imgAk" />
           <img src="http://changeisamazing.com/images/slim/{{top.images[top.images.length-1]?.url}}" class="imgAk" />
         </div>
 
-        <div *ngIf="top.youtube!='' && top.images.length==0" style="position:relative;overflow:hidden">
-          <img src="assets/img/respect.png" class="imgAk" />
-          <img src="assets/img/respect.png" class="imgAk" />
+        <div *ngIf="top.youtube!='' && top.images.length==0" style="position:relative;overflow:hidden" [style.border]="top.isFeatured==1?'2px solid #6bd0f5':''">
+          <img src="assets/img/logofarbig.png" class="imgAk" />
+          <img src="assets/img/logofarbig.png" class="imgAk" />
           <img [src]="youtube(top.youtube,top)" style=" width: 100%;position:absolute;left:0px;top:-36px;" />
         </div>
 
         <span class="card-title titleNew ">{{top.title.substring(0, 45)}}...<br /><br />{{top.title}}</span>
 
-        <div style="position:absolute;bottom:0px;left:0px; width:100%; font-size:11px;background-color: rgba(0, 0, 0, 0.25);    padding: 3px;">
-          <div class="row" style="margin:0;" *ngFor="let comment of top.comment">
-            <div class="col s3">
+        <div style="font-size:11px;    background-color: #ffffff;     padding: 3px;">
+       
 
-              <a style="font-size: 11px;    " class="inlineBlock" *ngIf="comment.user"><img class="tinyImg" [src]="comment.user.img" style="border-radius: 20px; width: 26px;height:26px" /></a>
+          <div class="row" style="margin:0;  border-bottom: 1px solid #e4e4e4" *ngFor="let comment of top.comment">
+            <div class="col s2">
+
+              <a style="font-size: 11px;    " class="inlineBlock" *ngIf="comment.user"><img class="tinyImg" [src]="comment.user.img" style="border-radius: 26px; width: 26px;height:26px" /></a>
 
             </div>
-            <div class="col s9">
+            <div class="col s10">
 
-              <i class="inlineBlock" style="color: white !important; padding:0px;margin:0px;    vertical-align: sub;"> {{comment.texts.substring(0,50)}}</i>
+              <span class="inlineBlock" style="color:grey   !important; padding:0px;margin:0px;    vertical-align: sub;"> {{comment.texts.substring(0,50)}}</span>
 
             </div>
 

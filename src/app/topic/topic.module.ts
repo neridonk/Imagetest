@@ -15,7 +15,6 @@ import { ProfileComponent } from './profile/profile.component';
 import { EditProfileComponent } from '../edit-profile/edit-profile.component';
 import { MotivatorMapComponent } from './motivator-map/motivator-map.component';
 import { ActivityComponent } from './activity/activity.component';
-import { AgmCoreModule } from 'angular2-google-maps/core';
 
 @NgModule({
   imports: [
@@ -23,8 +22,7 @@ import { AgmCoreModule } from 'angular2-google-maps/core';
     HttpModule,
     GlobalModule,
     CommonModule,
-    TopicRoutingModule,
-    AgmCoreModule
+    TopicRoutingModule
   ],
   declarations: [EditProfileComponent, OverviewComponent, ProfileComponent, TopicComponent, LandingPageComponent, HallComponent, BlogComponent, MotivatorMapComponent, ActivityComponent]
 })
