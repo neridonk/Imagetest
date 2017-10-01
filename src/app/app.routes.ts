@@ -7,11 +7,12 @@ import { AboutComponent } from './about/about.component';
 import { AddPictureComponent } from './add-picture/add-picture.component';
 import { TopicModule } from './topic/topic.module';
 import { ImagesPanelComponent } from './global/components/images-panel/images-panel.component';
+import { LadingPageComponent } from './lading-page/lading-page.component';
 
 
 const routes = [
 
-  { path: '', redirectTo: '/t/chisam', pathMatch: 'full' },
+  { path: '', component: LadingPageComponent  },
 
   { path: 'login', component: LoginComponent },
   { path: 'addPicture', component: AddPictureComponent },

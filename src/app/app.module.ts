@@ -18,6 +18,7 @@ import { FacebookService } from './login/facebook.service';
 import { AddPictureComponent } from './add-picture/add-picture.component';
 import { DashOverviewComponent } from './overview/overview.component';
 import { HashLocationStrategy, Location, LocationStrategy } from '@angular/common';
+import { LadingPageComponent } from './lading-page/lading-page.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { HashLocationStrategy, Location, LocationStrategy } from '@angular/commo
     NavbarComponent,
     LoginComponent,
     AddPictureComponent,
-    DashOverviewComponent
+    DashOverviewComponent,
+    LadingPageComponent
     
   ],
   imports: [
